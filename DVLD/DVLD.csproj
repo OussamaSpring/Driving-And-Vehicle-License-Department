@@ -46,14 +46,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="CustomControls\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\RoundedButton.Designer.cs">
+      <DependentUpon>RoundedButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\RoundedPanel.Designer.cs">
+      <DependentUpon>RoundedPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\LoginDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Dialogs\LoginDialog.Designer.cs">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserContorls\NavigationBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserContorls\NavigationBar.Designer.cs">
+      <DependentUpon>NavigationBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserContorls\Person.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserContorls\Person.Designer.cs">
+      <DependentUpon>Person.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dialogs\LoginDialog.resx">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +98,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserContorls\NavigationBar.resx">
+      <DependentUpon>NavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserContorls\Person.resx">
+      <DependentUpon>Person.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +118,38 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Documents\C#\C# Projects\WindowsFormsControlLibrary\WindowsFormsControlLibrary.csproj">
+      <Project>{e1662245-7bd5-4fb4-be82-9fd8e271eceb}</Project>
+      <Name>WindowsFormsControlLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DVLD_BusinessLogic\DVLD_BusinessLogic.csproj">
+      <Project>{9af09974-12e7-4070-bb40-5210adfb909b}</Project>
+      <Name>DVLD_BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Icons\Credit card Black.png" />
+    <Content Include="Resources\Icons\Credit card.png" />
+    <Content Include="Resources\Icons\Dashboard Black.png" />
+    <Content Include="Resources\Icons\Dashboard.png" />
+    <Content Include="Resources\Icons\Edit Black.png" />
+    <Content Include="Resources\Icons\Edit.png" />
+    <Content Include="Resources\Icons\File text Black.png" />
+    <Content Include="Resources\Icons\File text.png" />
+    <Content Include="Resources\Icons\Paperclip Black.png" />
+    <Content Include="Resources\Icons\Paperclip.png" />
+    <Content Include="Resources\Icons\settings.png" />
+    <Content Include="Resources\Icons\Users Black.png" />
+    <Content Include="Resources\Icons\Users.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

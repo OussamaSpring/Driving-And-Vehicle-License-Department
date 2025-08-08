@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD
+namespace DVLD.UserContorls
 {
-    public partial class Form1 : Form
+    public partial class Person : UserControl
     {
-        public Form1()
+        public Person()
         {
             InitializeComponent();
         }
