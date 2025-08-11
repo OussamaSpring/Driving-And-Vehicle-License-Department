@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="iNKORE.UI.WinForms.Styler, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iNKORE.UI.WinForms.Styler.1.0.2\lib\net452\iNKORE.UI.WinForms.Styler.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -81,6 +85,18 @@
     </Compile>
     <Compile Include="Forms\ApplicationsForm.Designer.cs">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TestManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TestManagementForm.Designer.cs">
+      <DependentUpon>TestManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IndividualsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IndividualsForm.Designer.cs">
+      <DependentUpon>IndividualsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DashboardForm.cs">
       <SubType>Form</SubType>
@@ -132,6 +148,12 @@
     <EmbeddedResource Include="Forms\ApplicationsForm.resx">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TestManagementForm.resx">
+      <DependentUpon>TestManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IndividualsForm.resx">
+      <DependentUpon>IndividualsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +185,7 @@
     <EmbeddedResource Include="UserContorls\Person.resx">
       <DependentUpon>Person.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

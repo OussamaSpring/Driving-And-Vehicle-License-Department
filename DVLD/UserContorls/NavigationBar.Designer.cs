@@ -40,6 +40,7 @@
             this.Licenses = new System.Windows.Forms.Button();
             this.Individuals = new System.Windows.Forms.Button();
             this.Dashboard = new System.Windows.Forms.Button();
+            this.seperator1 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tlp_navbar_buttons.SuspendLayout();
@@ -262,11 +263,22 @@
             this.Dashboard.MouseEnter += new System.EventHandler(this.navbar_btn_MouseEnter);
             this.Dashboard.MouseLeave += new System.EventHandler(this.navbar_btn_MouseLeave);
             // 
+            // seperator1
+            // 
+            this.seperator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.seperator1.Location = new System.Drawing.Point(50, 152);
+            this.seperator1.Name = "seperator1";
+            this.seperator1.Size = new System.Drawing.Size(200, 2);
+            this.seperator1.TabIndex = 3;
+            this.seperator1.TabStop = false;
+            // 
             // NavigationBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(62)))), ((int)(((byte)(114)))));
+            this.Controls.Add(this.seperator1);
             this.Controls.Add(this.tlp_navbar_buttons);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -295,5 +307,6 @@
         private System.Windows.Forms.Button Licenses;
         private System.Windows.Forms.Button Individuals;
         private System.Windows.Forms.Button Dashboard;
+        private iNKORE.UI.WinForms.Styler.Controls.Seperator seperator1;
     }
 }
