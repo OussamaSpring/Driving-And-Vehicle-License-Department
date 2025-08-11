@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.header1 = new DVLD.UserContorls.Header();
-            this.navigationBar1 = new DVLD.UserContorls.NavigationBar();
+            this.header1 = new DVLD.UserControls.Header();
+            this.NavBar = new DVLD.UserControls.NavigationBar();
             this.headerlessTabPage1 = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
             this.headerlessTabPage2 = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
             this.headerlessTabPage4 = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
@@ -46,16 +46,16 @@
             this.header1.Size = new System.Drawing.Size(967, 60);
             this.header1.TabIndex = 1;
             // 
-            // navigationBar1
+            // NavBar
             // 
-            this.navigationBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(62)))), ((int)(((byte)(114)))));
-            this.navigationBar1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.navigationBar1.Location = new System.Drawing.Point(0, 0);
-            this.navigationBar1.MaximumSize = new System.Drawing.Size(300, 0);
-            this.navigationBar1.MinimumSize = new System.Drawing.Size(240, 720);
-            this.navigationBar1.Name = "navigationBar1";
-            this.navigationBar1.Size = new System.Drawing.Size(297, 720);
-            this.navigationBar1.TabIndex = 0;
+            this.NavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(62)))), ((int)(((byte)(114)))));
+            this.NavBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NavBar.Location = new System.Drawing.Point(0, 0);
+            this.NavBar.MaximumSize = new System.Drawing.Size(300, 0);
+            this.NavBar.MinimumSize = new System.Drawing.Size(240, 720);
+            this.NavBar.Name = "NavBar";
+            this.NavBar.Size = new System.Drawing.Size(297, 720);
+            this.NavBar.TabIndex = 0;
             // 
             // headerlessTabPage1
             // 
@@ -100,7 +100,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.header1);
-            this.Controls.Add(this.navigationBar1);
+            this.Controls.Add(this.NavBar);
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "MainForm";
@@ -113,8 +113,8 @@
 
         #endregion
 
-        private UserContorls.NavigationBar navigationBar1;
-        private UserContorls.Header header1;
+        private UserControls.NavigationBar NavBar;
+        private UserControls.Header header1;
         private iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage headerlessTabPage1;
         private iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage headerlessTabPage2;
         private iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage headerlessTabPage4;

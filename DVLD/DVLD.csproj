@@ -124,23 +124,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserContorls\Header.cs">
+    <Compile Include="UserControls\Header.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserContorls\Header.Designer.cs">
+    <Compile Include="UserControls\Header.Designer.cs">
       <DependentUpon>Header.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserContorls\NavigationBar.cs">
+    <Compile Include="UserControls\NavigationBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserContorls\NavigationBar.Designer.cs">
+    <Compile Include="UserControls\NavigationBar.Designer.cs">
       <DependentUpon>NavigationBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserContorls\Person.cs">
+    <Compile Include="UserControls\TabBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserContorls\Person.Designer.cs">
-      <DependentUpon>Person.cs</DependentUpon>
+    <Compile Include="UserControls\TabBar.Designer.cs">
+      <DependentUpon>TabBar.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dialogs\LoginDialog.resx">
       <DependentUpon>LoginDialog.cs</DependentUpon>
@@ -176,14 +176,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserContorls\Header.resx">
+    <EmbeddedResource Include="UserControls\Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserContorls\NavigationBar.resx">
+    <EmbeddedResource Include="UserControls\NavigationBar.resx">
       <DependentUpon>NavigationBar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserContorls\Person.resx">
-      <DependentUpon>Person.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

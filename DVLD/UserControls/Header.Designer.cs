@@ -1,4 +1,4 @@
-﻿namespace DVLD.UserContorls
+﻿namespace DVLD.UserControls
 {
     partial class Header
     {

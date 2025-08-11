@@ -1,4 +1,4 @@
-﻿namespace DVLD.UserContorls
+﻿namespace DVLD.UserControls
 {
     partial class NavigationBar
     {
@@ -286,7 +286,6 @@
             this.MinimumSize = new System.Drawing.Size(240, 720);
             this.Name = "NavigationBar";
             this.Size = new System.Drawing.Size(300, 720);
-            this.Load += new System.EventHandler(this.NavigationBar_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tlp_navbar_buttons.ResumeLayout(false);

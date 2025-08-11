@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace DVLD.Forms
         public TestManagementForm()
         {
             InitializeComponent();
+
+            var tabs = new TabBar
+            {
+                Dock = DockStyle.Fill,
+                Height = 50
+            };
+            tabs.SetTabs("Appointments", "Tests List");
+            tabs.SelectedIndexChanged += (s, e) =>
+            {
+                Console.WriteLine($"Selected {tabs.SelectedIndex}: {tabs.SelectedTab}");
+            };
+
+            tlp_header.Controls.Add(tabs, 1, 0);
         }
     }
 }

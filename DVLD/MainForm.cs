@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DVLD.Forms;
+using DVLD.UserControls;
+using System;
 using System.Windows.Forms;
 
-using DVLD.Forms;
-
-using WindowsFormsControlLibrary.CustomControls;
 
 namespace DVLD
 {
@@ -21,13 +13,98 @@ namespace DVLD
             InitializeComponent();
         }
 
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-            DashboardForm child = new DashboardForm();
-            child.MdiParent = this; // 'this' refers to the parent form
-            child.Dock = DockStyle.Fill; // Fill the parent form
-            child.Show();
-
+            NavBar.NavigationChanged += NavBar_NavigationChanged;
         }
+
+        private void NavBar_NavigationChanged(object sender, NavigationBar.NavBarIems SelectedNavBarItem)
+        {
+            switch (SelectedNavBarItem)
+            {
+                case NavigationBar.NavBarIems.enDashboard:
+                    CloseAllMdiChildren();
+                    ShowDashboard();
+                    break;
+                case NavigationBar.NavBarIems.enIndividuals:
+                    CloseAllMdiChildren();
+                    ShowIndividuals();
+                    break;
+                case NavigationBar.NavBarIems.enLicenses:
+                    CloseAllMdiChildren();
+                    ShowLicenses();
+                    break;
+                case NavigationBar.NavBarIems.enApplications:
+                    CloseAllMdiChildren();
+                    ShowApplications();
+                    break;
+                case NavigationBar.NavBarIems.enTestManagement:
+                    CloseAllMdiChildren();
+                    ShowTestManagement();
+                    break;
+                case NavigationBar.NavBarIems.enLicenseDetain:
+                    CloseAllMdiChildren();
+                    ShowLicenseDetain();
+                    break;
+            }
+        }
+
+        private void CloseAllMdiChildren()
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+                child.Dispose();
+            }
+        }
+
+        private void ShowDashboard()
+        {
+            DashboardForm form = new DashboardForm();
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+        private void ShowIndividuals()
+        {
+            IndividualsForm form = new IndividualsForm();
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        private void ShowLicenses()
+        {
+            LicensesForm form = new LicensesForm();
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        private void ShowApplications()
+        {
+            ApplicationsForm form = new ApplicationsForm();
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        private void ShowTestManagement()
+        {
+            TestManagementForm form = new TestManagementForm();
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        private void ShowLicenseDetain()
+        {
+            LicenseDetainForm form = new LicenseDetainForm();
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
     }
 }

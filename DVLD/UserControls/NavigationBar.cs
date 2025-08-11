@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD.UserContorls
+namespace DVLD.UserControls
 {
     public partial class NavigationBar : UserControl
     {
@@ -17,13 +17,19 @@ namespace DVLD.UserContorls
             InitializeComponent();
         }
 
-        public event EventHandler<int> NavigationItemClicked;
-
-
-        private void NavigationBar_Load(object sender, EventArgs e)
+        public enum NavBarIems
         {
-
+            enDashboard = 1,
+            enIndividuals,
+            enLicenses,
+            enApplications,
+            enTestManagement,
+            enLicenseDetain
         }
+
+        public NavBarIems SelectedNavBarItem;
+        public event EventHandler<NavBarIems> NavigationChanged;
+
 
         #region Button Click Events
 
@@ -111,10 +117,10 @@ namespace DVLD.UserContorls
 
                 // Set the clicked button to active theme
                 setActiveButtonTheme(clickedButton);
-                
+
                 // Raise the event with the index of the clicked button
-                short index = Int16.Parse(clickedButton.Tag.ToString());
-                //NavigationItemClicked?.Invoke(this, index);
+                SelectedNavBarItem = (NavBarIems)Int16.Parse(clickedButton.Tag.ToString());
+                NavigationChanged?.Invoke(this, SelectedNavBarItem);
             }
         }
 
