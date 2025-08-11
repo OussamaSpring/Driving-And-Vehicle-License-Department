@@ -52,17 +52,53 @@
     <Compile Include="CustomControls\RoundedButton.Designer.cs">
       <DependentUpon>RoundedButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\RoundedDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\RoundedDataGridView.Designer.cs">
+      <DependentUpon>RoundedDataGridView.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomControls\RoundedPanel.Designer.cs">
       <DependentUpon>RoundedPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\RoundedPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\RoundedPictureBox.Designer.cs">
+      <DependentUpon>RoundedPictureBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\LoginDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\LoginDialog.Designer.cs">
       <DependentUpon>LoginDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ApplicationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ApplicationsForm.Designer.cs">
+      <DependentUpon>ApplicationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LicenseDetainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LicenseDetainForm.Designer.cs">
+      <DependentUpon>LicenseDetainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LicensesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LicensesForm.Designer.cs">
+      <DependentUpon>LicensesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -72,6 +108,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserContorls\Header.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserContorls\Header.Designer.cs">
+      <DependentUpon>Header.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserContorls\NavigationBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +129,18 @@
     <EmbeddedResource Include="Dialogs\LoginDialog.resx">
       <DependentUpon>LoginDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ApplicationsForm.resx">
+      <DependentUpon>ApplicationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LicenseDetainForm.resx">
+      <DependentUpon>LicenseDetainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LicensesForm.resx">
+      <DependentUpon>LicensesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +154,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserContorls\Header.resx">
+      <DependentUpon>Header.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserContorls\NavigationBar.resx">
       <DependentUpon>NavigationBar.cs</DependentUpon>
     </EmbeddedResource>

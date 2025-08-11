@@ -152,6 +152,7 @@
             // 
             this.lb_exit.AutoSize = true;
             this.lb_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_exit.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lb_exit.Location = new System.Drawing.Point(175, 479);
@@ -179,6 +180,7 @@
             this.btn_login.BorderColor = System.Drawing.Color.Black;
             this.btn_login.BorderRadius = 20;
             this.btn_login.BorderSize = 0;
+            this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.FlatAppearance.BorderSize = 0;
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

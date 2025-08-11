@@ -28,8 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.header1 = new DVLD.UserContorls.Header();
             this.navigationBar1 = new DVLD.UserContorls.NavigationBar();
             this.SuspendLayout();
+            // 
+            // header1
+            // 
+            this.header1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.header1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.header1.Location = new System.Drawing.Point(297, 0);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(967, 60);
+            this.header1.TabIndex = 1;
             // 
             // navigationBar1
             // 
@@ -47,7 +57,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.header1);
             this.Controls.Add(this.navigationBar1);
+            this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "MainForm";
             this.Text = "DVLD";
@@ -59,6 +71,7 @@
         #endregion
 
         private UserContorls.NavigationBar navigationBar1;
+        private UserContorls.Header header1;
     }
 }
 

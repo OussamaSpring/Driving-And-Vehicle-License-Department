@@ -114,6 +114,7 @@
             // License_Detain
             // 
             this.License_Detain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(62)))), ((int)(((byte)(114)))));
+            this.License_Detain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.License_Detain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.License_Detain.FlatAppearance.BorderSize = 0;
             this.License_Detain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -138,6 +139,7 @@
             // 
             // Test_Management
             // 
+            this.Test_Management.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Test_Management.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Test_Management.FlatAppearance.BorderSize = 0;
             this.Test_Management.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -162,6 +164,7 @@
             // 
             // Applications
             // 
+            this.Applications.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Applications.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Applications.FlatAppearance.BorderSize = 0;
             this.Applications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -186,6 +189,7 @@
             // 
             // Licenses
             // 
+            this.Licenses.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Licenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Licenses.FlatAppearance.BorderSize = 0;
             this.Licenses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -210,6 +214,7 @@
             // 
             // Individuals
             // 
+            this.Individuals.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Individuals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Individuals.FlatAppearance.BorderSize = 0;
             this.Individuals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -234,6 +239,7 @@
             // 
             // Dashboard
             // 
+            this.Dashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Dashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Dashboard.FlatAppearance.BorderSize = 0;
             this.Dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
