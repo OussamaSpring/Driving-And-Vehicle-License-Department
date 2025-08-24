@@ -23,15 +23,39 @@ namespace DVLD.Forms
                 Dock = DockStyle.Fill,
                 Height = 50
             };
-            tabs.SetTabs("People", "Drivers", "Users");
+            tabs.SetTabs("People", "Drivers");
             tabs.SelectedIndexChanged += (s, e) =>
             {
-                Console.WriteLine($"Selected {tabs.SelectedIndex}: {tabs.SelectedTab}");
+                switch (tabs.SelectedIndex)
+                {
+                    case 0:
+                        OnPeopleTabSelected();
+                        break;
+                    case 1:
+                        OnDriversTabSelected();
+                        break;
+                }
             };
 
             tlp_header.Controls.Add(tabs, 1, 0);
 
 
+        }
+
+
+        private void OnPeopleTabSelected()
+        {
+            htc_tab_nav.SelectedIndex = 0; // Select the "People" tab
+        }
+
+        private void OnDriversTabSelected()
+        {
+            htc_tab_nav.SelectedIndex = 1; // Select the "Drivers" tab
+        }
+
+        private void IndividualsForm_Load(object sender, EventArgs e)
+        {
+            OnPeopleTabSelected();
         }
     }
 }

@@ -27,20 +27,29 @@ namespace WindowsFormsControlLibrary.CustomControls
         public RoundedDataGridView()
         {
             InitializeComponent();
-            // Default settings
+            // Windows 11-like theme: very light gray, smooth, no blue
             this.EnableHeadersVisualStyles = false;
-            this.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
-            this.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            this.ColumnHeadersDefaultCellStyle.Font = new Font("Roboto", 10F, FontStyle.Bold);
+            this.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245); // Very light gray
+            this.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(60, 60, 60);    // Soft dark gray
+            this.ColumnHeadersDefaultCellStyle.Font = new Font("Roboto", 12F, FontStyle.Bold);
+            this.ColumnHeadersDefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
 
-            this.DefaultCellStyle.BackColor = Color.White;
-            this.DefaultCellStyle.ForeColor = Color.Black;
-            this.DefaultCellStyle.SelectionBackColor = Color.LightGray;
-            this.DefaultCellStyle.SelectionForeColor = Color.Black;
-            this.DefaultCellStyle.Font = new Font("Roboto", 10F, FontStyle.Regular);
+            this.DefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250);              // Slightly lighter gray
+            this.DefaultCellStyle.ForeColor = Color.FromArgb(40, 40, 40);                 // Smooth dark gray
+            this.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 230, 230);     // Light gray for selection
+            this.DefaultCellStyle.SelectionForeColor = Color.FromArgb(40, 40, 40);        // Smooth dark gray
+            this.DefaultCellStyle.Font = new Font("Roboto", 11F, FontStyle.Regular);
 
             this.BorderStyle = BorderStyle.None;
-            this.BackgroundColor = Color.White;
+            this.BackgroundColor = Color.FromArgb(250, 250, 250);                         // Match background to cells
+
+
+            // Set default column autosize mode to Fill for all columns
+            foreach (DataGridViewColumn col in this.Columns)
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            this.ColumnAdded += (s, e) => e.Column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
 
             // Make edges round
             UpdateRegion();

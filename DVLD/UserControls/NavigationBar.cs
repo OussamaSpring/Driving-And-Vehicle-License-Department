@@ -82,6 +82,7 @@ namespace DVLD.UserControls
             button.BackColor = Color.FromArgb(212, 175, 55);
             button.ForeColor = Color.FromArgb(28, 28, 28);
             button.Image = getButtonBlackImage(button.Name);
+            button.Font = new Font(button.Font, FontStyle.Bold);
         }
 
         private void setDefaultButtonTheme(Button button)
@@ -89,6 +90,8 @@ namespace DVLD.UserControls
             button.BackColor = Color.FromArgb(26, 62, 114);
             button.ForeColor = Color.White;
             button.Image = getButtonImage(button.Name);
+            button.Font = new Font(button.Font, FontStyle.Regular);
+
         }
 
         private void setHoverButtonTheme(Button button)
@@ -126,18 +129,21 @@ namespace DVLD.UserControls
 
         private void navbar_btn_MouseLeave(object sender, EventArgs e)
         {
-            if(sender is Button button && button.BackColor != Color.FromArgb(212, 175, 55))
-            {
+            if (sender is Button button && button.BackColor != Color.FromArgb(212, 175, 55))
                 setDefaultButtonTheme(button);
-            }
         }
 
         private void navbar_btn_MouseEnter(object sender, EventArgs e)
         {
-            setHoverButtonTheme(sender as Button);
+            if(sender is Button && (sender as Button).BackColor != Color.FromArgb(212, 175, 55))
+                setHoverButtonTheme(sender as Button);
         }
 
         #endregion
 
+        public void setInitialNavbar()
+        {
+            navbar_btn_Click(tlp_navbar_buttons.Controls["Dashboard"], null);
+        }
     }
 }

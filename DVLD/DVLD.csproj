@@ -39,6 +39,7 @@
     <Reference Include="netstandard" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\HeaderlessTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\HeaderlessTabControl.Designer.cs">
+      <DependentUpon>HeaderlessTabControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -116,10 +123,10 @@
     <Compile Include="Forms\LicensesForm.Designer.cs">
       <DependentUpon>LicensesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -135,6 +142,12 @@
     </Compile>
     <Compile Include="UserControls\NavigationBar.Designer.cs">
       <DependentUpon>NavigationBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SearchBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchBar.Designer.cs">
+      <DependentUpon>SearchBar.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TabBar.cs">
       <SubType>UserControl</SubType>
@@ -163,7 +176,7 @@
     <EmbeddedResource Include="Forms\LicensesForm.resx">
       <DependentUpon>LicensesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -181,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NavigationBar.resx">
       <DependentUpon>NavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SearchBar.resx">
+      <DependentUpon>SearchBar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -214,6 +230,7 @@
     <None Include="Resources\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Icons\add.png" />
     <Content Include="Resources\Icons\Credit card Black.png" />
     <Content Include="Resources\Icons\Credit card.png" />
     <Content Include="Resources\Icons\Dashboard Black.png" />

@@ -17,6 +17,7 @@ namespace DVLD
         private void MainForm_Load(object sender, EventArgs e)
         {
             NavBar.NavigationChanged += NavBar_NavigationChanged;
+            NavBar.setInitialNavbar();
         }
 
         private void NavBar_NavigationChanged(object sender, NavigationBar.NavBarIems SelectedNavBarItem)
@@ -46,6 +47,9 @@ namespace DVLD
                 case NavigationBar.NavBarIems.enLicenseDetain:
                     CloseAllMdiChildren();
                     ShowLicenseDetain();
+                    break;
+                default:
+                    Console.WriteLine("Not Expected Error In Navigation Bar");
                     break;
             }
         }
