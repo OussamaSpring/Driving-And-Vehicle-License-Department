@@ -15,7 +15,7 @@ namespace DVLD.Forms
                 Dock = DockStyle.Fill,
                 Height = 50
             };
-            tabs.SetTabs("Local", "International");
+            tabs.SetTabs("Local", "International", "Classes");
             tabs.SelectedIndexChanged += (s, e) =>
             {
                 switch (tabs.SelectedIndex)
@@ -25,6 +25,9 @@ namespace DVLD.Forms
                         break;
                     case 1:
                         OnInternationalLicenseTabSelected();
+                        break;
+                    case 2:
+                        OnLicenseClassesTabSelected();
                         break;
                 }
             };
@@ -40,6 +43,11 @@ namespace DVLD.Forms
         private void OnInternationalLicenseTabSelected()
         {
             htc_tab_nav.SelectedIndex = 1; // Select the "International" tab
+        }
+
+        private void OnLicenseClassesTabSelected()
+        {
+            htc_tab_nav.SelectedIndex = 2; // Select the "License Classes" tab
         }
 
         private void LicensesForm_Load(object sender, EventArgs e)

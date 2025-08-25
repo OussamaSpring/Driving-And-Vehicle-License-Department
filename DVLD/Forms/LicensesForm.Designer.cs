@@ -17,23 +17,17 @@ namespace DVLD.Forms
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Title = new System.Windows.Forms.Label();
             this.pl_Body = new System.Windows.Forms.Panel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
             this.tab_local = new System.Windows.Forms.TabPage();
             this.dgv_local_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
-            this.searchBar1 = new DVLD.UserControls.SearchBar();
-            this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_text = new System.Windows.Forms.Label();
-            this.tab_international = new System.Windows.Forms.TabPage();
-            this.searchBar2 = new DVLD.UserControls.SearchBar();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_text_driver = new System.Windows.Forms.Label();
-            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.class_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +37,10 @@ namespace DVLD.Forms
             this.issued_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.searchBar1 = new DVLD.UserControls.SearchBar();
+            this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_text = new System.Windows.Forms.Label();
+            this.tab_international = new System.Windows.Forms.TabPage();
             this.dgv_international_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,14 +51,31 @@ namespace DVLD.Forms
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.searchBar2 = new DVLD.UserControls.SearchBar();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_text_driver = new System.Windows.Forms.Label();
+            this.tab_classes = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgv_license_classes = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.class_full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minimum_allowed_age = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.default_validity_length = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_local.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).BeginInit();
             this.flp_footer.SuspendLayout();
             this.tab_international.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.tab_classes.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_license_classes)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -90,6 +105,7 @@ namespace DVLD.Forms
             // 
             this.htc_tab_nav.Controls.Add(this.tab_local);
             this.htc_tab_nav.Controls.Add(this.tab_international);
+            this.htc_tab_nav.Controls.Add(this.tab_classes);
             this.htc_tab_nav.Dock = System.Windows.Forms.DockStyle.Fill;
             this.htc_tab_nav.ItemSize = new System.Drawing.Size(100, 24);
             this.htc_tab_nav.Location = new System.Drawing.Point(7, 10);
@@ -118,15 +134,15 @@ namespace DVLD.Forms
             this.dgv_local_licenses.AllowUserToDeleteRows = false;
             this.dgv_local_licenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_local_licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_local_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_local_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_local_licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_local_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.license_id,
@@ -139,14 +155,14 @@ namespace DVLD.Forms
             this.expiration_date,
             this.is_active});
             this.dgv_local_licenses.CornerRadius = 15;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_local_licenses.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_local_licenses.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_local_licenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_local_licenses.EnableHeadersVisualStyles = false;
             this.dgv_local_licenses.Location = new System.Drawing.Point(3, 53);
@@ -154,88 +170,6 @@ namespace DVLD.Forms
             this.dgv_local_licenses.ReadOnly = true;
             this.dgv_local_licenses.Size = new System.Drawing.Size(739, 233);
             this.dgv_local_licenses.TabIndex = 2;
-            // 
-            // searchBar1
-            // 
-            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar1.Location = new System.Drawing.Point(3, 3);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.Size = new System.Drawing.Size(739, 50);
-            this.searchBar1.TabIndex = 1;
-            // 
-            // flp_footer
-            // 
-            this.flp_footer.Controls.Add(this.lb_footer_text);
-            this.flp_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flp_footer.Location = new System.Drawing.Point(3, 286);
-            this.flp_footer.Name = "flp_footer";
-            this.flp_footer.Size = new System.Drawing.Size(739, 50);
-            this.flp_footer.TabIndex = 0;
-            // 
-            // lb_footer_text
-            // 
-            this.lb_footer_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_footer_text.Location = new System.Drawing.Point(3, 0);
-            this.lb_footer_text.Name = "lb_footer_text";
-            this.lb_footer_text.Size = new System.Drawing.Size(624, 50);
-            this.lb_footer_text.TabIndex = 0;
-            this.lb_footer_text.Text = "Total Number of Local Licenses: ";
-            this.lb_footer_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tab_international
-            // 
-            this.tab_international.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_international.Controls.Add(this.dgv_international_licenses);
-            this.tab_international.Controls.Add(this.searchBar2);
-            this.tab_international.Controls.Add(this.flowLayoutPanel1);
-            this.tab_international.Location = new System.Drawing.Point(4, 28);
-            this.tab_international.Name = "tab_international";
-            this.tab_international.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_international.Size = new System.Drawing.Size(745, 339);
-            this.tab_international.TabIndex = 1;
-            this.tab_international.Text = "International";
-            // 
-            // searchBar2
-            // 
-            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar2.Location = new System.Drawing.Point(3, 3);
-            this.searchBar2.Name = "searchBar2";
-            this.searchBar2.Size = new System.Drawing.Size(739, 50);
-            this.searchBar2.TabIndex = 3;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.lb_footer_text_driver);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 286);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(739, 50);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // lb_footer_text_driver
-            // 
-            this.lb_footer_text_driver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_footer_text_driver.Location = new System.Drawing.Point(3, 0);
-            this.lb_footer_text_driver.Name = "lb_footer_text_driver";
-            this.lb_footer_text_driver.Size = new System.Drawing.Size(624, 50);
-            this.lb_footer_text_driver.TabIndex = 0;
-            this.lb_footer_text_driver.Text = "Total Number of International Licenses: ";
-            this.lb_footer_text_driver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tlp_header
-            // 
-            this.tlp_header.AutoSize = true;
-            this.tlp_header.ColumnCount = 3;
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlp_header.Location = new System.Drawing.Point(7, 10);
-            this.tlp_header.Name = "tlp_header";
-            this.tlp_header.RowCount = 1;
-            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_header.Size = new System.Drawing.Size(753, 0);
-            this.tlp_header.TabIndex = 0;
             // 
             // license_id
             // 
@@ -302,21 +236,61 @@ namespace DVLD.Forms
             this.is_active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.is_active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // searchBar1
+            // 
+            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchBar1.Location = new System.Drawing.Point(3, 3);
+            this.searchBar1.Name = "searchBar1";
+            this.searchBar1.Size = new System.Drawing.Size(739, 50);
+            this.searchBar1.TabIndex = 1;
+            // 
+            // flp_footer
+            // 
+            this.flp_footer.Controls.Add(this.lb_footer_text);
+            this.flp_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flp_footer.Location = new System.Drawing.Point(3, 286);
+            this.flp_footer.Name = "flp_footer";
+            this.flp_footer.Size = new System.Drawing.Size(739, 50);
+            this.flp_footer.TabIndex = 0;
+            // 
+            // lb_footer_text
+            // 
+            this.lb_footer_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_text.Location = new System.Drawing.Point(3, 0);
+            this.lb_footer_text.Name = "lb_footer_text";
+            this.lb_footer_text.Size = new System.Drawing.Size(624, 50);
+            this.lb_footer_text.TabIndex = 0;
+            this.lb_footer_text.Text = "Total Number of Local Licenses: ";
+            this.lb_footer_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tab_international
+            // 
+            this.tab_international.BackColor = System.Drawing.SystemColors.Control;
+            this.tab_international.Controls.Add(this.dgv_international_licenses);
+            this.tab_international.Controls.Add(this.searchBar2);
+            this.tab_international.Controls.Add(this.flowLayoutPanel1);
+            this.tab_international.Location = new System.Drawing.Point(4, 28);
+            this.tab_international.Name = "tab_international";
+            this.tab_international.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_international.Size = new System.Drawing.Size(745, 339);
+            this.tab_international.TabIndex = 1;
+            this.tab_international.Text = "International";
+            // 
             // dgv_international_licenses
             // 
             this.dgv_international_licenses.AllowUserToAddRows = false;
             this.dgv_international_licenses.AllowUserToDeleteRows = false;
             this.dgv_international_licenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_international_licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_international_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_international_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_international_licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_international_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -329,14 +303,14 @@ namespace DVLD.Forms
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewCheckBoxColumn1});
             this.dgv_international_licenses.CornerRadius = 15;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_international_licenses.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_international_licenses.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_international_licenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_international_licenses.EnableHeadersVisualStyles = false;
             this.dgv_international_licenses.Location = new System.Drawing.Point(3, 53);
@@ -410,6 +384,161 @@ namespace DVLD.Forms
             this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // searchBar2
+            // 
+            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchBar2.Location = new System.Drawing.Point(3, 3);
+            this.searchBar2.Name = "searchBar2";
+            this.searchBar2.Size = new System.Drawing.Size(739, 50);
+            this.searchBar2.TabIndex = 3;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.lb_footer_text_driver);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 286);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(739, 50);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // lb_footer_text_driver
+            // 
+            this.lb_footer_text_driver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_text_driver.Location = new System.Drawing.Point(3, 0);
+            this.lb_footer_text_driver.Name = "lb_footer_text_driver";
+            this.lb_footer_text_driver.Size = new System.Drawing.Size(624, 50);
+            this.lb_footer_text_driver.TabIndex = 0;
+            this.lb_footer_text_driver.Text = "Total Number of International Licenses: ";
+            this.lb_footer_text_driver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tab_classes
+            // 
+            this.tab_classes.BackColor = System.Drawing.SystemColors.Control;
+            this.tab_classes.Controls.Add(this.flowLayoutPanel2);
+            this.tab_classes.Controls.Add(this.dgv_license_classes);
+            this.tab_classes.Location = new System.Drawing.Point(4, 28);
+            this.tab_classes.Name = "tab_classes";
+            this.tab_classes.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_classes.Size = new System.Drawing.Size(745, 339);
+            this.tab_classes.TabIndex = 2;
+            this.tab_classes.Text = "Classes";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 286);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(739, 50);
+            this.flowLayoutPanel2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(624, 50);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Total Number of License Classes: ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dgv_license_classes
+            // 
+            this.dgv_license_classes.AllowUserToAddRows = false;
+            this.dgv_license_classes.AllowUserToDeleteRows = false;
+            this.dgv_license_classes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgv_license_classes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_license_classes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_license_classes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_license_classes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.class_full_name,
+            this.description,
+            this.minimum_allowed_age,
+            this.default_validity_length,
+            this.fees});
+            this.dgv_license_classes.CornerRadius = 15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_license_classes.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_license_classes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_license_classes.EnableHeadersVisualStyles = false;
+            this.dgv_license_classes.Location = new System.Drawing.Point(3, 3);
+            this.dgv_license_classes.Name = "dgv_license_classes";
+            this.dgv_license_classes.ReadOnly = true;
+            this.dgv_license_classes.Size = new System.Drawing.Size(739, 333);
+            this.dgv_license_classes.TabIndex = 3;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // class_full_name
+            // 
+            this.class_full_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.class_full_name.HeaderText = "Name";
+            this.class_full_name.Name = "class_full_name";
+            this.class_full_name.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.description.HeaderText = "Description";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
+            // minimum_allowed_age
+            // 
+            this.minimum_allowed_age.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.minimum_allowed_age.HeaderText = "Minimum Allowed Age";
+            this.minimum_allowed_age.Name = "minimum_allowed_age";
+            this.minimum_allowed_age.ReadOnly = true;
+            // 
+            // default_validity_length
+            // 
+            this.default_validity_length.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.default_validity_length.HeaderText = "Default Validity Length";
+            this.default_validity_length.Name = "default_validity_length";
+            this.default_validity_length.ReadOnly = true;
+            // 
+            // fees
+            // 
+            this.fees.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fees.HeaderText = "Fees";
+            this.fees.Name = "fees";
+            this.fees.ReadOnly = true;
+            // 
+            // tlp_header
+            // 
+            this.tlp_header.AutoSize = true;
+            this.tlp_header.ColumnCount = 3;
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlp_header.Location = new System.Drawing.Point(7, 10);
+            this.tlp_header.Name = "tlp_header";
+            this.tlp_header.RowCount = 1;
+            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_header.Size = new System.Drawing.Size(753, 0);
+            this.tlp_header.TabIndex = 0;
+            // 
             // LicensesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,8 +557,11 @@ namespace DVLD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).EndInit();
             this.flp_footer.ResumeLayout(false);
             this.tab_international.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.tab_classes.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_license_classes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,5 +601,15 @@ namespace DVLD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.TabPage tab_classes;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label1;
+        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_license_classes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn class_full_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minimum_allowed_age;
+        private System.Windows.Forms.DataGridViewTextBoxColumn default_validity_length;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fees;
     }
 }
