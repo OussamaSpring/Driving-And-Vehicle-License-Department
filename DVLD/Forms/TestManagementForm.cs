@@ -22,13 +22,37 @@ namespace DVLD.Forms
                 Dock = DockStyle.Fill,
                 Height = 50
             };
-            tabs.SetTabs("Appointments", "Tests List");
+            tabs.SetTabs("Test List", "Test Types");
             tabs.SelectedIndexChanged += (s, e) =>
             {
-                Console.WriteLine($"Selected {tabs.SelectedIndex}: {tabs.SelectedTab}");
+                switch (tabs.SelectedIndex)
+                {
+                    case 0:
+                        OnTestsListSelected();
+                        break;
+                    case 1:
+                        OnTestTypesSelected();
+                        break;
+                }
             };
 
             tlp_header.Controls.Add(tabs, 1, 0);
+        }
+
+
+        private void OnTestsListSelected()
+        {
+            htc_tab_nav.SelectedIndex = 0;
+        }
+
+        private void OnTestTypesSelected()
+        {
+            htc_tab_nav.SelectedIndex = 1;
+        }
+
+        private void TestManagementForm_Load(object sender, EventArgs e)
+        {
+            OnTestsListSelected();
         }
     }
 }

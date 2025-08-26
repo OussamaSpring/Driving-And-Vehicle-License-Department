@@ -54,5 +54,10 @@ namespace DVLD.Forms
         {
             OnLocalLicenseTabSelected();
         }
+
+        private void searchBar1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

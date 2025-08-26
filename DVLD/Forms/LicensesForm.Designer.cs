@@ -243,6 +243,7 @@ namespace DVLD.Forms
             this.searchBar1.Name = "searchBar1";
             this.searchBar1.Size = new System.Drawing.Size(739, 50);
             this.searchBar1.TabIndex = 1;
+            this.searchBar1.Load += new System.EventHandler(this.searchBar1_Load);
             // 
             // flp_footer
             // 
