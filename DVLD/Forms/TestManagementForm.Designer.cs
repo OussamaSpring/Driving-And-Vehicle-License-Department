@@ -28,23 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Title = new System.Windows.Forms.Label();
             this.pl_Body = new System.Windows.Forms.Panel();
-            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
             this.tab_tests_list = new System.Windows.Forms.TabPage();
             this.dgv_local_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
-            this.searchBar1 = new DVLD.UserControls.SearchBar();
-            this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_text = new System.Windows.Forms.Label();
-            this.tab_test_types = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgv_license_classes = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.ldl_application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.license_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.national_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +44,18 @@
             this.application_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passed_tests = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchBar1 = new DVLD.UserControls.SearchBar();
+            this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_text = new System.Windows.Forms.Label();
+            this.tab_test_types = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgv_license_classes = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.class_full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_tests_list.SuspendLayout();
@@ -89,21 +89,6 @@
             this.pl_Body.Size = new System.Drawing.Size(760, 381);
             this.pl_Body.TabIndex = 3;
             // 
-            // tlp_header
-            // 
-            this.tlp_header.AutoSize = true;
-            this.tlp_header.ColumnCount = 3;
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlp_header.Location = new System.Drawing.Point(7, 10);
-            this.tlp_header.Name = "tlp_header";
-            this.tlp_header.RowCount = 1;
-            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_header.Size = new System.Drawing.Size(753, 0);
-            this.tlp_header.TabIndex = 0;
-            // 
             // htc_tab_nav
             // 
             this.htc_tab_nav.Controls.Add(this.tab_tests_list);
@@ -136,15 +121,15 @@
             this.dgv_local_licenses.AllowUserToDeleteRows = false;
             this.dgv_local_licenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_local_licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_local_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_local_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_local_licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_local_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ldl_application_id,
@@ -155,14 +140,14 @@
             this.passed_tests,
             this.status});
             this.dgv_local_licenses.CornerRadius = 15;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_local_licenses.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_local_licenses.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_local_licenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_local_licenses.EnableHeadersVisualStyles = false;
             this.dgv_local_licenses.Location = new System.Drawing.Point(3, 53);
@@ -170,6 +155,55 @@
             this.dgv_local_licenses.ReadOnly = true;
             this.dgv_local_licenses.Size = new System.Drawing.Size(739, 233);
             this.dgv_local_licenses.TabIndex = 2;
+            // 
+            // ldl_application_id
+            // 
+            this.ldl_application_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ldl_application_id.HeaderText = "L.D.L Application ID";
+            this.ldl_application_id.Name = "ldl_application_id";
+            this.ldl_application_id.ReadOnly = true;
+            // 
+            // license_class
+            // 
+            this.license_class.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.license_class.HeaderText = "License Class";
+            this.license_class.Name = "license_class";
+            this.license_class.ReadOnly = true;
+            // 
+            // national_number
+            // 
+            this.national_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.national_number.HeaderText = "National Number";
+            this.national_number.Name = "national_number";
+            this.national_number.ReadOnly = true;
+            // 
+            // fullname
+            // 
+            this.fullname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fullname.HeaderText = "Full Name";
+            this.fullname.Name = "fullname";
+            this.fullname.ReadOnly = true;
+            // 
+            // application_date
+            // 
+            this.application_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.application_date.HeaderText = "Application Date";
+            this.application_date.Name = "application_date";
+            this.application_date.ReadOnly = true;
+            // 
+            // passed_tests
+            // 
+            this.passed_tests.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.passed_tests.HeaderText = "Passed Tests";
+            this.passed_tests.Name = "passed_tests";
+            this.passed_tests.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
             // 
             // searchBar1
             // 
@@ -235,15 +269,15 @@
             this.dgv_license_classes.AllowUserToDeleteRows = false;
             this.dgv_license_classes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_license_classes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_license_classes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_license_classes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_license_classes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_license_classes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -251,14 +285,14 @@
             this.description,
             this.fees});
             this.dgv_license_classes.CornerRadius = 15;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_license_classes.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_license_classes.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_license_classes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_license_classes.EnableHeadersVisualStyles = false;
             this.dgv_license_classes.Location = new System.Drawing.Point(3, 3);
@@ -266,55 +300,6 @@
             this.dgv_license_classes.ReadOnly = true;
             this.dgv_license_classes.Size = new System.Drawing.Size(739, 333);
             this.dgv_license_classes.TabIndex = 3;
-            // 
-            // ldl_application_id
-            // 
-            this.ldl_application_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ldl_application_id.HeaderText = "L.D.L Application ID";
-            this.ldl_application_id.Name = "ldl_application_id";
-            this.ldl_application_id.ReadOnly = true;
-            // 
-            // license_class
-            // 
-            this.license_class.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.license_class.HeaderText = "License Class";
-            this.license_class.Name = "license_class";
-            this.license_class.ReadOnly = true;
-            // 
-            // national_number
-            // 
-            this.national_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.national_number.HeaderText = "National Number";
-            this.national_number.Name = "national_number";
-            this.national_number.ReadOnly = true;
-            // 
-            // fullname
-            // 
-            this.fullname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fullname.HeaderText = "Full Name";
-            this.fullname.Name = "fullname";
-            this.fullname.ReadOnly = true;
-            // 
-            // application_date
-            // 
-            this.application_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.application_date.HeaderText = "Application Date";
-            this.application_date.Name = "application_date";
-            this.application_date.ReadOnly = true;
-            // 
-            // passed_tests
-            // 
-            this.passed_tests.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.passed_tests.HeaderText = "Passed Tests";
-            this.passed_tests.Name = "passed_tests";
-            this.passed_tests.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
             // 
             // ID
             // 
@@ -343,6 +328,21 @@
             this.fees.HeaderText = "Fees";
             this.fees.Name = "fees";
             this.fees.ReadOnly = true;
+            // 
+            // tlp_header
+            // 
+            this.tlp_header.AutoSize = true;
+            this.tlp_header.ColumnCount = 3;
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlp_header.Location = new System.Drawing.Point(7, 10);
+            this.tlp_header.Name = "tlp_header";
+            this.tlp_header.RowCount = 1;
+            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_header.Size = new System.Drawing.Size(753, 0);
+            this.tlp_header.TabIndex = 0;
             // 
             // TestManagementForm
             // 

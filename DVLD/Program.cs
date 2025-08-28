@@ -19,6 +19,8 @@ namespace DVLD
             Application.SetCompatibleTextRenderingDefault(false);
 
 
+
+
             LoginDialog login = new LoginDialog();
 
             if (login.ShowDialog() == DialogResult.OK)

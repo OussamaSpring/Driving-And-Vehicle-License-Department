@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC5408EA-41E0-4FD6-A0AA-AEE0B899B1C9}</ProjectGuid>
+    <ProjectGuid>{190932A7-CA70-4F93-ADFC-286254A71654}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DVLD_DataAccess</RootNamespace>
-    <AssemblyName>DVLD_DataAccess</AssemblyName>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,18 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DBConnection.cs" />
-    <Compile Include="Database\DBHelper.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\ApplicationStatus.cs" />
+    <Compile Include="Interfaces\IPersonRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\Driver.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\DVLD_Core.csproj">
-      <Project>{190932a7-ca70-4f93-adfc-286254a71654}</Project>
-      <Name>DVLD_Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

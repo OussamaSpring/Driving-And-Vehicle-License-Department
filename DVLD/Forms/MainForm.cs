@@ -48,6 +48,10 @@ namespace DVLD
                     CloseAllMdiChildren();
                     ShowLicenseDetain();
                     break;
+                case NavigationBar.NavBarIems.enSettings:
+                    CloseAllMdiChildren();
+                    ShowSettings(sender, EventArgs.Empty);
+                    break;
                 default:
                     Console.WriteLine("Not Expected Error In Navigation Bar");
                     break;
@@ -109,6 +113,16 @@ namespace DVLD
             form.Dock = DockStyle.Fill;
             form.Show();
         }
+
+
+        private void ShowSettings(object sender, EventArgs e)
+        {
+            SettingsForm form = new SettingsForm();
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
 
     }
 }

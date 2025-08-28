@@ -17,17 +17,13 @@ namespace DVLD.Forms
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Title = new System.Windows.Forms.Label();
             this.pl_Body = new System.Windows.Forms.Panel();
-            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
             this.tab_operations = new System.Windows.Forms.TabPage();
             this.tab_detain_list = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.searchBar2 = new DVLD.UserControls.SearchBar();
             this.roundedDataGridView1 = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.detain_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,11 +34,15 @@ namespace DVLD.Forms
             this.release_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.released_by_user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.release_application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchBar2 = new DVLD.UserControls.SearchBar();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_detain_list.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -67,21 +67,6 @@ namespace DVLD.Forms
             this.pl_Body.Padding = new System.Windows.Forms.Padding(7, 10, 0, 0);
             this.pl_Body.Size = new System.Drawing.Size(760, 381);
             this.pl_Body.TabIndex = 3;
-            // 
-            // tlp_header
-            // 
-            this.tlp_header.AutoSize = true;
-            this.tlp_header.ColumnCount = 3;
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlp_header.Location = new System.Drawing.Point(7, 10);
-            this.tlp_header.Name = "tlp_header";
-            this.tlp_header.RowCount = 1;
-            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_header.Size = new System.Drawing.Size(753, 0);
-            this.tlp_header.TabIndex = 0;
             // 
             // htc_tab_nav
             // 
@@ -119,48 +104,21 @@ namespace DVLD.Forms
             this.tab_detain_list.TabIndex = 2;
             this.tab_detain_list.Text = "Detain List";
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.label1);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 286);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(739, 50);
-            this.flowLayoutPanel2.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(624, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Total Number of Detains: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // searchBar2
-            // 
-            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar2.Location = new System.Drawing.Point(3, 3);
-            this.searchBar2.Name = "searchBar2";
-            this.searchBar2.Size = new System.Drawing.Size(739, 50);
-            this.searchBar2.TabIndex = 5;
-            // 
             // roundedDataGridView1
             // 
             this.roundedDataGridView1.AllowUserToAddRows = false;
             this.roundedDataGridView1.AllowUserToDeleteRows = false;
             this.roundedDataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.roundedDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roundedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roundedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.roundedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.roundedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detain_id,
@@ -173,14 +131,14 @@ namespace DVLD.Forms
             this.released_by_user_id,
             this.release_application_id});
             this.roundedDataGridView1.CornerRadius = 15;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roundedDataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.roundedDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.roundedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roundedDataGridView1.EnableHeadersVisualStyles = false;
             this.roundedDataGridView1.Location = new System.Drawing.Point(3, 53);
@@ -254,6 +212,48 @@ namespace DVLD.Forms
             this.release_application_id.Name = "release_application_id";
             this.release_application_id.ReadOnly = true;
             // 
+            // searchBar2
+            // 
+            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchBar2.Location = new System.Drawing.Point(3, 3);
+            this.searchBar2.Name = "searchBar2";
+            this.searchBar2.Size = new System.Drawing.Size(739, 50);
+            this.searchBar2.TabIndex = 5;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 286);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(739, 50);
+            this.flowLayoutPanel2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(624, 50);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Total Number of Detains: ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tlp_header
+            // 
+            this.tlp_header.AutoSize = true;
+            this.tlp_header.ColumnCount = 3;
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlp_header.Location = new System.Drawing.Point(7, 10);
+            this.tlp_header.Name = "tlp_header";
+            this.tlp_header.RowCount = 1;
+            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_header.Size = new System.Drawing.Size(753, 0);
+            this.tlp_header.TabIndex = 0;
+            // 
             // LicenseDetainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,8 +270,8 @@ namespace DVLD.Forms
             this.pl_Body.PerformLayout();
             this.htc_tab_nav.ResumeLayout(false);
             this.tab_detain_list.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -24,14 +24,15 @@ namespace DVLD.UserControls
             enLicenses,
             enApplications,
             enTestManagement,
-            enLicenseDetain
+            enLicenseDetain,
+            enSettings
         }
 
         public NavBarIems SelectedNavBarItem;
         public event EventHandler<NavBarIems> NavigationChanged;
+        
 
-
-        #region Button Click Events
+        #region Navigation Button Click Events
 
         private Image getButtonImage(string buttonName)
         {
@@ -117,6 +118,7 @@ namespace DVLD.UserControls
             if (clickedButton != null)
             {
                 ResetAllNavbarButtonThemes();
+                btn_settings.Font = new Font(btn_settings.Font, FontStyle.Regular);
 
                 // Set the clicked button to active theme
                 setActiveButtonTheme(clickedButton);
@@ -132,7 +134,6 @@ namespace DVLD.UserControls
             if (sender is Button button && button.BackColor != Color.FromArgb(212, 175, 55))
                 setDefaultButtonTheme(button);
         }
-
         private void navbar_btn_MouseEnter(object sender, EventArgs e)
         {
             if(sender is Button && (sender as Button).BackColor != Color.FromArgb(212, 175, 55))
@@ -144,6 +145,13 @@ namespace DVLD.UserControls
         public void setInitialNavbar()
         {
             navbar_btn_Click(tlp_navbar_buttons.Controls["Dashboard"], null);
+        }
+
+        private void btn_settings_Click(object sender, EventArgs e)
+        {
+            ResetAllNavbarButtonThemes();
+            btn_settings.Font = new Font(btn_settings.Font, FontStyle.Bold);
+            NavigationChanged?.Invoke(this, NavBarIems.enSettings);
         }
     }
 }

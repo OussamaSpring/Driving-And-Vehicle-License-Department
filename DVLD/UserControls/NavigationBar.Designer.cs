@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_settings = new System.Windows.Forms.Button();
             this.tlp_navbar_buttons = new System.Windows.Forms.TableLayoutPanel();
             this.License_Detain = new System.Windows.Forms.Button();
             this.Test_Management = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.seperator1 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.tlp_navbar_buttons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,12 +83,37 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_settings);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 660);
             this.panel2.MaximumSize = new System.Drawing.Size(0, 60);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(300, 60);
             this.panel2.TabIndex = 1;
+            // 
+            // btn_settings
+            // 
+            this.btn_settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(62)))), ((int)(((byte)(114)))));
+            this.btn_settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_settings.FlatAppearance.BorderSize = 0;
+            this.btn_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_settings.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_settings.ForeColor = System.Drawing.Color.White;
+            this.btn_settings.Image = global::DVLD.Properties.Resources.settings;
+            this.btn_settings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_settings.Location = new System.Drawing.Point(0, 0);
+            this.btn_settings.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.btn_settings.Name = "btn_settings";
+            this.btn_settings.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
+            this.btn_settings.Size = new System.Drawing.Size(300, 60);
+            this.btn_settings.TabIndex = 7;
+            this.btn_settings.Tag = "7";
+            this.btn_settings.Text = "  Settings";
+            this.btn_settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_settings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_settings.UseVisualStyleBackColor = false;
+            this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
             // 
             // tlp_navbar_buttons
             // 
@@ -288,6 +315,7 @@
             this.Size = new System.Drawing.Size(300, 720);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.tlp_navbar_buttons.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -307,5 +335,6 @@
         private System.Windows.Forms.Button Individuals;
         private System.Windows.Forms.Button Dashboard;
         private iNKORE.UI.WinForms.Styler.Controls.Seperator seperator1;
+        private System.Windows.Forms.Button btn_settings;
     }
 }
