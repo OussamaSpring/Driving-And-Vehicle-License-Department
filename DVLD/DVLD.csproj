@@ -230,9 +230,9 @@
       <Project>{e1662245-7bd5-4fb4-be82-9fd8e271eceb}</Project>
       <Name>WindowsFormsControlLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DVLD_BusinessLogic\DVLD_Controllers.csproj">
+    <ProjectReference Include="..\DVLD_BusinessLogic\DVLD_BusinessLogic.csproj">
       <Project>{9af09974-12e7-4070-bb40-5210adfb909b}</Project>
-      <Name>DVLD_Controllers</Name>
+      <Name>DVLD_BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

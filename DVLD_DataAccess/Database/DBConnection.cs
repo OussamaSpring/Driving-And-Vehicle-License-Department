@@ -6,7 +6,7 @@ using System.Configuration;
 namespace DVLD_DataAccess.Database
 {
 
-    public static class DBConnection
+    internal static class DBConnection
     {
         private static readonly string _connectionString =
             ConfigurationManager.ConnectionStrings["DVLDConnection"].ConnectionString;

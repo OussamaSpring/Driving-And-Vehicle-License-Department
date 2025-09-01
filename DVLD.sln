@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD", "DVLD\DVLD.csproj", "{6AEA200E-46A7-4C42-A85F-7694FE548F4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_Controllers", "DVLD_BusinessLogic\DVLD_Controllers.csproj", "{9AF09974-12E7-4070-BB40-5210ADFB909B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_BusinessLogic", "DVLD_BusinessLogic\DVLD_BusinessLogic.csproj", "{9AF09974-12E7-4070-BB40-5210ADFB909B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_DataAccess", "DVLD_DataAccess\DVLD_DataAccess.csproj", "{CC5408EA-41E0-4FD6-A0AA-AEE0B899B1C9}"
 EndProject

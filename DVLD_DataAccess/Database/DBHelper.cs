@@ -6,49 +6,88 @@ using System.Threading.Tasks;
 
 namespace DVLD_DataAccess.Database
 {
-    public static class DBHelper
+    internal static class DBHelper
     {
         public static async Task<DataTable> ExecuteReaderAsync(string sqlQuery, Dictionary<string, object> parameters = null)
         {
-            using (var connection = DBConnection.CreateConnection())
+            try
             {
-                await connection.OpenAsync();
-                using (var command = CreateCommand(connection, sqlQuery, parameters))
+                using (var connection = DBConnection.CreateConnection())
                 {
-                    DataTable dataTable = new DataTable();
-
-                    using (var reader = await command.ExecuteReaderAsync())
+                    await connection.OpenAsync();
+                    using (var command = CreateCommand(connection, sqlQuery, parameters))
                     {
-                        dataTable.Load(reader);
+                        DataTable dataTable = new DataTable();
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if(reader.HasRows)
+                                dataTable.Load(reader);
+                        }
+                        return dataTable;
                     }
-                    return dataTable;
                 }
+            }catch(SqlException sqlEx)
+            {
+                Console.WriteLine($"SQL Exception: {sqlEx.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Exception: {ex.Message}");
+                throw;
             }
         }
 
         public static async Task<object> ExecuteScalarAsync(string sqlQuery, Dictionary<string, object> parameters = null)
         {
-            using (var connection = DBConnection.CreateConnection())
+            try
             {
-                await connection.OpenAsync();
-
-                using (var command = CreateCommand(connection, sqlQuery, parameters))
+                using (var connection = DBConnection.CreateConnection())
                 {
-                    return await command.ExecuteScalarAsync();
+                    await connection.OpenAsync();
+
+                    using (var command = CreateCommand(connection, sqlQuery, parameters))
+                    {
+                        return await command.ExecuteScalarAsync();
+                    }
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                Console.WriteLine($"SQL Exception: {sqlEx.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Exception: {ex.Message}");
+                throw;
             }
         }
 
         public static async Task<int> ExecuteNonQueryAsync(string sqlQuery, Dictionary<string, object> parameters = null)
         {
-            using (var connection = DBConnection.CreateConnection())
+            try
             {
-                await connection.OpenAsync();
-
-                using (var command = CreateCommand(connection, sqlQuery, parameters))
+                using (var connection = DBConnection.CreateConnection())
                 {
-                    return await command.ExecuteNonQueryAsync();
+                    await connection.OpenAsync();
+
+                    using (var command = CreateCommand(connection, sqlQuery, parameters))
+                    {
+                        return await command.ExecuteNonQueryAsync();
+                    }
                 }
+            }
+            catch(SqlException sqlEx)
+            {
+                Console.WriteLine($"SQL Exception: {sqlEx.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Exception: {ex.Message}");
+                throw;
             }
         }
 
@@ -60,7 +99,7 @@ namespace DVLD_DataAccess.Database
             {
                 foreach (var param in parameters)
                 {
-                    command.Parameters.AddWithValue("@" + param.Key, param.Value ?? DBNull.Value);
+                    command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
                 }
             }
 
