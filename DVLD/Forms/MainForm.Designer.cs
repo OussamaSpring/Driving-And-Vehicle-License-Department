@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.header1 = new DVLD.UserControls.Header();
             this.NavBar = new DVLD.UserControls.NavigationBar();
             this.headerlessTabPage1 = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
@@ -101,6 +102,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.header1);
             this.Controls.Add(this.NavBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "MainForm";

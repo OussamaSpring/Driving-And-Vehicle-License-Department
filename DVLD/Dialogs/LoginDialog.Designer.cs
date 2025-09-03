@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginDialog));
             this.label4 = new System.Windows.Forms.Label();
             this.lb_title = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -218,6 +219,7 @@
             this.Controls.Add(this.logo);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.main_panel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(390, 530);
             this.MinimumSize = new System.Drawing.Size(390, 530);
             this.Name = "LoginDialog";

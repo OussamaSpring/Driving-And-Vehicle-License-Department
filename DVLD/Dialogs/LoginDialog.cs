@@ -16,13 +16,11 @@ namespace DVLD.Dialogs
 
         private readonly UserController _userController;
         private User _authenticatedUser;
-
         public User AuthenticatedUser => _authenticatedUser;
 
         public LoginDialog()
         {
             InitializeComponent();
-
             _userController = new UserController(new UserRepository());
         }
 
@@ -37,7 +35,6 @@ namespace DVLD.Dialogs
                 chk_remember_me.Checked = true;
             }
         }
-
         private bool ValidateUsername()
         {
             if (string.IsNullOrWhiteSpace(txt_username.Text))
@@ -48,7 +45,6 @@ namespace DVLD.Dialogs
             err_login_credential.SetError(txt_username, string.Empty);
             return true;
         }
-
         private bool ValidatePassword()
         {
             if (string.IsNullOrWhiteSpace(txt_password.Text))
@@ -59,8 +55,6 @@ namespace DVLD.Dialogs
             err_login_credential.SetError(txt_password, string.Empty);
             return true;
         }
-
-
         private void lb_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -82,7 +76,6 @@ namespace DVLD.Dialogs
 
 
         #region LoginLogic
-
         private async Task AuthenticationAsync(string username, string password)
         {
             try
@@ -110,8 +103,6 @@ namespace DVLD.Dialogs
                 MessageBox.Show($"An error occurred during authentication: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
         private void SaveCredentials()
         {
             if(chk_remember_me.Checked)

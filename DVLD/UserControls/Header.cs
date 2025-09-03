@@ -15,7 +15,13 @@ namespace DVLD.UserControls
         public Header()
         {
             InitializeComponent();
+
+            pl_user.ContextMenuStrip = cms_user_properties;
         }
 
+        private void pl_user_Click(object sender, EventArgs e)
+        {
+            cms_user_properties.Show(pl_user, new Point(0, pl_user.Height));
+        }
     }
 }
