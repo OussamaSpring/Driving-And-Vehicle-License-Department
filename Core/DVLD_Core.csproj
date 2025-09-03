@@ -46,7 +46,7 @@
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPersonRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\Applications.cs" />
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\User.cs" />

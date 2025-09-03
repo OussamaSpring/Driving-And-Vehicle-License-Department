@@ -3,13 +3,17 @@ using DVLD.UserControls;
 using System;
 using System.Windows.Forms;
 
+using Core.Models;
+
 
 namespace DVLD
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private User _currentUser;
+        public MainForm(User user)
         {
+            _currentUser = user;
             InitializeComponent();
         }
 

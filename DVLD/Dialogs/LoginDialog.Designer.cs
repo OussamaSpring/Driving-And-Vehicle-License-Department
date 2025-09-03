@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.lb_title = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -36,11 +37,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.txt_username = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chk_remember_me = new System.Windows.Forms.CheckBox();
             this.lb_exit = new System.Windows.Forms.Label();
-            this.main_panel = new WindowsFormsControlLibrary.CustomControls.RoundedPanel();
+            this.err_login_credential = new System.Windows.Forms.ErrorProvider(this.components);
             this.btn_login = new DVLD.Views.Controls.RoundedButton();
+            this.main_panel = new WindowsFormsControlLibrary.CustomControls.RoundedPanel();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err_login_credential)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -83,7 +86,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.label3.Font = new System.Drawing.Font("Open Sans", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(151, 205);
+            this.label3.Location = new System.Drawing.Point(151, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 35);
             this.label3.TabIndex = 21;
@@ -116,37 +119,38 @@
             // txt_password
             // 
             this.txt_password.AcceptsReturn = true;
-            this.txt_password.BackColor = System.Drawing.Color.LightGray;
-            this.txt_password.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password.BackColor = System.Drawing.Color.White;
+            this.txt_password.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.txt_password.Location = new System.Drawing.Point(70, 356);
             this.txt_password.MaxLength = 50;
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(250, 30);
+            this.txt_password.Size = new System.Drawing.Size(250, 27);
             this.txt_password.TabIndex = 23;
             this.txt_password.UseSystemPasswordChar = true;
             // 
             // txt_username
             // 
             this.txt_username.AcceptsReturn = true;
-            this.txt_username.BackColor = System.Drawing.Color.LightGray;
-            this.txt_username.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_username.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_username.BackColor = System.Drawing.Color.White;
+            this.txt_username.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_username.ForeColor = System.Drawing.Color.Black;
             this.txt_username.Location = new System.Drawing.Point(70, 289);
             this.txt_username.MaxLength = 50;
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(250, 30);
+            this.txt_username.Size = new System.Drawing.Size(250, 27);
             this.txt_username.TabIndex = 22;
             // 
-            // checkBox1
+            // chk_remember_me
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.checkBox1.Location = new System.Drawing.Point(226, 404);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(95, 17);
-            this.checkBox1.TabIndex = 25;
-            this.checkBox1.Text = "Remember Me";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.chk_remember_me.AutoSize = true;
+            this.chk_remember_me.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.chk_remember_me.Location = new System.Drawing.Point(226, 395);
+            this.chk_remember_me.Name = "chk_remember_me";
+            this.chk_remember_me.Size = new System.Drawing.Size(95, 17);
+            this.chk_remember_me.TabIndex = 25;
+            this.chk_remember_me.Text = "Remember Me";
+            this.chk_remember_me.UseVisualStyleBackColor = false;
             // 
             // lb_exit
             // 
@@ -162,17 +166,9 @@
             this.lb_exit.Text = "Exit";
             this.lb_exit.Click += new System.EventHandler(this.lb_exit_Click);
             // 
-            // main_panel
+            // err_login_credential
             // 
-            this.main_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.main_panel.BorderColor = System.Drawing.Color.Black;
-            this.main_panel.BorderRadius = 15;
-            this.main_panel.BorderWidth = 1;
-            this.main_panel.Location = new System.Drawing.Point(34, 195);
-            this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(323, 310);
-            this.main_panel.TabIndex = 24;
-            this.main_panel.Text = "roundedPanel1";
+            this.err_login_credential.ContainerControl = this;
             // 
             // btn_login
             // 
@@ -193,6 +189,18 @@
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
+            // main_panel
+            // 
+            this.main_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.main_panel.BorderColor = System.Drawing.Color.Black;
+            this.main_panel.BorderRadius = 15;
+            this.main_panel.BorderWidth = 1;
+            this.main_panel.Location = new System.Drawing.Point(34, 195);
+            this.main_panel.Name = "main_panel";
+            this.main_panel.Size = new System.Drawing.Size(323, 310);
+            this.main_panel.TabIndex = 24;
+            this.main_panel.Text = "roundedPanel1";
+            // 
             // LoginDialog
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(62)))), ((int)(((byte)(114)))));
@@ -200,7 +208,7 @@
             this.ClientSize = new System.Drawing.Size(390, 530);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.lb_exit);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chk_remember_me);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_username);
             this.Controls.Add(this.label3);
@@ -215,6 +223,7 @@
             this.Name = "LoginDialog";
             this.Load += new System.EventHandler(this.LoginDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err_login_credential)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,8 +240,9 @@
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.TextBox txt_username;
         private WindowsFormsControlLibrary.CustomControls.RoundedPanel main_panel;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chk_remember_me;
         private System.Windows.Forms.Label lb_exit;
         private Views.Controls.RoundedButton btn_login;
+        private System.Windows.Forms.ErrorProvider err_login_credential;
     }
 }

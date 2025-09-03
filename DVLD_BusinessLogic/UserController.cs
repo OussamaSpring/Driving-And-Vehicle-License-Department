@@ -1,5 +1,6 @@
 ﻿using Core.Interfaces;
 using Core.Models;
+using DVLD_DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,13 +67,25 @@ namespace DVLD_BusinessLogic
             return await _userRepository.GetByUsernameAsync(username);
         }
 
-        public async Task<bool> AuthenticateUserAsync(string username, string password)
+
+        /// <summary>
+        /// This Method authenticates a user based on the provided username and password.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>
+        /// Number (0, 1, 2) that specify the result of the Authentication:
+        /// 0 => User not found / Incorrect password | 1 => Active User | 2 => Inactive User
+        /// </returns>
+        public async Task<short> AuthenticateUserAsync(string username, string password)
         {
             var user = await _userRepository.GetByUsernameAsync(username);
-            if (user == null)
-                return false;
             
-            return user.Password == HashPassword(password);
+            // just for testing purposes, change later to HashPassword(password)
+            if (user == null || user.Password != password) 
+                return 0;
+            else
+                return user.IsActive ? (short)1 : (short)2;
         }
     }
 }

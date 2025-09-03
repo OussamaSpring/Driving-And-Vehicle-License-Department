@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Models
 {
-    public class Application
+    public class Applications
     {
         public int ApplicationId { get; set; }
         public int ApplicationPersonId { get; set; }
