@@ -27,7 +27,7 @@ namespace DVLD_DataAccess.Repositories
                 DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]),
                 enGender = (Gender)Convert.ToInt16(row["Gendor"]),
                 Address = row["Address"].ToString(),
-                NationalityCountry = row["NationalityCountryID"].ToString(),
+                NationalityCountry = row["CountryName"].ToString(),
                 Email = row["Email"].ToString(),
                 Phone = row["Phone"].ToString(),
                 PersonalImage = row["PersonalImage"] == DBNull.Value ? null : (byte[])row["PersonalImage"]
@@ -41,7 +41,12 @@ namespace DVLD_DataAccess.Repositories
         {
             var parameters = new Dictionary<string, object> { { "@PersonId", id } };
 
-            string sqlQuery = "SELECT * FROM People WHERE PersonID = @PersonId";
+            string sqlQuery = @"SELECT People.PersonID, People.NationalNo, People.FirstName, People.SecondName,       
+                        People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor, People.Address, 
+                        Countries.CountryName, People.Phone, People.Email, People.PersonalImage
+                        FROM People 
+                        INNER JOIN Countries ON People.NationalityCountryID = Countries.CountryID
+                        WHERE PersonID = @PersonId";
 
             var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
 
@@ -53,7 +58,11 @@ namespace DVLD_DataAccess.Repositories
         }
         public async Task<IEnumerable<Person>> GetAllAsync()
         {
-            string sqlQuery = "SELECT * FROM People";
+            string sqlQuery = @"SELECT People.PersonID, People.NationalNo, People.FirstName, People.SecondName,       
+                        People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor, People.Address, 
+                        Countries.CountryName, People.Phone, People.Email, People.PersonalImage
+                        FROM People INNER JOIN
+                        Countries ON People.NationalityCountryID = Countries.CountryID";
 
             var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery);
 
