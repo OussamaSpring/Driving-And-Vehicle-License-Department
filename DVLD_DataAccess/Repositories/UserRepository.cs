@@ -54,7 +54,6 @@ namespace DVLD_DataAccess.Repositories
             var row = dataTable.Rows[0];
             return MapUser(row);
         }
-
         public async Task<IEnumerable<User>> GetAllAsync()
         {
             string sqlQuery = "SELECT * FROM Users";
@@ -66,7 +65,6 @@ namespace DVLD_DataAccess.Repositories
             }
             return users;
         }
-
         public async Task<int> AddAsync(User user)
         {
             var parameters = new Dictionary<string, object> {
@@ -81,7 +79,6 @@ namespace DVLD_DataAccess.Repositories
             int result = Convert.ToInt32(await DBHelper.ExecuteScalarAsync(sqlQuery, parameters));
             return result;
         }
-
         public async Task<bool> UpdateAsync(User user)
         {
             var parameters = new Dictionary<string, object> {
@@ -95,9 +92,8 @@ namespace DVLD_DataAccess.Repositories
 
             int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
 
-            return rowsAffected != 0 ? true : false;
+            return rowsAffected > 0;
         }
-
         public async Task<bool> DeleteAsync(int id)
         {
             var parameters = new Dictionary<string, object> { { "@UserId", id } };
@@ -108,7 +104,6 @@ namespace DVLD_DataAccess.Repositories
 
             return rowsAffected != 0 ? true : false;
         }
-
         public async Task<User> GetByUsernameAsync(string username)
         {
             var parameters = new Dictionary<string, object> { { "@Username", username } };
