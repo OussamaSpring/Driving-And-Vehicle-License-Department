@@ -30,9 +30,9 @@
         {
             this.flp_body = new System.Windows.Forms.FlowLayoutPanel();
             this.txtB_search = new System.Windows.Forms.TextBox();
-            this.btn_add = new System.Windows.Forms.Button();
             this.cb_filter_criteria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_add = new System.Windows.Forms.Button();
             this.flp_body.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,16 +62,6 @@
             this.txtB_search.Size = new System.Drawing.Size(250, 30);
             this.txtB_search.TabIndex = 0;
             // 
-            // btn_add
-            // 
-            this.btn_add.Image = global::DVLD.Properties.Resources.add;
-            this.btn_add.Location = new System.Drawing.Point(136, 10);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(30, 30);
-            this.btn_add.TabIndex = 1;
-            this.btn_add.UseVisualStyleBackColor = true;
-            // 
             // cb_filter_criteria
             // 
             this.cb_filter_criteria.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,6 +83,17 @@
             this.label1.Size = new System.Drawing.Size(68, 18);
             this.label1.TabIndex = 3;
             this.label1.Text = "Filter By:";
+            // 
+            // btn_add
+            // 
+            this.btn_add.Image = global::DVLD.Properties.Resources.add;
+            this.btn_add.Location = new System.Drawing.Point(136, 10);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(30, 30);
+            this.btn_add.TabIndex = 1;
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // SearchBar
             // 

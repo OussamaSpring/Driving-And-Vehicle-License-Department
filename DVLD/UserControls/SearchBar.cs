@@ -21,5 +21,10 @@ namespace DVLD.UserControls
         {
 
         }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

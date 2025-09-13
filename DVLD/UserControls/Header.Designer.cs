@@ -91,14 +91,14 @@
             this.profile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profile.Image = global::DVLD.Properties.Resources.Users_Black;
             this.profile.Name = "profile";
-            this.profile.Size = new System.Drawing.Size(180, 26);
+            this.profile.Size = new System.Drawing.Size(133, 26);
             this.profile.Text = "Profile";
             // 
             // log_out
             // 
             this.log_out.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.log_out.Name = "log_out";
-            this.log_out.Size = new System.Drawing.Size(180, 26);
+            this.log_out.Size = new System.Drawing.Size(133, 26);
             this.log_out.Text = "Log Out";
             // 
             // Header

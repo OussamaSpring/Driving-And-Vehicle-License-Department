@@ -23,5 +23,17 @@ namespace DVLD.UserControls
         {
             cms_user_properties.Show(pl_user, new Point(0, pl_user.Height));
         }
+
+        public void SetUserInfo(string name, byte[] profileImage)
+        {
+            lb_username.Text = name;
+            if (profileImage != null)
+            {
+                using (var ms = new System.IO.MemoryStream(profileImage))
+                {
+                    pb_profileImage.Image = Image.FromStream(ms);
+                }
+            }
+        }
     }
 }

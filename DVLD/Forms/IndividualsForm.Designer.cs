@@ -36,7 +36,7 @@
             this.pl_Body = new System.Windows.Forms.Panel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
             this.tab_people = new System.Windows.Forms.TabPage();
-            this.roundedDataGridView2 = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
+            this.dgv_people = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.person_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.national_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,7 @@
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text = new System.Windows.Forms.Label();
             this.tab_drivers = new System.Windows.Forms.TabPage();
-            this.roundedDataGridView1 = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
+            this.dgv_drivers = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.driver_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driver_person_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driver_national_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,10 +66,10 @@
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_people.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_people)).BeginInit();
             this.flp_footer.SuspendLayout();
             this.tab_drivers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_drivers)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +112,7 @@
             // tab_people
             // 
             this.tab_people.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_people.Controls.Add(this.roundedDataGridView2);
+            this.tab_people.Controls.Add(this.dgv_people);
             this.tab_people.Controls.Add(this.searchBar1);
             this.tab_people.Controls.Add(this.flp_footer);
             this.tab_people.Location = new System.Drawing.Point(4, 28);
@@ -122,12 +122,12 @@
             this.tab_people.TabIndex = 0;
             this.tab_people.Text = "People";
             // 
-            // roundedDataGridView2
+            // dgv_people
             // 
-            this.roundedDataGridView2.AllowUserToAddRows = false;
-            this.roundedDataGridView2.AllowUserToDeleteRows = false;
-            this.roundedDataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundedDataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_people.AllowUserToAddRows = false;
+            this.dgv_people.AllowUserToDeleteRows = false;
+            this.dgv_people.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgv_people.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -136,9 +136,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roundedDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.roundedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.roundedDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_people.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_people.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_people.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.person_id,
             this.national_number,
             this.firstname,
@@ -150,7 +150,7 @@
             this.nationality,
             this.phone,
             this.email});
-            this.roundedDataGridView2.CornerRadius = 15;
+            this.dgv_people.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -158,14 +158,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roundedDataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.roundedDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedDataGridView2.EnableHeadersVisualStyles = false;
-            this.roundedDataGridView2.Location = new System.Drawing.Point(3, 53);
-            this.roundedDataGridView2.Name = "roundedDataGridView2";
-            this.roundedDataGridView2.ReadOnly = true;
-            this.roundedDataGridView2.Size = new System.Drawing.Size(739, 233);
-            this.roundedDataGridView2.TabIndex = 2;
+            this.dgv_people.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_people.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_people.EnableHeadersVisualStyles = false;
+            this.dgv_people.Location = new System.Drawing.Point(3, 53);
+            this.dgv_people.Name = "dgv_people";
+            this.dgv_people.ReadOnly = true;
+            this.dgv_people.Size = new System.Drawing.Size(739, 233);
+            this.dgv_people.TabIndex = 2;
             // 
             // person_id
             // 
@@ -274,7 +274,7 @@
             // tab_drivers
             // 
             this.tab_drivers.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_drivers.Controls.Add(this.roundedDataGridView1);
+            this.tab_drivers.Controls.Add(this.dgv_drivers);
             this.tab_drivers.Controls.Add(this.searchBar2);
             this.tab_drivers.Controls.Add(this.flowLayoutPanel1);
             this.tab_drivers.Location = new System.Drawing.Point(4, 28);
@@ -284,12 +284,12 @@
             this.tab_drivers.TabIndex = 1;
             this.tab_drivers.Text = "Drivers";
             // 
-            // roundedDataGridView1
+            // dgv_drivers
             // 
-            this.roundedDataGridView1.AllowUserToAddRows = false;
-            this.roundedDataGridView1.AllowUserToDeleteRows = false;
-            this.roundedDataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundedDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_drivers.AllowUserToAddRows = false;
+            this.dgv_drivers.AllowUserToDeleteRows = false;
+            this.dgv_drivers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgv_drivers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -298,16 +298,16 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roundedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.roundedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.roundedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_drivers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_drivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_drivers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.driver_id,
             this.driver_person_id,
             this.driver_national_number,
             this.fullname,
             this.date,
             this.active_licenses});
-            this.roundedDataGridView1.CornerRadius = 15;
+            this.dgv_drivers.CornerRadius = 15;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11F);
@@ -315,14 +315,14 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roundedDataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.roundedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedDataGridView1.EnableHeadersVisualStyles = false;
-            this.roundedDataGridView1.Location = new System.Drawing.Point(3, 53);
-            this.roundedDataGridView1.Name = "roundedDataGridView1";
-            this.roundedDataGridView1.ReadOnly = true;
-            this.roundedDataGridView1.Size = new System.Drawing.Size(739, 233);
-            this.roundedDataGridView1.TabIndex = 4;
+            this.dgv_drivers.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_drivers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_drivers.EnableHeadersVisualStyles = false;
+            this.dgv_drivers.Location = new System.Drawing.Point(3, 53);
+            this.dgv_drivers.Name = "dgv_drivers";
+            this.dgv_drivers.ReadOnly = true;
+            this.dgv_drivers.Size = new System.Drawing.Size(739, 233);
+            this.dgv_drivers.TabIndex = 4;
             // 
             // driver_id
             // 
@@ -424,10 +424,10 @@
             this.pl_Body.PerformLayout();
             this.htc_tab_nav.ResumeLayout(false);
             this.tab_people.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_people)).EndInit();
             this.flp_footer.ResumeLayout(false);
             this.tab_drivers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_drivers)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -448,14 +448,14 @@
         private System.Windows.Forms.Label lb_footer_text_driver;
         private UserControls.SearchBar searchBar1;
         private UserControls.SearchBar searchBar2;
-        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView roundedDataGridView1;
+        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_drivers;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver_person_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver_national_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn active_licenses;
-        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView roundedDataGridView2;
+        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_people;
         private System.Windows.Forms.DataGridViewTextBoxColumn person_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn national_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstname;

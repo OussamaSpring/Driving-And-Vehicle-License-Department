@@ -1,22 +1,23 @@
-﻿using System;
+﻿using Core.Models;
+using DVLD.UserControls;
+using DVLD_BusinessLogic;
+using DVLD_DataAccess.Repositories;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using DVLD.UserControls; // Ensure this namespace matches your project structure
 
 namespace DVLD.Forms
 {
     public partial class IndividualsForm : Form
     {
+        private PersonController _personController;
         public IndividualsForm()
         {
             InitializeComponent();
+
+            _personController = new PersonController(new PersonRepository());
+
 
             var tabs = new TabBar
             {
@@ -42,10 +43,14 @@ namespace DVLD.Forms
 
         }
 
-
-        private void OnPeopleTabSelected()
+        private void IndividualsForm_Load(object sender, EventArgs e)
+        {
+            OnPeopleTabSelected();
+        }
+        private async void OnPeopleTabSelected()
         {
             htc_tab_nav.SelectedIndex = 0; // Select the "People" tab
+            await LoadPeopleAsync();
         }
 
         private void OnDriversTabSelected()
@@ -53,9 +58,32 @@ namespace DVLD.Forms
             htc_tab_nav.SelectedIndex = 1; // Select the "Drivers" tab
         }
 
-        private void IndividualsForm_Load(object sender, EventArgs e)
+
+
+        private async Task LoadPeopleAsync()
         {
-            OnPeopleTabSelected();
+            var people = await _personController.GetPeopleListAsync();
+
+            dgv_people.Rows.Clear();
+
+            foreach (Person person in people)
+            {
+                dgv_people.Rows.Add(
+                    person.PersonId,
+                    person.NationalNumber,
+                    person.FirstName,
+                    person.SecondName,
+                    person.ThirdName,
+                    person.LastName,
+                    person.enGender == Core.Enums.Gender.Male ? "Male" : "Female",
+                    person.DateOfBirth.ToString("yyyy/M/dd"),
+                    person.NationalityCountry,
+                    person.Phone,
+                    person.Email
+                    );
+            }
+
+
         }
     }
 }

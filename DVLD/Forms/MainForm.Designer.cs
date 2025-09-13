@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.header1 = new DVLD.UserControls.Header();
+            this.AppHeader = new DVLD.UserControls.Header();
             this.NavBar = new DVLD.UserControls.NavigationBar();
             this.headerlessTabPage1 = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
             this.headerlessTabPage2 = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
@@ -38,14 +38,14 @@
             this.headerlessTabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // header1
+            // AppHeader
             // 
-            this.header1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.header1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.header1.Location = new System.Drawing.Point(297, 0);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(967, 60);
-            this.header1.TabIndex = 1;
+            this.AppHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.AppHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AppHeader.Location = new System.Drawing.Point(297, 0);
+            this.AppHeader.Name = "AppHeader";
+            this.AppHeader.Size = new System.Drawing.Size(967, 60);
+            this.AppHeader.TabIndex = 1;
             // 
             // NavBar
             // 
@@ -100,7 +100,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.header1);
+            this.Controls.Add(this.AppHeader);
             this.Controls.Add(this.NavBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -116,7 +116,7 @@
         #endregion
 
         private UserControls.NavigationBar NavBar;
-        private UserControls.Header header1;
+        private UserControls.Header AppHeader;
         private iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage headerlessTabPage1;
         private iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage headerlessTabPage2;
         private iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage headerlessTabPage4;
