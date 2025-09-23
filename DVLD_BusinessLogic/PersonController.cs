@@ -10,7 +10,6 @@ namespace DVLD_BusinessLogic
     public class PersonController
     {
 
-        public PersonController() { }
         private readonly IPersonRepository _personRepository;
 
         public PersonController(IPersonRepository personRepository)
@@ -39,17 +38,11 @@ namespace DVLD_BusinessLogic
 
         public async Task<bool> UpdatePersonInfoAsync(Person person)
         {
-            if (!await _personRepository.IsPersonExist(person.PersonId))
-                return false;
-
             return await _personRepository.UpdateAsync(person);
         }
 
         public async Task<bool> DeletePersonAsync(int personId)
         {
-            if (!await _personRepository.IsPersonExist(personId))
-                return false;
-
             return await _personRepository.DeleteAsync(personId);
         }
 

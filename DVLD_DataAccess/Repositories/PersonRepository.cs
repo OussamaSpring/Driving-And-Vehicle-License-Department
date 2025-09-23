@@ -13,9 +13,11 @@ namespace DVLD_DataAccess.Repositories
     {
 
         #region HelpFunctions
-
         private Person MapPerson(DataRow row)
         {
+            if (row == null)
+                return null;
+
             return new Person
             {
                 PersonId = Convert.ToInt32(row["PersonID"]),

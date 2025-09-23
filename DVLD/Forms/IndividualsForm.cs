@@ -12,6 +12,8 @@ namespace DVLD.Forms
     public partial class IndividualsForm : Form
     {
         private PersonController _personController;
+        
+
         public IndividualsForm()
         {
             InitializeComponent();
@@ -80,10 +82,11 @@ namespace DVLD.Forms
                     person.NationalityCountry,
                     person.Phone,
                     person.Email
-                    );
+                );
             }
-
-
+            lb_footer_text.Text = "Total Number of People: " + dgv_people.RowCount.ToString();
         }
+
+
     }
 }
