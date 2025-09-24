@@ -150,9 +150,7 @@
     <Compile Include="UserControls\NavigationBar.Designer.cs">
       <DependentUpon>NavigationBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SearchBar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UserControls\SearchBar.cs" />
     <Compile Include="UserControls\SearchBar.Designer.cs">
       <DependentUpon>SearchBar.cs</DependentUpon>
     </Compile>
@@ -244,7 +242,9 @@
       <Name>DVLD_DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pop-Ups\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\logo.png" />
   </ItemGroup>

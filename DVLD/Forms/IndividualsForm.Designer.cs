@@ -48,7 +48,7 @@
             this.nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchBar1 = new DVLD.UserControls.SearchBar();
+            this.uc_person_topbar = new DVLD.UserControls.SearchBar();
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text = new System.Windows.Forms.Label();
             this.tab_drivers = new System.Windows.Forms.TabPage();
@@ -59,7 +59,7 @@
             this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.active_licenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchBar2 = new DVLD.UserControls.SearchBar();
+            this.uc_driver_topbar = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text_driver = new System.Windows.Forms.Label();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
@@ -113,7 +113,7 @@
             // 
             this.tab_people.BackColor = System.Drawing.SystemColors.Control;
             this.tab_people.Controls.Add(this.dgv_people);
-            this.tab_people.Controls.Add(this.searchBar1);
+            this.tab_people.Controls.Add(this.uc_person_topbar);
             this.tab_people.Controls.Add(this.flp_footer);
             this.tab_people.Location = new System.Drawing.Point(4, 28);
             this.tab_people.Name = "tab_people";
@@ -244,13 +244,13 @@
             this.email.Name = "email";
             this.email.ReadOnly = true;
             // 
-            // searchBar1
+            // uc_person_topbar
             // 
-            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar1.Location = new System.Drawing.Point(3, 3);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.Size = new System.Drawing.Size(739, 50);
-            this.searchBar1.TabIndex = 1;
+            this.uc_person_topbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uc_person_topbar.Location = new System.Drawing.Point(3, 3);
+            this.uc_person_topbar.Name = "uc_person_topbar";
+            this.uc_person_topbar.Size = new System.Drawing.Size(739, 50);
+            this.uc_person_topbar.TabIndex = 1;
             // 
             // flp_footer
             // 
@@ -275,7 +275,7 @@
             // 
             this.tab_drivers.BackColor = System.Drawing.SystemColors.Control;
             this.tab_drivers.Controls.Add(this.dgv_drivers);
-            this.tab_drivers.Controls.Add(this.searchBar2);
+            this.tab_drivers.Controls.Add(this.uc_driver_topbar);
             this.tab_drivers.Controls.Add(this.flowLayoutPanel1);
             this.tab_drivers.Location = new System.Drawing.Point(4, 28);
             this.tab_drivers.Name = "tab_drivers";
@@ -366,13 +366,13 @@
             this.active_licenses.Name = "active_licenses";
             this.active_licenses.ReadOnly = true;
             // 
-            // searchBar2
+            // uc_driver_topbar
             // 
-            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar2.Location = new System.Drawing.Point(3, 3);
-            this.searchBar2.Name = "searchBar2";
-            this.searchBar2.Size = new System.Drawing.Size(739, 50);
-            this.searchBar2.TabIndex = 3;
+            this.uc_driver_topbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uc_driver_topbar.Location = new System.Drawing.Point(3, 3);
+            this.uc_driver_topbar.Name = "uc_driver_topbar";
+            this.uc_driver_topbar.Size = new System.Drawing.Size(739, 50);
+            this.uc_driver_topbar.TabIndex = 3;
             // 
             // flowLayoutPanel1
             // 
@@ -446,8 +446,8 @@
         private System.Windows.Forms.Label lb_footer_text;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lb_footer_text_driver;
-        private UserControls.SearchBar searchBar1;
-        private UserControls.SearchBar searchBar2;
+        private UserControls.SearchBar uc_person_topbar;
+        private UserControls.SearchBar uc_driver_topbar;
         private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_drivers;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver_person_id;

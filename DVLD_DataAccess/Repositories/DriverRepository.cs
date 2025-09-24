@@ -11,7 +11,6 @@ namespace DVLD_DataAccess.Repositories
 {
     public class DriverRepository : IDriverRepository
     {
-
         #region HelpFunctions
         private Driver MapDriver(DataRow row)
         {
@@ -20,13 +19,13 @@ namespace DVLD_DataAccess.Repositories
 
             return new Driver
             {
-                DriverId = Convert.ToInt32(row["DriverID"]),
-                DriverPersonId = Convert.ToInt32(row["PersonID"]),
-                CreatedByUserId = Convert.ToInt32(row["CreatedByUserID"]),
-                CreateDate = Convert.ToDateTime(row["CreatedDate"]),
-                NationalNumber = row["NationalNo"].ToString() ?? null,
-                FullName = row["FullName"].ToString() ?? null,
-                ActiveLicensesCount = Convert.ToInt16(row["ActiveLicensesCount"] ?? 0),
+                DriverId = row["DriverID"] != DBNull.Value ? Convert.ToInt32(row["DriverID"]) : 0,
+                DriverPersonId = row["PersonID"] != DBNull.Value ? Convert.ToInt32(row["PersonID"]) : 0,
+                CreatedByUserId = row["CreatedByUserID"] != DBNull.Value ? Convert.ToInt32(row["CreatedByUserID"]) : 0,
+                CreateDate = row["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(row["CreatedDate"]) : DateTime.MinValue,
+                NationalNumber = row["NationalNo"] != DBNull.Value ? row["NationalNo"].ToString() : string.Empty,
+                FullName = row["FullName"] != DBNull.Value ? row["FullName"].ToString() : string.Empty,
+                ActiveLicensesCount = row.Table.Columns.Contains("ActiveLicensesCount") && row["ActiveLicensesCount"] != DBNull.Value ? Convert.ToInt16(row["ActiveLicensesCount"]) : (short)0,
             };
         }
 

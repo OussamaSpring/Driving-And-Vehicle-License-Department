@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.flp_body = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtB_search = new System.Windows.Forms.TextBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.cb_filter_criteria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
@@ -38,7 +38,7 @@
             // 
             // flp_body
             // 
-            this.flp_body.Controls.Add(this.txtB_search);
+            this.flp_body.Controls.Add(this.txt_search);
             this.flp_body.Controls.Add(this.cb_filter_criteria);
             this.flp_body.Controls.Add(this.label1);
             this.flp_body.Controls.Add(this.btn_add);
@@ -50,34 +50,37 @@
             this.flp_body.Size = new System.Drawing.Size(685, 50);
             this.flp_body.TabIndex = 0;
             // 
-            // txtB_search
+            // txt_search
             // 
-            this.txtB_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtB_search.Location = new System.Drawing.Point(415, 10);
-            this.txtB_search.Margin = new System.Windows.Forms.Padding(0);
-            this.txtB_search.MaxLength = 40;
-            this.txtB_search.Multiline = true;
-            this.txtB_search.Name = "txtB_search";
-            this.txtB_search.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtB_search.Size = new System.Drawing.Size(250, 30);
-            this.txtB_search.TabIndex = 0;
+            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.Location = new System.Drawing.Point(415, 10);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(0);
+            this.txt_search.MaxLength = 40;
+            this.txt_search.Multiline = true;
+            this.txt_search.Name = "txt_search";
+            this.txt_search.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txt_search.Size = new System.Drawing.Size(250, 30);
+            this.txt_search.TabIndex = 0;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // cb_filter_criteria
             // 
             this.cb_filter_criteria.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_filter_criteria.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.cb_filter_criteria.FormattingEnabled = true;
-            this.cb_filter_criteria.Location = new System.Drawing.Point(254, 12);
+            this.cb_filter_criteria.Items.AddRange(new object[] {
+            "None"});
+            this.cb_filter_criteria.Location = new System.Drawing.Point(219, 12);
             this.cb_filter_criteria.Margin = new System.Windows.Forms.Padding(0, 2, 10, 0);
             this.cb_filter_criteria.Name = "cb_filter_criteria";
-            this.cb_filter_criteria.Size = new System.Drawing.Size(151, 27);
+            this.cb_filter_criteria.Size = new System.Drawing.Size(186, 27);
             this.cb_filter_criteria.TabIndex = 2;
-            this.cb_filter_criteria.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(176, 16);
+            this.label1.Location = new System.Drawing.Point(141, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 6, 10, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 18);
@@ -87,7 +90,7 @@
             // btn_add
             // 
             this.btn_add.Image = global::DVLD.Properties.Resources.add;
-            this.btn_add.Location = new System.Drawing.Point(136, 10);
+            this.btn_add.Location = new System.Drawing.Point(101, 10);
             this.btn_add.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(30, 30);
@@ -111,7 +114,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flp_body;
-        private System.Windows.Forms.TextBox txtB_search;
+        private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.ComboBox cb_filter_criteria;
         private System.Windows.Forms.Label label1;
