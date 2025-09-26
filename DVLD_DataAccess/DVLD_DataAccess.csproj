@@ -46,6 +46,7 @@
     <Compile Include="Database\DBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DriverRepository.cs" />
+    <Compile Include="Repositories\InternationalLicenseRepository.cs" />
     <Compile Include="Repositories\LicenseClassRepository.cs" />
     <Compile Include="Repositories\LicenseRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />

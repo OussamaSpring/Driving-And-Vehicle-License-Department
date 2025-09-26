@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DriverController.cs" />
+    <Compile Include="InternationalLicenseController.cs" />
     <Compile Include="LicenseClassController.cs" />
     <Compile Include="LicenseController.cs" />
     <Compile Include="PersonController.cs" />

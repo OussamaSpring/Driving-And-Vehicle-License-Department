@@ -14,27 +14,27 @@ namespace DVLD_BusinessLogic
             _licenseRepository = licenseRepository;
         }
 
-        public Task<License> GetByIdAsync(int id)
+        public Task<License> GetLicenseByIdAsync(int id)
         {
             return _licenseRepository.GetByIdAsync(id);
         }
 
-        public Task<IEnumerable<License>> GetAllAsync()
+        public Task<IEnumerable<License>> GetLicensesListAsync()
         {
             return _licenseRepository.GetAllAsync();
         }
 
-        public Task<int> AddAsync(License license)
+        public Task<int> AddLicenseAsync(License license)
         {
             return _licenseRepository.AddAsync(license);
         }
 
-        public Task<bool> UpdateAsync(License license)
+        public Task<bool> UpdateLicenseAsync(License license)
         {
             return _licenseRepository.UpdateAsync(license);
         }
 
-        public Task<bool> DeleteAsync(int id)
+        public Task<bool> DeleteLicenseAsync(int id)
         {
             return _licenseRepository.DeleteAsync(id);
         }

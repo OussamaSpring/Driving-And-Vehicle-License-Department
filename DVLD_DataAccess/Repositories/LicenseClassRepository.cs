@@ -97,5 +97,6 @@ namespace DVLD_DataAccess.Repositories
             int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
             return rowsAffected > 0;
         }
+    
     }
 }

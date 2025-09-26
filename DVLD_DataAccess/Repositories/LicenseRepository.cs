@@ -16,6 +16,7 @@ namespace DVLD_DataAccess.Repositories
         {
             if (row == null)
                 return null;
+
             return new License
             {
                 LicenseId = Convert.ToInt32(row["LicenseID"]),
