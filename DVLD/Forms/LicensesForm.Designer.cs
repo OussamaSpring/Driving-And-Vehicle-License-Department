@@ -28,29 +28,11 @@ namespace DVLD.Forms
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
             this.tab_local = new System.Windows.Forms.TabPage();
             this.dgv_local_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
-            this.license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.class_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driver_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driver_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issue_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issued_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expiration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.searchBar1 = new DVLD.UserControls.SearchBar();
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text = new System.Windows.Forms.Label();
             this.tab_international = new System.Windows.Forms.TabPage();
             this.dgv_international_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.local_license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.searchBar2 = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text_driver = new System.Windows.Forms.Label();
@@ -65,6 +47,23 @@ namespace DVLD.Forms
             this.default_validity_length = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
+            this.license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driver_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.class_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issue_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expiration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.issue_reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issued_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.international_license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inter_application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inter_driver_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.local_license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inter_issue_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inter_expiration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.inter_issued_by_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_local.SuspendLayout();
@@ -147,13 +146,13 @@ namespace DVLD.Forms
             this.dgv_local_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.license_id,
             this.application_id,
-            this.class_name,
             this.driver_id,
-            this.driver_fullname,
+            this.class_name,
             this.issue_date,
-            this.issued_by,
             this.expiration_date,
-            this.is_active});
+            this.is_active,
+            this.issue_reason,
+            this.issued_by});
             this.dgv_local_licenses.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -170,71 +169,6 @@ namespace DVLD.Forms
             this.dgv_local_licenses.ReadOnly = true;
             this.dgv_local_licenses.Size = new System.Drawing.Size(739, 233);
             this.dgv_local_licenses.TabIndex = 2;
-            // 
-            // license_id
-            // 
-            this.license_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.license_id.HeaderText = "Licence ID";
-            this.license_id.Name = "license_id";
-            this.license_id.ReadOnly = true;
-            // 
-            // application_id
-            // 
-            this.application_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.application_id.HeaderText = "Application ID";
-            this.application_id.Name = "application_id";
-            this.application_id.ReadOnly = true;
-            // 
-            // class_name
-            // 
-            this.class_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.class_name.HeaderText = "Class Name";
-            this.class_name.Name = "class_name";
-            this.class_name.ReadOnly = true;
-            // 
-            // driver_id
-            // 
-            this.driver_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.driver_id.HeaderText = "Driver\'s ID";
-            this.driver_id.Name = "driver_id";
-            this.driver_id.ReadOnly = true;
-            // 
-            // driver_fullname
-            // 
-            this.driver_fullname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.driver_fullname.HeaderText = "Driver\'s Full Name";
-            this.driver_fullname.Name = "driver_fullname";
-            this.driver_fullname.ReadOnly = true;
-            // 
-            // issue_date
-            // 
-            this.issue_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.issue_date.HeaderText = "Issue Date";
-            this.issue_date.Name = "issue_date";
-            this.issue_date.ReadOnly = true;
-            // 
-            // issued_by
-            // 
-            this.issued_by.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.issued_by.HeaderText = "Issued by User";
-            this.issued_by.Name = "issued_by";
-            this.issued_by.ReadOnly = true;
-            // 
-            // expiration_date
-            // 
-            this.expiration_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.expiration_date.HeaderText = "Expiration Date";
-            this.expiration_date.Name = "expiration_date";
-            this.expiration_date.ReadOnly = true;
-            // 
-            // is_active
-            // 
-            this.is_active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.is_active.HeaderText = "Is Active";
-            this.is_active.Name = "is_active";
-            this.is_active.ReadOnly = true;
-            this.is_active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.is_active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // searchBar1
             // 
@@ -294,15 +228,14 @@ namespace DVLD.Forms
             this.dgv_international_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_international_licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_international_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
+            this.international_license_id,
+            this.inter_application_id,
+            this.inter_driver_id,
             this.local_license_id,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewCheckBoxColumn1});
+            this.inter_issue_date,
+            this.inter_expiration_date,
+            this.dataGridViewCheckBoxColumn1,
+            this.inter_issued_by_user});
             this.dgv_international_licenses.CornerRadius = 15;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -319,71 +252,6 @@ namespace DVLD.Forms
             this.dgv_international_licenses.ReadOnly = true;
             this.dgv_international_licenses.Size = new System.Drawing.Size(739, 233);
             this.dgv_international_licenses.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Licence ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Application ID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Driver\'s ID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Driver\'s Full Name";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // local_license_id
-            // 
-            this.local_license_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.local_license_id.HeaderText = "Local License ID";
-            this.local_license_id.Name = "local_license_id";
-            this.local_license_id.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Issue Date";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Issued by User";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Expiration Date";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Is Active";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // searchBar2
             // 
@@ -540,6 +408,129 @@ namespace DVLD.Forms
             this.tlp_header.Size = new System.Drawing.Size(753, 0);
             this.tlp_header.TabIndex = 0;
             // 
+            // license_id
+            // 
+            this.license_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.license_id.HeaderText = "Licence ID";
+            this.license_id.Name = "license_id";
+            this.license_id.ReadOnly = true;
+            // 
+            // application_id
+            // 
+            this.application_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.application_id.HeaderText = "Application ID";
+            this.application_id.Name = "application_id";
+            this.application_id.ReadOnly = true;
+            // 
+            // driver_id
+            // 
+            this.driver_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.driver_id.HeaderText = "Driver\'s ID";
+            this.driver_id.Name = "driver_id";
+            this.driver_id.ReadOnly = true;
+            // 
+            // class_name
+            // 
+            this.class_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.class_name.HeaderText = "Class Name";
+            this.class_name.Name = "class_name";
+            this.class_name.ReadOnly = true;
+            // 
+            // issue_date
+            // 
+            this.issue_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.issue_date.HeaderText = "Issue Date";
+            this.issue_date.Name = "issue_date";
+            this.issue_date.ReadOnly = true;
+            // 
+            // expiration_date
+            // 
+            this.expiration_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.expiration_date.HeaderText = "Expiration Date";
+            this.expiration_date.Name = "expiration_date";
+            this.expiration_date.ReadOnly = true;
+            // 
+            // is_active
+            // 
+            this.is_active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.is_active.HeaderText = "Is Active";
+            this.is_active.Name = "is_active";
+            this.is_active.ReadOnly = true;
+            this.is_active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // issue_reason
+            // 
+            this.issue_reason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.issue_reason.HeaderText = "Issue Reason";
+            this.issue_reason.Name = "issue_reason";
+            this.issue_reason.ReadOnly = true;
+            // 
+            // issued_by
+            // 
+            this.issued_by.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.issued_by.HeaderText = "Issued by User";
+            this.issued_by.Name = "issued_by";
+            this.issued_by.ReadOnly = true;
+            // 
+            // international_license_id
+            // 
+            this.international_license_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.international_license_id.HeaderText = "International Licence ID";
+            this.international_license_id.Name = "international_license_id";
+            this.international_license_id.ReadOnly = true;
+            // 
+            // inter_application_id
+            // 
+            this.inter_application_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.inter_application_id.HeaderText = "Application ID";
+            this.inter_application_id.Name = "inter_application_id";
+            this.inter_application_id.ReadOnly = true;
+            // 
+            // inter_driver_id
+            // 
+            this.inter_driver_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.inter_driver_id.HeaderText = "Driver\'s ID";
+            this.inter_driver_id.Name = "inter_driver_id";
+            this.inter_driver_id.ReadOnly = true;
+            // 
+            // local_license_id
+            // 
+            this.local_license_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.local_license_id.HeaderText = "Issued Using Local License ID";
+            this.local_license_id.Name = "local_license_id";
+            this.local_license_id.ReadOnly = true;
+            // 
+            // inter_issue_date
+            // 
+            this.inter_issue_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.inter_issue_date.HeaderText = "Issue Date";
+            this.inter_issue_date.Name = "inter_issue_date";
+            this.inter_issue_date.ReadOnly = true;
+            // 
+            // inter_expiration_date
+            // 
+            this.inter_expiration_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.inter_expiration_date.HeaderText = "Expiration Date";
+            this.inter_expiration_date.Name = "inter_expiration_date";
+            this.inter_expiration_date.ReadOnly = true;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Is Active";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // inter_issued_by_user
+            // 
+            this.inter_issued_by_user.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.inter_issued_by_user.HeaderText = "Issued by User";
+            this.inter_issued_by_user.Name = "inter_issued_by_user";
+            this.inter_issued_by_user.ReadOnly = true;
+            // 
             // LicensesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -583,25 +574,7 @@ namespace DVLD.Forms
         private UserControls.SearchBar searchBar2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lb_footer_text_driver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn license_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn application_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn class_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driver_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driver_fullname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issue_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issued_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expiration_date;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn is_active;
         private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_international_licenses;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn local_license_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.TabPage tab_classes;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label1;
@@ -612,5 +585,22 @@ namespace DVLD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn minimum_allowed_age;
         private System.Windows.Forms.DataGridViewTextBoxColumn default_validity_length;
         private System.Windows.Forms.DataGridViewTextBoxColumn fees;
+        private System.Windows.Forms.DataGridViewTextBoxColumn license_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn application_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn driver_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn class_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issue_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expiration_date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn is_active;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issue_reason;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issued_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn international_license_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inter_application_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inter_driver_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn local_license_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inter_issue_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inter_expiration_date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inter_issued_by_user;
     }
 }
