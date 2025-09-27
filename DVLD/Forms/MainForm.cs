@@ -125,7 +125,7 @@ namespace DVLD
 
         private void ShowLicenseDetain()
         {
-            LicenseDetainForm form = new LicenseDetainForm();
+            DetainedLicenses form = new DetainedLicenses();
             form.MdiParent = this;
             form.Dock = DockStyle.Fill;
             form.Show();

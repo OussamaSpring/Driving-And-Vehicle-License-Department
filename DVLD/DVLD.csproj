@@ -93,6 +93,12 @@
     <Compile Include="Forms\ApplicationsForm.Designer.cs">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApplicationsForm.resx">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
@@ -249,6 +258,14 @@
     <None Include="Resources\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Images\damaged_license.png" />
+    <Content Include="Resources\Images\driving-license.png" />
+    <Content Include="Resources\Images\inter-driver-license.png" />
+    <Content Include="Resources\Images\license_detain.png" />
+    <Content Include="Resources\Images\license_release.png" />
+    <Content Include="Resources\Images\question-mark.png" />
+    <Content Include="Resources\Images\renew-license.png" />
+    <Content Include="Resources\Images\TakeTest.png" />
     <None Include="Resources\Icons\add.png" />
     <Content Include="Resources\Icons\Credit card Black.png" />
     <Content Include="Resources\Icons\Credit card.png" />

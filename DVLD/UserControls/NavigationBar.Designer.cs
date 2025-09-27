@@ -157,7 +157,7 @@
             this.License_Detain.Size = new System.Drawing.Size(274, 53);
             this.License_Detain.TabIndex = 6;
             this.License_Detain.Tag = "6";
-            this.License_Detain.Text = "   License Detain";
+            this.License_Detain.Text = "    Detained Licenses";
             this.License_Detain.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.License_Detain.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.License_Detain.UseVisualStyleBackColor = false;

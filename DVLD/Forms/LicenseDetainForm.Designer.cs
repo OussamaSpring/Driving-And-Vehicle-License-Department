@@ -1,6 +1,6 @@
 namespace DVLD.Forms
 {
-    partial class LicenseDetainForm
+    partial class DetainedLicenses
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -22,9 +22,8 @@ namespace DVLD.Forms
             this.lb_Title = new System.Windows.Forms.Label();
             this.pl_Body = new System.Windows.Forms.Panel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
-            this.tab_operations = new System.Windows.Forms.TabPage();
             this.tab_detain_list = new System.Windows.Forms.TabPage();
-            this.roundedDataGridView1 = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
+            this.dgv_Detained_Licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.detain_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detain_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -34,14 +33,14 @@ namespace DVLD.Forms
             this.release_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.released_by_user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.release_application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchBar2 = new DVLD.UserControls.SearchBar();
+            this.uc_license_detain_topbar = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_detain_list.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Detained_Licenses)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,9 +51,9 @@ namespace DVLD.Forms
             this.lb_Title.Font = new System.Drawing.Font("Roboto Lt", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Title.Location = new System.Drawing.Point(20, 20);
             this.lb_Title.Name = "lb_Title";
-            this.lb_Title.Size = new System.Drawing.Size(194, 29);
+            this.lb_Title.Size = new System.Drawing.Size(236, 29);
             this.lb_Title.TabIndex = 0;
-            this.lb_Title.Text = "License Detain.";
+            this.lb_Title.Text = "Detained Licenses.";
             // 
             // pl_Body
             // 
@@ -70,7 +69,6 @@ namespace DVLD.Forms
             // 
             // htc_tab_nav
             // 
-            this.htc_tab_nav.Controls.Add(this.tab_operations);
             this.htc_tab_nav.Controls.Add(this.tab_detain_list);
             this.htc_tab_nav.Dock = System.Windows.Forms.DockStyle.Fill;
             this.htc_tab_nav.ItemSize = new System.Drawing.Size(100, 24);
@@ -81,21 +79,11 @@ namespace DVLD.Forms
             this.htc_tab_nav.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.htc_tab_nav.TabIndex = 4;
             // 
-            // tab_operations
-            // 
-            this.tab_operations.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_operations.Location = new System.Drawing.Point(4, 28);
-            this.tab_operations.Name = "tab_operations";
-            this.tab_operations.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_operations.Size = new System.Drawing.Size(745, 339);
-            this.tab_operations.TabIndex = 0;
-            this.tab_operations.Text = "Operations";
-            // 
             // tab_detain_list
             // 
             this.tab_detain_list.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_detain_list.Controls.Add(this.roundedDataGridView1);
-            this.tab_detain_list.Controls.Add(this.searchBar2);
+            this.tab_detain_list.Controls.Add(this.dgv_Detained_Licenses);
+            this.tab_detain_list.Controls.Add(this.uc_license_detain_topbar);
             this.tab_detain_list.Controls.Add(this.flowLayoutPanel2);
             this.tab_detain_list.Location = new System.Drawing.Point(4, 28);
             this.tab_detain_list.Name = "tab_detain_list";
@@ -104,12 +92,12 @@ namespace DVLD.Forms
             this.tab_detain_list.TabIndex = 2;
             this.tab_detain_list.Text = "Detain List";
             // 
-            // roundedDataGridView1
+            // dgv_Detained_Licenses
             // 
-            this.roundedDataGridView1.AllowUserToAddRows = false;
-            this.roundedDataGridView1.AllowUserToDeleteRows = false;
-            this.roundedDataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundedDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_Detained_Licenses.AllowUserToAddRows = false;
+            this.dgv_Detained_Licenses.AllowUserToDeleteRows = false;
+            this.dgv_Detained_Licenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgv_Detained_Licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -118,9 +106,9 @@ namespace DVLD.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roundedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.roundedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.roundedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_Detained_Licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Detained_Licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Detained_Licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detain_id,
             this.license_id,
             this.detain_date,
@@ -130,7 +118,7 @@ namespace DVLD.Forms
             this.release_date,
             this.released_by_user_id,
             this.release_application_id});
-            this.roundedDataGridView1.CornerRadius = 15;
+            this.dgv_Detained_Licenses.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -138,14 +126,14 @@ namespace DVLD.Forms
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roundedDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.roundedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedDataGridView1.EnableHeadersVisualStyles = false;
-            this.roundedDataGridView1.Location = new System.Drawing.Point(3, 53);
-            this.roundedDataGridView1.Name = "roundedDataGridView1";
-            this.roundedDataGridView1.ReadOnly = true;
-            this.roundedDataGridView1.Size = new System.Drawing.Size(739, 233);
-            this.roundedDataGridView1.TabIndex = 6;
+            this.dgv_Detained_Licenses.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_Detained_Licenses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Detained_Licenses.EnableHeadersVisualStyles = false;
+            this.dgv_Detained_Licenses.Location = new System.Drawing.Point(3, 53);
+            this.dgv_Detained_Licenses.Name = "dgv_Detained_Licenses";
+            this.dgv_Detained_Licenses.ReadOnly = true;
+            this.dgv_Detained_Licenses.Size = new System.Drawing.Size(739, 233);
+            this.dgv_Detained_Licenses.TabIndex = 6;
             // 
             // detain_id
             // 
@@ -212,13 +200,13 @@ namespace DVLD.Forms
             this.release_application_id.Name = "release_application_id";
             this.release_application_id.ReadOnly = true;
             // 
-            // searchBar2
+            // uc_license_detain_topbar
             // 
-            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar2.Location = new System.Drawing.Point(3, 3);
-            this.searchBar2.Name = "searchBar2";
-            this.searchBar2.Size = new System.Drawing.Size(739, 50);
-            this.searchBar2.TabIndex = 5;
+            this.uc_license_detain_topbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uc_license_detain_topbar.Location = new System.Drawing.Point(3, 3);
+            this.uc_license_detain_topbar.Name = "uc_license_detain_topbar";
+            this.uc_license_detain_topbar.Size = new System.Drawing.Size(739, 50);
+            this.uc_license_detain_topbar.TabIndex = 5;
             // 
             // flowLayoutPanel2
             // 
@@ -236,7 +224,7 @@ namespace DVLD.Forms
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(624, 50);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Total Number of Detains: ";
+            this.label1.Text = "Total Number of Detained Licenses: ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlp_header
@@ -254,7 +242,7 @@ namespace DVLD.Forms
             this.tlp_header.Size = new System.Drawing.Size(753, 0);
             this.tlp_header.TabIndex = 0;
             // 
-            // LicenseDetainForm
+            // DetainedLicenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +250,7 @@ namespace DVLD.Forms
             this.Controls.Add(this.pl_Body);
             this.Controls.Add(this.lb_Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "LicenseDetainForm";
+            this.Name = "DetainedLicenses";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "License Detain";
             this.Load += new System.EventHandler(this.LicenseDetainForm_Load);
@@ -270,7 +258,7 @@ namespace DVLD.Forms
             this.pl_Body.PerformLayout();
             this.htc_tab_nav.ResumeLayout(false);
             this.tab_detain_list.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Detained_Licenses)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -283,12 +271,11 @@ namespace DVLD.Forms
         private System.Windows.Forms.Panel pl_Body;
         private System.Windows.Forms.TableLayoutPanel tlp_header;
         private CustomControls.HeaderlessTabControl htc_tab_nav;
-        private System.Windows.Forms.TabPage tab_operations;
         private System.Windows.Forms.TabPage tab_detain_list;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label1;
-        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView roundedDataGridView1;
-        private UserControls.SearchBar searchBar2;
+        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_Detained_Licenses;
+        private UserControls.SearchBar uc_license_detain_topbar;
         private System.Windows.Forms.DataGridViewTextBoxColumn detain_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn license_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn detain_date;
