@@ -19,10 +19,10 @@ namespace DVLD_DataAccess.Repositories
 
             return new LicenseClass
             {
-                Id = Convert.ToInt16(row["LicneseClassID"]),
-                Name = row["Name"]?.ToString(),
-                Description = row["Description"]?.ToString(),
-                MiminumAllowedAge = Convert.ToInt16(row["MiminumAllowedAge"]),
+                Id = Convert.ToInt16(row["LicenseClassID"]),
+                Name = row["ClassName"]?.ToString(),
+                Description = row["ClassDescription"]?.ToString(),
+                MiminumAllowedAge = Convert.ToInt16(row["MinimumAllowedAge"]),
                 DefaultValidityLength = Convert.ToInt16(row["DefaultValidityLength"]),
                 ClassFees = Convert.ToDecimal(row["ClassFees"])
             };

@@ -22,14 +22,14 @@ namespace DVLD_DataAccess.Repositories
                 LicenseId = Convert.ToInt32(row["LicenseID"]),
                 ApplicationId = Convert.ToInt32(row["ApplicationID"]),
                 DriverId = Convert.ToInt32(row["DriverID"]),
-                ClassName = row["ClassName"].ToString(),
+                ClassId = Convert.ToInt16(row["LicenseClass"]),
                 IssueDate = Convert.ToDateTime(row["IssueDate"]),
                 ExpirationDate = Convert.ToDateTime(row["ExpirationDate"]),
                 Notes = row["Notes"] != DBNull.Value ? row["Notes"].ToString() : null,
                 PaidFees = Convert.ToSingle(row["PaidFees"]),
                 IsActive = Convert.ToBoolean(row["IsActive"]),
-                enIssuesReason = (LicenseIsssueReason)Convert.ToInt32(row["IssueReason"]),
-                IssuedByUserId = Convert.ToInt32(row["IssuedByUserID"])
+                enIssuesReason = (LicenseIsssueReasons)Convert.ToInt32(row["IssueReason"]),
+                IssuedByUserId = Convert.ToInt32(row["CreatedByUserID"])
             };
         }
 
@@ -61,7 +61,7 @@ namespace DVLD_DataAccess.Repositories
             {
                 { "@ApplicationID", license.ApplicationId },
                 { "@DriverID", license.DriverId },
-                { "@ClassName", license.ClassName },
+                { "@ClassID", license.ClassId },
                 { "@IssueDate", license.IssueDate },
                 { "@ExpirationDate", license.ExpirationDate },
                 { "@Notes", (object)license.Notes ?? DBNull.Value },
@@ -70,8 +70,8 @@ namespace DVLD_DataAccess.Repositories
                 { "@IssueReason", (int)license.enIssuesReason },
                 { "@IssuedByUserID", license.IssuedByUserId }
             };
-            string sqlQuery = @"INSERT INTO Licenses (ApplicationID, DriverID, ClassName, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, IssuedByUserID)
-                                VALUES (@ApplicationID, @DriverID, @ClassName, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @IssueReason, @IssuedByUserID);
+            string sqlQuery = @"INSERT INTO Licenses (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, IssuedByUserID)
+                                VALUES (@ApplicationID, @DriverID, @ClassID, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @IssueReason, @IssuedByUserID);
                                 SELECT SCOPE_IDENTITY();";
             object result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
             return Convert.ToInt32(result);
@@ -83,7 +83,7 @@ namespace DVLD_DataAccess.Repositories
                 { "@LicenseID", license.LicenseId },
                 { "@ApplicationID", license.ApplicationId },
                 { "@DriverID", license.DriverId },
-                { "@ClassName", license.ClassName },
+                { "@ClassID", license.ClassId },
                 { "@IssueDate", license.IssueDate },
                 { "@ExpirationDate", license.ExpirationDate },
                 { "@Notes", (object)license.Notes ?? DBNull.Value },
@@ -95,7 +95,7 @@ namespace DVLD_DataAccess.Repositories
             string sqlQuery = @"UPDATE Licenses SET
                                 ApplicationID = @ApplicationID,
                                 DriverID = @DriverID,
-                                ClassName = @ClassName,
+                                LicenseClass = @ClassID,
                                 IssueDate = @IssueDate,
                                 ExpirationDate = @ExpirationDate,
                                 Notes = @Notes,

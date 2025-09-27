@@ -4,7 +4,7 @@ namespace Core.Enums
 {
     public enum ApplicationStatus
     {
-        New,
+        New = 1,
         Cancelled,
         Completed
     }

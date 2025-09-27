@@ -15,7 +15,7 @@ namespace Core.Models
         public string ThirdName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public Enums.Gender enGender { get; set; }
+        public Enums.Genders enGender { get; set; }
         public string Address { get; set; }
         public string NationalityCountry {  get; set; }
         public string Email { get; set; }

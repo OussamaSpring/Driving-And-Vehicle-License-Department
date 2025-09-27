@@ -21,11 +21,11 @@ namespace DVLD_DataAccess.Repositories
                 InternationalLicenseId = Convert.ToInt32(row["InternationalLicenseID"]),
                 ApplicationId = Convert.ToInt32(row["ApplicationID"]),
                 DriverId = Convert.ToInt32(row["DriverID"]),
-                LocalLicenseId = Convert.ToInt32(row["LocalLicenseID"]),
+                LocalLicenseId = Convert.ToInt32(row["IssuedUsingLocalLicenseID"]),
                 IssueDate = Convert.ToDateTime(row["IssueDate"]),
                 ExpirationDate = Convert.ToDateTime(row["ExpirationDate"]),
                 IsActive = Convert.ToBoolean(row["IsActive"]),
-                IssuedByUserId = Convert.ToInt32(row["IssuedByUserID"])
+                IssuedByUserId = Convert.ToInt32(row["CreatedByUserID"])
             };
         }
         #endregion

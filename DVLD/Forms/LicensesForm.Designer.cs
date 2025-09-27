@@ -37,9 +37,9 @@ namespace DVLD.Forms
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.issue_reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issued_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchBar1 = new DVLD.UserControls.SearchBar();
+            this.uc_local_topbar = new DVLD.UserControls.SearchBar();
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_text = new System.Windows.Forms.Label();
+            this.lb_footer_text_local = new System.Windows.Forms.Label();
             this.tab_international = new System.Windows.Forms.TabPage();
             this.dgv_international_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.international_license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,12 +50,12 @@ namespace DVLD.Forms
             this.inter_expiration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.inter_issued_by_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchBar2 = new DVLD.UserControls.SearchBar();
+            this.uc_international_topbar = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_text_driver = new System.Windows.Forms.Label();
+            this.lb_footer_text_inter = new System.Windows.Forms.Label();
             this.tab_classes = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_footer_text_classes = new System.Windows.Forms.Label();
             this.dgv_license_classes = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.class_full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,7 +118,7 @@ namespace DVLD.Forms
             // 
             this.tab_local.BackColor = System.Drawing.SystemColors.Control;
             this.tab_local.Controls.Add(this.dgv_local_licenses);
-            this.tab_local.Controls.Add(this.searchBar1);
+            this.tab_local.Controls.Add(this.uc_local_topbar);
             this.tab_local.Controls.Add(this.flp_footer);
             this.tab_local.Location = new System.Drawing.Point(4, 28);
             this.tab_local.Name = "tab_local";
@@ -235,39 +235,38 @@ namespace DVLD.Forms
             this.issued_by.Name = "issued_by";
             this.issued_by.ReadOnly = true;
             // 
-            // searchBar1
+            // uc_local_topbar
             // 
-            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar1.Location = new System.Drawing.Point(3, 3);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.Size = new System.Drawing.Size(739, 50);
-            this.searchBar1.TabIndex = 1;
-            this.searchBar1.Load += new System.EventHandler(this.searchBar1_Load);
+            this.uc_local_topbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uc_local_topbar.Location = new System.Drawing.Point(3, 3);
+            this.uc_local_topbar.Name = "uc_local_topbar";
+            this.uc_local_topbar.Size = new System.Drawing.Size(739, 50);
+            this.uc_local_topbar.TabIndex = 1;
             // 
             // flp_footer
             // 
-            this.flp_footer.Controls.Add(this.lb_footer_text);
+            this.flp_footer.Controls.Add(this.lb_footer_text_local);
             this.flp_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flp_footer.Location = new System.Drawing.Point(3, 286);
             this.flp_footer.Name = "flp_footer";
             this.flp_footer.Size = new System.Drawing.Size(739, 50);
             this.flp_footer.TabIndex = 0;
             // 
-            // lb_footer_text
+            // lb_footer_text_local
             // 
-            this.lb_footer_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_footer_text.Location = new System.Drawing.Point(3, 0);
-            this.lb_footer_text.Name = "lb_footer_text";
-            this.lb_footer_text.Size = new System.Drawing.Size(624, 50);
-            this.lb_footer_text.TabIndex = 0;
-            this.lb_footer_text.Text = "Total Number of Local Licenses: ";
-            this.lb_footer_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_footer_text_local.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_text_local.Location = new System.Drawing.Point(3, 0);
+            this.lb_footer_text_local.Name = "lb_footer_text_local";
+            this.lb_footer_text_local.Size = new System.Drawing.Size(624, 50);
+            this.lb_footer_text_local.TabIndex = 0;
+            this.lb_footer_text_local.Text = "Total Number of Local Licenses: ";
+            this.lb_footer_text_local.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tab_international
             // 
             this.tab_international.BackColor = System.Drawing.SystemColors.Control;
             this.tab_international.Controls.Add(this.dgv_international_licenses);
-            this.tab_international.Controls.Add(this.searchBar2);
+            this.tab_international.Controls.Add(this.uc_international_topbar);
             this.tab_international.Controls.Add(this.flowLayoutPanel1);
             this.tab_international.Location = new System.Drawing.Point(4, 28);
             this.tab_international.Name = "tab_international";
@@ -376,32 +375,32 @@ namespace DVLD.Forms
             this.inter_issued_by_user.Name = "inter_issued_by_user";
             this.inter_issued_by_user.ReadOnly = true;
             // 
-            // searchBar2
+            // uc_international_topbar
             // 
-            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchBar2.Location = new System.Drawing.Point(3, 3);
-            this.searchBar2.Name = "searchBar2";
-            this.searchBar2.Size = new System.Drawing.Size(739, 50);
-            this.searchBar2.TabIndex = 3;
+            this.uc_international_topbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uc_international_topbar.Location = new System.Drawing.Point(3, 3);
+            this.uc_international_topbar.Name = "uc_international_topbar";
+            this.uc_international_topbar.Size = new System.Drawing.Size(739, 50);
+            this.uc_international_topbar.TabIndex = 3;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.lb_footer_text_driver);
+            this.flowLayoutPanel1.Controls.Add(this.lb_footer_text_inter);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 286);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(739, 50);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // lb_footer_text_driver
+            // lb_footer_text_inter
             // 
-            this.lb_footer_text_driver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_footer_text_driver.Location = new System.Drawing.Point(3, 0);
-            this.lb_footer_text_driver.Name = "lb_footer_text_driver";
-            this.lb_footer_text_driver.Size = new System.Drawing.Size(624, 50);
-            this.lb_footer_text_driver.TabIndex = 0;
-            this.lb_footer_text_driver.Text = "Total Number of International Licenses: ";
-            this.lb_footer_text_driver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_footer_text_inter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_text_inter.Location = new System.Drawing.Point(3, 0);
+            this.lb_footer_text_inter.Name = "lb_footer_text_inter";
+            this.lb_footer_text_inter.Size = new System.Drawing.Size(624, 50);
+            this.lb_footer_text_inter.TabIndex = 0;
+            this.lb_footer_text_inter.Text = "Total Number of International Licenses: ";
+            this.lb_footer_text_inter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tab_classes
             // 
@@ -417,22 +416,22 @@ namespace DVLD.Forms
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.lb_footer_text_classes);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 286);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(739, 50);
             this.flowLayoutPanel2.TabIndex = 4;
             // 
-            // label1
+            // lb_footer_text_classes
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(624, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Total Number of License Classes: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_footer_text_classes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_text_classes.Location = new System.Drawing.Point(3, 0);
+            this.lb_footer_text_classes.Name = "lb_footer_text_classes";
+            this.lb_footer_text_classes.Size = new System.Drawing.Size(624, 50);
+            this.lb_footer_text_classes.TabIndex = 0;
+            this.lb_footer_text_classes.Text = "Total Number of License Classes: ";
+            this.lb_footer_text_classes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dgv_license_classes
             // 
@@ -542,6 +541,7 @@ namespace DVLD.Forms
             this.Name = "LicensesForm";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "Licenses.";
+            this.Load += new System.EventHandler(this.LicensesForm_Load);
             this.pl_Body.ResumeLayout(false);
             this.pl_Body.PerformLayout();
             this.htc_tab_nav.ResumeLayout(false);
@@ -567,17 +567,17 @@ namespace DVLD.Forms
         private CustomControls.HeaderlessTabControl htc_tab_nav;
         private System.Windows.Forms.TabPage tab_local;
         private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_local_licenses;
-        private UserControls.SearchBar searchBar1;
+        private UserControls.SearchBar uc_local_topbar;
         private System.Windows.Forms.FlowLayoutPanel flp_footer;
-        private System.Windows.Forms.Label lb_footer_text;
+        private System.Windows.Forms.Label lb_footer_text_local;
         private System.Windows.Forms.TabPage tab_international;
-        private UserControls.SearchBar searchBar2;
+        private UserControls.SearchBar uc_international_topbar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label lb_footer_text_driver;
+        private System.Windows.Forms.Label lb_footer_text_inter;
         private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_international_licenses;
         private System.Windows.Forms.TabPage tab_classes;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_footer_text_classes;
         private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_license_classes;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn class_full_name;

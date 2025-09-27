@@ -2,9 +2,9 @@
 
 namespace Core.Enums
 {
-    public enum LicenseIsssueReason
+    public enum LicenseIsssueReasons
     {
-        FirstTime,
+        FirstTime = 1,
         Renew,
         ReplacementForDamaged,
         ReplacementForLost

@@ -22,10 +22,6 @@ namespace DVLD.Forms
         {
             InitializeComponent();
 
-            _personController = new PersonController(new PersonRepository());
-            _driverController = new DriverController(new DriverRepository());
-
-
             var tabs = new TabBar
             {
                 Dock = DockStyle.Fill,
@@ -48,6 +44,9 @@ namespace DVLD.Forms
             tlp_header.Controls.Add(tabs, 1, 0);
 
 
+            
+            _personController = new PersonController(new PersonRepository());
+            _driverController = new DriverController(new DriverRepository());
         }
 
         private void IndividualsForm_Load(object sender, EventArgs e)
@@ -99,7 +98,7 @@ namespace DVLD.Forms
                     person.SecondName,
                     person.ThirdName,
                     person.LastName,
-                    person.enGender == Core.Enums.Gender.Male ? "Male" : "Female",
+                    person.enGender == Core.Enums.Genders.Male ? "Male" : "Female",
                     person.DateOfBirth.ToString("yyyy/M/dd"),
                     person.NationalityCountry,
                     person.Phone,
@@ -150,7 +149,7 @@ namespace DVLD.Forms
                     case "Nationality":
                         return person.NationalityCountry != null && person.NationalityCountry.ToLower().Contains(e.SearchText.ToLower());
                     case "Gender":
-                        var genderStr = person.enGender == Core.Enums.Gender.Male ? "Male" : "Female";
+                        var genderStr = person.enGender == Core.Enums.Genders.Male ? "Male" : "Female";
                         return genderStr.ToLower().Contains(e.SearchText.ToLower());
                     case "Phone":
                         return person.Phone != null && person.Phone.Contains(e.SearchText);

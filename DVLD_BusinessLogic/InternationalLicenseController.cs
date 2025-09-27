@@ -15,6 +15,26 @@ namespace DVLD_BusinessLogic
             _internationalLicenseRepository = internationalLicenseRepository;
         }
 
+        #region HelpFunctions
+
+        public List<string> GetInternationalLicenseFilterCriteria()
+        {
+            return new List<string>
+            {
+                "International License ID",
+                "Application ID",
+                "Driver ID",
+                "Local License ID",
+                "Issue Date",
+                "Expiration Date",
+                "Status",
+                "Issued By User ID"
+            };
+        }
+
+
+        #endregion
+
         public Task<InternationalLicense> GetInternationalLicenseByIdAsync(int id)
         {
             return _internationalLicenseRepository.GetByIdAsync(id);

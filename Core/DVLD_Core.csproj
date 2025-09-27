@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\LicenseIssueReason.cs" />
-    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\Genders.cs" />
     <Compile Include="Enums\ApplicationStatus.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
     <Compile Include="Interfaces\IInternationalLicenseRepository.cs" />

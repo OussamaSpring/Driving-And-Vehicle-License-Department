@@ -27,7 +27,7 @@ namespace DVLD_DataAccess.Repositories
                 ThirdName = row["ThirdName"] == DBNull.Value ? null : row["ThirdName"].ToString(),
                 LastName = row["LastName"].ToString(),
                 DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]),
-                enGender = (Gender)Convert.ToInt16(row["Gendor"]),
+                enGender = (Genders)Convert.ToInt16(row["Gendor"]),
                 Address = row["Address"].ToString(),
                 NationalityCountry = row["CountryName"].ToString(),
                 Email = row["Email"].ToString(),

@@ -14,6 +14,50 @@ namespace DVLD_BusinessLogic
             _licenseRepository = licenseRepository;
         }
 
+        #region HelpFunctions
+
+        public string GetLicenseClassNameById(short id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return "Small Motorcycle";
+                case 2:
+                    return "Heavy Motorcycle License";
+                case 3:
+                    return "Ordinary driving license";
+                case 4:
+                    return "Commercial";
+                case 5:
+                    return "Agricultural";
+                case 6:
+                    return "Small and medium bus";
+                case 7:
+                    return "Truck and heavy vehicle";
+                default:
+                    return "Unknown";
+            }
+        }
+
+        public List<string> GetLicenseFilterCriteria()
+        {
+            return new List<string>
+            {
+                "License ID",
+                "Application ID",
+                "Driver ID",
+                "Class ID",
+                "Issue Date",
+                "Expiration Date",
+                "Paid Fees",
+                "Status",
+                "Issued By User ID"
+            };
+        }
+
+
+        #endregion
+
         public Task<License> GetLicenseByIdAsync(int id)
         {
             return _licenseRepository.GetByIdAsync(id);
@@ -53,5 +97,8 @@ namespace DVLD_BusinessLogic
         {
             return _licenseRepository.DesactivateLicenseAsync(licenseId);
         }
+
+
+
     }
 }
