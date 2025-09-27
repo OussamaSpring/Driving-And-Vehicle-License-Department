@@ -36,5 +36,10 @@ namespace DVLD.Forms
         {
 
         }
+
+        private void roundedPanel6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
