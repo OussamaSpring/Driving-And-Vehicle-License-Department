@@ -48,6 +48,7 @@
     <Compile Include="Repositories\DriverRepository.cs" />
     <Compile Include="Repositories\InternationalLicenseRepository.cs" />
     <Compile Include="Repositories\LicenseClassRepository.cs" />
+    <Compile Include="Repositories\LicenseDetainRepository.cs" />
     <Compile Include="Repositories\LicenseRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
