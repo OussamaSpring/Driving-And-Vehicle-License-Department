@@ -17,7 +17,7 @@ namespace Core.Models
         public DateTime DateOfBirth { get; set; }
         public Enums.Genders enGender { get; set; }
         public string Address { get; set; }
-        public string NationalityCountry {  get; set; }
+        public Country NationalityCountry  { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public byte[] PersonalImage { get; set; }

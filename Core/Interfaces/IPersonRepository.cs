@@ -12,7 +12,11 @@ namespace Core.Interfaces
     {
         Task<Person> GetByNationalNumberAsync(string nationalNumber);
         Task<bool> IsPersonExist(int id);
+        Task<bool> IsPersonExist(string nationalNumber);
         Task<byte[]> GetPhotoByIdAsync(int id);
         Task<bool> UpdatePhotoAsync(int id, byte[] photo);
+
+        Task<IEnumerable<Country>> GetAllCountriesAsync();
+        Task<Country> GetCountryByNameAsync(string countryName);
     }
 }

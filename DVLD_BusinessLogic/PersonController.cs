@@ -26,14 +26,17 @@ namespace DVLD_BusinessLogic
         {
             return await _personRepository.GetAllAsync();
         }
-        public async Task<bool> AddPersonAsync(Person person)
+        public async Task<int?> AddPersonAsync(Person person)
         {
             int personID = await _personRepository.AddAsync(person);
 
             if (personID != 0)
-                return await _personRepository.UpdatePhotoAsync(personID, person.PersonalImage);
-            else 
-                return false;
+            {
+                await _personRepository.UpdatePhotoAsync(personID, person.PersonalImage);
+                return personID;
+            }
+            else
+                return null;
         }
 
         public async Task<bool> UpdatePersonInfoAsync(Person person)
@@ -59,6 +62,26 @@ namespace DVLD_BusinessLogic
         public async Task<bool> UpdatePersonPhotoAsync(int personId, byte[] photo)
         {
             return await _personRepository.UpdatePhotoAsync(personId, photo);
+        }
+
+        public async Task<bool> IsPersonExistAsync(int personId)
+        {
+            return await _personRepository.IsPersonExist(personId);
+        }
+
+        public async Task<bool> IsPersonExistAsync(string nationalNumber)
+        {
+            return await _personRepository.IsPersonExist(nationalNumber);
+        }
+
+        public async Task<IEnumerable<Country>> GetAllCountriesAsync()
+        {
+            return await _personRepository.GetAllCountriesAsync();
+        }
+
+        public async Task<Country> GetCountryByNameAsync(string countryName)
+        {
+            return await _personRepository.GetCountryByNameAsync(countryName);
         }
     }
 }

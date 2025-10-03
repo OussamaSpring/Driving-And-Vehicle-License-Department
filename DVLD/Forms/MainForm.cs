@@ -146,9 +146,19 @@ namespace DVLD
 
         private async Task SetHeaderUserInfo()
         {
-            var person = await _personController.GetPersonByIdAsync(_currentUser.PersonId);
-            if (person != null)
-                AppHeader.SetUserInfo($"{person.FirstName} {person.LastName[0]}.", person.PersonalImage);
+            Person person = null;
+            try
+            {
+                person = await _personController.GetPersonByIdAsync(_currentUser.PersonId);
+
+                if (person != null)
+                    AppHeader.SetUserInfo($"{person.FirstName} {person.LastName[0]}.", person.PersonalImage);
+            }catch(Exception ex)
+            {
+                MessageBox.Show($"Error retrieving user information: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AppHeader.SetUserInfo("Unknown User", null);
+            }
+
         }
         #endregion
 

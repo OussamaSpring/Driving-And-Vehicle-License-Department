@@ -58,5 +58,40 @@ namespace DVLD.Forms
         {
             OnOperationsTabSelected();
         }
+
+        private void opt_NewLocalDrivingLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 1; // Select the "New Local Driving License" tab
+        }
+
+        private void opt_NewInterDrivingLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 2; // Select the "New International Driving License" tab
+        }
+
+        private void opt_DetainLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 3; // Select the "Detain License" tab
+        }
+
+        private void opt_ReleaseLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 4; // Select the "Release License" tab
+        }
+
+        private void opt_RenewLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 5; // Select the "Renew License" tab
+        }
+
+        private void opt_ReplaceDamagedLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 6; // Select the "Replace Damaged License" tab
+        }
+
+        private void opt_ReplaceLostLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 7; // Select the "Replace Lost License" tab
+        }
     }
 }

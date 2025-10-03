@@ -49,7 +49,8 @@ namespace DVLD_DataAccess.Database
 
                     using (var command = CreateCommand(connection, sqlQuery, parameters))
                     {
-                        return await command.ExecuteScalarAsync();
+                        object result = await command.ExecuteScalarAsync().ConfigureAwait(false);
+                        return result;
                     }
                 }
             }
@@ -75,7 +76,7 @@ namespace DVLD_DataAccess.Database
 
                     using (var command = CreateCommand(connection, sqlQuery, parameters))
                     {
-                        return await command.ExecuteNonQueryAsync();
+                        return await command.ExecuteNonQueryAsync().ConfigureAwait(false);
                     }
                 }
             }

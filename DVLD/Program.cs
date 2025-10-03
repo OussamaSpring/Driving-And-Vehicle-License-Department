@@ -18,6 +18,7 @@ namespace DVLD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //Application.Run(new Pop_Ups.Add_Edit_Person(null));
 
             LoginDialog login = new LoginDialog();
 

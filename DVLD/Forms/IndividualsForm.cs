@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD.Pop_Ups;
 
 namespace DVLD.Forms
 {
@@ -100,16 +101,12 @@ namespace DVLD.Forms
                     person.LastName,
                     person.enGender == Core.Enums.Genders.Male ? "Male" : "Female",
                     person.DateOfBirth.ToString("yyyy/M/dd"),
-                    person.NationalityCountry,
+                    person.NationalityCountry.CountryName,
                     person.Phone,
                     person.Email
                 );
             }
             lb_footer_text.Text = "Total Number of People: " + dgv_people.RowCount.ToString();
-        }
-        private void AddNewPerson()
-        {
-            MessageBox.Show("This feature will be available soon...", "Add New Person", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private List<string> GetPersonFilterCriteria()
         {
@@ -147,7 +144,7 @@ namespace DVLD.Forms
                     case "Last Name":
                         return person.LastName != null && person.LastName.ToLower().Contains(e.SearchText.ToLower());
                     case "Nationality":
-                        return person.NationalityCountry != null && person.NationalityCountry.ToLower().Contains(e.SearchText.ToLower());
+                        return person.NationalityCountry != null && person.NationalityCountry.CountryName.ToLower().Contains(e.SearchText.ToLower());
                     case "Gender":
                         var genderStr = person.enGender == Core.Enums.Genders.Male ? "Male" : "Female";
                         return genderStr.ToLower().Contains(e.SearchText.ToLower());
@@ -162,6 +159,31 @@ namespace DVLD.Forms
             }).ToList();
 
             BindPeopleToGrid(filtered);
+        }
+        private void AddNewPerson()
+        {
+            Add_Edit_Person person_pop_up = new Add_Edit_Person(null);
+            person_pop_up.ClosingEvent = dgv_NewPersonAdded;
+            person_pop_up.ShowDialog();
+        }
+
+        private async void dgv_NewPersonAdded(int newPersonId)
+        {
+            try
+            {
+                Person newPerson = await _personController.GetPersonByIdAsync(newPersonId);
+                _peopleList.Add(newPerson);
+                BindPeopleToGrid(_peopleList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
 
         #endregion

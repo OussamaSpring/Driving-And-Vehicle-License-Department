@@ -5,6 +5,7 @@ using DVLD_DataAccess.Database;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace DVLD_DataAccess.Repositories
@@ -29,8 +30,12 @@ namespace DVLD_DataAccess.Repositories
                 DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]),
                 enGender = (Genders)Convert.ToInt16(row["Gendor"]),
                 Address = row["Address"].ToString(),
-                NationalityCountry = row["CountryName"].ToString(),
-                Email = row["Email"].ToString(),
+                NationalityCountry = new Country
+                {
+                    CountryId = Convert.ToInt32(row["NationalityCountryID"]),
+                    CountryName = row["CountryName"].ToString()
+                },
+                Email = row["Email"] == DBNull.Value ? null : row["Email"].ToString(),
                 Phone = row["Phone"].ToString(),
                 PersonalImage = row["PersonalImage"] == DBNull.Value ? null : (byte[])row["PersonalImage"]
             };
@@ -44,7 +49,7 @@ namespace DVLD_DataAccess.Repositories
             var parameters = new Dictionary<string, object> { { "@PersonId", id } };
 
             string sqlQuery = @"SELECT People.PersonID, People.NationalNo, People.FirstName, People.SecondName,       
-                        People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor, People.Address, 
+                        People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor, People.Address, People.NationalityCountryID,
                         Countries.CountryName, People.Phone, People.Email, People.PersonalImage
                         FROM People 
                         INNER JOIN Countries ON People.NationalityCountryID = Countries.CountryID
@@ -61,7 +66,7 @@ namespace DVLD_DataAccess.Repositories
         public async Task<IEnumerable<Person>> GetAllAsync()
         {
             string sqlQuery = @"SELECT People.PersonID, People.NationalNo, People.FirstName, People.SecondName,       
-                        People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor, People.Address, 
+                        People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor, People.Address, People.NationalityCountryID,
                         Countries.CountryName, People.Phone, People.Email, People.PersonalImage
                         FROM People INNER JOIN
                         Countries ON People.NationalityCountryID = Countries.CountryID";
@@ -92,15 +97,15 @@ namespace DVLD_DataAccess.Repositories
                 { "@DateOfBirth", person.DateOfBirth },
                 { "@Gender", (int)person.enGender },
                 { "@Address", person.Address },
-                { "@NationalityCountry", person.NationalityCountry },
+                { "@NationalityCountryID", person.NationalityCountry.CountryId },
                 { "@Email", person.Email },
                 { "@Phone", person.Phone }
             };
 
             string sqlQuery = @"INSERT INTO People 
-                (NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, NationalityCountry, Email, Phone)
+                (NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, NationalityCountryID, Email, Phone)
                 VALUES
-                (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, @Gender, @Address, @NationalityCountry, @Email, @Phone);
+                (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, @Gender, @Address, @NationalityCountryID, @Email, @Phone);
                 SELECT SCOPE_IDENTITY();";
 
             int result = Convert.ToInt32(await DBHelper.ExecuteScalarAsync(sqlQuery, parameters));
@@ -120,7 +125,7 @@ namespace DVLD_DataAccess.Repositories
                 { "@DateOfBirth", person.DateOfBirth },
                 { "@Gender", (int)person.enGender },
                 { "@Address", person.Address },
-                { "@NationalityCountry", person.NationalityCountry },
+                { "@NationalityCountryID", person.NationalityCountry.CountryId },
                 { "@Email", person.Email },
                 { "@Phone", person.Phone }
             };
@@ -135,7 +140,7 @@ namespace DVLD_DataAccess.Repositories
                     DateOfBirth = @DateOfBirth,
                     Gender = @Gender,
                     Address = @Address,
-                    NationalityCountry = @NationalityCountry,
+                    NationalityCountryID = @NationalityCountryID,
                     Email = @Email,
                     Phone = @Phone
                 WHERE PersonID = @PersonId;
@@ -162,7 +167,11 @@ namespace DVLD_DataAccess.Repositories
         {
             var parameters = new Dictionary<string, object> { { "@NationalNo", nationalNo } };
 
-            string sqlQuery = "SELECT * FROM People WHERE NationalNo = @NationalNo";
+            string sqlQuery = @"SELECT People.PersonID, People.NationalNo, People.FirstName, People.SecondName, People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor, People.Address, People.NationalityCountryID,
+                        Countries.CountryName, People.Phone, People.Email, People.PersonalImage
+                        FROM People INNER JOIN
+                        Countries ON People.NationalityCountryID = Countries.CountryID
+                                WHERE NationalNo = @NationalNo";
 
             var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
 
@@ -179,11 +188,21 @@ namespace DVLD_DataAccess.Repositories
                 {"@PersonId", id }
             };
 
-            string sqlQuery = "SELECT 1 FROM People WHERE PersonID = @PersonId";
+            string sqlQuery = "SELECT COUNT(1) FROM People WHERE PersonID = @PersonId";
 
             int result = (int)await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
 
             return result > 0;
+        }
+        public async Task<bool> IsPersonExist(string nationalNumber)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                {"@NationalNo", nationalNumber }
+            };
+            string sqlQuery = "SELECT COUNT(1) FROM People WHERE NationalNo = @NationalNo";
+            var result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
+            return result != null;
         }
         public async Task<bool> UpdatePhotoAsync(int id, byte[] photo)
         {
@@ -220,5 +239,44 @@ namespace DVLD_DataAccess.Repositories
             return image ?? null;
         }
 
+
+        #region Extra
+
+        public async Task<IEnumerable<Country>> GetAllCountriesAsync()
+        {
+            string sqlQuery = "SELECT CountryID, CountryName FROM Countries";
+            var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery);
+
+            if (DataTable.Rows.Count == 0)
+                return null;
+
+            var countries = new List<Country>();
+
+            foreach (DataRow row in DataTable.Rows)
+            {
+                countries.Add(new Country
+                {
+                    CountryId = Convert.ToInt32(row["CountryID"]),
+                    CountryName = row["CountryName"].ToString()
+                });
+            }
+
+            return countries;
+        }
+        public async Task<Country> GetCountryByNameAsync(string countryName)
+        {
+            var parameters = new Dictionary<string, object> { { "@CountryName", countryName } };
+            string sqlQuery = "SELECT CountryID, CountryName FROM Countries WHERE CountryName = @CountryName";
+            var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
+            if (DataTable.Rows.Count == 0)
+                return null;
+            var row = DataTable.Rows[0];
+            return new Country
+            {
+                CountryId = Convert.ToInt32(row["CountryID"]),
+                CountryName = row["CountryName"].ToString()
+            };
+        }
+        #endregion
     }
 }

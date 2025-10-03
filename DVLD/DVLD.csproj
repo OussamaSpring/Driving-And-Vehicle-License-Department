@@ -141,6 +141,13 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputValidation.cs" />
+    <Compile Include="Pop-Ups\Add_Edit_Person.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pop-Ups\Add_Edit_Person.Designer.cs">
+      <DependentUpon>Add_Edit_Person.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisteryCredentials.cs" />
@@ -155,6 +162,12 @@
     </Compile>
     <Compile Include="UserControls\NavigationBar.Designer.cs">
       <DependentUpon>NavigationBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PersonDetailsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PersonDetailsCard.Designer.cs">
+      <DependentUpon>PersonDetailsCard.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SearchBar.cs" />
     <Compile Include="UserControls\SearchBar.Designer.cs">
@@ -197,6 +210,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pop-Ups\Add_Edit_Person.resx">
+      <DependentUpon>Add_Edit_Person.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -212,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NavigationBar.resx">
       <DependentUpon>NavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PersonDetailsCard.resx">
+      <DependentUpon>PersonDetailsCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
@@ -251,18 +270,26 @@
       <Name>DVLD_DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pop-Ups\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Icons\AddPerson.png" />
+    <Content Include="Resources\Icons\Address.png" />
+    <Content Include="Resources\Icons\Calendar.png" />
+    <Content Include="Resources\Icons\Country.png" />
+    <Content Include="Resources\Icons\Email.png" />
+    <Content Include="Resources\Icons\Person.png" />
+    <Content Include="Resources\Icons\Phone.png" />
+    <Content Include="Resources\Icons\User.png" />
     <Content Include="Resources\Images\damaged_license.png" />
     <Content Include="Resources\Images\driving-license.png" />
+    <Content Include="Resources\Images\Female.png" />
     <Content Include="Resources\Images\inter-driver-license.png" />
     <Content Include="Resources\Images\license_detain.png" />
     <Content Include="Resources\Images\license_release.png" />
+    <Content Include="Resources\Images\Male.png" />
     <Content Include="Resources\Images\question-mark.png" />
     <Content Include="Resources\Images\renew-license.png" />
     <Content Include="Resources\Images\TakeTest.png" />
