@@ -32,14 +32,24 @@ namespace DVLD.UserControls
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            AddButtonClicked?.Invoke();
+            btn_add.Enabled = false; // Disable button to prevent multiple clicks
+            try
+            {
+                AddButtonClicked?.Invoke();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while processing the add action.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btn_add.Enabled = true;
+            }
         }
-
         public void btn_add_Hide()
         {
             btn_add.Visible = false;
         }
-
         public void FillFilterCriteria(List<string> list)
         {
             cb_filter_criteria.Items.Clear();
@@ -54,17 +64,14 @@ namespace DVLD.UserControls
                 cb_filter_criteria.Items.Add(item);
             }
         }
-
         private void cb_filter_criteria_SelectedIndexChanged(object sender, EventArgs e)
         {
             OnFilterChanged();
         }
-
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             OnFilterChanged();
         }
-
         protected virtual void OnFilterChanged()
         {
             string filterCriteria = cb_filter_criteria.SelectedItem?.ToString() ?? "None";

@@ -26,6 +26,7 @@ namespace DVLD.Pop_Ups
 
         private Person _person;
         private bool HasImageChanged = false;
+        private bool HasDataChanged = false;
 
         public Add_Edit_Person(int? id)
         {
@@ -38,8 +39,6 @@ namespace DVLD.Pop_Ups
                 state = State.Add;
                 lb_title.Text = "Add New Person";
                 lb_person_id.Text = "N/A";
-                cb_gender.SelectedIndex = 0;
-                dtp_date_of_birth.Value = DateTime.Now;
                 rpb_profile_image.Image = img_list_default_profile.Images[0];
                 lb_remove_image.Visible = false;
             }
@@ -112,6 +111,7 @@ namespace DVLD.Pop_Ups
 
 
         #region UI Events
+
         private async void Add_Edit_Person_Load(object sender, EventArgs e)
         {
             var countries = await _personController.GetAllCountriesAsync();
@@ -148,20 +148,36 @@ namespace DVLD.Pop_Ups
             lb_remove_image.Visible = false;
             HasImageChanged = true;
         }
+
         private async void btn_save_MouseClick(object sender, MouseEventArgs e)
         {
+            btn_save.Enabled = false; // Disable button to prevent multiple clicks
+
+            if ((!HasDataChanged || !HasImageChanged) && state == State.Update)
+            {
+                this.Dispose();
+                return;
+            }
+
             if (!ValidateAllInputs())
             {
                 MessageBox.Show("Please correct the input fields errors before saving.", "Input Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btn_save.Enabled = true; // Re-enable button
                 return;
             }
 
             switch (state)
             {
                 case State.Add:
-                    _person = MapPersonData().Result;
+                    _person = await MapPersonData();
                     try
                     {
+                        if(await _personController.IsPersonExistAsync(_person.NationalNumber))
+                        {
+                            MessageBox.Show("Failed to add the person. National number already exist!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         var newPersonId = await _personController.AddPersonAsync(_person);
 
                         if (newPersonId.HasValue)
@@ -182,8 +198,13 @@ namespace DVLD.Pop_Ups
                     {
                         MessageBox.Show($"An error occurred while adding the person: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    finally
+                    {
+                        btn_save.Enabled = true; // Re-enable button
+                    }
 
                     break;
+                
                 case State.Update:
 
                     Person updatedPerson = MapPersonData().Result;
@@ -208,27 +229,37 @@ namespace DVLD.Pop_Ups
                     {
                         MessageBox.Show($"An error occurred while updating the person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
+                    finally
+                    {
+                        btn_save.Enabled = true; // Re-enable button
+                    }
                     break;
             }
         }
         private void btn_Exit_Clicked(object sender, MouseEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to exit without saving?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if(!HasDataChanged && !HasImageChanged)
+            {
+                this.Dispose();
+                return;
+            }
+
+            else if (MessageBox.Show("Are you sure you want to exit without saving?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
             this.Dispose();
         }
         private void cb_gender_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(HasImageChanged == false)
-                rpb_profile_image.Image = img_list_default_profile.Images[cb_gender.SelectedIndex];
+
         }
 
         #endregion
 
 
         #region Input Validation
+
+        // Each validation function checks a specific input field and sets an error message if validation fails.
 
         private bool ValidateNationalNumber()
         {
@@ -238,12 +269,8 @@ namespace DVLD.Pop_Ups
                 err_input_validation.SetError(tb_national_no, errorMessage);
                 return false;
             }
-            else if(_personController.IsPersonExistAsync(input).Result == true)
-            {
-                err_input_validation.SetError(tb_national_no, "National Number already exists.");
-                return false;
-            }
-                err_input_validation.SetError(tb_national_no, string.Empty);
+
+            err_input_validation.SetError(tb_national_no, string.Empty);
             return true;
         }
         private bool ValidateFirstName()
@@ -379,12 +406,14 @@ namespace DVLD.Pop_Ups
                    ValidateNationalNumber();
         }
 
-
-
-
         #endregion
 
         #region Mouse Events for Dragging the Form
+
+        /* These events are linked to the header panel to allow dragging the form by the header.
+         * They call the base class methods to handle the dragging logic.
+         */
+
         private void pl_header_MouseDown(object sender, MouseEventArgs e)
         {
             base.RoundedBaseForm_MouseDown(sender, e);
@@ -398,6 +427,24 @@ namespace DVLD.Pop_Ups
         private void pl_header_MouseUp(object sender, MouseEventArgs e)
         {
             base.RoundedBaseForm_MouseUp(sender, e);
+        }
+
+        #endregion
+
+        #region Track Data Changes
+        private void cb_gender_country_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
+        }
+
+        private void txt_input_fields_TextChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
+        }
+
+        private void date_ValueChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
         }
 
         #endregion

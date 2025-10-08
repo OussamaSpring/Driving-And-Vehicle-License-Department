@@ -188,6 +188,7 @@
             this.rtb_address.Size = new System.Drawing.Size(590, 75);
             this.rtb_address.TabIndex = 67;
             this.rtb_address.Text = "";
+            this.rtb_address.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label14
             // 
@@ -210,6 +211,7 @@
             this.cb_country.Name = "cb_country";
             this.cb_country.Size = new System.Drawing.Size(284, 28);
             this.cb_country.TabIndex = 65;
+            this.cb_country.SelectedIndexChanged += new System.EventHandler(this.cb_gender_country_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -231,6 +233,7 @@
             this.tb_phone.Name = "tb_phone";
             this.tb_phone.Size = new System.Drawing.Size(284, 26);
             this.tb_phone.TabIndex = 63;
+            this.tb_phone.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label12
             // 
@@ -252,6 +255,7 @@
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(284, 26);
             this.tb_email.TabIndex = 61;
+            this.tb_email.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label13
             // 
@@ -276,7 +280,7 @@
             this.cb_gender.Name = "cb_gender";
             this.cb_gender.Size = new System.Drawing.Size(284, 28);
             this.cb_gender.TabIndex = 59;
-            this.cb_gender.SelectedIndexChanged += new System.EventHandler(this.cb_gender_SelectedIndexChanged);
+            this.cb_gender.SelectedIndexChanged += new System.EventHandler(this.cb_gender_country_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -300,6 +304,7 @@
             this.dtp_date_of_birth.Name = "dtp_date_of_birth";
             this.dtp_date_of_birth.Size = new System.Drawing.Size(284, 26);
             this.dtp_date_of_birth.TabIndex = 57;
+            this.dtp_date_of_birth.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // label10
             // 
@@ -321,6 +326,7 @@
             this.tb_last_name.Name = "tb_last_name";
             this.tb_last_name.Size = new System.Drawing.Size(284, 26);
             this.tb_last_name.TabIndex = 55;
+            this.tb_last_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label9
             // 
@@ -342,6 +348,7 @@
             this.tb_second_name.Name = "tb_second_name";
             this.tb_second_name.Size = new System.Drawing.Size(284, 26);
             this.tb_second_name.TabIndex = 53;
+            this.tb_second_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label8
             // 
@@ -363,6 +370,7 @@
             this.tb_third_name.Name = "tb_third_name";
             this.tb_third_name.Size = new System.Drawing.Size(284, 26);
             this.tb_third_name.TabIndex = 51;
+            this.tb_third_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label7
             // 
@@ -384,6 +392,7 @@
             this.tb_first_name.Name = "tb_first_name";
             this.tb_first_name.Size = new System.Drawing.Size(284, 26);
             this.tb_first_name.TabIndex = 49;
+            this.tb_first_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label6
             // 
@@ -405,6 +414,7 @@
             this.tb_national_no.Name = "tb_national_no";
             this.tb_national_no.Size = new System.Drawing.Size(284, 26);
             this.tb_national_no.TabIndex = 47;
+            this.tb_national_no.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label5
             // 
