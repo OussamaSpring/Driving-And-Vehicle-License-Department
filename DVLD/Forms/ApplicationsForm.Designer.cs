@@ -58,7 +58,32 @@ namespace DVLD.Forms
             this.label13 = new System.Windows.Forms.Label();
             this.roundedPanel12 = new WindowsFormsControlLibrary.CustomControls.RoundedPanel();
             this.tab_add_new_local_license = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_page1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pl_page1_body = new System.Windows.Forms.Panel();
+            this.pl_main = new System.Windows.Forms.Panel();
+            this.pl_details = new System.Windows.Forms.Panel();
+            this.personDetailsCard1 = new DVLD.UserControls.PersonDetailsCard();
+            this.pl_local_license_application_details = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lb_created_by = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lb_application_fees = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lb_date_of_birth = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.flp_page1_footer = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_save = new DVLD.Views.Controls.RoundedButton();
+            this.btn_cancel = new DVLD.Views.Controls.RoundedButton();
+            this.flp_search_panel = new System.Windows.Forms.FlowLayoutPanel();
+            this.pb_add_person = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
+            this.pb_search = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
+            this.txt_search_word = new System.Windows.Forms.TextBox();
+            this.cb_filter = new System.Windows.Forms.ComboBox();
+            this.lb_text = new System.Windows.Forms.Label();
+            this.flp_page1_header = new System.Windows.Forms.FlowLayoutPanel();
+            this.pb_page1_back = new System.Windows.Forms.PictureBox();
+            this.lb_page1_title = new System.Windows.Forms.Label();
             this.tab_add_new_inter_license = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tab_detain_license = new System.Windows.Forms.TabPage();
@@ -115,6 +140,17 @@ namespace DVLD.Forms
             this.pl_replace_lost_license.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.tab_add_new_local_license.SuspendLayout();
+            this.tlp_page1.SuspendLayout();
+            this.pl_page1_body.SuspendLayout();
+            this.pl_main.SuspendLayout();
+            this.pl_details.SuspendLayout();
+            this.pl_local_license_application_details.SuspendLayout();
+            this.flp_page1_footer.SuspendLayout();
+            this.flp_search_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_add_person)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
+            this.flp_page1_header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page1_back)).BeginInit();
             this.tab_add_new_inter_license.SuspendLayout();
             this.tab_detain_license.SuspendLayout();
             this.tab_release_license.SuspendLayout();
@@ -149,7 +185,7 @@ namespace DVLD.Forms
             this.pl_Body.Location = new System.Drawing.Point(20, 49);
             this.pl_Body.Name = "pl_Body";
             this.pl_Body.Padding = new System.Windows.Forms.Padding(7, 10, 0, 0);
-            this.pl_Body.Size = new System.Drawing.Size(760, 381);
+            this.pl_Body.Size = new System.Drawing.Size(978, 494);
             this.pl_Body.TabIndex = 3;
             // 
             // htc_tab_nav
@@ -162,7 +198,7 @@ namespace DVLD.Forms
             this.htc_tab_nav.Location = new System.Drawing.Point(7, 10);
             this.htc_tab_nav.Name = "htc_tab_nav";
             this.htc_tab_nav.SelectedIndex = 0;
-            this.htc_tab_nav.Size = new System.Drawing.Size(753, 371);
+            this.htc_tab_nav.Size = new System.Drawing.Size(971, 484);
             this.htc_tab_nav.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.htc_tab_nav.TabIndex = 3;
             // 
@@ -173,7 +209,7 @@ namespace DVLD.Forms
             this.tab_operations.Location = new System.Drawing.Point(4, 28);
             this.tab_operations.Name = "tab_operations";
             this.tab_operations.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_operations.Size = new System.Drawing.Size(745, 339);
+            this.tab_operations.Size = new System.Drawing.Size(963, 452);
             this.tab_operations.TabIndex = 0;
             this.tab_operations.Text = "Operations";
             // 
@@ -192,7 +228,7 @@ namespace DVLD.Forms
             this.htc_operations_management.Location = new System.Drawing.Point(3, 3);
             this.htc_operations_management.Name = "htc_operations_management";
             this.htc_operations_management.SelectedIndex = 0;
-            this.htc_operations_management.Size = new System.Drawing.Size(739, 333);
+            this.htc_operations_management.Size = new System.Drawing.Size(957, 446);
             this.htc_operations_management.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.htc_operations_management.TabIndex = 4;
             // 
@@ -203,7 +239,7 @@ namespace DVLD.Forms
             this.tab_actions.Location = new System.Drawing.Point(4, 28);
             this.tab_actions.Name = "tab_actions";
             this.tab_actions.Padding = new System.Windows.Forms.Padding(3, 20, 3, 3);
-            this.tab_actions.Size = new System.Drawing.Size(731, 301);
+            this.tab_actions.Size = new System.Drawing.Size(949, 414);
             this.tab_actions.TabIndex = 0;
             this.tab_actions.Text = "Actions";
             // 
@@ -219,7 +255,7 @@ namespace DVLD.Forms
             this.layout.Name = "layout";
             this.layout.RowCount = 1;
             this.layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layout.Size = new System.Drawing.Size(725, 278);
+            this.layout.Size = new System.Drawing.Size(943, 391);
             this.layout.TabIndex = 31;
             // 
             // flp_container
@@ -233,9 +269,9 @@ namespace DVLD.Forms
             this.flp_container.Controls.Add(this.pl_replace_damaged_license);
             this.flp_container.Controls.Add(this.pl_replace_lost_license);
             this.flp_container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flp_container.Location = new System.Drawing.Point(111, 3);
+            this.flp_container.Location = new System.Drawing.Point(144, 3);
             this.flp_container.Name = "flp_container";
-            this.flp_container.Size = new System.Drawing.Size(501, 272);
+            this.flp_container.Size = new System.Drawing.Size(654, 385);
             this.flp_container.TabIndex = 0;
             // 
             // pl_new_local_license
@@ -353,7 +389,7 @@ namespace DVLD.Forms
             this.pl_detain_license.Controls.Add(this.pictureBox8);
             this.pl_detain_license.Controls.Add(this.label8);
             this.pl_detain_license.Controls.Add(this.roundedPanel7);
-            this.pl_detain_license.Location = new System.Drawing.Point(0, 197);
+            this.pl_detain_license.Location = new System.Drawing.Point(400, 20);
             this.pl_detain_license.Margin = new System.Windows.Forms.Padding(0, 20, 20, 20);
             this.pl_detain_license.Name = "pl_detain_license";
             this.pl_detain_license.Size = new System.Drawing.Size(180, 137);
@@ -406,7 +442,7 @@ namespace DVLD.Forms
             this.pl_release_license.Controls.Add(this.pictureBox10);
             this.pl_release_license.Controls.Add(this.label10);
             this.pl_release_license.Controls.Add(this.roundedPanel9);
-            this.pl_release_license.Location = new System.Drawing.Point(200, 197);
+            this.pl_release_license.Location = new System.Drawing.Point(0, 197);
             this.pl_release_license.Margin = new System.Windows.Forms.Padding(0, 20, 20, 20);
             this.pl_release_license.Name = "pl_release_license";
             this.pl_release_license.Size = new System.Drawing.Size(180, 137);
@@ -460,7 +496,7 @@ namespace DVLD.Forms
             this.pl_renew_expired_license.Controls.Add(this.label7);
             this.pl_renew_expired_license.Controls.Add(this.roundedPanel6);
             this.pl_renew_expired_license.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pl_renew_expired_license.Location = new System.Drawing.Point(0, 374);
+            this.pl_renew_expired_license.Location = new System.Drawing.Point(200, 197);
             this.pl_renew_expired_license.Margin = new System.Windows.Forms.Padding(0, 20, 20, 20);
             this.pl_renew_expired_license.Name = "pl_renew_expired_license";
             this.pl_renew_expired_license.Size = new System.Drawing.Size(180, 137);
@@ -515,7 +551,7 @@ namespace DVLD.Forms
             this.pl_replace_damaged_license.Controls.Add(this.pictureBox12);
             this.pl_replace_damaged_license.Controls.Add(this.label12);
             this.pl_replace_damaged_license.Controls.Add(this.roundedPanel11);
-            this.pl_replace_damaged_license.Location = new System.Drawing.Point(200, 374);
+            this.pl_replace_damaged_license.Location = new System.Drawing.Point(400, 197);
             this.pl_replace_damaged_license.Margin = new System.Windows.Forms.Padding(0, 20, 20, 20);
             this.pl_replace_damaged_license.Name = "pl_replace_damaged_license";
             this.pl_replace_damaged_license.Size = new System.Drawing.Size(180, 137);
@@ -570,7 +606,7 @@ namespace DVLD.Forms
             this.pl_replace_lost_license.Controls.Add(this.pictureBox13);
             this.pl_replace_lost_license.Controls.Add(this.label13);
             this.pl_replace_lost_license.Controls.Add(this.roundedPanel12);
-            this.pl_replace_lost_license.Location = new System.Drawing.Point(0, 551);
+            this.pl_replace_lost_license.Location = new System.Drawing.Point(0, 374);
             this.pl_replace_lost_license.Margin = new System.Windows.Forms.Padding(0, 20, 20, 20);
             this.pl_replace_lost_license.Name = "pl_replace_lost_license";
             this.pl_replace_lost_license.Size = new System.Drawing.Size(180, 137);
@@ -623,27 +659,347 @@ namespace DVLD.Forms
             // tab_add_new_local_license
             // 
             this.tab_add_new_local_license.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_add_new_local_license.Controls.Add(this.tableLayoutPanel1);
+            this.tab_add_new_local_license.Controls.Add(this.tlp_page1);
             this.tab_add_new_local_license.Location = new System.Drawing.Point(4, 28);
             this.tab_add_new_local_license.Name = "tab_add_new_local_license";
-            this.tab_add_new_local_license.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.tab_add_new_local_license.Size = new System.Drawing.Size(731, 301);
+            this.tab_add_new_local_license.Padding = new System.Windows.Forms.Padding(80, 20, 80, 3);
+            this.tab_add_new_local_license.Size = new System.Drawing.Size(949, 414);
             this.tab_add_new_local_license.TabIndex = 1;
             this.tab_add_new_local_license.Text = "Add Local License";
             // 
-            // tableLayoutPanel1
+            // tlp_page1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 40);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(725, 258);
-            this.tableLayoutPanel1.TabIndex = 32;
+            this.tlp_page1.ColumnCount = 3;
+            this.tlp_page1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_page1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 677F));
+            this.tlp_page1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_page1.Controls.Add(this.pl_page1_body, 1, 0);
+            this.tlp_page1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_page1.Location = new System.Drawing.Point(80, 20);
+            this.tlp_page1.Name = "tlp_page1";
+            this.tlp_page1.RowCount = 1;
+            this.tlp_page1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_page1.Size = new System.Drawing.Size(789, 391);
+            this.tlp_page1.TabIndex = 8;
+            // 
+            // pl_page1_body
+            // 
+            this.pl_page1_body.BackColor = System.Drawing.SystemColors.Control;
+            this.pl_page1_body.Controls.Add(this.pl_main);
+            this.pl_page1_body.Controls.Add(this.flp_page1_header);
+            this.pl_page1_body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pl_page1_body.Location = new System.Drawing.Point(59, 3);
+            this.pl_page1_body.Name = "pl_page1_body";
+            this.pl_page1_body.Size = new System.Drawing.Size(671, 385);
+            this.pl_page1_body.TabIndex = 8;
+            // 
+            // pl_main
+            // 
+            this.pl_main.AutoScroll = true;
+            this.pl_main.Controls.Add(this.pl_details);
+            this.pl_main.Controls.Add(this.flp_page1_footer);
+            this.pl_main.Controls.Add(this.flp_search_panel);
+            this.pl_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pl_main.Location = new System.Drawing.Point(0, 29);
+            this.pl_main.Name = "pl_main";
+            this.pl_main.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pl_main.Size = new System.Drawing.Size(671, 356);
+            this.pl_main.TabIndex = 6;
+            // 
+            // pl_details
+            // 
+            this.pl_details.AutoScroll = true;
+            this.pl_details.BackColor = System.Drawing.SystemColors.Control;
+            this.pl_details.Controls.Add(this.personDetailsCard1);
+            this.pl_details.Controls.Add(this.pl_local_license_application_details);
+            this.pl_details.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pl_details.Location = new System.Drawing.Point(0, 75);
+            this.pl_details.Name = "pl_details";
+            this.pl_details.Size = new System.Drawing.Size(671, 231);
+            this.pl_details.TabIndex = 46;
+            // 
+            // personDetailsCard1
+            // 
+            this.personDetailsCard1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.personDetailsCard1.Location = new System.Drawing.Point(0, 0);
+            this.personDetailsCard1.Name = "personDetailsCard1";
+            this.personDetailsCard1.Size = new System.Drawing.Size(671, 371);
+            this.personDetailsCard1.TabIndex = 2;
+            // 
+            // pl_local_license_application_details
+            // 
+            this.pl_local_license_application_details.Controls.Add(this.label16);
+            this.pl_local_license_application_details.Controls.Add(this.lb_created_by);
+            this.pl_local_license_application_details.Controls.Add(this.comboBox2);
+            this.pl_local_license_application_details.Controls.Add(this.label14);
+            this.pl_local_license_application_details.Controls.Add(this.lb_application_fees);
+            this.pl_local_license_application_details.Controls.Add(this.label4);
+            this.pl_local_license_application_details.Controls.Add(this.lb_date_of_birth);
+            this.pl_local_license_application_details.Controls.Add(this.label5);
+            this.pl_local_license_application_details.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pl_local_license_application_details.Location = new System.Drawing.Point(0, 371);
+            this.pl_local_license_application_details.Name = "pl_local_license_application_details";
+            this.pl_local_license_application_details.Size = new System.Drawing.Size(671, 105);
+            this.pl_local_license_application_details.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label16.Location = new System.Drawing.Point(24, 21);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(110, 19);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "License Class:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_created_by
+            // 
+            this.lb_created_by.AutoSize = true;
+            this.lb_created_by.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_created_by.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_created_by.Location = new System.Drawing.Point(143, 64);
+            this.lb_created_by.Name = "lb_created_by";
+            this.lb_created_by.Size = new System.Drawing.Size(25, 19);
+            this.lb_created_by.TabIndex = 24;
+            this.lb_created_by.Text = "??";
+            this.lb_created_by.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Person ID",
+            "National No."});
+            this.comboBox2.Location = new System.Drawing.Point(147, 17);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(190, 23);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(24, 64);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 19);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Created By:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_application_fees
+            // 
+            this.lb_application_fees.AutoSize = true;
+            this.lb_application_fees.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_application_fees.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_application_fees.Location = new System.Drawing.Point(539, 21);
+            this.lb_application_fees.Name = "lb_application_fees";
+            this.lb_application_fees.Size = new System.Drawing.Size(25, 19);
+            this.lb_application_fees.TabIndex = 22;
+            this.lb_application_fees.Text = "??";
+            this.lb_application_fees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(393, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(130, 19);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Application Fees:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_date_of_birth
+            // 
+            this.lb_date_of_birth.AutoSize = true;
+            this.lb_date_of_birth.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_date_of_birth.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_date_of_birth.Location = new System.Drawing.Point(539, 64);
+            this.lb_date_of_birth.Name = "lb_date_of_birth";
+            this.lb_date_of_birth.Size = new System.Drawing.Size(25, 19);
+            this.lb_date_of_birth.TabIndex = 20;
+            this.lb_date_of_birth.Text = "??";
+            this.lb_date_of_birth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(393, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 19);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Application Date:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flp_page1_footer
+            // 
+            this.flp_page1_footer.BackColor = System.Drawing.SystemColors.Control;
+            this.flp_page1_footer.Controls.Add(this.btn_save);
+            this.flp_page1_footer.Controls.Add(this.btn_cancel);
+            this.flp_page1_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flp_page1_footer.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flp_page1_footer.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.flp_page1_footer.Location = new System.Drawing.Point(0, 306);
+            this.flp_page1_footer.Name = "flp_page1_footer";
+            this.flp_page1_footer.Padding = new System.Windows.Forms.Padding(10, 6, 0, 5);
+            this.flp_page1_footer.Size = new System.Drawing.Size(671, 50);
+            this.flp_page1_footer.TabIndex = 45;
+            // 
+            // btn_save
+            // 
+            this.btn_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_save.BorderColor = System.Drawing.Color.Gray;
+            this.btn_save.BorderRadius = 20;
+            this.btn_save.BorderSize = 2;
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save.FlatAppearance.BorderSize = 0;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_save.Location = new System.Drawing.Point(543, 9);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(115, 30);
+            this.btn_save.TabIndex = 0;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = false;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_cancel.BorderColor = System.Drawing.Color.Gray;
+            this.btn_cancel.BorderRadius = 20;
+            this.btn_cancel.BorderSize = 2;
+            this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_cancel.Location = new System.Drawing.Point(422, 9);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(115, 30);
+            this.btn_cancel.TabIndex = 1;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            // 
+            // flp_search_panel
+            // 
+            this.flp_search_panel.Controls.Add(this.pb_add_person);
+            this.flp_search_panel.Controls.Add(this.pb_search);
+            this.flp_search_panel.Controls.Add(this.txt_search_word);
+            this.flp_search_panel.Controls.Add(this.cb_filter);
+            this.flp_search_panel.Controls.Add(this.lb_text);
+            this.flp_search_panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flp_search_panel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flp_search_panel.Location = new System.Drawing.Point(0, 20);
+            this.flp_search_panel.Name = "flp_search_panel";
+            this.flp_search_panel.Size = new System.Drawing.Size(671, 55);
+            this.flp_search_panel.TabIndex = 0;
+            // 
+            // pb_add_person
+            // 
+            this.pb_add_person.BackColor = System.Drawing.Color.White;
+            this.pb_add_person.Image = global::DVLD.Properties.Resources.AddPerson;
+            this.pb_add_person.Location = new System.Drawing.Point(638, 3);
+            this.pb_add_person.Name = "pb_add_person";
+            this.pb_add_person.Radius = 4;
+            this.pb_add_person.Size = new System.Drawing.Size(30, 30);
+            this.pb_add_person.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_add_person.TabIndex = 5;
+            this.pb_add_person.TabStop = false;
+            this.pb_add_person.Click += new System.EventHandler(this.pb_add_person_Click);
+            // 
+            // pb_search
+            // 
+            this.pb_search.BackColor = System.Drawing.Color.White;
+            this.pb_search.Image = global::DVLD.Properties.Resources.search;
+            this.pb_search.Location = new System.Drawing.Point(600, 3);
+            this.pb_search.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.pb_search.Name = "pb_search";
+            this.pb_search.Radius = 4;
+            this.pb_search.Size = new System.Drawing.Size(30, 30);
+            this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_search.TabIndex = 6;
+            this.pb_search.TabStop = false;
+            // 
+            // txt_search_word
+            // 
+            this.txt_search_word.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search_word.Location = new System.Drawing.Point(384, 3);
+            this.txt_search_word.MaxLength = 30;
+            this.txt_search_word.Name = "txt_search_word";
+            this.txt_search_word.Size = new System.Drawing.Size(208, 30);
+            this.txt_search_word.TabIndex = 1;
+            // 
+            // cb_filter
+            // 
+            this.cb_filter.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_filter.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.cb_filter.FormattingEnabled = true;
+            this.cb_filter.Items.AddRange(new object[] {
+            "Person ID",
+            "National No."});
+            this.cb_filter.Location = new System.Drawing.Point(181, 3);
+            this.cb_filter.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.cb_filter.Name = "cb_filter";
+            this.cb_filter.Size = new System.Drawing.Size(190, 31);
+            this.cb_filter.TabIndex = 0;
+            // 
+            // lb_text
+            // 
+            this.lb_text.AutoSize = true;
+            this.lb_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_text.Location = new System.Drawing.Point(87, 10);
+            this.lb_text.Margin = new System.Windows.Forms.Padding(3, 10, 6, 0);
+            this.lb_text.Name = "lb_text";
+            this.lb_text.Size = new System.Drawing.Size(85, 19);
+            this.lb_text.TabIndex = 2;
+            this.lb_text.Text = "Search By:";
+            // 
+            // flp_page1_header
+            // 
+            this.flp_page1_header.Controls.Add(this.pb_page1_back);
+            this.flp_page1_header.Controls.Add(this.lb_page1_title);
+            this.flp_page1_header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flp_page1_header.Location = new System.Drawing.Point(0, 0);
+            this.flp_page1_header.Name = "flp_page1_header";
+            this.flp_page1_header.Size = new System.Drawing.Size(671, 29);
+            this.flp_page1_header.TabIndex = 6;
+            // 
+            // pb_page1_back
+            // 
+            this.pb_page1_back.Image = global::DVLD.Properties.Resources.arrow;
+            this.pb_page1_back.Location = new System.Drawing.Point(3, 0);
+            this.pb_page1_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pb_page1_back.Name = "pb_page1_back";
+            this.pb_page1_back.Size = new System.Drawing.Size(25, 25);
+            this.pb_page1_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_page1_back.TabIndex = 2;
+            this.pb_page1_back.TabStop = false;
+            // 
+            // lb_page1_title
+            // 
+            this.lb_page1_title.AutoSize = true;
+            this.lb_page1_title.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_page1_title.ForeColor = System.Drawing.Color.Gray;
+            this.lb_page1_title.Location = new System.Drawing.Point(34, 0);
+            this.lb_page1_title.Name = "lb_page1_title";
+            this.lb_page1_title.Size = new System.Drawing.Size(300, 25);
+            this.lb_page1_title.TabIndex = 1;
+            this.lb_page1_title.Text = "Add New Local License Application";
+            this.lb_page1_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tab_add_new_inter_license
             // 
@@ -651,7 +1007,7 @@ namespace DVLD.Forms
             this.tab_add_new_inter_license.Controls.Add(this.checkBox1);
             this.tab_add_new_inter_license.Location = new System.Drawing.Point(4, 28);
             this.tab_add_new_inter_license.Name = "tab_add_new_inter_license";
-            this.tab_add_new_inter_license.Size = new System.Drawing.Size(731, 301);
+            this.tab_add_new_inter_license.Size = new System.Drawing.Size(949, 414);
             this.tab_add_new_inter_license.TabIndex = 2;
             this.tab_add_new_inter_license.Text = "Add Inter License";
             // 
@@ -671,7 +1027,7 @@ namespace DVLD.Forms
             this.tab_detain_license.Controls.Add(this.comboBox1);
             this.tab_detain_license.Location = new System.Drawing.Point(4, 28);
             this.tab_detain_license.Name = "tab_detain_license";
-            this.tab_detain_license.Size = new System.Drawing.Size(731, 301);
+            this.tab_detain_license.Size = new System.Drawing.Size(949, 414);
             this.tab_detain_license.TabIndex = 3;
             this.tab_detain_license.Text = "Detain License";
             // 
@@ -689,7 +1045,7 @@ namespace DVLD.Forms
             this.tab_release_license.Controls.Add(this.label2);
             this.tab_release_license.Location = new System.Drawing.Point(4, 28);
             this.tab_release_license.Name = "tab_release_license";
-            this.tab_release_license.Size = new System.Drawing.Size(731, 301);
+            this.tab_release_license.Size = new System.Drawing.Size(949, 414);
             this.tab_release_license.TabIndex = 4;
             this.tab_release_license.Text = "Release License";
             // 
@@ -708,7 +1064,7 @@ namespace DVLD.Forms
             this.tab_renew_license.Controls.Add(this.linkLabel1);
             this.tab_renew_license.Location = new System.Drawing.Point(4, 28);
             this.tab_renew_license.Name = "tab_renew_license";
-            this.tab_renew_license.Size = new System.Drawing.Size(731, 301);
+            this.tab_renew_license.Size = new System.Drawing.Size(949, 414);
             this.tab_renew_license.TabIndex = 5;
             this.tab_renew_license.Text = "Renew License";
             // 
@@ -728,7 +1084,7 @@ namespace DVLD.Forms
             this.tab_replace_damaged_license.Controls.Add(this.progressBar1);
             this.tab_replace_damaged_license.Location = new System.Drawing.Point(4, 28);
             this.tab_replace_damaged_license.Name = "tab_replace_damaged_license";
-            this.tab_replace_damaged_license.Size = new System.Drawing.Size(731, 301);
+            this.tab_replace_damaged_license.Size = new System.Drawing.Size(949, 414);
             this.tab_replace_damaged_license.TabIndex = 6;
             this.tab_replace_damaged_license.Text = "Replace Damaged License";
             // 
@@ -745,7 +1101,7 @@ namespace DVLD.Forms
             this.tab_replace_lost_license.Controls.Add(this.radioButton1);
             this.tab_replace_lost_license.Location = new System.Drawing.Point(4, 28);
             this.tab_replace_lost_license.Name = "tab_replace_lost_license";
-            this.tab_replace_lost_license.Size = new System.Drawing.Size(731, 301);
+            this.tab_replace_lost_license.Size = new System.Drawing.Size(949, 414);
             this.tab_replace_lost_license.TabIndex = 7;
             this.tab_replace_lost_license.Text = "Replace Lost License";
             // 
@@ -769,7 +1125,7 @@ namespace DVLD.Forms
             this.tab_list.Location = new System.Drawing.Point(4, 28);
             this.tab_list.Name = "tab_list";
             this.tab_list.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_list.Size = new System.Drawing.Size(745, 339);
+            this.tab_list.Size = new System.Drawing.Size(963, 452);
             this.tab_list.TabIndex = 1;
             this.tab_list.Text = "Applications List";
             // 
@@ -812,7 +1168,7 @@ namespace DVLD.Forms
             this.dgv_international_licenses.Location = new System.Drawing.Point(3, 53);
             this.dgv_international_licenses.Name = "dgv_international_licenses";
             this.dgv_international_licenses.ReadOnly = true;
-            this.dgv_international_licenses.Size = new System.Drawing.Size(739, 233);
+            this.dgv_international_licenses.Size = new System.Drawing.Size(957, 346);
             this.dgv_international_licenses.TabIndex = 4;
             // 
             // application_id
@@ -876,16 +1232,16 @@ namespace DVLD.Forms
             this.searchBar2.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchBar2.Location = new System.Drawing.Point(3, 3);
             this.searchBar2.Name = "searchBar2";
-            this.searchBar2.Size = new System.Drawing.Size(739, 50);
+            this.searchBar2.Size = new System.Drawing.Size(957, 50);
             this.searchBar2.TabIndex = 3;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.lb_footer_text_driver);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 286);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 399);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(739, 50);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(957, 50);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // lb_footer_text_driver
@@ -905,7 +1261,7 @@ namespace DVLD.Forms
             this.tab_types.Controls.Add(this.roundedDataGridView1);
             this.tab_types.Location = new System.Drawing.Point(4, 28);
             this.tab_types.Name = "tab_types";
-            this.tab_types.Size = new System.Drawing.Size(745, 339);
+            this.tab_types.Size = new System.Drawing.Size(963, 452);
             this.tab_types.TabIndex = 2;
             this.tab_types.Text = "Applications Types";
             // 
@@ -913,9 +1269,9 @@ namespace DVLD.Forms
             // 
             this.flowLayoutPanel2.Controls.Add(this.label1);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 289);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 402);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(745, 50);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(963, 50);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // label1
@@ -962,7 +1318,7 @@ namespace DVLD.Forms
             this.roundedDataGridView1.Location = new System.Drawing.Point(0, 0);
             this.roundedDataGridView1.Name = "roundedDataGridView1";
             this.roundedDataGridView1.ReadOnly = true;
-            this.roundedDataGridView1.Size = new System.Drawing.Size(745, 339);
+            this.roundedDataGridView1.Size = new System.Drawing.Size(963, 452);
             this.roundedDataGridView1.TabIndex = 5;
             // 
             // id
@@ -998,7 +1354,7 @@ namespace DVLD.Forms
             this.tlp_header.Name = "tlp_header";
             this.tlp_header.RowCount = 1;
             this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_header.Size = new System.Drawing.Size(753, 0);
+            this.tlp_header.Size = new System.Drawing.Size(971, 0);
             this.tlp_header.TabIndex = 0;
             // 
             // window_operations
@@ -1012,7 +1368,7 @@ namespace DVLD.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1018, 563);
             this.Controls.Add(this.pl_Body);
             this.Controls.Add(this.lb_Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1045,6 +1401,20 @@ namespace DVLD.Forms
             this.pl_replace_lost_license.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.tab_add_new_local_license.ResumeLayout(false);
+            this.tlp_page1.ResumeLayout(false);
+            this.pl_page1_body.ResumeLayout(false);
+            this.pl_main.ResumeLayout(false);
+            this.pl_details.ResumeLayout(false);
+            this.pl_local_license_application_details.ResumeLayout(false);
+            this.pl_local_license_application_details.PerformLayout();
+            this.flp_page1_footer.ResumeLayout(false);
+            this.flp_search_panel.ResumeLayout(false);
+            this.flp_search_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_add_person)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
+            this.flp_page1_header.ResumeLayout(false);
+            this.flp_page1_header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page1_back)).EndInit();
             this.tab_add_new_inter_license.ResumeLayout(false);
             this.tab_add_new_inter_license.PerformLayout();
             this.tab_detain_license.ResumeLayout(false);
@@ -1139,6 +1509,31 @@ namespace DVLD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn last_status_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn paid_fees;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_by_user_id;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlp_page1;
+        private System.Windows.Forms.Panel pl_page1_body;
+        private System.Windows.Forms.Panel pl_main;
+        private System.Windows.Forms.Panel pl_details;
+        private UserControls.PersonDetailsCard personDetailsCard1;
+        private System.Windows.Forms.Panel pl_local_license_application_details;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lb_created_by;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lb_application_fees;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lb_date_of_birth;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.FlowLayoutPanel flp_page1_footer;
+        private Views.Controls.RoundedButton btn_save;
+        private Views.Controls.RoundedButton btn_cancel;
+        private System.Windows.Forms.FlowLayoutPanel flp_search_panel;
+        private System.Windows.Forms.TextBox txt_search_word;
+        private System.Windows.Forms.ComboBox cb_filter;
+        private System.Windows.Forms.Label lb_text;
+        private System.Windows.Forms.FlowLayoutPanel flp_page1_header;
+        private System.Windows.Forms.PictureBox pb_page1_back;
+        private System.Windows.Forms.Label lb_page1_title;
+        private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox pb_add_person;
+        private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox pb_search;
     }
 }

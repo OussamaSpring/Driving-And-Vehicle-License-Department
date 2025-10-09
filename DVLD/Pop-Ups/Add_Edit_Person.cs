@@ -26,6 +26,7 @@ namespace DVLD.Pop_Ups
 
         private Person _person;
         private bool HasImageChanged = false;
+        private bool IsImageEmpty = true;
         private bool HasDataChanged = false;
 
         public Add_Edit_Person(int? id)
@@ -39,6 +40,7 @@ namespace DVLD.Pop_Ups
                 state = State.Add;
                 lb_title.Text = "Add New Person";
                 lb_person_id.Text = "N/A";
+                cb_gender.SelectedIndex = 0;
                 rpb_profile_image.Image = img_list_default_profile.Images[0];
                 lb_remove_image.Visible = false;
             }
@@ -83,7 +85,7 @@ namespace DVLD.Pop_Ups
             p.Phone = tb_phone.Text;
             p.NationalityCountry = await _personController.GetCountryByNameAsync(cb_country.Text);
             p.Address = rtb_address.Text;
-            p.PersonalImage = HasImageChanged == true ? ImageToByteArray(rpb_profile_image.Image) : null;
+            p.PersonalImage = HasImageChanged == true ? (IsImageEmpty == true ? null : ImageToByteArray(rpb_profile_image.Image)) : null; // If image has changed, update it; otherwise, keep it as is.
 
             return p;
         }
@@ -137,6 +139,7 @@ namespace DVLD.Pop_Ups
                 rpb_profile_image.Image = img;
                 lb_remove_image.Visible = true;
                 HasImageChanged = true;
+                IsImageEmpty = false;
             }
         }
         private void lb_remove_image_Click(object sender, EventArgs e)
@@ -147,6 +150,7 @@ namespace DVLD.Pop_Ups
             rpb_profile_image.Image = img_list_default_profile.Images[cb_gender.SelectedIndex];
             lb_remove_image.Visible = false;
             HasImageChanged = true;
+            IsImageEmpty = true;
         }
 
         private async void btn_save_MouseClick(object sender, MouseEventArgs e)
@@ -243,15 +247,14 @@ namespace DVLD.Pop_Ups
                 this.Dispose();
                 return;
             }
-
             else if (MessageBox.Show("Are you sure you want to exit without saving?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
             this.Dispose();
         }
-        private void cb_gender_SelectedIndexChanged(object sender, EventArgs e)
+        private void cb_gender_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            rpb_profile_image.Image = img_list_default_profile.Images[cb_gender.SelectedIndex];
         }
 
         #endregion

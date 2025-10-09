@@ -61,18 +61,18 @@
             this.lb_person_id = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lb_upload_image = new System.Windows.Forms.Label();
-            this.rpb_profile_image = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.flp_actions = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_save = new DVLD.Views.Controls.RoundedButton();
-            this.btn_cancel = new DVLD.Views.Controls.RoundedButton();
             this.err_input_validation = new System.Windows.Forms.ErrorProvider(this.components);
             this.ofd_upload_image = new System.Windows.Forms.OpenFileDialog();
             this.img_list_default_profile = new System.Windows.Forms.ImageList(this.components);
+            this.rpb_profile_image = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
+            this.btn_save = new DVLD.Views.Controls.RoundedButton();
+            this.btn_cancel = new DVLD.Views.Controls.RoundedButton();
             this.pl_header.SuspendLayout();
             this.pl_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).BeginInit();
             this.flp_actions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_title
@@ -281,6 +281,7 @@
             this.cb_gender.Size = new System.Drawing.Size(284, 28);
             this.cb_gender.TabIndex = 59;
             this.cb_gender.SelectedIndexChanged += new System.EventHandler(this.cb_gender_country_SelectedIndexChanged);
+            this.cb_gender.SelectionChangeCommitted += new System.EventHandler(this.cb_gender_SelectionChangeCommitted);
             // 
             // label11
             // 
@@ -462,17 +463,6 @@
             this.lb_upload_image.Text = "Upload Image";
             this.lb_upload_image.Click += new System.EventHandler(this.lb_upload_image_Click);
             // 
-            // rpb_profile_image
-            // 
-            this.rpb_profile_image.BackColor = System.Drawing.Color.Transparent;
-            this.rpb_profile_image.Location = new System.Drawing.Point(30, 34);
-            this.rpb_profile_image.Name = "rpb_profile_image";
-            this.rpb_profile_image.Radius = 30;
-            this.rpb_profile_image.Size = new System.Drawing.Size(150, 150);
-            this.rpb_profile_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.rpb_profile_image.TabIndex = 42;
-            this.rpb_profile_image.TabStop = false;
-            // 
             // flp_actions
             // 
             this.flp_actions.BackColor = System.Drawing.SystemColors.Control;
@@ -486,6 +476,32 @@
             this.flp_actions.Padding = new System.Windows.Forms.Padding(10, 6, 30, 5);
             this.flp_actions.Size = new System.Drawing.Size(896, 50);
             this.flp_actions.TabIndex = 44;
+            // 
+            // err_input_validation
+            // 
+            this.err_input_validation.ContainerControl = this;
+            // 
+            // ofd_upload_image
+            // 
+            this.ofd_upload_image.FileName = "Upload Image";
+            // 
+            // img_list_default_profile
+            // 
+            this.img_list_default_profile.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("img_list_default_profile.ImageStream")));
+            this.img_list_default_profile.TransparentColor = System.Drawing.Color.Transparent;
+            this.img_list_default_profile.Images.SetKeyName(0, "Male.png");
+            this.img_list_default_profile.Images.SetKeyName(1, "Female.png");
+            // 
+            // rpb_profile_image
+            // 
+            this.rpb_profile_image.BackColor = System.Drawing.Color.Transparent;
+            this.rpb_profile_image.Location = new System.Drawing.Point(30, 34);
+            this.rpb_profile_image.Name = "rpb_profile_image";
+            this.rpb_profile_image.Radius = 30;
+            this.rpb_profile_image.Size = new System.Drawing.Size(150, 150);
+            this.rpb_profile_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.rpb_profile_image.TabIndex = 42;
+            this.rpb_profile_image.TabStop = false;
             // 
             // btn_save
             // 
@@ -525,21 +541,6 @@
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_Exit_Clicked);
             // 
-            // err_input_validation
-            // 
-            this.err_input_validation.ContainerControl = this;
-            // 
-            // ofd_upload_image
-            // 
-            this.ofd_upload_image.FileName = "Upload Image";
-            // 
-            // img_list_default_profile
-            // 
-            this.img_list_default_profile.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("img_list_default_profile.ImageStream")));
-            this.img_list_default_profile.TransparentColor = System.Drawing.Color.Transparent;
-            this.img_list_default_profile.Images.SetKeyName(0, "Male.png");
-            this.img_list_default_profile.Images.SetKeyName(1, "Female.png");
-            // 
             // Add_Edit_Person
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -557,9 +558,9 @@
             this.pl_header.PerformLayout();
             this.pl_main.ResumeLayout(false);
             this.pl_main.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).EndInit();
             this.flp_actions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).EndInit();
             this.ResumeLayout(false);
 
         }

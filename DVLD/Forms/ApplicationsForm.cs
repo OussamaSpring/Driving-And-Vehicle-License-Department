@@ -1,3 +1,4 @@
+using DVLD.Pop_Ups;
 using DVLD.UserControls;
 using System;
 using System.Windows.Forms;
@@ -93,5 +94,24 @@ namespace DVLD.Forms
         {
             htc_operations_management.SelectedIndex = 7; // Select the "Replace Lost License" tab
         }
+
+        private void pb_add_person_Click(object sender, EventArgs e)
+        {
+            pb_add_person.Enabled = false; // Disable the button to prevent multiple clicks
+            try
+            {
+                Add_Edit_Person addPersonForm = new Add_Edit_Person(null);
+                addPersonForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding new person: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                pb_add_person.Enabled = true; // Re-enable the button
+            }
+        }
+
     }
 }

@@ -343,7 +343,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.lb_edit);
             this.Controls.Add(this.lb_national_no);
@@ -368,7 +367,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "PersonDetailsCard";
-            this.Size = new System.Drawing.Size(673, 363);
+            this.Size = new System.Drawing.Size(677, 367);
             ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

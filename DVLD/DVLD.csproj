@@ -169,7 +169,9 @@
     <Compile Include="UserControls\PersonDetailsCard.Designer.cs">
       <DependentUpon>PersonDetailsCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SearchBar.cs" />
+    <Compile Include="UserControls\SearchBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\SearchBar.Designer.cs">
       <DependentUpon>SearchBar.cs</DependentUpon>
     </Compile>
@@ -277,11 +279,13 @@
   <ItemGroup>
     <Content Include="Resources\Icons\AddPerson.png" />
     <Content Include="Resources\Icons\Address.png" />
+    <Content Include="Resources\Icons\arrow.png" />
     <Content Include="Resources\Icons\Calendar.png" />
     <Content Include="Resources\Icons\Country.png" />
     <Content Include="Resources\Icons\Email.png" />
     <Content Include="Resources\Icons\Person.png" />
     <Content Include="Resources\Icons\Phone.png" />
+    <None Include="Resources\Icons\search.png" />
     <Content Include="Resources\Icons\User.png" />
     <Content Include="Resources\Images\damaged_license.png" />
     <Content Include="Resources\Images\driving-license.png" />

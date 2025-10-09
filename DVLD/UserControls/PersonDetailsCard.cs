@@ -17,6 +17,7 @@ namespace DVLD.UserControls
         public PersonDetailsCard()
         {
             InitializeComponent();
+            lb_edit.Visible = false; // Hide edit label initially
 
             _personController = new PersonController(new PersonRepository());
         }
@@ -39,6 +40,8 @@ namespace DVLD.UserControls
             rpb_profile_image.Image = _person.PersonalImage != null
                 ? System.Drawing.Image.FromStream(new System.IO.MemoryStream(_person.PersonalImage))
                 : img_list_default_profile.Images[Convert.ToInt16(_person.enGender)];
+            
+            lb_edit.Visible = true;
         }
         public async void SetPerson(int personId)
         {
