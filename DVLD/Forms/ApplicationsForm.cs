@@ -97,7 +97,7 @@ namespace DVLD.Forms
 
         private void pb_add_person_Click(object sender, EventArgs e)
         {
-            pb_add_person.Enabled = false; // Disable the button to prevent multiple clicks
+            btn_add_person.Enabled = false; // Disable the button to prevent multiple clicks
             try
             {
                 Add_Edit_Person addPersonForm = new Add_Edit_Person(null);
@@ -109,9 +109,8 @@ namespace DVLD.Forms
             }
             finally
             {
-                pb_add_person.Enabled = true; // Re-enable the button
+                btn_add_person.Enabled = true; // Re-enable the button
             }
         }
-
     }
 }

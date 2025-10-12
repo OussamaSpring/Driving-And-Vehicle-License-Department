@@ -163,6 +163,12 @@
     <Compile Include="UserControls\NavigationBar.Designer.cs">
       <DependentUpon>NavigationBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DriverLicenseCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DriverLicenseCard.Designer.cs">
+      <DependentUpon>DriverLicenseCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PersonDetailsCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NavigationBar.resx">
       <DependentUpon>NavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DriverLicenseCard.resx">
+      <DependentUpon>DriverLicenseCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PersonDetailsCard.resx">
       <DependentUpon>PersonDetailsCard.cs</DependentUpon>

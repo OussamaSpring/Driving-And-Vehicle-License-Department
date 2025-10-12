@@ -51,7 +51,6 @@
             this.lb_license_class = new System.Windows.Forms.Label();
             this.lb_title = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.rpb_person_image = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.img_list_default_profile = new System.Windows.Forms.ImageList(this.components);
             this.lb_driver_id = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lb_notes = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.rpb_person_image = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.rpb_person_image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -314,17 +314,6 @@
             this.label4.Text = "Name: ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rpb_person_image
-            // 
-            this.rpb_person_image.BackColor = System.Drawing.Color.Transparent;
-            this.rpb_person_image.Location = new System.Drawing.Point(510, 154);
-            this.rpb_person_image.Name = "rpb_person_image";
-            this.rpb_person_image.Radius = 30;
-            this.rpb_person_image.Size = new System.Drawing.Size(120, 120);
-            this.rpb_person_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.rpb_person_image.TabIndex = 10;
-            this.rpb_person_image.TabStop = false;
-            // 
             // img_list_default_profile
             // 
             this.img_list_default_profile.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("img_list_default_profile.ImageStream")));
@@ -429,6 +418,17 @@
             this.label14.TabIndex = 32;
             this.label14.Text = "Notes: ";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rpb_person_image
+            // 
+            this.rpb_person_image.BackColor = System.Drawing.Color.Transparent;
+            this.rpb_person_image.Location = new System.Drawing.Point(510, 154);
+            this.rpb_person_image.Name = "rpb_person_image";
+            this.rpb_person_image.Radius = 30;
+            this.rpb_person_image.Size = new System.Drawing.Size(120, 120);
+            this.rpb_person_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.rpb_person_image.TabIndex = 10;
+            this.rpb_person_image.TabStop = false;
             // 
             // DriverLicenseCard
             // 

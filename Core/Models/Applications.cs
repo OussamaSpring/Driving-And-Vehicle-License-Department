@@ -10,9 +10,10 @@ namespace Core.Models
     {
         public int ApplicationId { get; set; }
         public int ApplicationPersonId { get; set; }
+        public ApplicationType ApplicationType { get; set; }
         public DateTime ApplicationDate { get; set; }
         public string ApplicationStatus { get; set; }
-        public DateTime? ApplicationDecisionDate { get; set; }
+        public DateTime? ApplicationLastDecisionDate { get; set; }
 
         public float? PaidFees { get; set; }
         public int CreatedByUserId { get; set; }
