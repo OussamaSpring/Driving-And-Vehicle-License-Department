@@ -33,83 +33,83 @@
             this.pl_Body = new System.Windows.Forms.Panel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
             this.tab_profile = new System.Windows.Forms.TabPage();
-            this.tab_users_management = new System.Windows.Forms.TabPage();
-            this.dgv_users = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
-            this.uc_users_topbar = new DVLD.UserControls.SearchBar();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_text_users = new System.Windows.Forms.Label();
-            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
-            this.lb_Title = new System.Windows.Forms.Label();
-            this.pl_user_profile = new System.Windows.Forms.Panel();
-            this.rpb_profile_image = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
-            this.lb_upload_image = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lb_person_id = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tb_national_no = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tb_first_name = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tb_third_name = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tb_second_name = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tb_last_name = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtp_date_of_birth = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cb_gender = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tb_email = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tb_phone = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cb_country = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.rtb_address = new System.Windows.Forms.RichTextBox();
-            this.lb_max_length = new System.Windows.Forms.Label();
-            this.lb_remove_image = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.seperator1 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
-            this.lb_edit_person_details = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.seperator2 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pl_user_profile = new System.Windows.Forms.Panel();
+            this.txt_confirm_password = new System.Windows.Forms.TextBox();
+            this.txt_confirm_new_password = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btn_change_password = new DVLD.Views.Controls.RoundedButton();
+            this.btn_save_user = new DVLD.Views.Controls.RoundedButton();
+            this.btn_discard_user = new DVLD.Views.Controls.RoundedButton();
+            this.btn_save_person = new DVLD.Views.Controls.RoundedButton();
+            this.btn_discard_person = new DVLD.Views.Controls.RoundedButton();
+            this.txt_current_password = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.seperator3 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lb_is_active = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lb_edit_user_details = new System.Windows.Forms.Label();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.lb_user_id = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.lb_edit_user_details = new System.Windows.Forms.Label();
-            this.lb_is_active = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.seperator3 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_current_password = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btn_save_person = new DVLD.Views.Controls.RoundedButton();
-            this.btn_discard_person = new DVLD.Views.Controls.RoundedButton();
-            this.btn_save_user = new DVLD.Views.Controls.RoundedButton();
-            this.btn_discard_user = new DVLD.Views.Controls.RoundedButton();
-            this.btn_change_password = new DVLD.Views.Controls.RoundedButton();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txt_confirm_new_password = new System.Windows.Forms.TextBox();
-            this.txt_confirm_password = new System.Windows.Forms.TextBox();
+            this.seperator2 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lb_edit_person_details = new System.Windows.Forms.Label();
+            this.seperator1 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_remove_image = new System.Windows.Forms.Label();
+            this.lb_max_length = new System.Windows.Forms.Label();
+            this.rtb_address = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cb_country = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tb_phone = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tb_email = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cb_gender = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dtp_date_of_birth = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tb_last_name = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_second_name = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tb_third_name = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tb_first_name = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_national_no = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lb_person_id = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lb_upload_image = new System.Windows.Forms.Label();
+            this.rpb_profile_image = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
+            this.tab_users_management = new System.Windows.Forms.TabPage();
+            this.dgv_users = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driver_person_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.uc_users_topbar = new DVLD.UserControls.SearchBar();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_text_users = new System.Windows.Forms.Label();
+            this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_Title = new System.Windows.Forms.Label();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_profile.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.pl_user_profile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).BeginInit();
             this.tab_users_management.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_users)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            this.pl_user_profile.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pl_Body
@@ -149,110 +149,20 @@
             this.tab_profile.TabIndex = 0;
             this.tab_profile.Text = "Profile";
             // 
-            // tab_users_management
+            // tableLayoutPanel1
             // 
-            this.tab_users_management.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_users_management.Controls.Add(this.dgv_users);
-            this.tab_users_management.Controls.Add(this.uc_users_topbar);
-            this.tab_users_management.Controls.Add(this.flowLayoutPanel1);
-            this.tab_users_management.Location = new System.Drawing.Point(4, 28);
-            this.tab_users_management.Name = "tab_users_management";
-            this.tab_users_management.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_users_management.Size = new System.Drawing.Size(983, 460);
-            this.tab_users_management.TabIndex = 1;
-            this.tab_users_management.Text = "Users Management";
-            // 
-            // dgv_users
-            // 
-            this.dgv_users.AllowUserToAddRows = false;
-            this.dgv_users.AllowUserToDeleteRows = false;
-            this.dgv_users.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.dgv_users.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_users.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_users.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.user_id,
-            this.driver_person_id,
-            this.fullname,
-            this.username,
-            this.is_active});
-            this.dgv_users.CornerRadius = 15;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_users.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_users.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_users.EnableHeadersVisualStyles = false;
-            this.dgv_users.Location = new System.Drawing.Point(3, 53);
-            this.dgv_users.Name = "dgv_users";
-            this.dgv_users.ReadOnly = true;
-            this.dgv_users.Size = new System.Drawing.Size(977, 354);
-            this.dgv_users.TabIndex = 4;
-            // 
-            // uc_users_topbar
-            // 
-            this.uc_users_topbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uc_users_topbar.Location = new System.Drawing.Point(3, 3);
-            this.uc_users_topbar.Name = "uc_users_topbar";
-            this.uc_users_topbar.Size = new System.Drawing.Size(977, 50);
-            this.uc_users_topbar.TabIndex = 3;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.lb_footer_text_users);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 407);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(977, 50);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // lb_footer_text_users
-            // 
-            this.lb_footer_text_users.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_footer_text_users.Location = new System.Drawing.Point(3, 0);
-            this.lb_footer_text_users.Name = "lb_footer_text_users";
-            this.lb_footer_text_users.Size = new System.Drawing.Size(624, 50);
-            this.lb_footer_text_users.TabIndex = 0;
-            this.lb_footer_text_users.Text = "Total Number of Users: ";
-            this.lb_footer_text_users.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tlp_header
-            // 
-            this.tlp_header.AutoSize = true;
-            this.tlp_header.ColumnCount = 3;
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlp_header.Location = new System.Drawing.Point(7, 10);
-            this.tlp_header.Name = "tlp_header";
-            this.tlp_header.RowCount = 1;
-            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_header.Size = new System.Drawing.Size(991, 0);
-            this.tlp_header.TabIndex = 0;
-            // 
-            // lb_Title
-            // 
-            this.lb_Title.AutoSize = true;
-            this.lb_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_Title.Font = new System.Drawing.Font("Roboto Lt", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Title.Location = new System.Drawing.Point(20, 20);
-            this.lb_Title.Name = "lb_Title";
-            this.lb_Title.Size = new System.Drawing.Size(111, 29);
-            this.lb_Title.TabIndex = 3;
-            this.lb_Title.Text = "Settings";
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 900F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.pl_user_profile, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(977, 454);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pl_user_profile
             // 
@@ -318,388 +228,213 @@
             this.pl_user_profile.Size = new System.Drawing.Size(894, 448);
             this.pl_user_profile.TabIndex = 0;
             // 
-            // rpb_profile_image
-            // 
-            this.rpb_profile_image.BackColor = System.Drawing.Color.Transparent;
-            this.rpb_profile_image.Location = new System.Drawing.Point(32, 70);
-            this.rpb_profile_image.Name = "rpb_profile_image";
-            this.rpb_profile_image.Radius = 30;
-            this.rpb_profile_image.Size = new System.Drawing.Size(150, 150);
-            this.rpb_profile_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.rpb_profile_image.TabIndex = 70;
-            this.rpb_profile_image.TabStop = false;
-            // 
-            // lb_upload_image
-            // 
-            this.lb_upload_image.AutoSize = true;
-            this.lb_upload_image.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lb_upload_image.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_upload_image.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lb_upload_image.Location = new System.Drawing.Point(58, 235);
-            this.lb_upload_image.Name = "lb_upload_image";
-            this.lb_upload_image.Size = new System.Drawing.Size(103, 18);
-            this.lb_upload_image.TabIndex = 71;
-            this.lb_upload_image.Text = "Upload Image";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(255, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 18);
-            this.label3.TabIndex = 72;
-            this.label3.Text = "Person ID: ";
-            // 
-            // lb_person_id
-            // 
-            this.lb_person_id.AutoSize = true;
-            this.lb_person_id.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_person_id.ForeColor = System.Drawing.Color.Gray;
-            this.lb_person_id.Location = new System.Drawing.Point(348, 70);
-            this.lb_person_id.Name = "lb_person_id";
-            this.lb_person_id.Size = new System.Drawing.Size(34, 18);
-            this.lb_person_id.TabIndex = 73;
-            this.lb_person_id.Text = "N/A";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(255, 109);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 18);
-            this.label5.TabIndex = 74;
-            this.label5.Text = "National Number:";
-            // 
-            // tb_national_no
-            // 
-            this.tb_national_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_national_no.ForeColor = System.Drawing.Color.Gray;
-            this.tb_national_no.Location = new System.Drawing.Point(258, 143);
-            this.tb_national_no.MaxLength = 20;
-            this.tb_national_no.Name = "tb_national_no";
-            this.tb_national_no.Size = new System.Drawing.Size(284, 26);
-            this.tb_national_no.TabIndex = 75;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(255, 185);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 18);
-            this.label6.TabIndex = 76;
-            this.label6.Text = "First Name";
-            // 
-            // tb_first_name
-            // 
-            this.tb_first_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_first_name.ForeColor = System.Drawing.Color.Gray;
-            this.tb_first_name.Location = new System.Drawing.Point(258, 219);
-            this.tb_first_name.MaxLength = 20;
-            this.tb_first_name.Name = "tb_first_name";
-            this.tb_first_name.Size = new System.Drawing.Size(284, 26);
-            this.tb_first_name.TabIndex = 77;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(255, 261);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 18);
-            this.label7.TabIndex = 78;
-            this.label7.Text = "Third Name";
-            // 
-            // tb_third_name
-            // 
-            this.tb_third_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_third_name.ForeColor = System.Drawing.Color.Gray;
-            this.tb_third_name.Location = new System.Drawing.Point(258, 295);
-            this.tb_third_name.MaxLength = 20;
-            this.tb_third_name.Name = "tb_third_name";
-            this.tb_third_name.Size = new System.Drawing.Size(284, 26);
-            this.tb_third_name.TabIndex = 79;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(561, 185);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 18);
-            this.label8.TabIndex = 80;
-            this.label8.Text = "Second Name";
-            // 
-            // tb_second_name
-            // 
-            this.tb_second_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_second_name.ForeColor = System.Drawing.Color.Gray;
-            this.tb_second_name.Location = new System.Drawing.Point(564, 219);
-            this.tb_second_name.MaxLength = 20;
-            this.tb_second_name.Name = "tb_second_name";
-            this.tb_second_name.Size = new System.Drawing.Size(284, 26);
-            this.tb_second_name.TabIndex = 81;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(561, 261);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 18);
-            this.label9.TabIndex = 82;
-            this.label9.Text = "Last Name";
-            // 
-            // tb_last_name
-            // 
-            this.tb_last_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_last_name.ForeColor = System.Drawing.Color.Gray;
-            this.tb_last_name.Location = new System.Drawing.Point(564, 295);
-            this.tb_last_name.MaxLength = 20;
-            this.tb_last_name.Name = "tb_last_name";
-            this.tb_last_name.Size = new System.Drawing.Size(284, 26);
-            this.tb_last_name.TabIndex = 83;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(255, 337);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 18);
-            this.label10.TabIndex = 84;
-            this.label10.Text = "Date of Birth";
-            // 
-            // dtp_date_of_birth
-            // 
-            this.dtp_date_of_birth.CalendarForeColor = System.Drawing.Color.Gray;
-            this.dtp_date_of_birth.CustomFormat = "yyyy/MM/dd";
-            this.dtp_date_of_birth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_date_of_birth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_date_of_birth.Location = new System.Drawing.Point(258, 371);
-            this.dtp_date_of_birth.MinDate = new System.DateTime(1910, 1, 1, 0, 0, 0, 0);
-            this.dtp_date_of_birth.Name = "dtp_date_of_birth";
-            this.dtp_date_of_birth.Size = new System.Drawing.Size(284, 26);
-            this.dtp_date_of_birth.TabIndex = 85;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(561, 337);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 18);
-            this.label11.TabIndex = 86;
-            this.label11.Text = "Gender";
-            // 
-            // cb_gender
-            // 
-            this.cb_gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_gender.ForeColor = System.Drawing.Color.Gray;
-            this.cb_gender.FormattingEnabled = true;
-            this.cb_gender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cb_gender.Location = new System.Drawing.Point(564, 369);
-            this.cb_gender.Name = "cb_gender";
-            this.cb_gender.Size = new System.Drawing.Size(284, 28);
-            this.cb_gender.TabIndex = 87;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(255, 413);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 18);
-            this.label13.TabIndex = 88;
-            this.label13.Text = "Email";
-            // 
-            // tb_email
-            // 
-            this.tb_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_email.ForeColor = System.Drawing.Color.Gray;
-            this.tb_email.Location = new System.Drawing.Point(258, 447);
-            this.tb_email.MaxLength = 50;
-            this.tb_email.Name = "tb_email";
-            this.tb_email.Size = new System.Drawing.Size(284, 26);
-            this.tb_email.TabIndex = 89;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(561, 413);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 18);
-            this.label12.TabIndex = 90;
-            this.label12.Text = "Phone";
-            // 
-            // tb_phone
-            // 
-            this.tb_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_phone.ForeColor = System.Drawing.Color.Gray;
-            this.tb_phone.Location = new System.Drawing.Point(564, 447);
-            this.tb_phone.MaxLength = 20;
-            this.tb_phone.Name = "tb_phone";
-            this.tb_phone.Size = new System.Drawing.Size(284, 26);
-            this.tb_phone.TabIndex = 91;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(255, 489);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 18);
-            this.label15.TabIndex = 92;
-            this.label15.Text = "Country";
-            // 
-            // cb_country
-            // 
-            this.cb_country.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_country.ForeColor = System.Drawing.Color.Gray;
-            this.cb_country.FormattingEnabled = true;
-            this.cb_country.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_country.Location = new System.Drawing.Point(258, 523);
-            this.cb_country.Name = "cb_country";
-            this.cb_country.Size = new System.Drawing.Size(284, 28);
-            this.cb_country.TabIndex = 93;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(255, 567);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 18);
-            this.label14.TabIndex = 94;
-            this.label14.Text = "Address";
-            // 
-            // rtb_address
-            // 
-            this.rtb_address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtb_address.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.rtb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_address.ForeColor = System.Drawing.Color.Gray;
-            this.rtb_address.Location = new System.Drawing.Point(258, 601);
-            this.rtb_address.MaxLength = 255;
-            this.rtb_address.Name = "rtb_address";
-            this.rtb_address.Size = new System.Drawing.Size(590, 75);
-            this.rtb_address.TabIndex = 95;
-            this.rtb_address.Text = "";
-            // 
-            // lb_max_length
-            // 
-            this.lb_max_length.AutoSize = true;
-            this.lb_max_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_max_length.ForeColor = System.Drawing.Color.Gray;
-            this.lb_max_length.Location = new System.Drawing.Point(790, 679);
-            this.lb_max_length.Name = "lb_max_length";
-            this.lb_max_length.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.lb_max_length.Size = new System.Drawing.Size(58, 43);
-            this.lb_max_length.TabIndex = 96;
-            this.lb_max_length.Text = "max. 255";
-            // 
-            // lb_remove_image
-            // 
-            this.lb_remove_image.AutoSize = true;
-            this.lb_remove_image.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lb_remove_image.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_remove_image.ForeColor = System.Drawing.Color.MediumPurple;
-            this.lb_remove_image.Location = new System.Drawing.Point(66, 261);
-            this.lb_remove_image.Name = "lb_remove_image";
-            this.lb_remove_image.Size = new System.Drawing.Size(86, 14);
-            this.lb_remove_image.TabIndex = 97;
-            this.lb_remove_image.Text = "Remove Image";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto Lt", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 23);
-            this.label1.TabIndex = 98;
-            this.label1.Text = "Person Details";
-            // 
-            // seperator1
-            // 
-            this.seperator1.Location = new System.Drawing.Point(32, 50);
-            this.seperator1.Name = "seperator1";
-            this.seperator1.Size = new System.Drawing.Size(810, 2);
-            this.seperator1.TabIndex = 99;
-            this.seperator1.TabStop = false;
-            // 
-            // lb_edit_person_details
-            // 
-            this.lb_edit_person_details.AutoSize = true;
-            this.lb_edit_person_details.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lb_edit_person_details.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_edit_person_details.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lb_edit_person_details.Location = new System.Drawing.Point(727, 26);
-            this.lb_edit_person_details.Name = "lb_edit_person_details";
-            this.lb_edit_person_details.Size = new System.Drawing.Size(115, 15);
-            this.lb_edit_person_details.TabIndex = 100;
-            this.lb_edit_person_details.Text = "Edit Person Details";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 900F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.pl_user_profile, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(977, 454);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(399, 1217);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.label2.Size = new System.Drawing.Size(0, 43);
-            this.label2.TabIndex = 101;
-            // 
-            // seperator2
-            // 
-            this.seperator2.Location = new System.Drawing.Point(38, 833);
-            this.seperator2.Name = "seperator2";
-            this.seperator2.Size = new System.Drawing.Size(810, 2);
-            this.seperator2.TabIndex = 103;
-            this.seperator2.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto Lt", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 803);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 23);
-            this.label4.TabIndex = 102;
-            this.label4.Text = "User Infromation";
+            // txt_confirm_password
+            // 
+            this.txt_confirm_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_confirm_password.ForeColor = System.Drawing.Color.Gray;
+            this.txt_confirm_password.Location = new System.Drawing.Point(370, 1136);
+            this.txt_confirm_password.MaxLength = 20;
+            this.txt_confirm_password.Name = "txt_confirm_password";
+            this.txt_confirm_password.PasswordChar = '*';
+            this.txt_confirm_password.Size = new System.Drawing.Size(236, 26);
+            this.txt_confirm_password.TabIndex = 127;
+            // 
+            // txt_confirm_new_password
+            // 
+            this.txt_confirm_new_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_confirm_new_password.ForeColor = System.Drawing.Color.Gray;
+            this.txt_confirm_new_password.Location = new System.Drawing.Point(612, 1136);
+            this.txt_confirm_new_password.MaxLength = 20;
+            this.txt_confirm_new_password.Name = "txt_confirm_new_password";
+            this.txt_confirm_new_password.PasswordChar = '*';
+            this.txt_confirm_new_password.Size = new System.Drawing.Size(236, 26);
+            this.txt_confirm_new_password.TabIndex = 126;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(609, 1102);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(172, 18);
+            this.label25.TabIndex = 125;
+            this.label25.Text = "Confirm New Password:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(367, 1102);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(114, 18);
+            this.label24.TabIndex = 123;
+            this.label24.Text = "New Password:";
+            // 
+            // btn_change_password
+            // 
+            this.btn_change_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_change_password.BorderColor = System.Drawing.Color.Gray;
+            this.btn_change_password.BorderRadius = 20;
+            this.btn_change_password.BorderSize = 2;
+            this.btn_change_password.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_change_password.FlatAppearance.BorderSize = 0;
+            this.btn_change_password.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_change_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_change_password.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_change_password.Location = new System.Drawing.Point(680, 1189);
+            this.btn_change_password.Name = "btn_change_password";
+            this.btn_change_password.Size = new System.Drawing.Size(168, 30);
+            this.btn_change_password.TabIndex = 121;
+            this.btn_change_password.Text = "Change Password";
+            this.btn_change_password.UseVisualStyleBackColor = false;
+            // 
+            // btn_save_user
+            // 
+            this.btn_save_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_save_user.BorderColor = System.Drawing.Color.Gray;
+            this.btn_save_user.BorderRadius = 20;
+            this.btn_save_user.BorderSize = 2;
+            this.btn_save_user.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save_user.FlatAppearance.BorderSize = 0;
+            this.btn_save_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save_user.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_save_user.Location = new System.Drawing.Point(733, 979);
+            this.btn_save_user.Name = "btn_save_user";
+            this.btn_save_user.Size = new System.Drawing.Size(115, 30);
+            this.btn_save_user.TabIndex = 119;
+            this.btn_save_user.Text = "Save";
+            this.btn_save_user.UseVisualStyleBackColor = false;
+            // 
+            // btn_discard_user
+            // 
+            this.btn_discard_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_discard_user.BorderColor = System.Drawing.Color.Gray;
+            this.btn_discard_user.BorderRadius = 20;
+            this.btn_discard_user.BorderSize = 2;
+            this.btn_discard_user.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_discard_user.FlatAppearance.BorderSize = 0;
+            this.btn_discard_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_discard_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_discard_user.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_discard_user.Location = new System.Drawing.Point(612, 979);
+            this.btn_discard_user.Name = "btn_discard_user";
+            this.btn_discard_user.Size = new System.Drawing.Size(115, 30);
+            this.btn_discard_user.TabIndex = 120;
+            this.btn_discard_user.Text = "Discard";
+            this.btn_discard_user.UseVisualStyleBackColor = false;
+            // 
+            // btn_save_person
+            // 
+            this.btn_save_person.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_save_person.BorderColor = System.Drawing.Color.Gray;
+            this.btn_save_person.BorderRadius = 20;
+            this.btn_save_person.BorderSize = 2;
+            this.btn_save_person.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save_person.FlatAppearance.BorderSize = 0;
+            this.btn_save_person.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save_person.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save_person.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_save_person.Location = new System.Drawing.Point(733, 725);
+            this.btn_save_person.Name = "btn_save_person";
+            this.btn_save_person.Size = new System.Drawing.Size(115, 30);
+            this.btn_save_person.TabIndex = 117;
+            this.btn_save_person.Text = "Save";
+            this.btn_save_person.UseVisualStyleBackColor = false;
+            // 
+            // btn_discard_person
+            // 
+            this.btn_discard_person.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_discard_person.BorderColor = System.Drawing.Color.Gray;
+            this.btn_discard_person.BorderRadius = 20;
+            this.btn_discard_person.BorderSize = 2;
+            this.btn_discard_person.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_discard_person.FlatAppearance.BorderSize = 0;
+            this.btn_discard_person.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_discard_person.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_discard_person.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_discard_person.Location = new System.Drawing.Point(612, 725);
+            this.btn_discard_person.Name = "btn_discard_person";
+            this.btn_discard_person.Size = new System.Drawing.Size(115, 30);
+            this.btn_discard_person.TabIndex = 118;
+            this.btn_discard_person.Text = "Discard";
+            this.btn_discard_person.UseVisualStyleBackColor = false;
+            // 
+            // txt_current_password
+            // 
+            this.txt_current_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_current_password.ForeColor = System.Drawing.Color.Gray;
+            this.txt_current_password.Location = new System.Drawing.Point(42, 1136);
+            this.txt_current_password.MaxLength = 20;
+            this.txt_current_password.Name = "txt_current_password";
+            this.txt_current_password.PasswordChar = '*';
+            this.txt_current_password.Size = new System.Drawing.Size(284, 26);
+            this.txt_current_password.TabIndex = 116;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(39, 1102);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(134, 18);
+            this.label23.TabIndex = 115;
+            this.label23.Text = "Current Password:";
+            // 
+            // seperator3
+            // 
+            this.seperator3.Location = new System.Drawing.Point(38, 1078);
+            this.seperator3.Name = "seperator3";
+            this.seperator3.Size = new System.Drawing.Size(810, 2);
+            this.seperator3.TabIndex = 114;
+            this.seperator3.TabStop = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Roboto Lt", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(38, 1048);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(180, 23);
+            this.label19.TabIndex = 113;
+            this.label19.Text = "Change Password";
+            // 
+            // lb_is_active
+            // 
+            this.lb_is_active.AutoSize = true;
+            this.lb_is_active.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_is_active.ForeColor = System.Drawing.Color.Gray;
+            this.lb_is_active.Location = new System.Drawing.Point(533, 855);
+            this.lb_is_active.Name = "lb_is_active";
+            this.lb_is_active.Size = new System.Drawing.Size(34, 18);
+            this.lb_is_active.TabIndex = 112;
+            this.lb_is_active.Text = "N/A";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(440, 855);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(74, 18);
+            this.label22.TabIndex = 111;
+            this.label22.Text = "Is Active: ";
+            // 
+            // lb_edit_user_details
+            // 
+            this.lb_edit_user_details.AutoSize = true;
+            this.lb_edit_user_details.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lb_edit_user_details.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_edit_user_details.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lb_edit_user_details.Location = new System.Drawing.Point(746, 809);
+            this.lb_edit_user_details.Name = "lb_edit_user_details";
+            this.lb_edit_user_details.Size = new System.Drawing.Size(102, 15);
+            this.lb_edit_user_details.TabIndex = 110;
+            this.lb_edit_user_details.Text = "Edit User Details";
             // 
             // txt_username
             // 
@@ -744,213 +479,425 @@
             this.label18.TabIndex = 104;
             this.label18.Text = "User ID: ";
             // 
-            // lb_edit_user_details
+            // seperator2
             // 
-            this.lb_edit_user_details.AutoSize = true;
-            this.lb_edit_user_details.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lb_edit_user_details.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_edit_user_details.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lb_edit_user_details.Location = new System.Drawing.Point(746, 809);
-            this.lb_edit_user_details.Name = "lb_edit_user_details";
-            this.lb_edit_user_details.Size = new System.Drawing.Size(102, 15);
-            this.lb_edit_user_details.TabIndex = 110;
-            this.lb_edit_user_details.Text = "Edit User Details";
+            this.seperator2.Location = new System.Drawing.Point(38, 833);
+            this.seperator2.Name = "seperator2";
+            this.seperator2.Size = new System.Drawing.Size(810, 2);
+            this.seperator2.TabIndex = 103;
+            this.seperator2.TabStop = false;
             // 
-            // lb_is_active
+            // label4
             // 
-            this.lb_is_active.AutoSize = true;
-            this.lb_is_active.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_is_active.ForeColor = System.Drawing.Color.Gray;
-            this.lb_is_active.Location = new System.Drawing.Point(533, 855);
-            this.lb_is_active.Name = "lb_is_active";
-            this.lb_is_active.Size = new System.Drawing.Size(34, 18);
-            this.lb_is_active.TabIndex = 112;
-            this.lb_is_active.Text = "N/A";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Roboto Lt", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(38, 803);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 23);
+            this.label4.TabIndex = 102;
+            this.label4.Text = "User Infromation";
             // 
-            // label22
+            // label2
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(440, 855);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(74, 18);
-            this.label22.TabIndex = 111;
-            this.label22.Text = "Is Active: ";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.Location = new System.Drawing.Point(399, 1217);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.label2.Size = new System.Drawing.Size(0, 43);
+            this.label2.TabIndex = 101;
             // 
-            // seperator3
+            // lb_edit_person_details
             // 
-            this.seperator3.Location = new System.Drawing.Point(38, 1078);
-            this.seperator3.Name = "seperator3";
-            this.seperator3.Size = new System.Drawing.Size(810, 2);
-            this.seperator3.TabIndex = 114;
-            this.seperator3.TabStop = false;
+            this.lb_edit_person_details.AutoSize = true;
+            this.lb_edit_person_details.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lb_edit_person_details.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_edit_person_details.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lb_edit_person_details.Location = new System.Drawing.Point(727, 26);
+            this.lb_edit_person_details.Name = "lb_edit_person_details";
+            this.lb_edit_person_details.Size = new System.Drawing.Size(115, 15);
+            this.lb_edit_person_details.TabIndex = 100;
+            this.lb_edit_person_details.Text = "Edit Person Details";
             // 
-            // label19
+            // seperator1
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Roboto Lt", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(38, 1048);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(180, 23);
-            this.label19.TabIndex = 113;
-            this.label19.Text = "Change Password";
+            this.seperator1.Location = new System.Drawing.Point(32, 50);
+            this.seperator1.Name = "seperator1";
+            this.seperator1.Size = new System.Drawing.Size(810, 2);
+            this.seperator1.TabIndex = 99;
+            this.seperator1.TabStop = false;
             // 
-            // txt_current_password
+            // label1
             // 
-            this.txt_current_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_current_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_current_password.Location = new System.Drawing.Point(42, 1136);
-            this.txt_current_password.MaxLength = 20;
-            this.txt_current_password.Name = "txt_current_password";
-            this.txt_current_password.PasswordChar = '*';
-            this.txt_current_password.Size = new System.Drawing.Size(284, 26);
-            this.txt_current_password.TabIndex = 116;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto Lt", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 23);
+            this.label1.TabIndex = 98;
+            this.label1.Text = "Person Details";
             // 
-            // label23
+            // lb_remove_image
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(39, 1102);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(134, 18);
-            this.label23.TabIndex = 115;
-            this.label23.Text = "Current Password:";
+            this.lb_remove_image.AutoSize = true;
+            this.lb_remove_image.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lb_remove_image.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_remove_image.ForeColor = System.Drawing.Color.MediumPurple;
+            this.lb_remove_image.Location = new System.Drawing.Point(66, 261);
+            this.lb_remove_image.Name = "lb_remove_image";
+            this.lb_remove_image.Size = new System.Drawing.Size(86, 14);
+            this.lb_remove_image.TabIndex = 97;
+            this.lb_remove_image.Text = "Remove Image";
             // 
-            // btn_save_person
+            // lb_max_length
             // 
-            this.btn_save_person.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_save_person.BorderColor = System.Drawing.Color.Gray;
-            this.btn_save_person.BorderRadius = 20;
-            this.btn_save_person.BorderSize = 2;
-            this.btn_save_person.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_save_person.FlatAppearance.BorderSize = 0;
-            this.btn_save_person.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_person.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_person.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_save_person.Location = new System.Drawing.Point(733, 725);
-            this.btn_save_person.Name = "btn_save_person";
-            this.btn_save_person.Size = new System.Drawing.Size(115, 30);
-            this.btn_save_person.TabIndex = 117;
-            this.btn_save_person.Text = "Save";
-            this.btn_save_person.UseVisualStyleBackColor = false;
+            this.lb_max_length.AutoSize = true;
+            this.lb_max_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_max_length.ForeColor = System.Drawing.Color.Gray;
+            this.lb_max_length.Location = new System.Drawing.Point(790, 679);
+            this.lb_max_length.Name = "lb_max_length";
+            this.lb_max_length.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.lb_max_length.Size = new System.Drawing.Size(58, 43);
+            this.lb_max_length.TabIndex = 96;
+            this.lb_max_length.Text = "max. 255";
             // 
-            // btn_discard_person
+            // rtb_address
             // 
-            this.btn_discard_person.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_discard_person.BorderColor = System.Drawing.Color.Gray;
-            this.btn_discard_person.BorderRadius = 20;
-            this.btn_discard_person.BorderSize = 2;
-            this.btn_discard_person.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_discard_person.FlatAppearance.BorderSize = 0;
-            this.btn_discard_person.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_discard_person.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_discard_person.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_discard_person.Location = new System.Drawing.Point(612, 725);
-            this.btn_discard_person.Name = "btn_discard_person";
-            this.btn_discard_person.Size = new System.Drawing.Size(115, 30);
-            this.btn_discard_person.TabIndex = 118;
-            this.btn_discard_person.Text = "Discard";
-            this.btn_discard_person.UseVisualStyleBackColor = false;
+            this.rtb_address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtb_address.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rtb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_address.ForeColor = System.Drawing.Color.Gray;
+            this.rtb_address.Location = new System.Drawing.Point(258, 601);
+            this.rtb_address.MaxLength = 255;
+            this.rtb_address.Name = "rtb_address";
+            this.rtb_address.Size = new System.Drawing.Size(590, 75);
+            this.rtb_address.TabIndex = 95;
+            this.rtb_address.Text = "";
             // 
-            // btn_save_user
+            // label14
             // 
-            this.btn_save_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_save_user.BorderColor = System.Drawing.Color.Gray;
-            this.btn_save_user.BorderRadius = 20;
-            this.btn_save_user.BorderSize = 2;
-            this.btn_save_user.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_save_user.FlatAppearance.BorderSize = 0;
-            this.btn_save_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_user.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_save_user.Location = new System.Drawing.Point(733, 979);
-            this.btn_save_user.Name = "btn_save_user";
-            this.btn_save_user.Size = new System.Drawing.Size(115, 30);
-            this.btn_save_user.TabIndex = 119;
-            this.btn_save_user.Text = "Save";
-            this.btn_save_user.UseVisualStyleBackColor = false;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(255, 567);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 18);
+            this.label14.TabIndex = 94;
+            this.label14.Text = "Address";
             // 
-            // btn_discard_user
+            // cb_country
             // 
-            this.btn_discard_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_discard_user.BorderColor = System.Drawing.Color.Gray;
-            this.btn_discard_user.BorderRadius = 20;
-            this.btn_discard_user.BorderSize = 2;
-            this.btn_discard_user.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_discard_user.FlatAppearance.BorderSize = 0;
-            this.btn_discard_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_discard_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_discard_user.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_discard_user.Location = new System.Drawing.Point(612, 979);
-            this.btn_discard_user.Name = "btn_discard_user";
-            this.btn_discard_user.Size = new System.Drawing.Size(115, 30);
-            this.btn_discard_user.TabIndex = 120;
-            this.btn_discard_user.Text = "Discard";
-            this.btn_discard_user.UseVisualStyleBackColor = false;
+            this.cb_country.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_country.ForeColor = System.Drawing.Color.Gray;
+            this.cb_country.FormattingEnabled = true;
+            this.cb_country.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_country.Location = new System.Drawing.Point(258, 523);
+            this.cb_country.Name = "cb_country";
+            this.cb_country.Size = new System.Drawing.Size(284, 28);
+            this.cb_country.TabIndex = 93;
             // 
-            // btn_change_password
+            // label15
             // 
-            this.btn_change_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_change_password.BorderColor = System.Drawing.Color.Gray;
-            this.btn_change_password.BorderRadius = 20;
-            this.btn_change_password.BorderSize = 2;
-            this.btn_change_password.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_change_password.FlatAppearance.BorderSize = 0;
-            this.btn_change_password.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_change_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_change_password.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_change_password.Location = new System.Drawing.Point(680, 1189);
-            this.btn_change_password.Name = "btn_change_password";
-            this.btn_change_password.Size = new System.Drawing.Size(168, 30);
-            this.btn_change_password.TabIndex = 121;
-            this.btn_change_password.Text = "Change Password";
-            this.btn_change_password.UseVisualStyleBackColor = false;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(255, 489);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(62, 18);
+            this.label15.TabIndex = 92;
+            this.label15.Text = "Country";
             // 
-            // label24
+            // tb_phone
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(367, 1102);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(114, 18);
-            this.label24.TabIndex = 123;
-            this.label24.Text = "New Password:";
+            this.tb_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_phone.ForeColor = System.Drawing.Color.Gray;
+            this.tb_phone.Location = new System.Drawing.Point(564, 447);
+            this.tb_phone.MaxLength = 20;
+            this.tb_phone.Name = "tb_phone";
+            this.tb_phone.Size = new System.Drawing.Size(284, 26);
+            this.tb_phone.TabIndex = 91;
             // 
-            // label25
+            // label12
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(609, 1102);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(172, 18);
-            this.label25.TabIndex = 125;
-            this.label25.Text = "Confirm New Password:";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(561, 413);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 18);
+            this.label12.TabIndex = 90;
+            this.label12.Text = "Phone";
             // 
-            // txt_confirm_new_password
+            // tb_email
             // 
-            this.txt_confirm_new_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_confirm_new_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_confirm_new_password.Location = new System.Drawing.Point(612, 1136);
-            this.txt_confirm_new_password.MaxLength = 20;
-            this.txt_confirm_new_password.Name = "txt_confirm_new_password";
-            this.txt_confirm_new_password.PasswordChar = '*';
-            this.txt_confirm_new_password.Size = new System.Drawing.Size(236, 26);
-            this.txt_confirm_new_password.TabIndex = 126;
+            this.tb_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_email.ForeColor = System.Drawing.Color.Gray;
+            this.tb_email.Location = new System.Drawing.Point(258, 447);
+            this.tb_email.MaxLength = 50;
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(284, 26);
+            this.tb_email.TabIndex = 89;
             // 
-            // txt_confirm_password
+            // label13
             // 
-            this.txt_confirm_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_confirm_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_confirm_password.Location = new System.Drawing.Point(370, 1136);
-            this.txt_confirm_password.MaxLength = 20;
-            this.txt_confirm_password.Name = "txt_confirm_password";
-            this.txt_confirm_password.PasswordChar = '*';
-            this.txt_confirm_password.Size = new System.Drawing.Size(236, 26);
-            this.txt_confirm_password.TabIndex = 127;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(255, 413);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(45, 18);
+            this.label13.TabIndex = 88;
+            this.label13.Text = "Email";
+            // 
+            // cb_gender
+            // 
+            this.cb_gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_gender.ForeColor = System.Drawing.Color.Gray;
+            this.cb_gender.FormattingEnabled = true;
+            this.cb_gender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cb_gender.Location = new System.Drawing.Point(564, 369);
+            this.cb_gender.Name = "cb_gender";
+            this.cb_gender.Size = new System.Drawing.Size(284, 28);
+            this.cb_gender.TabIndex = 87;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(561, 337);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 18);
+            this.label11.TabIndex = 86;
+            this.label11.Text = "Gender";
+            // 
+            // dtp_date_of_birth
+            // 
+            this.dtp_date_of_birth.CalendarForeColor = System.Drawing.Color.Gray;
+            this.dtp_date_of_birth.CustomFormat = "yyyy/MM/dd";
+            this.dtp_date_of_birth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_date_of_birth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_date_of_birth.Location = new System.Drawing.Point(258, 371);
+            this.dtp_date_of_birth.MinDate = new System.DateTime(1910, 1, 1, 0, 0, 0, 0);
+            this.dtp_date_of_birth.Name = "dtp_date_of_birth";
+            this.dtp_date_of_birth.Size = new System.Drawing.Size(284, 26);
+            this.dtp_date_of_birth.TabIndex = 85;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(255, 337);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 18);
+            this.label10.TabIndex = 84;
+            this.label10.Text = "Date of Birth";
+            // 
+            // tb_last_name
+            // 
+            this.tb_last_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_last_name.ForeColor = System.Drawing.Color.Gray;
+            this.tb_last_name.Location = new System.Drawing.Point(564, 295);
+            this.tb_last_name.MaxLength = 20;
+            this.tb_last_name.Name = "tb_last_name";
+            this.tb_last_name.Size = new System.Drawing.Size(284, 26);
+            this.tb_last_name.TabIndex = 83;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(561, 261);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 18);
+            this.label9.TabIndex = 82;
+            this.label9.Text = "Last Name";
+            // 
+            // tb_second_name
+            // 
+            this.tb_second_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_second_name.ForeColor = System.Drawing.Color.Gray;
+            this.tb_second_name.Location = new System.Drawing.Point(564, 219);
+            this.tb_second_name.MaxLength = 20;
+            this.tb_second_name.Name = "tb_second_name";
+            this.tb_second_name.Size = new System.Drawing.Size(284, 26);
+            this.tb_second_name.TabIndex = 81;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(561, 185);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 18);
+            this.label8.TabIndex = 80;
+            this.label8.Text = "Second Name";
+            // 
+            // tb_third_name
+            // 
+            this.tb_third_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_third_name.ForeColor = System.Drawing.Color.Gray;
+            this.tb_third_name.Location = new System.Drawing.Point(258, 295);
+            this.tb_third_name.MaxLength = 20;
+            this.tb_third_name.Name = "tb_third_name";
+            this.tb_third_name.Size = new System.Drawing.Size(284, 26);
+            this.tb_third_name.TabIndex = 79;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(255, 261);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 18);
+            this.label7.TabIndex = 78;
+            this.label7.Text = "Third Name";
+            // 
+            // tb_first_name
+            // 
+            this.tb_first_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_first_name.ForeColor = System.Drawing.Color.Gray;
+            this.tb_first_name.Location = new System.Drawing.Point(258, 219);
+            this.tb_first_name.MaxLength = 20;
+            this.tb_first_name.Name = "tb_first_name";
+            this.tb_first_name.Size = new System.Drawing.Size(284, 26);
+            this.tb_first_name.TabIndex = 77;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(255, 185);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 18);
+            this.label6.TabIndex = 76;
+            this.label6.Text = "First Name";
+            // 
+            // tb_national_no
+            // 
+            this.tb_national_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_national_no.ForeColor = System.Drawing.Color.Gray;
+            this.tb_national_no.Location = new System.Drawing.Point(258, 143);
+            this.tb_national_no.MaxLength = 20;
+            this.tb_national_no.Name = "tb_national_no";
+            this.tb_national_no.Size = new System.Drawing.Size(284, 26);
+            this.tb_national_no.TabIndex = 75;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(255, 109);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 18);
+            this.label5.TabIndex = 74;
+            this.label5.Text = "National Number:";
+            // 
+            // lb_person_id
+            // 
+            this.lb_person_id.AutoSize = true;
+            this.lb_person_id.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_person_id.ForeColor = System.Drawing.Color.Gray;
+            this.lb_person_id.Location = new System.Drawing.Point(348, 70);
+            this.lb_person_id.Name = "lb_person_id";
+            this.lb_person_id.Size = new System.Drawing.Size(34, 18);
+            this.lb_person_id.TabIndex = 73;
+            this.lb_person_id.Text = "N/A";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(255, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 18);
+            this.label3.TabIndex = 72;
+            this.label3.Text = "Person ID: ";
+            // 
+            // lb_upload_image
+            // 
+            this.lb_upload_image.AutoSize = true;
+            this.lb_upload_image.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lb_upload_image.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_upload_image.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lb_upload_image.Location = new System.Drawing.Point(58, 235);
+            this.lb_upload_image.Name = "lb_upload_image";
+            this.lb_upload_image.Size = new System.Drawing.Size(103, 18);
+            this.lb_upload_image.TabIndex = 71;
+            this.lb_upload_image.Text = "Upload Image";
+            // 
+            // rpb_profile_image
+            // 
+            this.rpb_profile_image.BackColor = System.Drawing.Color.Transparent;
+            this.rpb_profile_image.Location = new System.Drawing.Point(32, 70);
+            this.rpb_profile_image.Name = "rpb_profile_image";
+            this.rpb_profile_image.Radius = 30;
+            this.rpb_profile_image.Size = new System.Drawing.Size(150, 150);
+            this.rpb_profile_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.rpb_profile_image.TabIndex = 70;
+            this.rpb_profile_image.TabStop = false;
+            // 
+            // tab_users_management
+            // 
+            this.tab_users_management.BackColor = System.Drawing.SystemColors.Control;
+            this.tab_users_management.Controls.Add(this.dgv_users);
+            this.tab_users_management.Controls.Add(this.uc_users_topbar);
+            this.tab_users_management.Controls.Add(this.flowLayoutPanel1);
+            this.tab_users_management.Location = new System.Drawing.Point(4, 28);
+            this.tab_users_management.Name = "tab_users_management";
+            this.tab_users_management.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_users_management.Size = new System.Drawing.Size(983, 460);
+            this.tab_users_management.TabIndex = 1;
+            this.tab_users_management.Text = "Users Management";
+            // 
+            // dgv_users
+            // 
+            this.dgv_users.AllowUserToAddRows = false;
+            this.dgv_users.AllowUserToDeleteRows = false;
+            this.dgv_users.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgv_users.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_users.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_users.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.user_id,
+            this.driver_person_id,
+            this.fullname,
+            this.username,
+            this.is_active});
+            this.dgv_users.CornerRadius = 15;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_users.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_users.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_users.EnableHeadersVisualStyles = false;
+            this.dgv_users.Location = new System.Drawing.Point(3, 53);
+            this.dgv_users.Name = "dgv_users";
+            this.dgv_users.ReadOnly = true;
+            this.dgv_users.Size = new System.Drawing.Size(977, 354);
+            this.dgv_users.TabIndex = 4;
             // 
             // user_id
             // 
@@ -987,6 +934,59 @@
             this.is_active.Name = "is_active";
             this.is_active.ReadOnly = true;
             // 
+            // uc_users_topbar
+            // 
+            this.uc_users_topbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uc_users_topbar.Location = new System.Drawing.Point(3, 3);
+            this.uc_users_topbar.Name = "uc_users_topbar";
+            this.uc_users_topbar.Size = new System.Drawing.Size(977, 50);
+            this.uc_users_topbar.TabIndex = 3;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.lb_footer_text_users);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 407);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(977, 50);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // lb_footer_text_users
+            // 
+            this.lb_footer_text_users.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_text_users.Location = new System.Drawing.Point(3, 0);
+            this.lb_footer_text_users.Name = "lb_footer_text_users";
+            this.lb_footer_text_users.Size = new System.Drawing.Size(624, 50);
+            this.lb_footer_text_users.TabIndex = 0;
+            this.lb_footer_text_users.Text = "Total Number of Users: ";
+            this.lb_footer_text_users.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tlp_header
+            // 
+            this.tlp_header.AutoSize = true;
+            this.tlp_header.ColumnCount = 3;
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlp_header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlp_header.Location = new System.Drawing.Point(7, 10);
+            this.tlp_header.Name = "tlp_header";
+            this.tlp_header.RowCount = 1;
+            this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_header.Size = new System.Drawing.Size(991, 0);
+            this.tlp_header.TabIndex = 0;
+            // 
+            // lb_Title
+            // 
+            this.lb_Title.AutoSize = true;
+            this.lb_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_Title.Font = new System.Drawing.Font("Roboto Lt", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Title.Location = new System.Drawing.Point(20, 20);
+            this.lb_Title.Name = "lb_Title";
+            this.lb_Title.Size = new System.Drawing.Size(111, 29);
+            this.lb_Title.TabIndex = 3;
+            this.lb_Title.Text = "Settings";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1004,13 +1004,13 @@
             this.pl_Body.PerformLayout();
             this.htc_tab_nav.ResumeLayout(false);
             this.tab_profile.ResumeLayout(false);
-            this.tab_users_management.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_users)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.pl_user_profile.ResumeLayout(false);
             this.pl_user_profile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rpb_profile_image)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tab_users_management.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_users)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
