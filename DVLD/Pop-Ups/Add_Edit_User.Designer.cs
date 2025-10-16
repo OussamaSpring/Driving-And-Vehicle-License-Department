@@ -51,9 +51,9 @@
             this.lb_user_id = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.chk_is_active = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_password = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_confirm_password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pl_header.SuspendLayout();
             this.flp_actions.SuspendLayout();
@@ -171,9 +171,9 @@
             // 
             this.pl_main.AutoScroll = true;
             this.pl_main.BackColor = System.Drawing.SystemColors.Control;
-            this.pl_main.Controls.Add(this.textBox2);
+            this.pl_main.Controls.Add(this.txt_confirm_password);
             this.pl_main.Controls.Add(this.label2);
-            this.pl_main.Controls.Add(this.textBox1);
+            this.pl_main.Controls.Add(this.txt_password);
             this.pl_main.Controls.Add(this.label1);
             this.pl_main.Controls.Add(this.chk_is_active);
             this.pl_main.Controls.Add(this.label22);
@@ -312,15 +312,15 @@
             this.chk_is_active.TabIndex = 119;
             this.chk_is_active.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txt_password
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(270, 555);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(284, 26);
-            this.textBox1.TabIndex = 121;
+            this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password.ForeColor = System.Drawing.Color.Gray;
+            this.txt_password.Location = new System.Drawing.Point(270, 555);
+            this.txt_password.MaxLength = 20;
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Size = new System.Drawing.Size(284, 26);
+            this.txt_password.TabIndex = 121;
             // 
             // label1
             // 
@@ -334,15 +334,15 @@
             this.label1.TabIndex = 120;
             this.label1.Text = "Password:";
             // 
-            // textBox2
+            // txt_confirm_password
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(270, 601);
-            this.textBox2.MaxLength = 20;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(284, 26);
-            this.textBox2.TabIndex = 123;
+            this.txt_confirm_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_confirm_password.ForeColor = System.Drawing.Color.Gray;
+            this.txt_confirm_password.Location = new System.Drawing.Point(270, 601);
+            this.txt_confirm_password.MaxLength = 20;
+            this.txt_confirm_password.Name = "txt_confirm_password";
+            this.txt_confirm_password.Size = new System.Drawing.Size(284, 26);
+            this.txt_confirm_password.TabIndex = 123;
             // 
             // label2
             // 
@@ -397,9 +397,9 @@
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.ComboBox cb_filter;
         private System.Windows.Forms.Label lb_text;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_confirm_password;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chk_is_active;
         private System.Windows.Forms.Label label22;

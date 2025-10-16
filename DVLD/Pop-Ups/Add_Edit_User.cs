@@ -80,18 +80,7 @@ namespace DVLD.Pop_Ups
 
         private async void Add_Edit_Person_Load(object sender, EventArgs e)
         {
-            var countries = await _personController.GetAllCountriesAsync();
 
-            if (countries != null)
-            {
-                cb_country.Items.Clear();
-                foreach (var country in countries)
-                {
-                    cb_country.Items.Add(country.CountryName);
-                }
-                if (state == State.Add)
-                    cb_country.SelectedIndex = 0;
-            }
         }
         private void lb_upload_image_Click(object sender, EventArgs e)
         {

@@ -289,6 +289,7 @@
             this.btn_change_password.TabIndex = 121;
             this.btn_change_password.Text = "Change Password";
             this.btn_change_password.UseVisualStyleBackColor = false;
+            this.btn_change_password.Visible = false;
             // 
             // btn_save_user
             // 
@@ -307,6 +308,7 @@
             this.btn_save_user.TabIndex = 119;
             this.btn_save_user.Text = "Save";
             this.btn_save_user.UseVisualStyleBackColor = false;
+            this.btn_save_user.Visible = false;
             // 
             // btn_discard_user
             // 
@@ -325,6 +327,7 @@
             this.btn_discard_user.TabIndex = 120;
             this.btn_discard_user.Text = "Discard";
             this.btn_discard_user.UseVisualStyleBackColor = false;
+            this.btn_discard_user.Visible = false;
             // 
             // btn_save_person
             // 
@@ -343,6 +346,7 @@
             this.btn_save_person.TabIndex = 117;
             this.btn_save_person.Text = "Save";
             this.btn_save_person.UseVisualStyleBackColor = false;
+            this.btn_save_person.Visible = false;
             // 
             // btn_discard_person
             // 
@@ -361,6 +365,7 @@
             this.btn_discard_person.TabIndex = 118;
             this.btn_discard_person.Text = "Discard";
             this.btn_discard_person.UseVisualStyleBackColor = false;
+            this.btn_discard_person.Visible = false;
             // 
             // txt_current_password
             // 
@@ -438,6 +443,7 @@
             // 
             // txt_username
             // 
+            this.txt_username.Enabled = false;
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username.ForeColor = System.Drawing.Color.Gray;
             this.txt_username.Location = new System.Drawing.Point(42, 928);
@@ -549,6 +555,7 @@
             this.lb_remove_image.Size = new System.Drawing.Size(86, 14);
             this.lb_remove_image.TabIndex = 97;
             this.lb_remove_image.Text = "Remove Image";
+            this.lb_remove_image.Visible = false;
             // 
             // lb_max_length
             // 
@@ -566,6 +573,7 @@
             // 
             this.rtb_address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtb_address.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rtb_address.Enabled = false;
             this.rtb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_address.ForeColor = System.Drawing.Color.Gray;
             this.rtb_address.Location = new System.Drawing.Point(258, 601);
@@ -588,6 +596,7 @@
             // 
             // cb_country
             // 
+            this.cb_country.Enabled = false;
             this.cb_country.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_country.ForeColor = System.Drawing.Color.Gray;
             this.cb_country.FormattingEnabled = true;
@@ -610,6 +619,7 @@
             // 
             // tb_phone
             // 
+            this.tb_phone.Enabled = false;
             this.tb_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_phone.ForeColor = System.Drawing.Color.Gray;
             this.tb_phone.Location = new System.Drawing.Point(564, 447);
@@ -631,6 +641,7 @@
             // 
             // tb_email
             // 
+            this.tb_email.Enabled = false;
             this.tb_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_email.ForeColor = System.Drawing.Color.Gray;
             this.tb_email.Location = new System.Drawing.Point(258, 447);
@@ -652,6 +663,7 @@
             // 
             // cb_gender
             // 
+            this.cb_gender.Enabled = false;
             this.cb_gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_gender.ForeColor = System.Drawing.Color.Gray;
             this.cb_gender.FormattingEnabled = true;
@@ -678,6 +690,7 @@
             // 
             this.dtp_date_of_birth.CalendarForeColor = System.Drawing.Color.Gray;
             this.dtp_date_of_birth.CustomFormat = "yyyy/MM/dd";
+            this.dtp_date_of_birth.Enabled = false;
             this.dtp_date_of_birth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_date_of_birth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_date_of_birth.Location = new System.Drawing.Point(258, 371);
@@ -699,6 +712,7 @@
             // 
             // tb_last_name
             // 
+            this.tb_last_name.Enabled = false;
             this.tb_last_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_last_name.ForeColor = System.Drawing.Color.Gray;
             this.tb_last_name.Location = new System.Drawing.Point(564, 295);
@@ -720,6 +734,7 @@
             // 
             // tb_second_name
             // 
+            this.tb_second_name.Enabled = false;
             this.tb_second_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_second_name.ForeColor = System.Drawing.Color.Gray;
             this.tb_second_name.Location = new System.Drawing.Point(564, 219);
@@ -741,6 +756,7 @@
             // 
             // tb_third_name
             // 
+            this.tb_third_name.Enabled = false;
             this.tb_third_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_third_name.ForeColor = System.Drawing.Color.Gray;
             this.tb_third_name.Location = new System.Drawing.Point(258, 295);
@@ -762,6 +778,7 @@
             // 
             // tb_first_name
             // 
+            this.tb_first_name.Enabled = false;
             this.tb_first_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_first_name.ForeColor = System.Drawing.Color.Gray;
             this.tb_first_name.Location = new System.Drawing.Point(258, 219);
@@ -783,6 +800,7 @@
             // 
             // tb_national_no
             // 
+            this.tb_national_no.Enabled = false;
             this.tb_national_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_national_no.ForeColor = System.Drawing.Color.Gray;
             this.tb_national_no.Location = new System.Drawing.Point(258, 143);
@@ -835,6 +853,7 @@
             this.lb_upload_image.Size = new System.Drawing.Size(103, 18);
             this.lb_upload_image.TabIndex = 71;
             this.lb_upload_image.Text = "Upload Image";
+            this.lb_upload_image.Visible = false;
             // 
             // rpb_profile_image
             // 
