@@ -67,6 +67,10 @@ namespace DVLD_BusinessLogic
             return await _userRepository.GetByUsernameAsync(username);
         }
 
+        public async Task<bool> IsUsernameTakenAsync(string username)
+        {
+            return await _userRepository.IsUsernameExistAsync(username);
+        }
 
         /// <summary>
         /// This Method authenticates a user based on the provided username and password.
@@ -80,12 +84,14 @@ namespace DVLD_BusinessLogic
         public async Task<short> AuthenticateUserAsync(string username, string password)
         {
             var user = await _userRepository.GetByUsernameAsync(username);
-            
-            // just for testing purposes, change later to HashPassword(password)
-            if (user == null || user.Password != password) 
+            if (user == null)
                 return 0;
-            else
-                return user.IsActive ? (short)1 : (short)2;
+
+            var hashedInput = HashPassword(password);
+            if (!string.Equals(user.Password, hashedInput, StringComparison.OrdinalIgnoreCase))
+                return 0;
+
+            return user.IsActive ? (short)1 : (short)2;
         }
     }
 }

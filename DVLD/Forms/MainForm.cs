@@ -134,7 +134,7 @@ namespace DVLD
 
         private void ShowSettings(object sender, EventArgs e)
         {
-            SettingsForm form = new SettingsForm();
+            SettingsForm form = new SettingsForm(_currentUser);
             form.MdiParent = this;
             form.Dock = DockStyle.Fill;
             form.Show();

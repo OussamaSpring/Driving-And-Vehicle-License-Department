@@ -12,7 +12,7 @@ namespace Core.Interfaces
     {
 
         Task<User> GetByUsernameAsync(string username);
-
+        Task<bool> IsUsernameExistAsync(string username);
 
     }
 }

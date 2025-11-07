@@ -117,5 +117,16 @@ namespace DVLD_DataAccess.Repositories
             var row = dataTable.Rows[0];
             return MapUser(row);
         }
+        public async Task<bool> IsUsernameExistAsync(string username)
+        {
+            var parameters = new Dictionary<string, object>
+            { { "@Username", username } };
+
+            string sqlQuery = "SELECT COUNT(1) FROM Users WHERE UserName = @Username";
+
+            int count = Convert.ToInt32(await DBHelper.ExecuteScalarAsync(sqlQuery, parameters));
+
+            return count > 0;
+        }
     }
 }

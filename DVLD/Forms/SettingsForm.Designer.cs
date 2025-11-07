@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.pl_Body = new System.Windows.Forms.Panel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
             this.tab_profile = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pl_user_profile = new System.Windows.Forms.Panel();
-            this.txt_confirm_password = new System.Windows.Forms.TextBox();
-            this.txt_confirm_new_password = new System.Windows.Forms.TextBox();
+            this.tb_confirm_password = new System.Windows.Forms.TextBox();
+            this.tb_confirm_new_password = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.btn_change_password = new DVLD.Views.Controls.RoundedButton();
@@ -44,14 +46,14 @@
             this.btn_discard_user = new DVLD.Views.Controls.RoundedButton();
             this.btn_save_person = new DVLD.Views.Controls.RoundedButton();
             this.btn_discard_person = new DVLD.Views.Controls.RoundedButton();
-            this.txt_current_password = new System.Windows.Forms.TextBox();
+            this.tb_current_password = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.seperator3 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
             this.label19 = new System.Windows.Forms.Label();
             this.lb_is_active = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.lb_edit_user_details = new System.Windows.Forms.Label();
-            this.txt_username = new System.Windows.Forms.TextBox();
+            this.tb_username = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.lb_user_id = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -101,6 +103,9 @@
             this.lb_footer_text_users = new System.Windows.Forms.Label();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.lb_Title = new System.Windows.Forms.Label();
+            this.img_list_default_profile = new System.Windows.Forms.ImageList(this.components);
+            this.ofd_upload_image = new System.Windows.Forms.OpenFileDialog();
+            this.err_input_validation = new System.Windows.Forms.ErrorProvider(this.components);
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_profile.SuspendLayout();
@@ -110,6 +115,7 @@
             this.tab_users_management.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_users)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).BeginInit();
             this.SuspendLayout();
             // 
             // pl_Body
@@ -168,8 +174,8 @@
             // 
             this.pl_user_profile.AutoScroll = true;
             this.pl_user_profile.BackColor = System.Drawing.SystemColors.Control;
-            this.pl_user_profile.Controls.Add(this.txt_confirm_password);
-            this.pl_user_profile.Controls.Add(this.txt_confirm_new_password);
+            this.pl_user_profile.Controls.Add(this.tb_confirm_password);
+            this.pl_user_profile.Controls.Add(this.tb_confirm_new_password);
             this.pl_user_profile.Controls.Add(this.label25);
             this.pl_user_profile.Controls.Add(this.label24);
             this.pl_user_profile.Controls.Add(this.btn_change_password);
@@ -177,14 +183,14 @@
             this.pl_user_profile.Controls.Add(this.btn_discard_user);
             this.pl_user_profile.Controls.Add(this.btn_save_person);
             this.pl_user_profile.Controls.Add(this.btn_discard_person);
-            this.pl_user_profile.Controls.Add(this.txt_current_password);
+            this.pl_user_profile.Controls.Add(this.tb_current_password);
             this.pl_user_profile.Controls.Add(this.label23);
             this.pl_user_profile.Controls.Add(this.seperator3);
             this.pl_user_profile.Controls.Add(this.label19);
             this.pl_user_profile.Controls.Add(this.lb_is_active);
             this.pl_user_profile.Controls.Add(this.label22);
             this.pl_user_profile.Controls.Add(this.lb_edit_user_details);
-            this.pl_user_profile.Controls.Add(this.txt_username);
+            this.pl_user_profile.Controls.Add(this.tb_username);
             this.pl_user_profile.Controls.Add(this.label16);
             this.pl_user_profile.Controls.Add(this.lb_user_id);
             this.pl_user_profile.Controls.Add(this.label18);
@@ -228,27 +234,27 @@
             this.pl_user_profile.Size = new System.Drawing.Size(894, 448);
             this.pl_user_profile.TabIndex = 0;
             // 
-            // txt_confirm_password
+            // tb_confirm_password
             // 
-            this.txt_confirm_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_confirm_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_confirm_password.Location = new System.Drawing.Point(370, 1136);
-            this.txt_confirm_password.MaxLength = 20;
-            this.txt_confirm_password.Name = "txt_confirm_password";
-            this.txt_confirm_password.PasswordChar = '*';
-            this.txt_confirm_password.Size = new System.Drawing.Size(236, 26);
-            this.txt_confirm_password.TabIndex = 127;
+            this.tb_confirm_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_confirm_password.ForeColor = System.Drawing.Color.Gray;
+            this.tb_confirm_password.Location = new System.Drawing.Point(370, 1136);
+            this.tb_confirm_password.MaxLength = 20;
+            this.tb_confirm_password.Name = "tb_confirm_password";
+            this.tb_confirm_password.PasswordChar = '*';
+            this.tb_confirm_password.Size = new System.Drawing.Size(236, 26);
+            this.tb_confirm_password.TabIndex = 127;
             // 
-            // txt_confirm_new_password
+            // tb_confirm_new_password
             // 
-            this.txt_confirm_new_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_confirm_new_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_confirm_new_password.Location = new System.Drawing.Point(612, 1136);
-            this.txt_confirm_new_password.MaxLength = 20;
-            this.txt_confirm_new_password.Name = "txt_confirm_new_password";
-            this.txt_confirm_new_password.PasswordChar = '*';
-            this.txt_confirm_new_password.Size = new System.Drawing.Size(236, 26);
-            this.txt_confirm_new_password.TabIndex = 126;
+            this.tb_confirm_new_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_confirm_new_password.ForeColor = System.Drawing.Color.Gray;
+            this.tb_confirm_new_password.Location = new System.Drawing.Point(612, 1136);
+            this.tb_confirm_new_password.MaxLength = 20;
+            this.tb_confirm_new_password.Name = "tb_confirm_new_password";
+            this.tb_confirm_new_password.PasswordChar = '*';
+            this.tb_confirm_new_password.Size = new System.Drawing.Size(236, 26);
+            this.tb_confirm_new_password.TabIndex = 126;
             // 
             // label25
             // 
@@ -289,7 +295,7 @@
             this.btn_change_password.TabIndex = 121;
             this.btn_change_password.Text = "Change Password";
             this.btn_change_password.UseVisualStyleBackColor = false;
-            this.btn_change_password.Visible = false;
+            this.btn_change_password.Click += new System.EventHandler(this.btn_change_password_Click);
             // 
             // btn_save_user
             // 
@@ -298,17 +304,18 @@
             this.btn_save_user.BorderRadius = 20;
             this.btn_save_user.BorderSize = 2;
             this.btn_save_user.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save_user.Enabled = false;
             this.btn_save_user.FlatAppearance.BorderSize = 0;
             this.btn_save_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save_user.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_save_user.Location = new System.Drawing.Point(733, 979);
+            this.btn_save_user.Location = new System.Drawing.Point(733, 988);
             this.btn_save_user.Name = "btn_save_user";
             this.btn_save_user.Size = new System.Drawing.Size(115, 30);
             this.btn_save_user.TabIndex = 119;
             this.btn_save_user.Text = "Save";
             this.btn_save_user.UseVisualStyleBackColor = false;
-            this.btn_save_user.Visible = false;
+            this.btn_save_user.Click += new System.EventHandler(this.btn_save_user_Click);
             // 
             // btn_discard_user
             // 
@@ -317,17 +324,18 @@
             this.btn_discard_user.BorderRadius = 20;
             this.btn_discard_user.BorderSize = 2;
             this.btn_discard_user.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_discard_user.Enabled = false;
             this.btn_discard_user.FlatAppearance.BorderSize = 0;
             this.btn_discard_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_discard_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_discard_user.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_discard_user.Location = new System.Drawing.Point(612, 979);
+            this.btn_discard_user.Location = new System.Drawing.Point(612, 988);
             this.btn_discard_user.Name = "btn_discard_user";
             this.btn_discard_user.Size = new System.Drawing.Size(115, 30);
             this.btn_discard_user.TabIndex = 120;
             this.btn_discard_user.Text = "Discard";
             this.btn_discard_user.UseVisualStyleBackColor = false;
-            this.btn_discard_user.Visible = false;
+            this.btn_discard_user.Click += new System.EventHandler(this.btn_discard_user_Click);
             // 
             // btn_save_person
             // 
@@ -336,6 +344,7 @@
             this.btn_save_person.BorderRadius = 20;
             this.btn_save_person.BorderSize = 2;
             this.btn_save_person.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save_person.Enabled = false;
             this.btn_save_person.FlatAppearance.BorderSize = 0;
             this.btn_save_person.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save_person.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -346,7 +355,7 @@
             this.btn_save_person.TabIndex = 117;
             this.btn_save_person.Text = "Save";
             this.btn_save_person.UseVisualStyleBackColor = false;
-            this.btn_save_person.Visible = false;
+            this.btn_save_person.Click += new System.EventHandler(this.btn_save_person_Click);
             // 
             // btn_discard_person
             // 
@@ -355,6 +364,7 @@
             this.btn_discard_person.BorderRadius = 20;
             this.btn_discard_person.BorderSize = 2;
             this.btn_discard_person.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_discard_person.Enabled = false;
             this.btn_discard_person.FlatAppearance.BorderSize = 0;
             this.btn_discard_person.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_discard_person.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -365,18 +375,18 @@
             this.btn_discard_person.TabIndex = 118;
             this.btn_discard_person.Text = "Discard";
             this.btn_discard_person.UseVisualStyleBackColor = false;
-            this.btn_discard_person.Visible = false;
+            this.btn_discard_person.Click += new System.EventHandler(this.btn_discard_person_Click);
             // 
-            // txt_current_password
+            // tb_current_password
             // 
-            this.txt_current_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_current_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_current_password.Location = new System.Drawing.Point(42, 1136);
-            this.txt_current_password.MaxLength = 20;
-            this.txt_current_password.Name = "txt_current_password";
-            this.txt_current_password.PasswordChar = '*';
-            this.txt_current_password.Size = new System.Drawing.Size(284, 26);
-            this.txt_current_password.TabIndex = 116;
+            this.tb_current_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_current_password.ForeColor = System.Drawing.Color.Gray;
+            this.tb_current_password.Location = new System.Drawing.Point(42, 1136);
+            this.tb_current_password.MaxLength = 20;
+            this.tb_current_password.Name = "tb_current_password";
+            this.tb_current_password.PasswordChar = '*';
+            this.tb_current_password.Size = new System.Drawing.Size(284, 26);
+            this.tb_current_password.TabIndex = 116;
             // 
             // label23
             // 
@@ -440,17 +450,19 @@
             this.lb_edit_user_details.Size = new System.Drawing.Size(102, 15);
             this.lb_edit_user_details.TabIndex = 110;
             this.lb_edit_user_details.Text = "Edit User Details";
+            this.lb_edit_user_details.Click += new System.EventHandler(this.EnableUserInfoEditing);
             // 
-            // txt_username
+            // tb_username
             // 
-            this.txt_username.Enabled = false;
-            this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_username.ForeColor = System.Drawing.Color.Gray;
-            this.txt_username.Location = new System.Drawing.Point(42, 928);
-            this.txt_username.MaxLength = 20;
-            this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(284, 26);
-            this.txt_username.TabIndex = 107;
+            this.tb_username.Enabled = false;
+            this.tb_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_username.ForeColor = System.Drawing.Color.Gray;
+            this.tb_username.Location = new System.Drawing.Point(42, 928);
+            this.tb_username.MaxLength = 20;
+            this.tb_username.Name = "tb_username";
+            this.tb_username.Size = new System.Drawing.Size(284, 26);
+            this.tb_username.TabIndex = 107;
+            this.tb_username.TextChanged += new System.EventHandler(this.tb_username_TextChanged);
             // 
             // label16
             // 
@@ -525,6 +537,7 @@
             this.lb_edit_person_details.Size = new System.Drawing.Size(115, 15);
             this.lb_edit_person_details.TabIndex = 100;
             this.lb_edit_person_details.Text = "Edit Person Details";
+            this.lb_edit_person_details.Click += new System.EventHandler(this.EnablePersonEditing);
             // 
             // seperator1
             // 
@@ -556,6 +569,7 @@
             this.lb_remove_image.TabIndex = 97;
             this.lb_remove_image.Text = "Remove Image";
             this.lb_remove_image.Visible = false;
+            this.lb_remove_image.Click += new System.EventHandler(this.lb_remove_image_Click);
             // 
             // lb_max_length
             // 
@@ -582,6 +596,7 @@
             this.rtb_address.Size = new System.Drawing.Size(590, 75);
             this.rtb_address.TabIndex = 95;
             this.rtb_address.Text = "";
+            this.rtb_address.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label14
             // 
@@ -627,6 +642,7 @@
             this.tb_phone.Name = "tb_phone";
             this.tb_phone.Size = new System.Drawing.Size(284, 26);
             this.tb_phone.TabIndex = 91;
+            this.tb_phone.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label12
             // 
@@ -649,6 +665,7 @@
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(284, 26);
             this.tb_email.TabIndex = 89;
+            this.tb_email.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label13
             // 
@@ -674,6 +691,8 @@
             this.cb_gender.Name = "cb_gender";
             this.cb_gender.Size = new System.Drawing.Size(284, 28);
             this.cb_gender.TabIndex = 87;
+            this.cb_gender.SelectedIndexChanged += new System.EventHandler(this.cb_gender_country_SelectedIndexChanged);
+            this.cb_gender.SelectionChangeCommitted += new System.EventHandler(this.cb_gender_SelectionChangeCommitted);
             // 
             // label11
             // 
@@ -698,6 +717,7 @@
             this.dtp_date_of_birth.Name = "dtp_date_of_birth";
             this.dtp_date_of_birth.Size = new System.Drawing.Size(284, 26);
             this.dtp_date_of_birth.TabIndex = 85;
+            this.dtp_date_of_birth.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // label10
             // 
@@ -720,6 +740,7 @@
             this.tb_last_name.Name = "tb_last_name";
             this.tb_last_name.Size = new System.Drawing.Size(284, 26);
             this.tb_last_name.TabIndex = 83;
+            this.tb_last_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label9
             // 
@@ -742,6 +763,7 @@
             this.tb_second_name.Name = "tb_second_name";
             this.tb_second_name.Size = new System.Drawing.Size(284, 26);
             this.tb_second_name.TabIndex = 81;
+            this.tb_second_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label8
             // 
@@ -764,6 +786,7 @@
             this.tb_third_name.Name = "tb_third_name";
             this.tb_third_name.Size = new System.Drawing.Size(284, 26);
             this.tb_third_name.TabIndex = 79;
+            this.tb_third_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label7
             // 
@@ -786,6 +809,7 @@
             this.tb_first_name.Name = "tb_first_name";
             this.tb_first_name.Size = new System.Drawing.Size(284, 26);
             this.tb_first_name.TabIndex = 77;
+            this.tb_first_name.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label6
             // 
@@ -808,6 +832,7 @@
             this.tb_national_no.Name = "tb_national_no";
             this.tb_national_no.Size = new System.Drawing.Size(284, 26);
             this.tb_national_no.TabIndex = 75;
+            this.tb_national_no.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label5
             // 
@@ -854,6 +879,7 @@
             this.lb_upload_image.TabIndex = 71;
             this.lb_upload_image.Text = "Upload Image";
             this.lb_upload_image.Visible = false;
+            this.lb_upload_image.Click += new System.EventHandler(this.lb_upload_image_Click);
             // 
             // rpb_profile_image
             // 
@@ -1006,6 +1032,21 @@
             this.lb_Title.TabIndex = 3;
             this.lb_Title.Text = "Settings";
             // 
+            // img_list_default_profile
+            // 
+            this.img_list_default_profile.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("img_list_default_profile.ImageStream")));
+            this.img_list_default_profile.TransparentColor = System.Drawing.Color.Transparent;
+            this.img_list_default_profile.Images.SetKeyName(0, "Male.png");
+            this.img_list_default_profile.Images.SetKeyName(1, "Female.png");
+            // 
+            // ofd_upload_image
+            // 
+            this.ofd_upload_image.FileName = "s";
+            // 
+            // err_input_validation
+            // 
+            this.err_input_validation.ContainerControl = this;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1030,6 +1071,7 @@
             this.tab_users_management.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_users)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1082,13 +1124,13 @@
         private System.Windows.Forms.Label lb_upload_image;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox rpb_profile_image;
         private System.Windows.Forms.Label lb_edit_user_details;
-        private System.Windows.Forms.TextBox txt_username;
+        private System.Windows.Forms.TextBox tb_username;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lb_user_id;
         private System.Windows.Forms.Label label18;
         private iNKORE.UI.WinForms.Styler.Controls.Seperator seperator2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_current_password;
+        private System.Windows.Forms.TextBox tb_current_password;
         private System.Windows.Forms.Label label23;
         private iNKORE.UI.WinForms.Styler.Controls.Seperator seperator3;
         private System.Windows.Forms.Label label19;
@@ -1100,13 +1142,16 @@
         private Views.Controls.RoundedButton btn_discard_user;
         private Views.Controls.RoundedButton btn_save_person;
         private Views.Controls.RoundedButton btn_discard_person;
-        private System.Windows.Forms.TextBox txt_confirm_password;
-        private System.Windows.Forms.TextBox txt_confirm_new_password;
+        private System.Windows.Forms.TextBox tb_confirm_password;
+        private System.Windows.Forms.TextBox tb_confirm_new_password;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver_person_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_active;
+        private System.Windows.Forms.ImageList img_list_default_profile;
+        private System.Windows.Forms.OpenFileDialog ofd_upload_image;
+        private System.Windows.Forms.ErrorProvider err_input_validation;
     }
 }

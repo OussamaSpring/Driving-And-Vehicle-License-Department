@@ -137,5 +137,16 @@ namespace DVLD
             errorMessage = null;
             return true;
         }
+
+        public static bool IsWithinLength(string input, int minLength, int maxLength, out string errorMessage)
+        {
+            if (input == null || input.Length < minLength || input.Length > maxLength)
+            {
+                errorMessage = $"Input must be between {minLength} and {maxLength} characters long.";
+                return false;
+            }
+            errorMessage = null;
+            return true;
+        }
     }
 }

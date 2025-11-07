@@ -4,13 +4,8 @@ using DVLD.Views.Components;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -254,7 +249,8 @@ namespace DVLD.Pop_Ups
         }
         private void cb_gender_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            rpb_profile_image.Image = img_list_default_profile.Images[cb_gender.SelectedIndex];
+            if(IsImageEmpty)
+                rpb_profile_image.Image = img_list_default_profile.Images[cb_gender.SelectedIndex];
         }
 
         #endregion
@@ -411,6 +407,24 @@ namespace DVLD.Pop_Ups
 
         #endregion
 
+        #region Track Data Changes
+        private void cb_gender_country_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
+        }
+
+        private void txt_input_fields_TextChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
+        }
+
+        private void date_ValueChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
+        }
+
+        #endregion
+
         #region Mouse Events for Dragging the Form
 
         /* These events are linked to the header panel to allow dragging the form by the header.
@@ -430,24 +444,6 @@ namespace DVLD.Pop_Ups
         private void pl_header_MouseUp(object sender, MouseEventArgs e)
         {
             base.RoundedBaseForm_MouseUp(sender, e);
-        }
-
-        #endregion
-
-        #region Track Data Changes
-        private void cb_gender_country_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HasDataChanged = true;
-        }
-
-        private void txt_input_fields_TextChanged(object sender, EventArgs e)
-        {
-            HasDataChanged = true;
-        }
-
-        private void date_ValueChanged(object sender, EventArgs e)
-        {
-            HasDataChanged = true;
         }
 
         #endregion
