@@ -95,7 +95,6 @@
             this.dgv_users = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driver_person_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.uc_users_topbar = new DVLD.UserControls.SearchBar();
@@ -924,7 +923,6 @@
             this.dgv_users.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.user_id,
             this.driver_person_id,
-            this.fullname,
             this.username,
             this.is_active});
             this.dgv_users.CornerRadius = 15;
@@ -957,13 +955,6 @@
             this.driver_person_id.HeaderText = "Person ID";
             this.driver_person_id.Name = "driver_person_id";
             this.driver_person_id.ReadOnly = true;
-            // 
-            // fullname
-            // 
-            this.fullname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fullname.HeaderText = "Full Name";
-            this.fullname.Name = "fullname";
-            this.fullname.ReadOnly = true;
             // 
             // username
             // 
@@ -1145,13 +1136,12 @@
         private System.Windows.Forms.TextBox tb_confirm_password;
         private System.Windows.Forms.TextBox tb_confirm_new_password;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driver_person_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn username;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn is_active;
         private System.Windows.Forms.ImageList img_list_default_profile;
         private System.Windows.Forms.OpenFileDialog ofd_upload_image;
         private System.Windows.Forms.ErrorProvider err_input_validation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn driver_person_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn username;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn is_active;
     }
 }

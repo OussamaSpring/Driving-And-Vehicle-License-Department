@@ -40,21 +40,23 @@
             this.ofd_upload_image = new System.Windows.Forms.OpenFileDialog();
             this.img_list_default_profile = new System.Windows.Forms.ImageList(this.components);
             this.pl_main = new System.Windows.Forms.Panel();
-            this.btn_search = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
-            this.txt_search = new System.Windows.Forms.TextBox();
-            this.cb_filter = new System.Windows.Forms.ComboBox();
-            this.lb_text = new System.Windows.Forms.Label();
-            this.personDetailsCard1 = new DVLD.UserControls.PersonDetailsCard();
+            this.txt_password_3 = new System.Windows.Forms.TextBox();
+            this.lb_password_3 = new System.Windows.Forms.Label();
+            this.txt_password_2 = new System.Windows.Forms.TextBox();
+            this.lb_password_2 = new System.Windows.Forms.Label();
+            this.txt_password_1 = new System.Windows.Forms.TextBox();
+            this.lb_password_1 = new System.Windows.Forms.Label();
+            this.chk_is_active = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.lb_user_id = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.chk_is_active = new System.Windows.Forms.CheckBox();
-            this.txt_password = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_confirm_password = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.personDetailsCard = new DVLD.UserControls.PersonDetailsCard();
+            this.btn_search = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
+            this.cb_filter = new System.Windows.Forms.ComboBox();
+            this.lb_text = new System.Windows.Forms.Label();
             this.pl_header.SuspendLayout();
             this.flp_actions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).BeginInit();
@@ -171,17 +173,19 @@
             // 
             this.pl_main.AutoScroll = true;
             this.pl_main.BackColor = System.Drawing.SystemColors.Control;
-            this.pl_main.Controls.Add(this.txt_confirm_password);
-            this.pl_main.Controls.Add(this.label2);
-            this.pl_main.Controls.Add(this.txt_password);
-            this.pl_main.Controls.Add(this.label1);
+            this.pl_main.Controls.Add(this.txt_password_3);
+            this.pl_main.Controls.Add(this.lb_password_3);
+            this.pl_main.Controls.Add(this.txt_password_2);
+            this.pl_main.Controls.Add(this.lb_password_2);
+            this.pl_main.Controls.Add(this.txt_password_1);
+            this.pl_main.Controls.Add(this.lb_password_1);
             this.pl_main.Controls.Add(this.chk_is_active);
             this.pl_main.Controls.Add(this.label22);
             this.pl_main.Controls.Add(this.txt_username);
             this.pl_main.Controls.Add(this.label16);
             this.pl_main.Controls.Add(this.lb_user_id);
             this.pl_main.Controls.Add(this.label18);
-            this.pl_main.Controls.Add(this.personDetailsCard1);
+            this.pl_main.Controls.Add(this.personDetailsCard);
             this.pl_main.Controls.Add(this.btn_search);
             this.pl_main.Controls.Add(this.txt_search);
             this.pl_main.Controls.Add(this.cb_filter);
@@ -192,60 +196,84 @@
             this.pl_main.Size = new System.Drawing.Size(896, 446);
             this.pl_main.TabIndex = 43;
             // 
-            // btn_search
+            // txt_password_3
             // 
-            this.btn_search.BackColor = System.Drawing.Color.White;
-            this.btn_search.Image = global::DVLD.Properties.Resources.search;
-            this.btn_search.Location = new System.Drawing.Point(676, 20);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Radius = 4;
-            this.btn_search.Size = new System.Drawing.Size(30, 30);
-            this.btn_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_search.TabIndex = 72;
-            this.btn_search.TabStop = false;
+            this.txt_password_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password_3.ForeColor = System.Drawing.Color.Gray;
+            this.txt_password_3.Location = new System.Drawing.Point(270, 649);
+            this.txt_password_3.MaxLength = 20;
+            this.txt_password_3.Name = "txt_password_3";
+            this.txt_password_3.PasswordChar = '*';
+            this.txt_password_3.Size = new System.Drawing.Size(284, 26);
+            this.txt_password_3.TabIndex = 125;
             // 
-            // txt_search
+            // lb_password_3
             // 
-            this.txt_search.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_search.Location = new System.Drawing.Point(460, 20);
-            this.txt_search.MaxLength = 30;
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(208, 30);
-            this.txt_search.TabIndex = 70;
+            this.lb_password_3.AutoSize = true;
+            this.lb_password_3.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_password_3.ForeColor = System.Drawing.Color.Black;
+            this.lb_password_3.Location = new System.Drawing.Point(108, 654);
+            this.lb_password_3.Name = "lb_password_3";
+            this.lb_password_3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.lb_password_3.Size = new System.Drawing.Size(138, 48);
+            this.lb_password_3.TabIndex = 124;
+            this.lb_password_3.Text = "Confirm Password:";
             // 
-            // cb_filter
+            // txt_password_2
             // 
-            this.cb_filter.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_filter.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.cb_filter.FormattingEnabled = true;
-            this.cb_filter.Items.AddRange(new object[] {
-            "Person ID",
-            "National No."});
-            this.cb_filter.Location = new System.Drawing.Point(257, 20);
-            this.cb_filter.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.cb_filter.Name = "cb_filter";
-            this.cb_filter.Size = new System.Drawing.Size(190, 31);
-            this.cb_filter.TabIndex = 69;
+            this.txt_password_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password_2.ForeColor = System.Drawing.Color.Gray;
+            this.txt_password_2.Location = new System.Drawing.Point(270, 601);
+            this.txt_password_2.MaxLength = 20;
+            this.txt_password_2.Name = "txt_password_2";
+            this.txt_password_2.PasswordChar = '*';
+            this.txt_password_2.Size = new System.Drawing.Size(284, 26);
+            this.txt_password_2.TabIndex = 123;
             // 
-            // lb_text
+            // lb_password_2
             // 
-            this.lb_text.AutoSize = true;
-            this.lb_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_text.Location = new System.Drawing.Point(163, 27);
-            this.lb_text.Margin = new System.Windows.Forms.Padding(3, 10, 6, 0);
-            this.lb_text.Name = "lb_text";
-            this.lb_text.Size = new System.Drawing.Size(85, 19);
-            this.lb_text.TabIndex = 71;
-            this.lb_text.Text = "Search By:";
+            this.lb_password_2.AutoSize = true;
+            this.lb_password_2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_password_2.ForeColor = System.Drawing.Color.Black;
+            this.lb_password_2.Location = new System.Drawing.Point(108, 606);
+            this.lb_password_2.Name = "lb_password_2";
+            this.lb_password_2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.lb_password_2.Size = new System.Drawing.Size(138, 48);
+            this.lb_password_2.TabIndex = 122;
+            this.lb_password_2.Text = "Confirm Password:";
             // 
-            // personDetailsCard1
+            // txt_password_1
             // 
-            this.personDetailsCard1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.personDetailsCard1.Location = new System.Drawing.Point(111, 73);
-            this.personDetailsCard1.Name = "personDetailsCard1";
-            this.personDetailsCard1.Size = new System.Drawing.Size(677, 367);
-            this.personDetailsCard1.TabIndex = 73;
+            this.txt_password_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password_1.ForeColor = System.Drawing.Color.Gray;
+            this.txt_password_1.Location = new System.Drawing.Point(270, 555);
+            this.txt_password_1.MaxLength = 20;
+            this.txt_password_1.Name = "txt_password_1";
+            this.txt_password_1.PasswordChar = '*';
+            this.txt_password_1.Size = new System.Drawing.Size(284, 26);
+            this.txt_password_1.TabIndex = 121;
+            // 
+            // lb_password_1
+            // 
+            this.lb_password_1.AutoSize = true;
+            this.lb_password_1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_password_1.ForeColor = System.Drawing.Color.Black;
+            this.lb_password_1.Location = new System.Drawing.Point(108, 560);
+            this.lb_password_1.Name = "lb_password_1";
+            this.lb_password_1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.lb_password_1.Size = new System.Drawing.Size(80, 48);
+            this.lb_password_1.TabIndex = 120;
+            this.lb_password_1.Text = "Password:";
+            // 
+            // chk_is_active
+            // 
+            this.chk_is_active.AutoSize = true;
+            this.chk_is_active.Font = new System.Drawing.Font("Roboto Bk", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_is_active.Location = new System.Drawing.Point(602, 469);
+            this.chk_is_active.Name = "chk_is_active";
+            this.chk_is_active.Size = new System.Drawing.Size(15, 14);
+            this.chk_is_active.TabIndex = 119;
+            this.chk_is_active.UseVisualStyleBackColor = true;
             // 
             // label22
             // 
@@ -302,59 +330,61 @@
             this.label18.TabIndex = 113;
             this.label18.Text = "User ID: ";
             // 
-            // chk_is_active
+            // personDetailsCard
             // 
-            this.chk_is_active.AutoSize = true;
-            this.chk_is_active.Font = new System.Drawing.Font("Roboto Bk", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_is_active.Location = new System.Drawing.Point(602, 469);
-            this.chk_is_active.Name = "chk_is_active";
-            this.chk_is_active.Size = new System.Drawing.Size(15, 14);
-            this.chk_is_active.TabIndex = 119;
-            this.chk_is_active.UseVisualStyleBackColor = true;
+            this.personDetailsCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.personDetailsCard.Location = new System.Drawing.Point(111, 73);
+            this.personDetailsCard.Name = "personDetailsCard";
+            this.personDetailsCard.Size = new System.Drawing.Size(677, 367);
+            this.personDetailsCard.TabIndex = 73;
             // 
-            // txt_password
+            // btn_search
             // 
-            this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_password.Location = new System.Drawing.Point(270, 555);
-            this.txt_password.MaxLength = 20;
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(284, 26);
-            this.txt_password.TabIndex = 121;
+            this.btn_search.BackColor = System.Drawing.Color.White;
+            this.btn_search.Image = global::DVLD.Properties.Resources.search;
+            this.btn_search.Location = new System.Drawing.Point(676, 20);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Radius = 4;
+            this.btn_search.Size = new System.Drawing.Size(30, 30);
+            this.btn_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_search.TabIndex = 72;
+            this.btn_search.TabStop = false;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // label1
+            // txt_search
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(108, 560);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.label1.Size = new System.Drawing.Size(80, 48);
-            this.label1.TabIndex = 120;
-            this.label1.Text = "Password:";
+            this.txt_search.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.Location = new System.Drawing.Point(460, 20);
+            this.txt_search.MaxLength = 30;
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(208, 30);
+            this.txt_search.TabIndex = 70;
             // 
-            // txt_confirm_password
+            // cb_filter
             // 
-            this.txt_confirm_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_confirm_password.ForeColor = System.Drawing.Color.Gray;
-            this.txt_confirm_password.Location = new System.Drawing.Point(270, 601);
-            this.txt_confirm_password.MaxLength = 20;
-            this.txt_confirm_password.Name = "txt_confirm_password";
-            this.txt_confirm_password.Size = new System.Drawing.Size(284, 26);
-            this.txt_confirm_password.TabIndex = 123;
+            this.cb_filter.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_filter.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.cb_filter.FormattingEnabled = true;
+            this.cb_filter.Items.AddRange(new object[] {
+            "Person ID",
+            "National No."});
+            this.cb_filter.Location = new System.Drawing.Point(257, 20);
+            this.cb_filter.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.cb_filter.Name = "cb_filter";
+            this.cb_filter.Size = new System.Drawing.Size(190, 31);
+            this.cb_filter.TabIndex = 69;
             // 
-            // label2
+            // lb_text
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(108, 606);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.label2.Size = new System.Drawing.Size(138, 48);
-            this.label2.TabIndex = 122;
-            this.label2.Text = "Confirm Password:";
+            this.lb_text.AutoSize = true;
+            this.lb_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_text.Location = new System.Drawing.Point(163, 27);
+            this.lb_text.Margin = new System.Windows.Forms.Padding(3, 10, 6, 0);
+            this.lb_text.Name = "lb_text";
+            this.lb_text.Size = new System.Drawing.Size(85, 19);
+            this.lb_text.TabIndex = 71;
+            this.lb_text.Text = "Search By:";
             // 
             // Add_Edit_User
             // 
@@ -368,7 +398,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 550);
             this.Name = "Add_Edit_User";
             this.Text = "Add_Edit_Person";
-            this.Load += new System.EventHandler(this.Add_Edit_Person_Load);
+            this.Load += new System.EventHandler(this.Add_Edit_User_Load);
             this.pl_header.ResumeLayout(false);
             this.pl_header.PerformLayout();
             this.flp_actions.ResumeLayout(false);
@@ -392,20 +422,22 @@
         private System.Windows.Forms.OpenFileDialog ofd_upload_image;
         private System.Windows.Forms.ImageList img_list_default_profile;
         private System.Windows.Forms.Panel pl_main;
-        private UserControls.PersonDetailsCard personDetailsCard1;
+        private UserControls.PersonDetailsCard personDetailsCard;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_search;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.ComboBox cb_filter;
         private System.Windows.Forms.Label lb_text;
-        private System.Windows.Forms.TextBox txt_confirm_password;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_password;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_password_2;
+        private System.Windows.Forms.Label lb_password_2;
+        private System.Windows.Forms.TextBox txt_password_1;
+        private System.Windows.Forms.Label lb_password_1;
         private System.Windows.Forms.CheckBox chk_is_active;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lb_user_id;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txt_password_3;
+        private System.Windows.Forms.Label lb_password_3;
     }
 }

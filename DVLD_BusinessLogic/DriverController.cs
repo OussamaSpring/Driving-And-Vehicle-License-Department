@@ -18,6 +18,22 @@ namespace DVLD_BusinessLogic
             _driverRepository = driverRepository;
         }
 
+        #region HelpFunctions
+
+        public List<string> GetDriverFilterCriteria()
+        {
+            var filterCriteria = new List<string>
+            {
+                "Driver ID",
+                "Person ID",
+                "National No.",
+                "Full Name"
+            };
+            return filterCriteria;
+        }
+
+        #endregion
+
         public async Task<IEnumerable<Driver>> GetAllDriversAsync()
         {
             return await _driverRepository.GetAllAsync();

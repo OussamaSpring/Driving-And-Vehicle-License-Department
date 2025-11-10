@@ -25,8 +25,9 @@ namespace DVLD.Pop_Ups
         private enum State { Add = 1, Update = 2 }
         private State state;
 
-        private Person _person;
         private User _user;
+        private int _personId;
+        private bool isPersonSelected = false;
 
         public Add_Edit_User(int? id)
         {
@@ -39,16 +40,40 @@ namespace DVLD.Pop_Ups
             {
                 state = State.Add;
                 lb_title.Text = "Add New User";
+                lb_password_1.Text = "Password:";
+                lb_password_2.Text = "Confirm Password:";
 
+                lb_password_3.Visible = false;
+                txt_password_3.Visible = false;
             }
             else
             {
                 state = State.Update;
                 lb_title.Text = "Edit User Info";
+                cb_filter.Visible = false;
+                txt_search.Visible = false;
+                btn_search.Visible = false;
 
+                lb_password_1.Text = "Current Password:";
+                lb_password_2.Text = "New Password:";
+                lb_password_3.Text = "Confirm Password:";
 
+                _user = _userController.GetUserByIdAsync(id.Value).Result;
+                _personId = _user.PersonId;
+                isPersonSelected = true;
+                personDetailsCard.SetPerson(_user.PersonId);
+
+                lb_user_id.Text = _user.UserId.ToString();
+                txt_username.Text = _user.Username;
+                chk_is_active.Checked = _user.IsActive;
             }
         }
+        private void Add_Edit_User_Load(object sender, EventArgs e)
+        {
+            object[] filters = { "Person ID", "National Number" };
+            cb_filter.Items.Add(filters);
+        }
+
 
         #region Help Functions
 
@@ -75,123 +100,98 @@ namespace DVLD.Pop_Ups
 
         #endregion
 
-
         #region UI Events
-
-        private async void Add_Edit_Person_Load(object sender, EventArgs e)
+        private void btn_search_Click(object sender, EventArgs e)
         {
+            btn_search.Enabled = false; // Disable button to prevent multiple clicks
+            if (!ValidateSearchTerm())
+                return;
 
+            switch (cb_filter.SelectedItem)
+            {
+                case "Person ID":
+                    int personId = int.Parse(txt_search.Text.Trim());
+                    var personById = _personController.GetPersonByIdAsync(personId).Result;
+                    if (personById == null)
+                    {
+                        MessageBox.Show("No person found with the given ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    personDetailsCard.SetPerson(personById.PersonId);
+                    _personId = personById.PersonId;
+                    isPersonSelected = true;
+                    break;
+                case "National Number":
+                    string nationalNumber = txt_search.Text.Trim();
+                    var personByNationalNumber = _personController.GetPersonByNationalNumberAsync(nationalNumber).Result;
+                    if (personByNationalNumber == null)
+                    {
+                        MessageBox.Show("No person found with the given National Number.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    personDetailsCard.SetPerson(personByNationalNumber.PersonId);
+                    _personId = personByNationalNumber.PersonId;
+                    isPersonSelected = true;
+                    break;
+            }
         }
-        private void lb_upload_image_Click(object sender, EventArgs e)
-        {
-            //ofd_upload_image.Title = "Select Profile Image";
-            //ofd_upload_image.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            //if (ofd_upload_image.ShowDialog() == DialogResult.OK)
-            //{
-            //    Image img = Image.FromFile(ofd_upload_image.FileName);
-            //    rpb_profile_image.Image = img;
-            //    lb_remove_image.Visible = true;
-            //    HasImageChanged = true;
-            //    IsImageEmpty = false;
-            //}
-        }
-        private void lb_remove_image_Click(object sender, EventArgs e)
-        {
-            //if(MessageBox.Show("Are you sure you want to remove the profile image?", "Confirm Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-            //    return;
 
-            //rpb_profile_image.Image = img_list_default_profile.Images[cb_gender.SelectedIndex];
-            //lb_remove_image.Visible = false;
-            //HasImageChanged = true;
-            //IsImageEmpty = true;
-        }
-
-        private void btn_save_MouseClick(object sender, MouseEventArgs e)
+        private async void btn_save_MouseClick(object sender, MouseEventArgs e)
         {
             btn_save.Enabled = false; // Disable button to prevent multiple clicks
 
-            //if ((!HasDataChanged || !HasImageChanged) && state == State.Update)
-            //{
-            //    this.Dispose();
-            //    return;
-            //}
+            switch (state)
+            {
+                case State.Add:
+                    // Validate inputs
+                    if (!isPersonSelected || !ValidateUsernameInput() || !ValidatePasswordInput(txt_password_2.Text))
+                    {
+                        btn_save.Enabled = true; // Re-enable button if validation fails
+                        MessageBox.Show("Please ensure all fields are correctly filled and a person is selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-            //if (!ValidateAllInputs())
-            //{
-            //    MessageBox.Show("Please correct the input fields errors before saving.", "Input Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    btn_save.Enabled = true; // Re-enable button
-            //    return;
-            //}
+                    User newUser = new User
+                    {
+                        PersonId = _personId,
+                        Username = txt_username.Text.Trim(),
+                        Password = txt_password_2.Text,
+                        IsActive = chk_is_active.Checked
+                    };
 
-            //switch (state)
-            //{
-            //    case State.Add:
-            //        //_person = await MapPersonData();
-            //        try
-            //        {
-            //            if(await _personController.IsPersonExistAsync(_person.NationalNumber))
-            //            {
-            //                MessageBox.Show("Failed to add the person. National number already exist!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //                return;
-            //            }
+                    int newUserId = await _userController.CreateUserAsync(newUser);
+                    if(newUserId >= 0)
+                    {
+                        MessageBox.Show("User added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _user = newUser;
+                        _user.UserId = newUserId;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
 
-            //            var newPersonId = await _personController.AddPersonAsync(_person);
+                case State.Update:
+                    // Validate inputs
+                    if (!ValidateUsernameInput() || !ValidatePasswordInput(txt_password_2.Text))
+                    {
+                        btn_save.Enabled = true; // Re-enable button if validation fails
+                        MessageBox.Show("Please ensure all fields are correctly filled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    // Update existing user
+                    _user.Username = txt_username.Text.Trim();
+                    if (!string.IsNullOrWhiteSpace(txt_password_2.Text))
+                    {
+                        _user.Password = txt_password_2.Text;
+                    }
+                    _user.IsActive = chk_is_active.Checked;
+                    _userController.UpdateUserAsync(_user).Wait();
+                    MessageBox.Show("User updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+            }
 
-            //            if (newPersonId.HasValue)
-            //            {
-            //                lb_person_id.Text = newPersonId.Value.ToString();
-
-            //                MessageBox.Show($"Person added successfully with ID: {newPersonId.Value}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //                ClosingEvent?.Invoke(newPersonId.Value);
-            //                this.Close();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Failed to add the person. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            }
-
-            //        } catch (Exception ex)
-            //        {
-            //            MessageBox.Show($"An error occurred while adding the person: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //        finally
-            //        {
-            //            btn_save.Enabled = true; // Re-enable button
-            //        }
-
-            //        break;
-                
-            //    case State.Update:
-
-            //        Person updatedPerson = MapPersonData().Result;
-            //        updatedPerson.PersonId = _person.PersonId;
-
-            //        try
-            //        {
-            //            bool isUpdated = await _personController.UpdatePersonInfoAsync(updatedPerson);
-            //            if (isUpdated)
-            //            {
-            //                MessageBox.Show("Person details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //                ClosingEvent?.Invoke(_person.PersonId);
-            //                this.Close();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Failed to update the person details. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            MessageBox.Show($"An error occurred while updating the person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //        finally
-            //        {
-            //            btn_save.Enabled = true; // Re-enable button
-            //        }
-            //        break;
-            //}
         }
         private void btn_Exit_Clicked(object sender, MouseEventArgs e)
         {
@@ -207,7 +207,79 @@ namespace DVLD.Pop_Ups
         #region Input Validation
 
         // Each validation function checks a specific input field and sets an error message if validation fails.
-        
+
+        private bool ValidateSearchTerm()
+        {
+            string input = txt_search.Text.Trim();
+            string errorMessage;
+
+            switch (cb_filter.SelectedItem)
+            {
+                case "Person ID":
+                    if (!InputValidation.IsNumber(input, out errorMessage) || !InputValidation.IsNotEmpty(input, out errorMessage))
+                    {
+                        err_input_validation.SetError(txt_search, errorMessage);
+                        return false;
+                    }
+                    break;
+                case "National Number":
+                    if (!InputValidation.IsNotEmpty(input, out errorMessage))
+                    {
+                        err_input_validation.SetError(txt_search, errorMessage);
+                        return false;
+                    }
+                    break;
+                default:
+                    err_input_validation.SetError(txt_search, "Please select a valid filter.");
+                    return false;
+            }
+
+            err_input_validation.SetError(txt_search, string.Empty);
+            return true;
+        }
+        private bool ValidateUsernameInput()
+        {
+            string input = txt_username.Text.Trim();
+            if (!InputValidation.IsNotEmpty(input, out string errorMessage))
+            {
+                err_input_validation.SetError(txt_username, errorMessage);
+                return false;
+            }
+            if (!InputValidation.IsAlphanumeric(input, out errorMessage))
+            {
+                err_input_validation.SetError(txt_username, errorMessage);
+                return false;
+            }
+            if (!InputValidation.IsWithinLength(input, 3, 20, out errorMessage))
+            {
+                err_input_validation.SetError(txt_username, errorMessage);
+                return false;
+            }
+            err_input_validation.SetError(txt_username, string.Empty);
+            return true;
+        }
+        private bool ValidatePasswordInput(string password_1)
+        {
+            //string newPassword = tb_current_password.Text;
+            //string confirmPassword = tb_confirm_password.Text;
+            //if (!InputValidation.IsNotEmpty(newPassword, out string errorMessage))
+            //{
+            //    err_input_validation.SetError(tb_current_password, errorMessage);
+            //    return false;
+            //}
+            //if (!InputValidation.IsPassword(newPassword, out errorMessage))
+            //{
+            //    err_input_validation.SetError(tb_current_password, errorMessage);
+            //    return false;
+            //}
+            //if (newPassword != confirmPassword)
+            //{
+            //    err_input_validation.SetError(tb_confirm_password, "Passwords do not match.");
+            //    return false;
+            //}
+            //err_input_validation.SetError(tb_current_password, string.Empty);
+            return true;
+        }
 
         #endregion
 
@@ -231,6 +303,7 @@ namespace DVLD.Pop_Ups
         {
             base.RoundedBaseForm_MouseUp(sender, e);
         }
+
 
         #endregion
 

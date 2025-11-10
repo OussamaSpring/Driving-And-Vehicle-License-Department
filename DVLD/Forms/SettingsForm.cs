@@ -4,8 +4,10 @@ using DVLD.UserControls;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.AxHost;
@@ -18,8 +20,10 @@ namespace DVLD.Forms
         private readonly PersonController _personController;
 
 
-        private User user;
-        private Person person;
+        private User currentUser;
+        private Person currentPerson;
+
+        private List<User> _usersList = new List<User>();
 
 
         private bool HasImageChanged = false;
@@ -57,7 +61,7 @@ namespace DVLD.Forms
             _userController = new UserController(new UserRepository());
             _personController = new PersonController(new PersonRepository());
 
-            this.user = user;
+            this.currentUser = user;
 
 
         }
@@ -115,6 +119,7 @@ namespace DVLD.Forms
         private void OnUsersManagementTabSelected()
         {
             htc_tab_nav.SelectedIndex = 1;
+            LoadUsersAsync();
         }
         private async void SettingsForm_Load(object sender, EventArgs e)
         {
@@ -136,32 +141,36 @@ namespace DVLD.Forms
             // Load user and person data
             LoadPersonData();
             LoadUserData();
+
+            uc_users_topbar.AddButtonClicked = AddNewUser; // Disable add button
+            uc_users_topbar.FillFilterCriteria(_userController.GetUserFilterCriteria());
+            uc_users_topbar.FilterPerformed = uc_users_topbar_FilterPerformed;
         }
         private async void LoadPersonData()
         {
-            person = await _personController.GetPersonByIdAsync(user.PersonId);
-            if (person != null)
+            currentPerson = await _personController.GetPersonByIdAsync(currentUser.PersonId);
+            if (currentPerson != null)
             {
-                lb_person_id.Text = person.PersonId.ToString();
-                tb_national_no.Text = person.NationalNumber;
-                tb_first_name.Text = person.FirstName;
-                tb_second_name.Text = person.SecondName;
-                tb_third_name.Text = person.ThirdName;
-                tb_last_name.Text = person.LastName;
-                dtp_date_of_birth.Value = person.DateOfBirth;
-                cb_gender.SelectedIndex = (int)person.enGender;
-                tb_email.Text = person.Email;
-                tb_phone.Text = person.Phone;
-                cb_country.SelectedIndex = cb_country.FindString(person.NationalityCountry.CountryName);
-                rtb_address.Text = person.Address;
-                if (person.PersonalImage == null)
+                lb_person_id.Text = currentPerson.PersonId.ToString();
+                tb_national_no.Text = currentPerson.NationalNumber;
+                tb_first_name.Text = currentPerson.FirstName;
+                tb_second_name.Text = currentPerson.SecondName;
+                tb_third_name.Text = currentPerson.ThirdName;
+                tb_last_name.Text = currentPerson.LastName;
+                dtp_date_of_birth.Value = currentPerson.DateOfBirth;
+                cb_gender.SelectedIndex = (int)currentPerson.enGender;
+                tb_email.Text = currentPerson.Email;
+                tb_phone.Text = currentPerson.Phone;
+                cb_country.SelectedIndex = cb_country.FindString(currentPerson.NationalityCountry.CountryName);
+                rtb_address.Text = currentPerson.Address;
+                if (currentPerson.PersonalImage == null)
                 {
                     rpb_profile_image.Image = img_list_default_profile.Images[cb_gender.SelectedIndex];
                     IsImageEmpty = true;
                 }
                 else
                 {
-                    rpb_profile_image.Image = ByteArrayToImage(person.PersonalImage) ?? img_list_default_profile.Images[cb_gender.SelectedIndex];
+                    rpb_profile_image.Image = ByteArrayToImage(currentPerson.PersonalImage) ?? img_list_default_profile.Images[cb_gender.SelectedIndex];
                     IsImageEmpty = false;
                 }
             }
@@ -169,10 +178,10 @@ namespace DVLD.Forms
         }
         private async void LoadUserData()
         {
-            user = await _userController.GetUserByUsernameAsync(user.Username);
-            lb_user_id.Text = user.UserId.ToString();
-            lb_is_active.Text = user.IsActive ? "Active" : "Inactive";
-            tb_username.Text = user.Username;
+            currentUser = await _userController.GetUserByUsernameAsync(currentUser.Username);
+            lb_user_id.Text = currentUser.UserId.ToString();
+            lb_is_active.Text = currentUser.IsActive ? "Active" : "Inactive";
+            tb_username.Text = currentUser.Username;
             err_input_validation.Clear();
         }
 
@@ -212,7 +221,7 @@ namespace DVLD.Forms
             try
             {
                 Person updatedPerson = await MapPersonData();
-                updatedPerson.PersonId = person.PersonId; // Ensure we set the correct PersonId for update
+                updatedPerson.PersonId = currentPerson.PersonId; // Ensure we set the correct PersonId for update
 
                 if(HasPersonNationalNumberChanged())
                 {
@@ -333,7 +342,7 @@ namespace DVLD.Forms
         }
         private bool HasPersonNationalNumberChanged()
         {
-            return tb_national_no.Text.Trim() != person.NationalNumber;
+            return tb_national_no.Text.Trim() != currentPerson.NationalNumber;
         }
         private void date_ValueChanged(object sender, EventArgs e)
         {
@@ -344,6 +353,7 @@ namespace DVLD.Forms
 
         #region User Management UI Events and Methods
 
+        // Current User Tab     ----------------------------------------------------------------------
         private void btn_discard_user_Click(object sender, EventArgs e)
         {
             if (HasUsernameChanged)
@@ -373,7 +383,7 @@ namespace DVLD.Forms
 
             try
             {
-                User updatedUser = user;
+                User updatedUser = currentUser;
                 updatedUser.Username = tb_username.Text;
 
                 bool updateResult = await _userController.UpdateUserAsync(updatedUser);
@@ -434,7 +444,7 @@ namespace DVLD.Forms
             try
             {
                 // Use UserController's AuthenticateUserAsync to verify password change
-                short authResult = await _userController.AuthenticateUserAsync(user.Username, newPassword);
+                short authResult = await _userController.AuthenticateUserAsync(currentUser.Username, newPassword);
 
                 if (authResult == 0)
                 {
@@ -450,9 +460,9 @@ namespace DVLD.Forms
                 }
 
                 // If authentication is successful, update the password
-                user.Password = newPassword;
+                currentUser.Password = newPassword;
 
-                bool updateResult = await _userController.UpdateUserAsync(user);
+                bool updateResult = await _userController.UpdateUserAsync(currentUser);
 
                 if (updateResult)
                 {
@@ -475,6 +485,53 @@ namespace DVLD.Forms
                 btn_change_password.Enabled = true;
             }
         }
+
+
+
+        // Users Management Tab ----------------------------------------------------------------------
+
+        private async void LoadUsersAsync()
+        {
+            _usersList = (await _userController.GetAllUsersAsync()).ToList();
+            BindUsersToGrid(_usersList);
+        }
+        private void BindUsersToGrid(IEnumerable<User> users)
+        {
+            dgv_users.Rows.Clear();
+            foreach (User user in users)
+            {
+                dgv_users.Rows.Add(
+                    user.UserId,
+                    user.PersonId,
+                    user.Username,
+                    user.IsActive
+                );
+            }
+        }
+        private void AddNewUser()
+        {
+            
+        }
+
+        private void uc_users_topbar_FilterPerformed(object sender, FilterArgs e)
+        {
+            var filtered = _usersList.Where(user =>
+            {
+                switch (e.FilterCriteria)
+                {
+                    case "Username":
+                        return user.Username.Contains(e.SearchText);
+                    case "Active Status":
+                        bool status = e.SearchText == "1";
+                        return user.IsActive == status;
+                    default:
+                        return true;
+                }
+            }).ToList();
+
+            BindUsersToGrid(filtered);
+        }
+
 
         #endregion
 

@@ -34,39 +34,41 @@ namespace DVLD_BusinessLogic
             }
         }
 
+        public List<string> GetUserFilterCriteria()
+        {
+            return new List<string>
+            {
+                "Username",
+                "Active Status"
+            };
+        }
+
         #endregion
 
         public async Task<User> GetUserByIdAsync(int userId)
         {
             return await _userRepository.GetByIdAsync(userId);
         }
-
         public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
             return await _userRepository.GetAllAsync();
         }
-
         public async Task<int> CreateUserAsync(User user)
         {
             return await _userRepository.AddAsync(user);
         }
-
         public async Task<bool> UpdateUserAsync(User user)
         {
             return await _userRepository.UpdateAsync(user);
         }
-
         public async Task<bool> DeleteUserAsync(int userId)
         {
             return await _userRepository.DeleteAsync(userId);
         }
-
-
         public async Task<User> GetUserByUsernameAsync(string username)
         {
             return await _userRepository.GetByUsernameAsync(username);
         }
-
         public async Task<bool> IsUsernameTakenAsync(string username)
         {
             return await _userRepository.IsUsernameExistAsync(username);

@@ -17,6 +17,27 @@ namespace DVLD_BusinessLogic
             _personRepository = personRepository;
         }
 
+        #region HelpFunctions
+
+        public List<string> GetPersonFilterCriteria()
+        {
+            var filterCriteria = new List<string>
+            {
+                "Person ID",
+                "National No.",
+                "First Name",
+                "Second Name",
+                "Third Name",
+                "Last Name",
+                "Nationality",
+                "Gender",
+                "Phone",
+                "Email"
+            };
+            return filterCriteria;
+        }
+
+        #endregion
 
         public async Task<Person> GetPersonByIdAsync(int personId)
         {

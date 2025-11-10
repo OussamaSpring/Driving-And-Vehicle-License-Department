@@ -147,7 +147,6 @@ namespace DVLD.Pop_Ups
             HasImageChanged = true;
             IsImageEmpty = true;
         }
-
         private async void btn_save_MouseClick(object sender, MouseEventArgs e)
         {
             btn_save.Enabled = false; // Disable button to prevent multiple clicks

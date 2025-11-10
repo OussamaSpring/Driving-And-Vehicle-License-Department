@@ -56,17 +56,15 @@ namespace DVLD.Forms
 
             // Person top bar settings
             uc_person_topbar.AddButtonClicked = AddNewPerson;
-            uc_person_topbar.FillFilterCriteria(GetPersonFilterCriteria());
+            uc_person_topbar.FillFilterCriteria(_personController.GetPersonFilterCriteria());
             uc_person_topbar.FilterPerformed = Uc_person_topbar_FilterPerformed;
 
             // Driver top bar settings
             uc_driver_topbar.btn_add_Hide();
-            uc_driver_topbar.FillFilterCriteria(GetDriverFilterCriteria());
+            uc_driver_topbar.FillFilterCriteria(_driverController.GetDriverFilterCriteria());
             uc_driver_topbar.FilterPerformed = Uc_driver_topbar_FilterPerformed;
 
         }
-
-
         private async void OnPeopleTabSelected()
         {
             htc_tab_nav.SelectedIndex = 0; // Select the "People" tab
@@ -107,23 +105,6 @@ namespace DVLD.Forms
                 );
             }
             lb_footer_text.Text = "Total Number of People: " + dgv_people.RowCount.ToString();
-        }
-        private List<string> GetPersonFilterCriteria()
-        {
-            var filterCriteria = new List<string>
-            {
-                "Person ID",
-                "National No.",
-                "First Name",
-                "Second Name",
-                "Third Name",
-                "Last Name",
-                "Nationality",
-                "Gender",
-                "Phone",
-                "Email"
-            };
-            return filterCriteria;
         }
         private void Uc_person_topbar_FilterPerformed(object sender, FilterArgs e)
         {
@@ -166,7 +147,6 @@ namespace DVLD.Forms
             person_pop_up.ClosingEvent = dgv_NewPersonAdded;
             person_pop_up.ShowDialog();
         }
-
         private async void dgv_NewPersonAdded(int newPersonId)
         {
             try
@@ -212,17 +192,6 @@ namespace DVLD.Forms
                     );
             }
             lb_footer_text_driver.Text = "Total Number of Drivers: " + dgv_drivers.RowCount.ToString();
-        }
-        private List<string> GetDriverFilterCriteria()
-        {
-            var filterCriteria = new List<string>
-            {
-                "Driver ID",
-                "Person ID",
-                "National No.",
-                "Full Name"
-            };
-            return filterCriteria;
         }
         private void Uc_driver_topbar_FilterPerformed(object sender, FilterArgs e)
         {

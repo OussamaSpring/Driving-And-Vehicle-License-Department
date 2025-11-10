@@ -107,7 +107,7 @@ namespace DVLD.Dialogs
         {
             if(chk_remember_me.Checked)
             {
-                RegistryCredentials.SaveCredentials(_authenticatedUser.Username, _authenticatedUser.Password);
+                RegistryCredentials.SaveCredentials(txt_username.Text, txt_password.Text);
             }
         }
 
