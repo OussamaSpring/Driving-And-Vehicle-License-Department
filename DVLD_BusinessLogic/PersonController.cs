@@ -49,6 +49,36 @@ namespace DVLD_BusinessLogic
         {
             return await _personRepository.GetAllAsync();
         }
+
+        public async Task<(bool Success, int? PersonId, string ErrorMessage)> SavePersonAsync(Person person, bool isAdd, bool hasImageChanged)
+        {
+            // Duplicate check for add
+            if (isAdd && await IsPersonExistAsync(person.NationalNumber))
+                return (false, null, "National number already exists.");
+
+            int personId;
+            if (isAdd)
+            {
+                personId = await AddPersonAsync(person) ?? 0;
+                if (personId == 0)
+                    return (false, null, "Failed to add person.");
+                // Always update image after add (if present)
+                if (hasImageChanged && person.PersonalImage != null)
+                    await UpdatePersonPhotoAsync(personId, person.PersonalImage);
+            }
+            else
+            {
+                personId = person.PersonId;
+                bool updated = await UpdatePersonInfoAsync(person);
+                if (!updated)
+                    return (false, personId, "Failed to update person.");
+                // Only update image if changed
+                if (hasImageChanged)
+                    await UpdatePersonPhotoAsync(personId, person.PersonalImage);
+            }
+
+            return (true, personId, null);
+        }
         public async Task<int?> AddPersonAsync(Person person)
         {
             int personID = await _personRepository.AddAsync(person);
