@@ -26,18 +26,6 @@ namespace DVLD_DataAccess.Repositories
             };
         }
 
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder builder = new StringBuilder();
-                foreach (var b in bytes)
-                    builder.Append(b.ToString("x2"));
-                return builder.ToString();
-            }
-        }
-
         #endregion
 
         public async Task<User> GetByIdAsync(int userId)
@@ -70,7 +58,7 @@ namespace DVLD_DataAccess.Repositories
             var parameters = new Dictionary<string, object> {
             { "@PersonId", user.PersonId},
             { "@Username", user.Username},
-            { "@Password", HashPassword(user.Password)},
+            { "@Password", user.Password },
             { "@IsActive", user.IsActive}
             };
 
@@ -85,7 +73,7 @@ namespace DVLD_DataAccess.Repositories
             { "@UserId", user.UserId},
             { "@PersonId", user.PersonId},
             { "@Username", user.Username},
-            { "@Password", HashPassword(user.Password)},
+            { "@Password", user.Password},
             { "@IsActive", user.IsActive}
             };
             string sqlQuery = "UPDATE Users SET PersonID = @PersonId, UserName = @Username, Password = @Password, IsActive = @IsActive WHERE UserID = @UserId";

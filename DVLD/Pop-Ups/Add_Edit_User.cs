@@ -138,61 +138,60 @@ namespace DVLD.Pop_Ups
 
         private async void btn_save_MouseClick(object sender, MouseEventArgs e)
         {
-            btn_save.Enabled = false; // Disable button to prevent multiple clicks
+            btn_save.Enabled = false;
 
-            switch (state)
+            try
             {
-                case State.Add:
-                    // Validate inputs
-                    if (!isPersonSelected || !ValidateUsernameInput() || !ValidatePasswordInput(txt_password_2.Text))
-                    {
-                        btn_save.Enabled = true; // Re-enable button if validation fails
-                        MessageBox.Show("Please ensure all fields are correctly filled and a person is selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                // Validate inputs
+                if (!isPersonSelected || !ValidateUsernameInput() || !ValidatePasswordInput(txt_password_2.Text))
+                {
+                    MessageBox.Show("Please ensure all fields are correctly filled and a person is selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btn_save.Enabled = true;
+                    return;
+                }
 
-                    User newUser = new User
-                    {
-                        PersonId = _personId,
-                        Username = txt_username.Text.Trim(),
-                        Password = txt_password_2.Text,
-                        IsActive = chk_is_active.Checked
-                    };
+                User userToSave = new User
+                {
+                    UserId = state == State.Update ? _user.UserId : 0,
+                    PersonId = _personId,
+                    Username = txt_username.Text.Trim(),
+                    Password = txt_password_2.Text,
+                    IsActive = chk_is_active.Checked
+                };
 
-                    int newUserId = await _userController.CreateUserAsync(newUser);
-                    if(newUserId >= 0)
-                    {
-                        MessageBox.Show("User added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        _user = newUser;
-                        _user.UserId = newUserId;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to add user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    break;
+                var result = await _userController.SaveUserAsync(userToSave, state == State.Add);
 
-                case State.Update:
-                    // Validate inputs
-                    if (!ValidateUsernameInput() || !ValidatePasswordInput(txt_password_2.Text))
-                    {
-                        btn_save.Enabled = true; // Re-enable button if validation fails
-                        MessageBox.Show("Please ensure all fields are correctly filled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    // Update existing user
-                    _user.Username = txt_username.Text.Trim();
-                    if (!string.IsNullOrWhiteSpace(txt_password_2.Text))
-                    {
-                        _user.Password = txt_password_2.Text;
-                    }
-                    _user.IsActive = chk_is_active.Checked;
-                    _userController.UpdateUserAsync(_user).Wait();
+                if (!result.Success)
+                {
+                    MessageBox.Show(result.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btn_save.Enabled = true;
+                    return;
+                }
+
+                if (state == State.Add)
+                {
+                    MessageBox.Show($"User added successfully with ID: {result.UserId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClosingEvent?.Invoke(result.UserId.Value);
+                }
+                else
+                {
                     MessageBox.Show("User updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-            }
+                    ClosingEvent?.Invoke(userToSave.UserId);
+                }
 
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // TODO: Log ex.ToString() if needed
+            }
+            finally
+            {
+                btn_save.Enabled = true;
+            }
         }
+
         private void btn_Exit_Clicked(object sender, MouseEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit without saving?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -260,24 +259,40 @@ namespace DVLD.Pop_Ups
         }
         private bool ValidatePasswordInput(string password_1)
         {
-            //string newPassword = tb_current_password.Text;
-            //string confirmPassword = tb_confirm_password.Text;
-            //if (!InputValidation.IsNotEmpty(newPassword, out string errorMessage))
-            //{
-            //    err_input_validation.SetError(tb_current_password, errorMessage);
-            //    return false;
-            //}
-            //if (!InputValidation.IsPassword(newPassword, out errorMessage))
-            //{
-            //    err_input_validation.SetError(tb_current_password, errorMessage);
-            //    return false;
-            //}
-            //if (newPassword != confirmPassword)
-            //{
-            //    err_input_validation.SetError(tb_confirm_password, "Passwords do not match.");
-            //    return false;
-            //}
-            //err_input_validation.SetError(tb_current_password, string.Empty);
+            string password1 = txt_password_1.Text;
+            string password2 = txt_password_2.Text;
+            string password3 = txt_password_3.Text;
+            if (!InputValidation.IsNotEmpty(password1, out string errorMessage))
+            {
+                err_input_validation.SetError(txt_password_1, errorMessage);
+                return false;
+            }
+            if (!InputValidation.IsPassword(password1, out errorMessage))
+            {
+                err_input_validation.SetError(txt_password_1, errorMessage);
+                return false;
+            }
+            if (password1 != password2)
+            {
+                err_input_validation.SetError(txt_password_2, "Passwords do not match.");
+                return false;
+            }
+
+            if(state == State.Update)
+            {
+                if (!InputValidation.IsNotEmpty(password3, out errorMessage))
+                {
+                    err_input_validation.SetError(txt_password_3, errorMessage);
+                    return false;
+                }
+                if (password2 != password3)
+                {
+                    err_input_validation.SetError(txt_password_3, "New passwords do not match.");
+                    return false;
+                }
+            }
+
+            err_input_validation.SetError(txt_password_1, string.Empty);
             return true;
         }
 

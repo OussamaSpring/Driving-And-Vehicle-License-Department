@@ -57,6 +57,34 @@ namespace DVLD_BusinessLogic
         {
             return await _userRepository.AddAsync(user);
         }
+
+        public async Task<(bool Success, int? UserId, string ErrorMessage)> SaveUserAsync(User user, bool isAdd)
+        {
+            // Duplicate check for add
+            if (isAdd && await IsUsernameTakenAsync(user.Username))
+                return (false, null, "Username already exists.");
+
+            // Hash the password before saving
+            user.Password = HashPassword(user.Password);
+
+            int userId;
+            if (isAdd)
+            {
+                userId = await CreateUserAsync(user);
+                if (userId <= 0)
+                    return (false, null, "Failed to add user.");
+            }
+            else
+            {
+                userId = user.UserId;
+                bool updated = await UpdateUserAsync(user);
+                if (!updated)
+                    return (false, userId, "Failed to update user.");
+            }
+
+            return (true, userId, null);
+        }
+
         public async Task<bool> UpdateUserAsync(User user)
         {
             return await _userRepository.UpdateAsync(user);
