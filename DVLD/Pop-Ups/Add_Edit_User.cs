@@ -70,40 +70,14 @@ namespace DVLD.Pop_Ups
         }
         private void Add_Edit_User_Load(object sender, EventArgs e)
         {
-            object[] filters = { "Person ID", "National Number" };
-            cb_filter.Items.Add(filters);
+            cb_filter.SelectedIndex = 0;
         }
-
-
-        #region Help Functions
-
-
-        private byte[] ImageToByteArray(Image image)
-        {
-            if (image == null) return null;
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, image.RawFormat);
-                return ms.ToArray();
-            }
-        }
-        private Image ByteArrayToImage(byte[] bytes)
-        {
-            if (bytes == null || bytes.Length == 0)
-                return null;
-
-            using (MemoryStream ms = new MemoryStream(bytes))
-            {
-                return Image.FromStream(ms);
-            }
-        }
-
-        #endregion
 
         #region UI Events
-        private void btn_search_Click(object sender, EventArgs e)
+        private async void btn_search_Click(object sender, EventArgs e)
         {
             btn_search.Enabled = false; // Disable button to prevent multiple clicks
+            
             if (!ValidateSearchTerm())
                 return;
 
@@ -111,7 +85,7 @@ namespace DVLD.Pop_Ups
             {
                 case "Person ID":
                     int personId = int.Parse(txt_search.Text.Trim());
-                    var personById = _personController.GetPersonByIdAsync(personId).Result;
+                    Person personById = await _personController.GetPersonByIdAsync(personId);
                     if (personById == null)
                     {
                         MessageBox.Show("No person found with the given ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -123,7 +97,7 @@ namespace DVLD.Pop_Ups
                     break;
                 case "National Number":
                     string nationalNumber = txt_search.Text.Trim();
-                    var personByNationalNumber = _personController.GetPersonByNationalNumberAsync(nationalNumber).Result;
+                    Person personByNationalNumber = await _personController.GetPersonByNationalNumberAsync(nationalNumber);
                     if (personByNationalNumber == null)
                     {
                         MessageBox.Show("No person found with the given National Number.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -135,7 +109,6 @@ namespace DVLD.Pop_Ups
                     break;
             }
         }
-
         private async void btn_save_MouseClick(object sender, MouseEventArgs e)
         {
             btn_save.Enabled = false;
@@ -191,7 +164,6 @@ namespace DVLD.Pop_Ups
                 btn_save.Enabled = true;
             }
         }
-
         private void btn_Exit_Clicked(object sender, MouseEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit without saving?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -201,7 +173,6 @@ namespace DVLD.Pop_Ups
         }
 
         #endregion
-
 
         #region Input Validation
 

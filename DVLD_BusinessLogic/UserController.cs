@@ -58,6 +58,20 @@ namespace DVLD_BusinessLogic
             return await _userRepository.AddAsync(user);
         }
 
+        /// <summary>
+        /// Adds a new user or updates an existing user in the system.
+        /// When adding, checks for duplicate usernames and hashes the password before saving.
+        /// When updating, hashes the password and updates the user record.
+        /// Returns a tuple indicating success, the user ID (if successful), and an error message (if any).
+        /// </summary>
+        /// <param name="user">The User object containing user details to add or update.</param>
+        /// <param name="isAdd">True to add a new user; false to update an existing user.</param>
+        /// <returns>
+        /// Tuple: (Success, UserId, ErrorMessage)
+        /// Success: True if operation succeeded; otherwise, false.
+        /// UserId: The ID of the user if successful; otherwise, null.
+        /// ErrorMessage: Error details if operation failed; otherwise, null.
+        /// </returns>
         public async Task<(bool Success, int? UserId, string ErrorMessage)> SaveUserAsync(User user, bool isAdd)
         {
             // Duplicate check for add
@@ -83,6 +97,28 @@ namespace DVLD_BusinessLogic
             }
 
             return (true, userId, null);
+        }
+
+        public async Task<(bool Success, string ErrorMessage)> ChangePasswordAsync(int userId, string currentPassword, string newPassword)
+        {
+            var user = await GetUserByIdAsync(userId);
+            if (user == null)
+                return (false, "User not found.");
+
+            var hashedCurrent = HashPassword(currentPassword);
+            if (!string.Equals(user.Password, hashedCurrent, StringComparison.OrdinalIgnoreCase))
+                return (false, "Incorrect current password.");
+
+            if (!user.IsActive)
+                return (false, "User is inactive. Cannot change password.");
+
+            user.Password = HashPassword(newPassword);
+            bool updated = await UpdateUserAsync(user);
+
+            if (!updated)
+                return (false, "Failed to change password. Please try again.");
+
+            return (true, null);
         }
 
         public async Task<bool> UpdateUserAsync(User user)

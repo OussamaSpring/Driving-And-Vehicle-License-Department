@@ -1,5 +1,6 @@
 ﻿using Core.Enums;
 using Core.Models;
+using DVLD.Pop_Ups;
 using DVLD.UserControls;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
@@ -431,7 +432,6 @@ namespace DVLD.Forms
         {
             btn_change_password.Enabled = false;
 
-            // Validate password input fields
             if (!ValidatePasswordInput())
             {
                 MessageBox.Show("Please correct the password fields errors before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -439,46 +439,29 @@ namespace DVLD.Forms
                 return;
             }
 
-            string newPassword = tb_current_password.Text.Trim();
+            string currentPassword = tb_current_password.Text.Trim();
+            string newPassword = tb_confirm_password.Text.Trim();
 
             try
             {
-                // Use UserController's AuthenticateUserAsync to verify password change
-                short authResult = await _userController.AuthenticateUserAsync(currentUser.Username, newPassword);
+                var result = await _userController.ChangePasswordAsync(currentUser.UserId, currentPassword, newPassword);
 
-                if (authResult == 0)
+                if (!result.Success)
                 {
-                    MessageBox.Show("Incorrect password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    btn_change_password.Enabled = true;
-                    return;
-                }
-                if (authResult == 2)
-                {
-                    MessageBox.Show("User is inactive. Cannot change password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(result.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     btn_change_password.Enabled = true;
                     return;
                 }
 
-                // If authentication is successful, update the password
-                currentUser.Password = newPassword;
-
-                bool updateResult = await _userController.UpdateUserAsync(currentUser);
-
-                if (updateResult)
-                {
-                    MessageBox.Show("Password changed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tb_current_password.Text = string.Empty;
-                    tb_confirm_new_password.Text = string.Empty;
-                    tb_confirm_password.Text = string.Empty;
-                }
-                else
-                {
-                    MessageBox.Show("Failed to change password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Password changed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tb_current_password.Text = string.Empty;
+                tb_confirm_new_password.Text = string.Empty;
+                tb_confirm_password.Text = string.Empty;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while changing the password: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // TODO: Log ex.ToString() if needed
             }
             finally
             {
@@ -487,13 +470,51 @@ namespace DVLD.Forms
         }
 
 
-
         // Users Management Tab ----------------------------------------------------------------------
 
         private async void LoadUsersAsync()
         {
             _usersList = (await _userController.GetAllUsersAsync()).ToList();
             BindUsersToGrid(_usersList);
+        }
+        private async void dgv_NewUserAdded(int newUserId)
+        {
+            try
+            {
+                User user = await _userController.GetUserByIdAsync(newUserId);
+                _usersList.Add(user);
+                BindUsersToGrid(_usersList);
+            } catch(Exception ex)
+            {
+                MessageBox.Show(
+                "An error occurred:\n" + ex.Message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+                );
+            }
+        }
+        private async void dgv_UserUpdated(int userId)
+        {
+            try
+            {
+                User updatedUser = await _userController.GetUserByIdAsync(userId);
+                int index = _usersList.FindIndex(u => u.UserId == userId);
+                if (index != -1)
+                {
+                    _usersList[index] = updatedUser;
+                    BindUsersToGrid(_usersList);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                "An error occurred:\n" + ex.Message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+                );
+            }
         }
         private void BindUsersToGrid(IEnumerable<User> users)
         {
@@ -510,9 +531,16 @@ namespace DVLD.Forms
         }
         private void AddNewUser()
         {
-            
+            Add_Edit_User user_pop_up = new Add_Edit_User(null);
+            user_pop_up.ClosingEvent = dgv_NewUserAdded;
+            user_pop_up.Show();
         }
-
+        private void EditSelectedUser(int userId)
+        {
+            Add_Edit_User user_pop_up = new Add_Edit_User(userId);
+            user_pop_up.ClosingEvent = dgv_UserUpdated;
+            user_pop_up.ShowDialog();
+        }
         private void uc_users_topbar_FilterPerformed(object sender, FilterArgs e)
         {
             var filtered = _usersList.Where(user =>
@@ -531,7 +559,6 @@ namespace DVLD.Forms
 
             BindUsersToGrid(filtered);
         }
-
 
         #endregion
 

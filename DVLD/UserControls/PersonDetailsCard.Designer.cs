@@ -284,6 +284,7 @@
             // lb_edit
             // 
             this.lb_edit.AutoSize = true;
+            this.lb_edit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_edit.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lb_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,6 +294,7 @@
             this.lb_edit.TabIndex = 24;
             this.lb_edit.Text = "Edit Personal Details";
             this.lb_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_edit.Visible = false;
             this.lb_edit.Click += new System.EventHandler(this.lb_edit_Click);
             // 
             // lb_title

@@ -105,6 +105,10 @@
             this.img_list_default_profile = new System.Windows.Forms.ImageList(this.components);
             this.ofd_upload_image = new System.Windows.Forms.OpenFileDialog();
             this.err_input_validation = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cms_UserManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_View = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_profile.SuspendLayout();
@@ -115,6 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_users)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).BeginInit();
+            this.cms_UserManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // pl_Body
@@ -925,6 +930,7 @@
             this.driver_person_id,
             this.username,
             this.is_active});
+            this.dgv_users.ContextMenuStrip = this.cms_UserManagement;
             this.dgv_users.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -1038,6 +1044,34 @@
             // 
             this.err_input_validation.ContainerControl = this;
             // 
+            // cms_UserManagement
+            // 
+            this.cms_UserManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_View,
+            this.tsmi_Edit,
+            this.tsmi_Delete});
+            this.cms_UserManagement.Name = "cms_UserManagement";
+            this.cms_UserManagement.Size = new System.Drawing.Size(150, 70);
+            this.cms_UserManagement.Text = "User Management";
+            // 
+            // tsmi_View
+            // 
+            this.tsmi_View.Name = "tsmi_View";
+            this.tsmi_View.Size = new System.Drawing.Size(149, 22);
+            this.tsmi_View.Text = "View User Info";
+            // 
+            // tsmi_Edit
+            // 
+            this.tsmi_Edit.Name = "tsmi_Edit";
+            this.tsmi_Edit.Size = new System.Drawing.Size(149, 22);
+            this.tsmi_Edit.Text = "Edit User Info";
+            // 
+            // tsmi_Delete
+            // 
+            this.tsmi_Delete.Name = "tsmi_Delete";
+            this.tsmi_Delete.Size = new System.Drawing.Size(149, 22);
+            this.tsmi_Delete.Text = "Delete User";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1063,6 +1097,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_users)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).EndInit();
+            this.cms_UserManagement.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1143,5 +1178,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn driver_person_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_active;
+        private System.Windows.Forms.ContextMenuStrip cms_UserManagement;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_View;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Edit;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Delete;
     }
 }
