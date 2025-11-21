@@ -516,6 +516,27 @@ namespace DVLD.Forms
                 );
             }
         }
+        private void dgv_UserDeleted(int userId)
+        {
+            try
+            {
+                int index = _usersList.FindIndex(u => u.UserId == userId);
+                if (index != -1)
+                {
+                    _usersList.RemoveAt(index);
+                    BindUsersToGrid(_usersList);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                "An error occurred:\n" + ex.Message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+                );
+            }
+        }
         private void BindUsersToGrid(IEnumerable<User> users)
         {
             dgv_users.Rows.Clear();
@@ -528,18 +549,14 @@ namespace DVLD.Forms
                     user.IsActive
                 );
             }
+
+            lb_footer_text_users.Text = "Total Number of Users: " + dgv_users.RowCount.ToString();
         }
         private void AddNewUser()
         {
             Add_Edit_User user_pop_up = new Add_Edit_User(null);
             user_pop_up.ClosingEvent = dgv_NewUserAdded;
-            user_pop_up.Show();
-        }
-        private void EditSelectedUser(int userId)
-        {
-            Add_Edit_User user_pop_up = new Add_Edit_User(userId);
-            user_pop_up.ClosingEvent = dgv_UserUpdated;
-            user_pop_up.ShowDialog();
+            user_pop_up.ShowDialog(this.FindForm());
         }
         private void uc_users_topbar_FilterPerformed(object sender, FilterArgs e)
         {
@@ -559,6 +576,59 @@ namespace DVLD.Forms
 
             BindUsersToGrid(filtered);
         }
+
+        #region DataGridView Events - Context Menue Stripe
+
+        private void tsmi_View_Click(object sender, EventArgs e)
+        {
+            if (dgv_users.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a user to view.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int selectedUserId = Convert.ToInt32(dgv_users.SelectedRows[0].Cells["user_id"].Value);
+            Show_User_Details show_User_Details = new Show_User_Details(selectedUserId);
+            show_User_Details.Show(this.FindForm());
+        }
+        private void tsmi_Edit_Click(object sender, EventArgs e)
+        {
+            if (dgv_users.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a user to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int selectedUserId = Convert.ToInt32(dgv_users.SelectedRows[0].Cells["user_id"].Value);
+            Add_Edit_User user_pop_up = new Add_Edit_User(selectedUserId);
+            user_pop_up.ClosingEvent = dgv_UserUpdated;
+            user_pop_up.ShowDialog(this.FindForm());
+        }
+        private async void tsmi_Delete_Click(object sender, EventArgs e)
+        {
+            if (dgv_users.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a user to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int selectedUserId = Convert.ToInt32(dgv_users.SelectedRows[0].Cells["user_id"].Value);
+            if (MessageBox.Show("Are you sure you want to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                bool result = await _userController.DeleteUserAsync(selectedUserId);
+                if (result)
+                {
+                    MessageBox.Show("User deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_UserDeleted(selectedUserId); // Update the data grid
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -754,7 +824,9 @@ namespace DVLD.Forms
             return true;
         }
 
+
         #endregion
+
 
     }
 }

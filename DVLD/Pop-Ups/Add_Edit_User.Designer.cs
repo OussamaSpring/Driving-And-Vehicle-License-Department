@@ -206,6 +206,7 @@
             this.txt_password_3.PasswordChar = '*';
             this.txt_password_3.Size = new System.Drawing.Size(284, 26);
             this.txt_password_3.TabIndex = 125;
+            this.txt_password_3.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // lb_password_3
             // 
@@ -229,6 +230,7 @@
             this.txt_password_2.PasswordChar = '*';
             this.txt_password_2.Size = new System.Drawing.Size(284, 26);
             this.txt_password_2.TabIndex = 123;
+            this.txt_password_2.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // lb_password_2
             // 
@@ -252,6 +254,7 @@
             this.txt_password_1.PasswordChar = '*';
             this.txt_password_1.Size = new System.Drawing.Size(284, 26);
             this.txt_password_1.TabIndex = 121;
+            this.txt_password_1.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // lb_password_1
             // 
@@ -274,6 +277,7 @@
             this.chk_is_active.Size = new System.Drawing.Size(15, 14);
             this.chk_is_active.TabIndex = 119;
             this.chk_is_active.UseVisualStyleBackColor = true;
+            this.chk_is_active.CheckedChanged += new System.EventHandler(this.chk_is_active_CheckedChanged);
             // 
             // label22
             // 
@@ -295,6 +299,7 @@
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(284, 26);
             this.txt_username.TabIndex = 116;
+            this.txt_username.TextChanged += new System.EventHandler(this.txt_input_fields_TextChanged);
             // 
             // label16
             // 

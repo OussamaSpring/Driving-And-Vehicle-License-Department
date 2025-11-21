@@ -319,6 +319,8 @@
     <Content Include="Resources\Icons\arrow.png" />
     <Content Include="Resources\Icons\Calendar.png" />
     <Content Include="Resources\Icons\Country.png" />
+    <Content Include="Resources\Icons\Delete.png" />
+    <Content Include="Resources\Icons\Edit_Colored.png" />
     <Content Include="Resources\Icons\Email.png" />
     <Content Include="Resources\Icons\Person.png" />
     <Content Include="Resources\Icons\Phone.png" />

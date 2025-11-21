@@ -199,12 +199,11 @@
             // 
             // lb_phone
             // 
-            this.lb_phone.AutoSize = true;
             this.lb_phone.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_phone.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lb_phone.Location = new System.Drawing.Point(343, 213);
             this.lb_phone.Name = "lb_phone";
-            this.lb_phone.Size = new System.Drawing.Size(25, 19);
+            this.lb_phone.Size = new System.Drawing.Size(137, 19);
             this.lb_phone.TabIndex = 17;
             this.lb_phone.Text = "??";
             this.lb_phone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -223,12 +222,11 @@
             // 
             // lb_email
             // 
-            this.lb_email.AutoSize = true;
             this.lb_email.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_email.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lb_email.Location = new System.Drawing.Point(82, 213);
             this.lb_email.Name = "lb_email";
-            this.lb_email.Size = new System.Drawing.Size(25, 19);
+            this.lb_email.Size = new System.Drawing.Size(171, 19);
             this.lb_email.TabIndex = 19;
             this.lb_email.Text = "??";
             this.lb_email.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,12 +245,11 @@
             // 
             // lb_address
             // 
-            this.lb_address.AutoSize = true;
             this.lb_address.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_address.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lb_address.Location = new System.Drawing.Point(100, 273);
             this.lb_address.Name = "lb_address";
-            this.lb_address.Size = new System.Drawing.Size(25, 19);
+            this.lb_address.Size = new System.Drawing.Size(380, 19);
             this.lb_address.TabIndex = 21;
             this.lb_address.Text = "??";
             this.lb_address.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -294,7 +291,6 @@
             this.lb_edit.TabIndex = 24;
             this.lb_edit.Text = "Edit Personal Details";
             this.lb_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_edit.Visible = false;
             this.lb_edit.Click += new System.EventHandler(this.lb_edit_Click);
             // 
             // lb_title

@@ -43,24 +43,28 @@ namespace DVLD.Pop_Ups
             {
                 state = State.Update;
                 lb_title.Text = "Edit Person Details";
-
-                _person = _personController.GetPersonByIdAsync(id.Value).Result;
-
-                // Fill person details
-                lb_person_id.Text = _person.PersonId.ToString();
-                tb_national_no.Text = _person.NationalNumber;
-                tb_first_name.Text = _person.FirstName;
-                tb_second_name.Text = _person.SecondName ?? string.Empty;
-                tb_third_name.Text = _person.ThirdName ?? string.Empty;
-                tb_last_name.Text = _person.LastName;
-                dtp_date_of_birth.Value = _person.DateOfBirth;
-                cb_gender.SelectedIndex = Convert.ToInt16(_person.enGender);
-                tb_email.Text = _person.Email ?? string.Empty;
-                tb_phone.Text = _person.Phone;
-                cb_country.SelectedIndex = cb_country.FindString(_person.NationalityCountry.CountryName);
-                rtb_address.Text = _person.Address;
-                rpb_profile_image.Image = ByteArrayToImage(_person.PersonalImage) ?? img_list_default_profile.Images[cb_gender.SelectedIndex];
+                _person = new Person { PersonId = id.Value };
             }
+        }
+
+        private async void LoadPersonDetails(int personId)
+        {
+            _person = await _personController.GetPersonByIdAsync(personId);
+
+            // Fill person details
+            lb_person_id.Text = _person.PersonId.ToString();
+            tb_national_no.Text = _person.NationalNumber;
+            tb_first_name.Text = _person.FirstName;
+            tb_second_name.Text = _person.SecondName ?? string.Empty;
+            tb_third_name.Text = _person.ThirdName ?? string.Empty;
+            tb_last_name.Text = _person.LastName;
+            dtp_date_of_birth.Value = _person.DateOfBirth;
+            cb_gender.SelectedIndex = Convert.ToInt16(_person.enGender);
+            tb_email.Text = _person.Email ?? string.Empty;
+            tb_phone.Text = _person.Phone;
+            cb_country.SelectedIndex = cb_country.FindString(_person.NationalityCountry.CountryName);
+            rtb_address.Text = _person.Address;
+            rpb_profile_image.Image = ByteArrayToImage(_person.PersonalImage) ?? img_list_default_profile.Images[cb_gender.SelectedIndex];
         }
 
         #region Help Functions
@@ -123,6 +127,20 @@ namespace DVLD.Pop_Ups
                 if (state == State.Add)
                     cb_country.SelectedIndex = 0;
             }
+
+            if(state == State.Update)
+            {
+                try
+                {
+                    int personId = _person.PersonId;
+                    LoadPersonDetails(personId);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
         }
         private void lb_upload_image_Click(object sender, EventArgs e)
         {
@@ -147,13 +165,11 @@ namespace DVLD.Pop_Ups
             HasImageChanged = true;
             IsImageEmpty = true;
         }
-
-
         private async void btn_save_MouseClick(object sender, MouseEventArgs e)
         {
             btn_save.Enabled = false; // Disable button to prevent multiple clicks
 
-            if ((!HasDataChanged || !HasImageChanged) && state == State.Update)
+            if (!(HasDataChanged || HasImageChanged) && state == State.Update)
             {
                 this.Dispose();
                 return;
@@ -203,7 +219,6 @@ namespace DVLD.Pop_Ups
                 btn_save.Enabled = true;
             }
         }
-
         private void btn_Exit_Clicked(object sender, MouseEventArgs e)
         {
             if(!HasDataChanged && !HasImageChanged)

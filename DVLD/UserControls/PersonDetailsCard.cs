@@ -71,7 +71,7 @@ namespace DVLD.UserControls
         {
             Add_Edit_Person edit_person = new Add_Edit_Person(_person.PersonId);
             edit_person.ClosingEvent += RefreshPersonDetails;
-            edit_person.Show();
+            edit_person.Show(this.FindForm());
         }
         private void RefreshPersonDetails(int personId)
         {

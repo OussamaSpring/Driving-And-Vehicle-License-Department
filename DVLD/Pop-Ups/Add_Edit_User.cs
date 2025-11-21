@@ -25,6 +25,8 @@ namespace DVLD.Pop_Ups
         private enum State { Add = 1, Update = 2 }
         private State state;
 
+        private bool HasDataChanged = false;
+
         private User _user;
         private int _personId;
         private bool isPersonSelected = false;
@@ -53,24 +55,42 @@ namespace DVLD.Pop_Ups
                 cb_filter.Visible = false;
                 txt_search.Visible = false;
                 btn_search.Visible = false;
+                lb_text.Visible = false;
 
                 lb_password_1.Text = "Current Password:";
                 lb_password_2.Text = "New Password:";
                 lb_password_3.Text = "Confirm Password:";
 
-                _user = _userController.GetUserByIdAsync(id.Value).Result;
-                _personId = _user.PersonId;
-                isPersonSelected = true;
-                personDetailsCard.SetPerson(_user.PersonId);
-
-                lb_user_id.Text = _user.UserId.ToString();
-                txt_username.Text = _user.Username;
-                chk_is_active.Checked = _user.IsActive;
+                _user = new User { UserId = id.Value };
             }
         }
-        private void Add_Edit_User_Load(object sender, EventArgs e)
+        private async void Add_Edit_User_Load(object sender, EventArgs e)
         {
             cb_filter.SelectedIndex = 0;
+            if (state == State.Update)
+            {
+                try
+                {
+                    _user = await _userController.GetUserByIdAsync((int)_user?.UserId);
+                    if (_user == null)
+                    {
+                        MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                        return;
+                    }
+                    lb_user_id.Text = _user.UserId.ToString();
+                    txt_username.Text = _user.Username;
+                    chk_is_active.Checked = _user.IsActive;
+                    personDetailsCard.SetPerson(_user.PersonId);
+                    _personId = _user.PersonId;
+                    isPersonSelected = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while loading user data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
         }
 
         #region UI Events
@@ -113,16 +133,22 @@ namespace DVLD.Pop_Ups
         {
             btn_save.Enabled = false;
 
+            if(!HasDataChanged && state == State.Update)
+            {
+                this.Dispose();
+                return;
+            }
+
+            // Validate inputs
+            if (!isPersonSelected || !ValidateAllInputs())
+            {
+                MessageBox.Show("Please ensure all fields are correctly filled and a person is selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btn_save.Enabled = true;
+                return;
+            }
+
             try
             {
-                // Validate inputs
-                if (!isPersonSelected || !ValidateUsernameInput() || !ValidatePasswordInput(txt_password_2.Text))
-                {
-                    MessageBox.Show("Please ensure all fields are correctly filled and a person is selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    btn_save.Enabled = true;
-                    return;
-                }
-
                 User userToSave = new User
                 {
                     UserId = state == State.Update ? _user.UserId : 0,
@@ -266,6 +292,22 @@ namespace DVLD.Pop_Ups
             err_input_validation.SetError(txt_password_1, string.Empty);
             return true;
         }
+        private bool ValidateAllInputs()
+        {
+            return ValidateUsernameInput() && ValidatePasswordInput(txt_password_2.Text);
+        }
+        #endregion
+
+        #region Input Change Tracking
+        private void txt_input_fields_TextChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
+        }
+
+        private void chk_is_active_CheckedChanged(object sender, EventArgs e)
+        {
+            HasDataChanged = true;
+        }
 
         #endregion
 
@@ -292,6 +334,7 @@ namespace DVLD.Pop_Ups
 
 
         #endregion
+
 
     }
 }

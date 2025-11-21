@@ -32,7 +32,7 @@ namespace DVLD.Pop_Ups
 
                 lb_user_id.Text = user.UserId.ToString();
                 lb_username.Text = user.Username;
-                lb_is_active.Text = user.IsActive ? "Active" : "Inactive";
+                lb_is_active.Text = user.IsActive ? "Yes" : "No";
 
                 // Populate the person details card
                 personDetailsCard.SetPerson(user.PersonId);
