@@ -93,6 +93,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Country {
+            get {
+                object obj = ResourceManager.GetObject("Country", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Credit_card {
             get {
                 object obj = ResourceManager.GetObject("Credit_card", resourceCulture);
@@ -256,6 +266,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap license_detain1 {
             get {
                 object obj = ResourceManager.GetObject("license_detain1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap license_history {
+            get {
+                object obj = ResourceManager.GetObject("license_history", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

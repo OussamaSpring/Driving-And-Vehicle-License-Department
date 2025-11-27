@@ -155,6 +155,12 @@
     <Compile Include="Pop-Ups\Add_Edit_Person.Designer.cs">
       <DependentUpon>Add_Edit_Person.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pop-Ups\Show_Person_License_History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pop-Ups\Show_Person_License_History.Designer.cs">
+      <DependentUpon>Show_Person_License_History.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pop-Ups\Show_Person_Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pop-Ups\Add_Edit_Person.resx">
       <DependentUpon>Add_Edit_Person.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pop-Ups\Show_Person_License_History.resx">
+      <DependentUpon>Show_Person_License_History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pop-Ups\Show_Person_Details.resx">
       <DependentUpon>Show_Person_Details.cs</DependentUpon>
@@ -331,6 +340,7 @@
     <Content Include="Resources\Images\Female.png" />
     <Content Include="Resources\Images\inter-driver-license.png" />
     <Content Include="Resources\Images\license_detain.png" />
+    <None Include="Resources\Images\license_history.png" />
     <Content Include="Resources\Images\license_release.png" />
     <Content Include="Resources\Images\Male.png" />
     <Content Include="Resources\Images\question-mark.png" />

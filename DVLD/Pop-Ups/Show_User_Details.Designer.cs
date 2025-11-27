@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 475);
+            this.ClientSize = new System.Drawing.Size(660, 482);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.lb_username);
             this.Controls.Add(this.lb_is_active);
@@ -140,6 +140,9 @@
             this.Controls.Add(this.personDetailsCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Show_User_Details";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Show_User_Details";
             this.ResumeLayout(false);
             this.PerformLayout();

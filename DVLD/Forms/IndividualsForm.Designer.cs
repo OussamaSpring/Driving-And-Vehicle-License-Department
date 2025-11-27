@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -48,6 +49,10 @@
             this.nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cms_PersonManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_View = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.uc_person_topbar = new DVLD.UserControls.SearchBar();
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text = new System.Windows.Forms.Label();
@@ -59,6 +64,11 @@
             this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.active_licenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cms_DriverManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_ViewPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_ShowLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmi_IssueInternationalLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.uc_driver_topbar = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text_driver = new System.Windows.Forms.Label();
@@ -67,9 +77,11 @@
             this.htc_tab_nav.SuspendLayout();
             this.tab_people.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_people)).BeginInit();
+            this.cms_PersonManagement.SuspendLayout();
             this.flp_footer.SuspendLayout();
             this.tab_drivers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_drivers)).BeginInit();
+            this.cms_DriverManagement.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +162,7 @@
             this.nationality,
             this.phone,
             this.email});
+            this.dgv_people.ContextMenuStrip = this.cms_PersonManagement;
             this.dgv_people.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -164,6 +177,7 @@
             this.dgv_people.Location = new System.Drawing.Point(3, 53);
             this.dgv_people.Name = "dgv_people";
             this.dgv_people.ReadOnly = true;
+            this.dgv_people.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_people.Size = new System.Drawing.Size(739, 233);
             this.dgv_people.TabIndex = 2;
             // 
@@ -244,6 +258,46 @@
             this.email.Name = "email";
             this.email.ReadOnly = true;
             // 
+            // cms_PersonManagement
+            // 
+            this.cms_PersonManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_View,
+            this.tsmi_Edit,
+            this.tsmi_Delete});
+            this.cms_PersonManagement.Name = "cms_UserManagement";
+            this.cms_PersonManagement.Size = new System.Drawing.Size(163, 91);
+            this.cms_PersonManagement.Text = "People Management";
+            // 
+            // tsmi_View
+            // 
+            this.tsmi_View.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_View.Image = global::DVLD.Properties.Resources.driving_license;
+            this.tsmi_View.Name = "tsmi_View";
+            this.tsmi_View.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_View.Size = new System.Drawing.Size(162, 29);
+            this.tsmi_View.Text = "Show Details";
+            this.tsmi_View.Click += new System.EventHandler(this.tsmi_View_Click);
+            // 
+            // tsmi_Edit
+            // 
+            this.tsmi_Edit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_Edit.Image = global::DVLD.Properties.Resources.Edit_Colored;
+            this.tsmi_Edit.Name = "tsmi_Edit";
+            this.tsmi_Edit.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_Edit.Size = new System.Drawing.Size(162, 29);
+            this.tsmi_Edit.Text = "Edit";
+            this.tsmi_Edit.Click += new System.EventHandler(this.tsmi_Edit_Click);
+            // 
+            // tsmi_Delete
+            // 
+            this.tsmi_Delete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_Delete.Image = global::DVLD.Properties.Resources.Delete;
+            this.tsmi_Delete.Name = "tsmi_Delete";
+            this.tsmi_Delete.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_Delete.Size = new System.Drawing.Size(162, 29);
+            this.tsmi_Delete.Text = "Delete";
+            this.tsmi_Delete.Click += new System.EventHandler(this.tsmi_Delete_Click);
+            // 
             // uc_person_topbar
             // 
             this.uc_person_topbar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -307,6 +361,7 @@
             this.fullname,
             this.date,
             this.active_licenses});
+            this.dgv_drivers.ContextMenuStrip = this.cms_DriverManagement;
             this.dgv_drivers.CornerRadius = 15;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -321,6 +376,7 @@
             this.dgv_drivers.Location = new System.Drawing.Point(3, 53);
             this.dgv_drivers.Name = "dgv_drivers";
             this.dgv_drivers.ReadOnly = true;
+            this.dgv_drivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_drivers.Size = new System.Drawing.Size(739, 233);
             this.dgv_drivers.TabIndex = 4;
             // 
@@ -365,6 +421,52 @@
             this.active_licenses.HeaderText = "Active Licenses";
             this.active_licenses.Name = "active_licenses";
             this.active_licenses.ReadOnly = true;
+            // 
+            // cms_DriverManagement
+            // 
+            this.cms_DriverManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_ViewPersonInfo,
+            this.tsmi_ShowLicenseHistory,
+            this.toolStripSeparator1,
+            this.tsmi_IssueInternationalLicense});
+            this.cms_DriverManagement.Name = "cms_UserManagement";
+            this.cms_DriverManagement.Size = new System.Drawing.Size(249, 119);
+            this.cms_DriverManagement.Text = "Drivers Management";
+            // 
+            // tsmi_ViewPersonInfo
+            // 
+            this.tsmi_ViewPersonInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ViewPersonInfo.Image = global::DVLD.Properties.Resources.driving_license;
+            this.tsmi_ViewPersonInfo.Name = "tsmi_ViewPersonInfo";
+            this.tsmi_ViewPersonInfo.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewPersonInfo.Size = new System.Drawing.Size(248, 29);
+            this.tsmi_ViewPersonInfo.Text = "Show Person Info";
+            this.tsmi_ViewPersonInfo.Click += new System.EventHandler(this.tsmi_ViewPersonInfo_Click);
+            // 
+            // tsmi_ShowLicenseHistory
+            // 
+            this.tsmi_ShowLicenseHistory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ShowLicenseHistory.Image = global::DVLD.Properties.Resources.Edit_Colored;
+            this.tsmi_ShowLicenseHistory.Name = "tsmi_ShowLicenseHistory";
+            this.tsmi_ShowLicenseHistory.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ShowLicenseHistory.Size = new System.Drawing.Size(248, 29);
+            this.tsmi_ShowLicenseHistory.Text = "Show License History";
+            this.tsmi_ShowLicenseHistory.Click += new System.EventHandler(this.tsmi_ShowLicenseHistory_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(245, 6);
+            // 
+            // tsmi_IssueInternationalLicense
+            // 
+            this.tsmi_IssueInternationalLicense.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.tsmi_IssueInternationalLicense.Image = global::DVLD.Properties.Resources.Country;
+            this.tsmi_IssueInternationalLicense.Name = "tsmi_IssueInternationalLicense";
+            this.tsmi_IssueInternationalLicense.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_IssueInternationalLicense.Size = new System.Drawing.Size(248, 29);
+            this.tsmi_IssueInternationalLicense.Text = "Issue International License";
+            this.tsmi_IssueInternationalLicense.Click += new System.EventHandler(this.tsmi_IssueInternationalLicense_Click);
             // 
             // uc_driver_topbar
             // 
@@ -425,9 +527,11 @@
             this.htc_tab_nav.ResumeLayout(false);
             this.tab_people.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_people)).EndInit();
+            this.cms_PersonManagement.ResumeLayout(false);
             this.flp_footer.ResumeLayout(false);
             this.tab_drivers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_drivers)).EndInit();
+            this.cms_DriverManagement.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -467,5 +571,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nationality;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.ContextMenuStrip cms_PersonManagement;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_View;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Edit;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Delete;
+        private System.Windows.Forms.ContextMenuStrip cms_DriverManagement;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ViewPersonInfo;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ShowLicenseHistory;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_IssueInternationalLicense;
     }
 }

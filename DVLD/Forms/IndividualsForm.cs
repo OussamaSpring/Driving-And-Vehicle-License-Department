@@ -45,7 +45,7 @@ namespace DVLD.Forms
             tlp_header.Controls.Add(tabs, 1, 0);
 
 
-            
+
             _personController = new PersonController(new PersonRepository());
             _driverController = new DriverController(new DriverRepository());
         }
@@ -133,7 +133,7 @@ namespace DVLD.Forms
                         return person.Phone != null && person.Phone.Contains(e.SearchText);
                     case "Email":
                         return person.Email != null && person.Email.ToLower().Contains(e.SearchText.ToLower());
-                    
+
                     default:
                         return true;
                 }
@@ -165,6 +165,116 @@ namespace DVLD.Forms
                 );
             }
         }
+        private async void dgv_PersonUpdated(int updatedPersonId)
+        {
+            try
+            {
+                Person updatedPerson = await _personController.GetPersonByIdAsync(updatedPersonId);
+                int index = _peopleList.FindIndex(p => p.PersonId == updatedPersonId);
+                if (index != -1)
+                {
+                    _peopleList[index] = updatedPerson;
+                    BindPeopleToGrid(_peopleList);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+        private void dgv_PersonDeleted(int deletedPersonId)
+        {
+            try
+            {
+                int index = _peopleList.FindIndex(p => p.PersonId == deletedPersonId);
+
+                if (index != -1)
+                {
+                    _peopleList.RemoveAt(index);
+                    BindPeopleToGrid(_peopleList);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        #region DataGridView Events - Context Menue Stripe
+
+        private void tsmi_View_Click(object sender, EventArgs e)
+        {
+            if (dgv_people.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a person to view.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int selectedPersonId = Convert.ToInt32(dgv_people.SelectedRows[0].Cells["person_id"].Value);
+            Show_Person_Details show_Person_Details = new Show_Person_Details(selectedPersonId);
+            show_Person_Details.Show(this.FindForm());
+        }
+        private void tsmi_Edit_Click(object sender, EventArgs e)
+        {
+            if (dgv_people.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a person to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int selectedPersonId = Convert.ToInt32(dgv_people.SelectedRows[0].Cells["person_id"].Value);
+            Add_Edit_Person editPersonPopUp = new Add_Edit_Person(selectedPersonId);
+            editPersonPopUp.ClosingEvent = dgv_PersonUpdated;
+            editPersonPopUp.ShowDialog(this.FindForm());
+        }
+        private async void tsmi_Delete_Click(object sender, EventArgs e)
+        {
+            if (dgv_people.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a person to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int selectedPersonId = Convert.ToInt32(dgv_people.SelectedRows[0].Cells["person_id"].Value);
+
+            try
+            {
+                if (MessageBox.Show("Are you sure you want to delete the selected person?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    bool result = await _personController.DeletePersonAsync(selectedPersonId);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Person deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgv_PersonDeleted(selectedPersonId);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete person.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred while deleting the person:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -214,7 +324,42 @@ namespace DVLD.Forms
 
             BindDriversToGrid(filtered);
         }
-        
+
+
+        #region DataGridView Events - Context Menue Stripe
+
+        private void tsmi_ViewPersonInfo_Click(object sender, EventArgs e)
+        {
+            if (dgv_drivers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a driver to view personal information.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int selectedDriverPersonId = Convert.ToInt32(dgv_drivers.SelectedRows[0].Cells["driver_person_id"].Value);
+            Show_Person_Details show_Person_Details = new Show_Person_Details(selectedDriverPersonId);
+            show_Person_Details.Show(this.FindForm());
+        }
+
+        private void tsmi_ShowLicenseHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmi_IssueInternationalLicense_Click(object sender, EventArgs e)
+        {
+            if (dgv_drivers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a driver to view personal information.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            MessageBox.Show("Feature under development.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         #endregion
+
+        #endregion
+
+
     }
 }

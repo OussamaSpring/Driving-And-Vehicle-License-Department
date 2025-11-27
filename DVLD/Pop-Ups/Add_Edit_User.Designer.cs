@@ -402,6 +402,8 @@
             this.Controls.Add(this.pl_header);
             this.MinimumSize = new System.Drawing.Size(900, 550);
             this.Name = "Add_Edit_User";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Add_Edit_Person";
             this.Load += new System.EventHandler(this.Add_Edit_User_Load);
             this.pl_header.ResumeLayout(false);
