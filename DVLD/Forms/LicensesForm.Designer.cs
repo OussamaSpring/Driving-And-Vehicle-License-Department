@@ -167,6 +167,7 @@ namespace DVLD.Forms
             this.dgv_local_licenses.Location = new System.Drawing.Point(3, 53);
             this.dgv_local_licenses.Name = "dgv_local_licenses";
             this.dgv_local_licenses.ReadOnly = true;
+            this.dgv_local_licenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_local_licenses.Size = new System.Drawing.Size(739, 233);
             this.dgv_local_licenses.TabIndex = 2;
             // 
@@ -314,6 +315,7 @@ namespace DVLD.Forms
             this.dgv_international_licenses.Location = new System.Drawing.Point(3, 53);
             this.dgv_international_licenses.Name = "dgv_international_licenses";
             this.dgv_international_licenses.ReadOnly = true;
+            this.dgv_international_licenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_international_licenses.Size = new System.Drawing.Size(739, 233);
             this.dgv_international_licenses.TabIndex = 4;
             // 
