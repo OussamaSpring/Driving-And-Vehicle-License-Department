@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tc_dirver_licenses = new System.Windows.Forms.TabControl();
             this.tp_local = new System.Windows.Forms.TabPage();
-            this.tp_international = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.personDetailsCard = new DVLD.UserControls.PersonDetailsCard();
             this.dgv_local_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +46,7 @@
             this.expiration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.issue_reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tp_international = new System.Windows.Forms.TabPage();
             this.dgv_international_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.international_license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inter_application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,12 +55,20 @@
             this.inter_issue_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inter_expiration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.personDetailsCard = new DVLD.UserControls.PersonDetailsCard();
+            this.flp_footer_local = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_local_text = new System.Windows.Forms.Label();
+            this.flp_footer_international = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_international_text = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tc_dirver_licenses.SuspendLayout();
             this.tp_local.SuspendLayout();
-            this.tp_international.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).BeginInit();
+            this.tp_international.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).BeginInit();
+            this.flp_footer_local.SuspendLayout();
+            this.flp_footer_international.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -112,6 +118,7 @@
             // tp_local
             // 
             this.tp_local.BackColor = System.Drawing.SystemColors.Control;
+            this.tp_local.Controls.Add(this.flp_footer_local);
             this.tp_local.Controls.Add(this.dgv_local_licenses);
             this.tp_local.Location = new System.Drawing.Point(23, 4);
             this.tp_local.Name = "tp_local";
@@ -120,51 +127,21 @@
             this.tp_local.TabIndex = 0;
             this.tp_local.Text = "Local";
             // 
-            // tp_international
-            // 
-            this.tp_international.BackColor = System.Drawing.SystemColors.Control;
-            this.tp_international.Controls.Add(this.dgv_international_licenses);
-            this.tp_international.Location = new System.Drawing.Point(23, 4);
-            this.tp_international.Name = "tp_international";
-            this.tp_international.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_international.Size = new System.Drawing.Size(893, 205);
-            this.tp_international.TabIndex = 1;
-            this.tp_international.Text = "International";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(35, 772);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = " ";
-            // 
-            // personDetailsCard
-            // 
-            this.personDetailsCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.personDetailsCard.Location = new System.Drawing.Point(272, 100);
-            this.personDetailsCard.Name = "personDetailsCard";
-            this.personDetailsCard.Size = new System.Drawing.Size(677, 367);
-            this.personDetailsCard.TabIndex = 0;
-            // 
             // dgv_local_licenses
             // 
             this.dgv_local_licenses.AllowUserToAddRows = false;
             this.dgv_local_licenses.AllowUserToDeleteRows = false;
             this.dgv_local_licenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_local_licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_local_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_local_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_local_licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_local_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.license_id,
@@ -176,14 +153,14 @@
             this.is_active,
             this.issue_reason});
             this.dgv_local_licenses.CornerRadius = 15;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_local_licenses.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_local_licenses.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_local_licenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_local_licenses.EnableHeadersVisualStyles = false;
             this.dgv_local_licenses.Location = new System.Drawing.Point(3, 3);
@@ -251,21 +228,33 @@
             this.issue_reason.Name = "issue_reason";
             this.issue_reason.ReadOnly = true;
             // 
+            // tp_international
+            // 
+            this.tp_international.BackColor = System.Drawing.SystemColors.Control;
+            this.tp_international.Controls.Add(this.flp_footer_international);
+            this.tp_international.Controls.Add(this.dgv_international_licenses);
+            this.tp_international.Location = new System.Drawing.Point(23, 4);
+            this.tp_international.Name = "tp_international";
+            this.tp_international.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_international.Size = new System.Drawing.Size(893, 205);
+            this.tp_international.TabIndex = 1;
+            this.tp_international.Text = "International";
+            // 
             // dgv_international_licenses
             // 
             this.dgv_international_licenses.AllowUserToAddRows = false;
             this.dgv_international_licenses.AllowUserToDeleteRows = false;
             this.dgv_international_licenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_international_licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_international_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_international_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_international_licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_international_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.international_license_id,
@@ -276,14 +265,14 @@
             this.inter_expiration_date,
             this.dataGridViewCheckBoxColumn1});
             this.dgv_international_licenses.CornerRadius = 15;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_international_licenses.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_international_licenses.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_international_licenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_international_licenses.EnableHeadersVisualStyles = false;
             this.dgv_international_licenses.Location = new System.Drawing.Point(3, 3);
@@ -344,6 +333,65 @@
             this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(35, 772);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = " ";
+            // 
+            // personDetailsCard
+            // 
+            this.personDetailsCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.personDetailsCard.Location = new System.Drawing.Point(272, 100);
+            this.personDetailsCard.Name = "personDetailsCard";
+            this.personDetailsCard.Size = new System.Drawing.Size(677, 367);
+            this.personDetailsCard.TabIndex = 0;
+            // 
+            // flp_footer_local
+            // 
+            this.flp_footer_local.Controls.Add(this.lb_footer_local_text);
+            this.flp_footer_local.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flp_footer_local.Location = new System.Drawing.Point(3, 172);
+            this.flp_footer_local.Name = "flp_footer_local";
+            this.flp_footer_local.Padding = new System.Windows.Forms.Padding(5);
+            this.flp_footer_local.Size = new System.Drawing.Size(887, 30);
+            this.flp_footer_local.TabIndex = 4;
+            // 
+            // lb_footer_local_text
+            // 
+            this.lb_footer_local_text.AutoSize = true;
+            this.lb_footer_local_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_local_text.Location = new System.Drawing.Point(8, 5);
+            this.lb_footer_local_text.Name = "lb_footer_local_text";
+            this.lb_footer_local_text.Size = new System.Drawing.Size(242, 19);
+            this.lb_footer_local_text.TabIndex = 0;
+            this.lb_footer_local_text.Text = "Total Number of Local Licenses: ";
+            // 
+            // flp_footer_international
+            // 
+            this.flp_footer_international.Controls.Add(this.lb_footer_international_text);
+            this.flp_footer_international.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flp_footer_international.Location = new System.Drawing.Point(3, 172);
+            this.flp_footer_international.Name = "flp_footer_international";
+            this.flp_footer_international.Padding = new System.Windows.Forms.Padding(5);
+            this.flp_footer_international.Size = new System.Drawing.Size(887, 30);
+            this.flp_footer_international.TabIndex = 6;
+            // 
+            // lb_footer_international_text
+            // 
+            this.lb_footer_international_text.AutoSize = true;
+            this.lb_footer_international_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_international_text.Location = new System.Drawing.Point(8, 5);
+            this.lb_footer_international_text.Name = "lb_footer_international_text";
+            this.lb_footer_international_text.Size = new System.Drawing.Size(294, 19);
+            this.lb_footer_international_text.TabIndex = 0;
+            this.lb_footer_international_text.Text = "Total Number of International Licenses: ";
+            // 
             // Show_Person_License_History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,9 +413,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tc_dirver_licenses.ResumeLayout(false);
             this.tp_local.ResumeLayout(false);
-            this.tp_international.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).EndInit();
+            this.tp_international.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).EndInit();
+            this.flp_footer_local.ResumeLayout(false);
+            this.flp_footer_local.PerformLayout();
+            this.flp_footer_international.ResumeLayout(false);
+            this.flp_footer_international.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,5 +452,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inter_issue_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn inter_expiration_date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.FlowLayoutPanel flp_footer_local;
+        private System.Windows.Forms.Label lb_footer_local_text;
+        private System.Windows.Forms.FlowLayoutPanel flp_footer_international;
+        private System.Windows.Forms.Label lb_footer_international_text;
     }
 }
