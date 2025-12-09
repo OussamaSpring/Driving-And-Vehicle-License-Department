@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.driverLicenseCard1 = new DVLD.UserControls.DriverLicenseCard();
+            this.driverLicenseCard = new DVLD.UserControls.DriverLicenseCard();
             this.SuspendLayout();
             // 
-            // driverLicenseCard1
+            // driverLicenseCard
             // 
-            this.driverLicenseCard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.driverLicenseCard1.Location = new System.Drawing.Point(0, 0);
-            this.driverLicenseCard1.Name = "driverLicenseCard1";
-            this.driverLicenseCard1.Size = new System.Drawing.Size(657, 374);
-            this.driverLicenseCard1.TabIndex = 0;
+            this.driverLicenseCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.driverLicenseCard.Location = new System.Drawing.Point(0, 0);
+            this.driverLicenseCard.Name = "driverLicenseCard";
+            this.driverLicenseCard.Size = new System.Drawing.Size(657, 374);
+            this.driverLicenseCard.TabIndex = 0;
             // 
             // Show_Driver_Card
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 374);
-            this.Controls.Add(this.driverLicenseCard1);
+            this.Controls.Add(this.driverLicenseCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Show_Driver_Card";
             this.ShowIcon = false;
@@ -57,6 +57,6 @@
 
         #endregion
 
-        private UserControls.DriverLicenseCard driverLicenseCard1;
+        private UserControls.DriverLicenseCard driverLicenseCard;
     }
 }

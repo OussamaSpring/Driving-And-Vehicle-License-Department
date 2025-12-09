@@ -12,9 +12,16 @@ namespace DVLD.Pop_Ups
 {
     public partial class Show_Driver_Card : Form
     {
-        public Show_Driver_Card()
+        public Show_Driver_Card(int driverLicenseId)
         {
             InitializeComponent();
+            LoadDriverLicenseDetails(driverLicenseId);
         }
+
+        private void LoadDriverLicenseDetails(int driverLicenseId)
+        {
+            driverLicenseCard.SetDriverLicense(driverLicenseId);
+        }
+
     }
 }

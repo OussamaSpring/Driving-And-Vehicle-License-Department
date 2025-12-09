@@ -103,7 +103,7 @@ namespace DVLD_DataAccess.Repositories
         public async Task<InternationalLicense> GetInternationalLicenseByDriverIdAsync(int id)
         {
             var parameters = new Dictionary<string, object> { { "@DriverID", id } };
-            string sqlQuery = "SELECT * FROM InternationalLicenses WHERE DriverID = @DriverID";
+            string sqlQuery = "SELECT * FROM InternationalLicenses WHERE DriverID = @DriverID AND IsActive = 1";
 
             var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
 
@@ -118,7 +118,7 @@ namespace DVLD_DataAccess.Repositories
             string sqlQuery = @"SELECT il.* 
                                 FROM InternationalLicenses il
                                 INNER JOIN Drivers d ON il.DriverID = d.DriverID
-                                WHERE d.PersonID = @PersonID";
+                                WHERE d.PersonID = @PersonID AND IsActive = 1";
 
             var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
 
@@ -126,6 +126,37 @@ namespace DVLD_DataAccess.Repositories
                 return null;
 
             return MapToInternationalLicense(dataTable.Rows[0]);
+        }
+        public async Task<IEnumerable<InternationalLicense>> GetInternationalLicenseListByPersonIdAsync(int id)
+        {
+            var parameters = new Dictionary<string, object> { { "@PersonID", id } };
+            string sqlQuery = @"SELECT il.* 
+                                FROM InternationalLicenses il
+                                INNER JOIN Drivers d ON il.DriverID = d.DriverID
+                                WHERE d.PersonID = @PersonID";
+
+            var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
+            var list = new List<InternationalLicense>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                list.Add(MapToInternationalLicense(row));
+            }
+            return list;
+        }
+        public async Task<IEnumerable<InternationalLicense>> GetInternationalLicenseListByDriverIdAsync(int id)
+        {
+            var parameters = new Dictionary<string, object> { { "@DriverID", id } };
+            string sqlQuery = "SELECT * FROM InternationalLicenses WHERE DriverID = @DriverID";
+
+            var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
+            var list = new List<InternationalLicense>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                list.Add(MapToInternationalLicense(row));
+            }
+            return list;
         }
         public async Task<bool> DesactivateInternationalLicenseAsync(int id)
         {

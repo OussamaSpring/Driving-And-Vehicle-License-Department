@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tc_dirver_licenses = new System.Windows.Forms.TabControl();
             this.tp_local = new System.Windows.Forms.TabPage();
+            this.flp_footer_local = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_local_text = new System.Windows.Forms.Label();
             this.dgv_local_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +49,8 @@
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.issue_reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tp_international = new System.Windows.Forms.TabPage();
+            this.flp_footer_international = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_footer_international_text = new System.Windows.Forms.Label();
             this.dgv_international_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.international_license_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inter_application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,18 +61,16 @@
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.personDetailsCard = new DVLD.UserControls.PersonDetailsCard();
-            this.flp_footer_local = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_local_text = new System.Windows.Forms.Label();
-            this.flp_footer_international = new System.Windows.Forms.FlowLayoutPanel();
-            this.lb_footer_international_text = new System.Windows.Forms.Label();
+            this.lb_total_license_number = new System.Windows.Forms.Label();
+            this.lb_inter_total_number = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tc_dirver_licenses.SuspendLayout();
             this.tp_local.SuspendLayout();
+            this.flp_footer_local.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).BeginInit();
             this.tp_international.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).BeginInit();
-            this.flp_footer_local.SuspendLayout();
             this.flp_footer_international.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,6 +128,27 @@
             this.tp_local.Size = new System.Drawing.Size(893, 205);
             this.tp_local.TabIndex = 0;
             this.tp_local.Text = "Local";
+            // 
+            // flp_footer_local
+            // 
+            this.flp_footer_local.Controls.Add(this.lb_footer_local_text);
+            this.flp_footer_local.Controls.Add(this.lb_total_license_number);
+            this.flp_footer_local.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flp_footer_local.Location = new System.Drawing.Point(3, 172);
+            this.flp_footer_local.Name = "flp_footer_local";
+            this.flp_footer_local.Padding = new System.Windows.Forms.Padding(5);
+            this.flp_footer_local.Size = new System.Drawing.Size(887, 30);
+            this.flp_footer_local.TabIndex = 4;
+            // 
+            // lb_footer_local_text
+            // 
+            this.lb_footer_local_text.AutoSize = true;
+            this.lb_footer_local_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_local_text.Location = new System.Drawing.Point(8, 5);
+            this.lb_footer_local_text.Name = "lb_footer_local_text";
+            this.lb_footer_local_text.Size = new System.Drawing.Size(242, 19);
+            this.lb_footer_local_text.TabIndex = 0;
+            this.lb_footer_local_text.Text = "Total Number of Local Licenses: ";
             // 
             // dgv_local_licenses
             // 
@@ -240,6 +263,27 @@
             this.tp_international.TabIndex = 1;
             this.tp_international.Text = "International";
             // 
+            // flp_footer_international
+            // 
+            this.flp_footer_international.Controls.Add(this.lb_footer_international_text);
+            this.flp_footer_international.Controls.Add(this.lb_inter_total_number);
+            this.flp_footer_international.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flp_footer_international.Location = new System.Drawing.Point(3, 172);
+            this.flp_footer_international.Name = "flp_footer_international";
+            this.flp_footer_international.Padding = new System.Windows.Forms.Padding(5);
+            this.flp_footer_international.Size = new System.Drawing.Size(887, 30);
+            this.flp_footer_international.TabIndex = 6;
+            // 
+            // lb_footer_international_text
+            // 
+            this.lb_footer_international_text.AutoSize = true;
+            this.lb_footer_international_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_international_text.Location = new System.Drawing.Point(8, 5);
+            this.lb_footer_international_text.Name = "lb_footer_international_text";
+            this.lb_footer_international_text.Size = new System.Drawing.Size(294, 19);
+            this.lb_footer_international_text.TabIndex = 0;
+            this.lb_footer_international_text.Text = "Total Number of International Licenses: ";
+            // 
             // dgv_international_licenses
             // 
             this.dgv_international_licenses.AllowUserToAddRows = false;
@@ -352,45 +396,25 @@
             this.personDetailsCard.Size = new System.Drawing.Size(677, 367);
             this.personDetailsCard.TabIndex = 0;
             // 
-            // flp_footer_local
+            // lb_total_license_number
             // 
-            this.flp_footer_local.Controls.Add(this.lb_footer_local_text);
-            this.flp_footer_local.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flp_footer_local.Location = new System.Drawing.Point(3, 172);
-            this.flp_footer_local.Name = "flp_footer_local";
-            this.flp_footer_local.Padding = new System.Windows.Forms.Padding(5);
-            this.flp_footer_local.Size = new System.Drawing.Size(887, 30);
-            this.flp_footer_local.TabIndex = 4;
+            this.lb_total_license_number.AutoSize = true;
+            this.lb_total_license_number.Font = new System.Drawing.Font("Roboto Lt", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_total_license_number.Location = new System.Drawing.Point(256, 5);
+            this.lb_total_license_number.Name = "lb_total_license_number";
+            this.lb_total_license_number.Size = new System.Drawing.Size(27, 19);
+            this.lb_total_license_number.TabIndex = 1;
+            this.lb_total_license_number.Text = "??";
             // 
-            // lb_footer_local_text
+            // lb_inter_total_number
             // 
-            this.lb_footer_local_text.AutoSize = true;
-            this.lb_footer_local_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_footer_local_text.Location = new System.Drawing.Point(8, 5);
-            this.lb_footer_local_text.Name = "lb_footer_local_text";
-            this.lb_footer_local_text.Size = new System.Drawing.Size(242, 19);
-            this.lb_footer_local_text.TabIndex = 0;
-            this.lb_footer_local_text.Text = "Total Number of Local Licenses: ";
-            // 
-            // flp_footer_international
-            // 
-            this.flp_footer_international.Controls.Add(this.lb_footer_international_text);
-            this.flp_footer_international.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flp_footer_international.Location = new System.Drawing.Point(3, 172);
-            this.flp_footer_international.Name = "flp_footer_international";
-            this.flp_footer_international.Padding = new System.Windows.Forms.Padding(5);
-            this.flp_footer_international.Size = new System.Drawing.Size(887, 30);
-            this.flp_footer_international.TabIndex = 6;
-            // 
-            // lb_footer_international_text
-            // 
-            this.lb_footer_international_text.AutoSize = true;
-            this.lb_footer_international_text.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_footer_international_text.Location = new System.Drawing.Point(8, 5);
-            this.lb_footer_international_text.Name = "lb_footer_international_text";
-            this.lb_footer_international_text.Size = new System.Drawing.Size(294, 19);
-            this.lb_footer_international_text.TabIndex = 0;
-            this.lb_footer_international_text.Text = "Total Number of International Licenses: ";
+            this.lb_inter_total_number.AutoSize = true;
+            this.lb_inter_total_number.Font = new System.Drawing.Font("Roboto Lt", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_inter_total_number.Location = new System.Drawing.Point(308, 5);
+            this.lb_inter_total_number.Name = "lb_inter_total_number";
+            this.lb_inter_total_number.Size = new System.Drawing.Size(27, 19);
+            this.lb_inter_total_number.TabIndex = 1;
+            this.lb_inter_total_number.Text = "??";
             // 
             // Show_Person_License_History
             // 
@@ -410,16 +434,17 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Person License History";
+            this.Load += new System.EventHandler(this.Show_Person_License_History_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tc_dirver_licenses.ResumeLayout(false);
             this.tp_local.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).EndInit();
-            this.tp_international.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).EndInit();
             this.flp_footer_local.ResumeLayout(false);
             this.flp_footer_local.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).EndInit();
+            this.tp_international.ResumeLayout(false);
             this.flp_footer_international.ResumeLayout(false);
             this.flp_footer_international.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,5 +481,7 @@
         private System.Windows.Forms.Label lb_footer_local_text;
         private System.Windows.Forms.FlowLayoutPanel flp_footer_international;
         private System.Windows.Forms.Label lb_footer_international_text;
+        private System.Windows.Forms.Label lb_total_license_number;
+        private System.Windows.Forms.Label lb_inter_total_number;
     }
 }

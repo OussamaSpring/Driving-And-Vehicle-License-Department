@@ -70,6 +70,16 @@ namespace DVLD_BusinessLogic
             return _internationalLicenseRepository.GetInternationalLicenseByPersonIdAsync(personId);
         }
 
+        public Task<IEnumerable<InternationalLicense>> GetInternationalLicenseListByPersonIdAsync(int personId)
+        {
+            return _internationalLicenseRepository.GetInternationalLicenseListByPersonIdAsync(personId);
+        }
+
+        public Task<IEnumerable<InternationalLicense>> GetInternationalLicenseListByDriverIdAsync(int driverId)
+        {
+            return _internationalLicenseRepository.GetInternationalLicenseListByDriverIdAsync(driverId);
+        }
+
         public Task<bool> DesactivateInternationalLicenseAsync(int licenseId)
         {
             return _internationalLicenseRepository.DesactivateInternationalLicenseAsync(licenseId);

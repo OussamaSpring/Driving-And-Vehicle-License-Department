@@ -53,6 +53,9 @@ namespace DVLD.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show($"Error fetching person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // TODO: Log error
+
+
             }
         }
         public async void SetPerson(string nationalNo)
@@ -65,6 +68,7 @@ namespace DVLD.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show($"Error fetching person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // TODO: Log error
             }
         }
         private void lb_edit_Click(object sender, System.EventArgs e)
