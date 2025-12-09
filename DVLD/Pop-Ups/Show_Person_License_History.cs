@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Core.Models;
+using DVLD_BusinessLogic;
+using DVLD_DataAccess.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Core.Models;
-using DVLD_BusinessLogic;
 
 namespace DVLD.Pop_Ups
 {
@@ -20,6 +21,10 @@ namespace DVLD.Pop_Ups
         {
             InitializeComponent();
             _personId = personId;
+
+            _licenseController = new LicenseController(new LicenseRepository());
+            _internationalLicenseController = new InternationalLicenseController(new InternationalLicenseRepository());
+
         }
         private void Show_Person_License_History_Load(object sender, EventArgs e)
         {

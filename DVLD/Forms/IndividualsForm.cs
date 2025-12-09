@@ -342,7 +342,14 @@ namespace DVLD.Forms
 
         private void tsmi_ShowLicenseHistory_Click(object sender, EventArgs e)
         {
-
+            if(dgv_drivers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a driver to view license history.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int selectedDriverPersonId = Convert.ToInt32(dgv_drivers.SelectedRows[0].Cells["driver_person_id"].Value);
+            Show_Person_License_History show_Person_License_History = new Show_Person_License_History(selectedDriverPersonId);
+            show_Person_License_History.Show(this.FindForm());
         }
 
         private void tsmi_IssueInternationalLicense_Click(object sender, EventArgs e)
