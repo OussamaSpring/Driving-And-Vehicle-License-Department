@@ -1,12 +1,13 @@
-using System;
-using System.Windows.Forms;
+using Core.Models;
+using DVLD.Pop_Ups;
 using DVLD.UserControls;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
-using Core.Models;
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DVLD.Forms
 {
@@ -52,7 +53,7 @@ namespace DVLD.Forms
                     detain.ReleaseApplicationID?.ToString() ?? "N/A"
                 );
             }
-
+            lb_total_detain_number.Text = dgv_Detained_Licenses.RowCount.ToString();
         }
         private void Uc_license_detain_topbar_FilterPerformed(object sender, FilterArgs e)
         {
@@ -85,6 +86,18 @@ namespace DVLD.Forms
             }).ToList();
 
             BindDetainedLicensesToGrid(filtered);
+        }
+
+        private void tsmi_ViewLicenseCard_Click(object sender, EventArgs e)
+        {
+            if (dgv_Detained_Licenses.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a license to view.", "No License Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int selectedLicenseId = Convert.ToInt32(dgv_Detained_Licenses.SelectedRows[0].Cells["license_id"].Value);
+            Show_Driver_Card showDriverCardForm = new Show_Driver_Card(selectedLicenseId);
+            showDriverCardForm.Show(this.FindForm());
         }
     }
 }

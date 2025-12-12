@@ -17,6 +17,7 @@ namespace DVLD.Forms
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,6 +38,8 @@ namespace DVLD.Forms
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.issue_reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issued_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cms_LicenseMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_ViewLicenseCard = new System.Windows.Forms.ToolStripMenuItem();
             this.uc_local_topbar = new DVLD.UserControls.SearchBar();
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text_local = new System.Windows.Forms.Label();
@@ -68,6 +71,7 @@ namespace DVLD.Forms
             this.htc_tab_nav.SuspendLayout();
             this.tab_local.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).BeginInit();
+            this.cms_LicenseMenu.SuspendLayout();
             this.flp_footer.SuspendLayout();
             this.tab_international.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).BeginInit();
@@ -153,6 +157,7 @@ namespace DVLD.Forms
             this.is_active,
             this.issue_reason,
             this.issued_by});
+            this.dgv_local_licenses.ContextMenuStrip = this.cms_LicenseMenu;
             this.dgv_local_licenses.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -235,6 +240,24 @@ namespace DVLD.Forms
             this.issued_by.HeaderText = "Issued by User";
             this.issued_by.Name = "issued_by";
             this.issued_by.ReadOnly = true;
+            // 
+            // cms_LicenseMenu
+            // 
+            this.cms_LicenseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_ViewLicenseCard});
+            this.cms_LicenseMenu.Name = "cms_UserManagement";
+            this.cms_LicenseMenu.Size = new System.Drawing.Size(200, 55);
+            this.cms_LicenseMenu.Text = "Licesnse Menu";
+            // 
+            // tsmi_ViewLicenseCard
+            // 
+            this.tsmi_ViewLicenseCard.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ViewLicenseCard.Image = global::DVLD.Properties.Resources.driving_license;
+            this.tsmi_ViewLicenseCard.Name = "tsmi_ViewLicenseCard";
+            this.tsmi_ViewLicenseCard.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewLicenseCard.Size = new System.Drawing.Size(199, 29);
+            this.tsmi_ViewLicenseCard.Text = "Show License Card";
+            this.tsmi_ViewLicenseCard.Click += new System.EventHandler(this.tsmi_ViewLicenseCard_Click);
             // 
             // uc_local_topbar
             // 
@@ -549,6 +572,7 @@ namespace DVLD.Forms
             this.htc_tab_nav.ResumeLayout(false);
             this.tab_local.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_local_licenses)).EndInit();
+            this.cms_LicenseMenu.ResumeLayout(false);
             this.flp_footer.ResumeLayout(false);
             this.tab_international.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).EndInit();
@@ -604,5 +628,7 @@ namespace DVLD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn inter_expiration_date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn inter_issued_by_user;
+        private System.Windows.Forms.ContextMenuStrip cms_LicenseMenu;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ViewLicenseCard;
     }
 }

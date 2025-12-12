@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Core.Models;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
+using DVLD.Pop_Ups;
 
 namespace DVLD.Forms
 {
@@ -224,5 +225,18 @@ namespace DVLD.Forms
         }
 
         #endregion
+
+        private void tsmi_ViewLicenseCard_Click(object sender, EventArgs e)
+        {
+            if (dgv_local_licenses.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a license to view.", "No License Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int selectedLicenseId = Convert.ToInt32(dgv_local_licenses.SelectedRows[0].Cells["license_id"].Value);
+            Show_Driver_Card showDriverCardForm = new Show_Driver_Card(selectedLicenseId);
+            showDriverCardForm.Show(this.FindForm());
+        }
+
     }
 }

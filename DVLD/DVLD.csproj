@@ -155,6 +155,12 @@
     <Compile Include="Pop-Ups\Add_Edit_Person.Designer.cs">
       <DependentUpon>Add_Edit_Person.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pop-Ups\Show_Application_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pop-Ups\Show_Application_Details.Designer.cs">
+      <DependentUpon>Show_Application_Details.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pop-Ups\Show_Driver_Card.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisteryCredentials.cs" />
+    <Compile Include="UserControls\ApplicationDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ApplicationDetails.Designer.cs">
+      <DependentUpon>ApplicationDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Header.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -255,6 +267,9 @@
     <EmbeddedResource Include="Pop-Ups\Add_Edit_Person.resx">
       <DependentUpon>Add_Edit_Person.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pop-Ups\Show_Application_Details.resx">
+      <DependentUpon>Show_Application_Details.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pop-Ups\Show_Driver_Card.resx">
       <DependentUpon>Show_Driver_Card.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +292,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\ApplicationDetails.resx">
+      <DependentUpon>ApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
     </EmbeddedResource>

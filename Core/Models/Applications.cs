@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,6 @@ namespace Core.Models
         public DateTime ApplicationDate { get; set; }
         public string ApplicationStatus { get; set; }
         public DateTime? ApplicationLastDecisionDate { get; set; }
-
         public float? PaidFees { get; set; }
         public int CreatedByUserId { get; set; }
     }

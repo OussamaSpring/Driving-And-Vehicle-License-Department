@@ -422,7 +422,7 @@
             // rpb_person_image
             // 
             this.rpb_person_image.BackColor = System.Drawing.Color.Transparent;
-            this.rpb_person_image.Location = new System.Drawing.Point(510, 154);
+            this.rpb_person_image.Location = new System.Drawing.Point(510, 199);
             this.rpb_person_image.Name = "rpb_person_image";
             this.rpb_person_image.Radius = 30;
             this.rpb_person_image.Size = new System.Drawing.Size(120, 120);

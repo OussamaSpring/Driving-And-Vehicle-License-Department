@@ -17,6 +17,7 @@ namespace DVLD.Forms
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Title = new System.Windows.Forms.Label();
@@ -36,12 +37,16 @@ namespace DVLD.Forms
             this.uc_license_detain_topbar = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lb_total_detain_number = new System.Windows.Forms.Label();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
+            this.cms_LicenseMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_ViewLicenseCard = new System.Windows.Forms.ToolStripMenuItem();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_detain_list.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detained_Licenses)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
+            this.cms_LicenseMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -118,6 +123,7 @@ namespace DVLD.Forms
             this.release_date,
             this.released_by_user_id,
             this.release_application_id});
+            this.dgv_Detained_Licenses.ContextMenuStrip = this.cms_LicenseMenu;
             this.dgv_Detained_Licenses.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -132,6 +138,7 @@ namespace DVLD.Forms
             this.dgv_Detained_Licenses.Location = new System.Drawing.Point(3, 53);
             this.dgv_Detained_Licenses.Name = "dgv_Detained_Licenses";
             this.dgv_Detained_Licenses.ReadOnly = true;
+            this.dgv_Detained_Licenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Detained_Licenses.Size = new System.Drawing.Size(739, 233);
             this.dgv_Detained_Licenses.TabIndex = 6;
             // 
@@ -211,6 +218,7 @@ namespace DVLD.Forms
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.lb_total_detain_number);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 286);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -219,13 +227,22 @@ namespace DVLD.Forms
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(624, 50);
+            this.label1.Size = new System.Drawing.Size(263, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Total Number of Detained Licenses: ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lb_total_detain_number
+            // 
+            this.lb_total_detain_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_total_detain_number.Location = new System.Drawing.Point(272, 0);
+            this.lb_total_detain_number.Name = "lb_total_detain_number";
+            this.lb_total_detain_number.Size = new System.Drawing.Size(371, 50);
+            this.lb_total_detain_number.TabIndex = 1;
+            this.lb_total_detain_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlp_header
             // 
@@ -241,6 +258,24 @@ namespace DVLD.Forms
             this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlp_header.Size = new System.Drawing.Size(753, 0);
             this.tlp_header.TabIndex = 0;
+            // 
+            // cms_LicenseMenu
+            // 
+            this.cms_LicenseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_ViewLicenseCard});
+            this.cms_LicenseMenu.Name = "cms_UserManagement";
+            this.cms_LicenseMenu.Size = new System.Drawing.Size(200, 33);
+            this.cms_LicenseMenu.Text = "Licesnse Menu";
+            // 
+            // tsmi_ViewLicenseCard
+            // 
+            this.tsmi_ViewLicenseCard.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ViewLicenseCard.Image = global::DVLD.Properties.Resources.driving_license;
+            this.tsmi_ViewLicenseCard.Name = "tsmi_ViewLicenseCard";
+            this.tsmi_ViewLicenseCard.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewLicenseCard.Size = new System.Drawing.Size(199, 29);
+            this.tsmi_ViewLicenseCard.Text = "Show License Card";
+            this.tsmi_ViewLicenseCard.Click += new System.EventHandler(this.tsmi_ViewLicenseCard_Click);
             // 
             // DetainedLicenses
             // 
@@ -260,6 +295,7 @@ namespace DVLD.Forms
             this.tab_detain_list.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detained_Licenses)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.cms_LicenseMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,5 +321,8 @@ namespace DVLD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn release_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn released_by_user_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn release_application_id;
+        private System.Windows.Forms.Label lb_total_detain_number;
+        private System.Windows.Forms.ContextMenuStrip cms_LicenseMenu;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ViewLicenseCard;
     }
 }
