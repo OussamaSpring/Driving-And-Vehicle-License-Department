@@ -87,7 +87,6 @@ namespace DVLD.Forms
 
             BindDetainedLicensesToGrid(filtered);
         }
-
         private void tsmi_ViewLicenseCard_Click(object sender, EventArgs e)
         {
             if (dgv_Detained_Licenses.SelectedRows.Count == 0)

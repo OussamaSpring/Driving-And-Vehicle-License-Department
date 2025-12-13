@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\ILicenseClassRepository.cs" />
     <Compile Include="Interfaces\ILicenseRepository.cs" />
     <Compile Include="Interfaces\ILicenseDetainRepository.cs" />
+    <Compile Include="Interfaces\ITestTypeRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPersonRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Models\LicenseClass.cs" />
     <Compile Include="Models\DetainedLicense.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\TestType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
