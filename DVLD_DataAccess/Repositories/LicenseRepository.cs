@@ -55,65 +55,6 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
-        public async Task<int> AddAsync(License license)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@ApplicationID", license.ApplicationId },
-                { "@DriverID", license.DriverId },
-                { "@ClassID", license.ClassId },
-                { "@IssueDate", license.IssueDate },
-                { "@ExpirationDate", license.ExpirationDate },
-                { "@Notes", (object)license.Notes ?? DBNull.Value },
-                { "@PaidFees", license.PaidFees },
-                { "@IsActive", license.IsActive },
-                { "@IssueReason", (int)license.enIssuesReason },
-                { "@IssuedByUserID", license.IssuedByUserId }
-            };
-            string sqlQuery = @"INSERT INTO Licenses (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, IssuedByUserID)
-                                VALUES (@ApplicationID, @DriverID, @ClassID, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @IssueReason, @IssuedByUserID);
-                                SELECT SCOPE_IDENTITY();";
-            object result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
-            return Convert.ToInt32(result);
-        }
-        public async Task<bool> UpdateAsync(License license)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@LicenseID", license.LicenseId },
-                { "@ApplicationID", license.ApplicationId },
-                { "@DriverID", license.DriverId },
-                { "@ClassID", license.ClassId },
-                { "@IssueDate", license.IssueDate },
-                { "@ExpirationDate", license.ExpirationDate },
-                { "@Notes", (object)license.Notes ?? DBNull.Value },
-                { "@PaidFees", license.PaidFees },
-                { "@IsActive", license.IsActive },
-                { "@IssueReason", (int)license.enIssuesReason },
-                { "@IssuedByUserID", license.IssuedByUserId }
-            };
-            string sqlQuery = @"UPDATE Licenses SET
-                                ApplicationID = @ApplicationID,
-                                DriverID = @DriverID,
-                                LicenseClass = @ClassID,
-                                IssueDate = @IssueDate,
-                                ExpirationDate = @ExpirationDate,
-                                Notes = @Notes,
-                                PaidFees = @PaidFees,
-                                IsActive = @IsActive,
-                                IssueReason = @IssueReason,
-                                IssuedByUserID = @IssuedByUserID
-                                WHERE LicenseID = @LicenseID;";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
-        public async Task<bool> DeleteAsync(int id)
-        {
-            var parameters = new Dictionary<string, object> { { "@LicenseID", id } };
-            string sqlQuery = "DELETE FROM Licenses WHERE LicenseID = @LicenseID";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
         public async Task<IEnumerable<License>> GetLicensesByDriverIdAsync(int driverId)
         {
             var parameters = new Dictionary<string, object> { { "@DriverID", driverId } };
@@ -137,13 +78,6 @@ namespace DVLD_DataAccess.Repositories
                 list.Add(MapLicense(row));
             }
             return list;
-        }
-        public async Task<bool> DesactivateLicenseAsync(int licenseId)
-        {
-            var parameters = new Dictionary<string, object> { { "@LicenseID", licenseId } };
-            string sqlQuery = "UPDATE Licenses SET IsActive = 0 WHERE LicenseID = @LicenseID";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
         }
     }
 }

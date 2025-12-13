@@ -2,7 +2,7 @@
 
 namespace Core.Interfaces
 {
-    public interface IAppplicationsRepository : IRepository<Applications>
+    public interface IAppplicationsRepository : IReadOnlyRepository<Applications>
     {
 
     }

@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\ILicenseClassRepository.cs" />
     <Compile Include="Interfaces\ILicenseRepository.cs" />
     <Compile Include="Interfaces\ILicenseDetainRepository.cs" />
+    <Compile Include="Interfaces\IReadOnlyRepository.cs" />
     <Compile Include="Interfaces\ITestTypeRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPersonRepository.cs" />

@@ -50,84 +50,12 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
-        public async Task<int> AddAsync(DetainedLicense detain)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@LicenseID", detain.LicenseID },
-                { "@DetainDate", detain.DetainDate },
-                { "@FineFees", detain.FineFees },
-                { "@CreatedByUserID", detain.CreatedByUserID },
-                { "@IsReleased", detain.IsReleased },
-                { "@ReleaseDate", (object)detain.ReleaseDate ?? DBNull.Value },
-                { "@ReleasedByUserID", (object)detain.ReleasedByUserID ?? DBNull.Value },
-                { "@ReleaseApplicationID", (object)detain.ReleaseApplicationID ?? DBNull.Value }
-            };
-            string sqlQuery = @"INSERT INTO DetainedLicenses (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID)
-                                VALUES (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, @ReleasedByUserID, @ReleaseApplicationID);
-                                SELECT SCOPE_IDENTITY();";
-            object result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
-            return Convert.ToInt32(result);
-        }
-        public async Task<bool> UpdateAsync(DetainedLicense detain)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@DetainID", detain.DetainID },
-                { "@LicenseID", detain.LicenseID },
-                { "@DetainDate", detain.DetainDate },
-                { "@FineFees", detain.FineFees },
-                { "@CreatedByUserID", detain.CreatedByUserID },
-                { "@IsReleased", detain.IsReleased },
-                { "@ReleaseDate", (object)detain.ReleaseDate ?? DBNull.Value },
-                { "@ReleasedByUserID", (object)detain.ReleasedByUserID ?? DBNull.Value },
-                { "@ReleaseApplicationID", (object)detain.ReleaseApplicationID ?? DBNull.Value }
-            };
-            string sqlQuery = @"UPDATE DetainedLicenses SET
-                                LicenseID = @LicenseID,
-                                DetainDate = @DetainDate,
-                                FineFees = @FineFees,
-                                CreatedByUserID = @CreatedByUserID,
-                                IsReleased = @IsReleased,
-                                ReleaseDate = @ReleaseDate,
-                                ReleasedByUserID = @ReleasedByUserID,
-                                ReleaseApplicationID = @ReleaseApplicationID
-                                WHERE DetainID = @DetainID;";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
-        public async Task<bool> DeleteAsync(int id)
-        {
-            var parameters = new Dictionary<string, object> { { "@DetainID", id } };
-            string sqlQuery = "DELETE FROM DetainedLicenses WHERE DetainID = @DetainID";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
         public async Task<bool> IsLicenseDetainedAsync(int licenseId)
         {
             var parameters = new Dictionary<string, object> { { "@LicenseID", licenseId } };
             string sqlQuery = "SELECT COUNT(*) FROM DetainedLicenses WHERE LicenseID = @LicenseID AND IsReleased = 0";
             object result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
             return Convert.ToInt32(result) > 0;
-        }
-        public async Task<bool> ReleaseDetainedLicenseAsync(int detainId, int releasedByUserId, int releaseApplicationId)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@DetainID", detainId },
-                { "@IsReleased", true },
-                { "@ReleaseDate", DateTime.Now },
-                { "@ReleasedByUserID", releasedByUserId },
-                { "@ReleaseApplicationID", releaseApplicationId }
-            };
-            string sqlQuery = @"UPDATE DetainedLicenses SET
-                                IsReleased = @IsReleased,
-                                ReleaseDate = @ReleaseDate,
-                                ReleasedByUserID = @ReleasedByUserID,
-                                ReleaseApplicationID = @ReleaseApplicationID
-                                WHERE DetainID = @DetainID AND IsReleased = 0;";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
         }
     }
 }

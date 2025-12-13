@@ -44,21 +44,6 @@ namespace DVLD_BusinessLogic
             return _licenseDetainRepository.GetAllAsync();
         }
 
-        public Task<int> AddDetainAsync(DetainedLicense detain)
-        {
-            return _licenseDetainRepository.AddAsync(detain);
-        }
-
-        public Task<bool> UpdateDetainAsync(DetainedLicense detain)
-        {
-            return _licenseDetainRepository.UpdateAsync(detain);
-        }
-
-        public Task<bool> DeleteDetainAsync(int id)
-        {
-            return _licenseDetainRepository.DeleteAsync(id);
-        }
-
         public Task<bool> IsLicenseDetainedAsync(int licenseId)
         {
             return _licenseDetainRepository.IsLicenseDetainedAsync(licenseId);
