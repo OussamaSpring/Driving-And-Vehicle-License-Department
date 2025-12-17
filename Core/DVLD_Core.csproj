@@ -63,6 +63,7 @@
     <Compile Include="Models\License.cs" />
     <Compile Include="Models\LicenseClass.cs" />
     <Compile Include="Models\DetainedLicense.cs" />
+    <Compile Include="Models\LocalDrivingLicenseApplication.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\TestType.cs" />
     <Compile Include="Models\User.cs" />
