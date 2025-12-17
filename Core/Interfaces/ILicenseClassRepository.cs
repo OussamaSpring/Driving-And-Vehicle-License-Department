@@ -3,7 +3,7 @@
 
 namespace Core.Interfaces
 {
-    public interface ILicenseClassRepository : IRepository<LicenseClass>
+    public interface ILicenseClassRepository : IReadOnlyRepository<LicenseClass>
     {
     }
 }

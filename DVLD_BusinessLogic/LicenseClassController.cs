@@ -24,19 +24,5 @@ namespace DVLD_BusinessLogic
             return _licenseClassRepository.GetAllAsync();
         }
 
-        public Task<int> AddLicenseClassAsync(LicenseClass licenseClass)
-        {
-            return _licenseClassRepository.AddAsync(licenseClass);
-        }
-
-        public Task<bool> UpdateLicenseClassAsync(LicenseClass licenseClass)
-        {
-            return _licenseClassRepository.UpdateAsync(licenseClass);
-        }
-
-        public Task<bool> DeleteLicenseClassAsync(int id)
-        {
-            return _licenseClassRepository.DeleteAsync(id);
-        }
     }
 }

@@ -53,50 +53,6 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
-        public async Task<int> AddAsync(LicenseClass licenseClass)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@Name", licenseClass.Name },
-                { "@Description", (object)licenseClass.Description ?? DBNull.Value },
-                { "@MiminumAllowedAge", licenseClass.MiminumAllowedAge },
-                { "@DefaultValidityLength", licenseClass.DefaultValidityLength },
-                { "@ClassFees", licenseClass.ClassFees }
-            };
-            string sqlQuery = @"INSERT INTO LicenseClasses (Name, Description, MiminumAllowedAge, DefaultValidityLength, ClassFees)
-                                VALUES (@Name, @Description, @MiminumAllowedAge, @DefaultValidityLength, @ClassFees);
-                                SELECT SCOPE_IDENTITY();";
-            object result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
-            return Convert.ToInt32(result);
-        }
-        public async Task<bool> UpdateAsync(LicenseClass licenseClass)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@LicneseClassID", licenseClass.Id },
-                { "@Name", licenseClass.Name },
-                { "@Description", (object)licenseClass.Description ?? DBNull.Value },
-                { "@MiminumAllowedAge", licenseClass.MiminumAllowedAge },
-                { "@DefaultValidityLength", licenseClass.DefaultValidityLength },
-                { "@ClassFees", licenseClass.ClassFees }
-            };
-            string sqlQuery = @"UPDATE LicenseClasses SET
-                                Name = @Name,
-                                Description = @Description,
-                                MiminumAllowedAge = @MiminumAllowedAge,
-                                DefaultValidityLength = @DefaultValidityLength,
-                                ClassFees = @ClassFees
-                                WHERE LicneseClassID = @LicneseClassID;";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
-        public async Task<bool> DeleteAsync(int id)
-        {
-            var parameters = new Dictionary<string, object> { { "@LicneseClassID", id } };
-            string sqlQuery = "DELETE FROM LicenseClasses WHERE LicneseClassID = @LicneseClassID";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
     
     }
 }

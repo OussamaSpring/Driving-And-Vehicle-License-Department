@@ -54,21 +54,6 @@ namespace DVLD_BusinessLogic
             return await _driverRepository.GetByNationalNumberAsync(nationalNumber);
         }
 
-        public async Task<int> AddDriverAsync(Driver driver)
-        {
-            return await _driverRepository.AddAsync(driver);
-        }
-
-        public async Task<bool> UpdateDriverAsync(Driver driver)
-        {
-            return await _driverRepository.UpdateAsync(driver);
-        }
-
-        public async Task<bool> DeleteDriverAsync(int id)
-        {
-            return await _driverRepository.DeleteAsync(id);
-        }
-
         public async Task<bool> IsDriverExistAsync(int id)
         {
             return await _driverRepository.IsDriverExist(id);

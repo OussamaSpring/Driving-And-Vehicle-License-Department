@@ -63,55 +63,6 @@ namespace DVLD_DataAccess.Repositories
 
             return Drivers;
         }
-        public async Task<int> AddAsync(Driver driver)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@PersonId", driver.DriverPersonId },
-                { "@CreatedByUserID", driver.CreatedByUserId },
-                { "@CreatedDate", driver.CreateDate },
-            };
-
-            string sqlQuery = @"INSERT INTO Drivers 
-                                (PersonID, CreatedByUserID, CreatedDate) 
-                                VALUES (@PersonId, @CreatedByUserID, @CreatedDate);
-                                SELECT SCOPE_IDENTITY();";
-
-            int result = Convert.ToInt32(await DBHelper.ExecuteScalarAsync(sqlQuery, parameters));
-            return result;
-        }
-        public async Task<bool> UpdateAsync(Driver driver)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@PersonId", driver.DriverPersonId },
-                { "@CreatedByUserID", driver.CreatedByUserId },
-                { "@CreatedDate", driver.CreateDate },
-            };
-
-            parameters.Add("@DriverId", driver.DriverId);
-
-            string sqlQuery = @"UPDATE Drivers 
-                                SET PersonID = @PersonId, 
-                                    CreatedByUserID = @CreatedByUserID, 
-                                    CreatedDate = @CreatedDate 
-                                WHERE DriverID = @DriverId";
-
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
-        public async Task<bool> DeleteAsync(int id)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@DriverId", id }
-            };
-
-            string sqlQuery = "DELETE FROM Drivers WHERE DriverID = @DriverId";
-
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
         public async Task<Driver> GetByPersonIdAsync(int id)
         {
             var parameters = new Dictionary<string, object>

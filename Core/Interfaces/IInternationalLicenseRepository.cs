@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces
 {
-    public interface IInternationalLicenseRepository : IRepository<InternationalLicense>
+    public interface IInternationalLicenseRepository : IReadOnlyRepository<InternationalLicense>
     {
 
         Task<InternationalLicense> GetInternationalLicenseByDriverIdAsync(int id);

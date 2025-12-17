@@ -50,56 +50,6 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
-        public async Task<int> AddAsync(InternationalLicense license)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@ApplicationID", license.ApplicationId },
-                { "@DriverID", license.DriverId },
-                { "@LocalLicenseID", license.LocalLicenseId },
-                { "@IssueDate", license.IssueDate },
-                { "@ExpirationDate", license.ExpirationDate },
-                { "@IsActive", license.IsActive },
-                { "@IssuedByUserID", license.IssuedByUserId }
-            };
-            string sqlQuery = @"INSERT INTO InternationalLicenses (ApplicationID, DriverID, LocalLicenseID, IssueDate, ExpirationDate, IsActive, IssuedByUserID)
-                                VALUES (@ApplicationID, @DriverID, @LocalLicenseID, @IssueDate, @ExpirationDate, @IsActive, @IssuedByUserID);
-                                SELECT SCOPE_IDENTITY();";
-            object result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
-            return Convert.ToInt32(result);
-        }
-        public async Task<bool> UpdateAsync(InternationalLicense license)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@InternationalLicenseID", license.InternationalLicenseId },
-                { "@ApplicationID", license.ApplicationId },
-                { "@DriverID", license.DriverId },
-                { "@LocalLicenseID", license.LocalLicenseId },
-                { "@IssueDate", license.IssueDate },
-                { "@ExpirationDate", license.ExpirationDate },
-                { "@IsActive", license.IsActive },
-                { "@IssuedByUserID", license.IssuedByUserId }
-            };
-            string sqlQuery = @"UPDATE InternationalLicenses SET
-                                ApplicationID = @ApplicationID,
-                                DriverID = @DriverID,
-                                LocalLicenseID = @LocalLicenseID,
-                                IssueDate = @IssueDate,
-                                ExpirationDate = @ExpirationDate,
-                                IsActive = @IsActive,
-                                IssuedByUserID = @IssuedByUserID
-                                WHERE InternationalLicenseID = @InternationalLicenseID;";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
-        public async Task<bool> DeleteAsync(int id)
-        {
-            var parameters = new Dictionary<string, object> { { "@InternationalLicenseID", id } };
-            string sqlQuery = "DELETE FROM InternationalLicenses WHERE InternationalLicenseID = @InternationalLicenseID";
-            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
-            return rowsAffected > 0;
-        }
         public async Task<InternationalLicense> GetInternationalLicenseByDriverIdAsync(int id)
         {
             var parameters = new Dictionary<string, object> { { "@DriverID", id } };

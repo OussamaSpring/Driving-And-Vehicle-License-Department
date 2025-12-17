@@ -2,7 +2,7 @@
 
 namespace Core.Interfaces
 {
-    public interface ITestTypeRepository : IRepository<TestType>
+    public interface ITestTypeRepository : IReadOnlyRepository<TestType>
     {
     }
 }

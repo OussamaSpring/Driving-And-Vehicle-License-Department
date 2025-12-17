@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces
 {
-    public interface IDriverRepository : IRepository<Driver>
+    public interface IDriverRepository : IReadOnlyRepository<Driver>
     {
         Task<Driver> GetByPersonIdAsync(int id);
         Task<Driver> GetByNationalNumberAsync(string nationalNumber);
