@@ -1,14 +1,12 @@
-﻿using DVLD.Forms;
+﻿using Core.Models;
+using DVLD.Forms;
+using DVLD.Session;
 using DVLD.UserControls;
-using System;
-using System.Windows.Forms;
-
-using Core.Models;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
+using System;
 using System.Threading.Tasks;
-using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 
 namespace DVLD
@@ -18,9 +16,9 @@ namespace DVLD
         private User _currentUser;
 
         private PersonController _personController;
-        public MainForm(User user)
+        public MainForm()
         {
-            _currentUser = user;
+            _currentUser = CurrentUserProvider.CurrentUser;
             InitializeComponent();
 
             _personController = new PersonController(new PersonRepository());

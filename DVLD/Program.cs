@@ -1,4 +1,5 @@
 ﻿using DVLD.Dialogs;
+using DVLD.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace DVLD
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new MainForm(login.AuthenticatedUser));
+                CurrentUserProvider.SetCurrentUser(login.AuthenticatedUser);
+                Application.Run(new MainForm());
             }
         }
     }

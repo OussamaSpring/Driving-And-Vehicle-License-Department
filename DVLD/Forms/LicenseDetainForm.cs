@@ -25,7 +25,6 @@ namespace DVLD.Forms
 
         private void LicenseDetainForm_Load(object sender, EventArgs e)
         {
-            uc_license_detain_topbar.btn_add_Hide();
             uc_license_detain_topbar.FillFilterCriteria(_licenseDetainController.GetDetainFilterCriteria());
             LoadDetainedLicensesAsync();
         }
@@ -97,6 +96,11 @@ namespace DVLD.Forms
             int selectedLicenseId = Convert.ToInt32(dgv_Detained_Licenses.SelectedRows[0].Cells["license_id"].Value);
             Show_Driver_Card showDriverCardForm = new Show_Driver_Card(selectedLicenseId);
             showDriverCardForm.Show(this.FindForm());
+        }
+        private void DetainLicense()
+        {
+            Detain_License detainLicenseForm = new Detain_License();
+
         }
     }
 }

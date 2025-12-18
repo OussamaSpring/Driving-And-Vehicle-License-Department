@@ -34,19 +34,19 @@ namespace DVLD.Forms
             this.release_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.released_by_user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.release_application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cms_LicenseMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_ViewLicenseCard = new System.Windows.Forms.ToolStripMenuItem();
             this.uc_license_detain_topbar = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_total_detain_number = new System.Windows.Forms.Label();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
-            this.cms_LicenseMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmi_ViewLicenseCard = new System.Windows.Forms.ToolStripMenuItem();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_detain_list.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detained_Licenses)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
             this.cms_LicenseMenu.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -207,6 +207,24 @@ namespace DVLD.Forms
             this.release_application_id.Name = "release_application_id";
             this.release_application_id.ReadOnly = true;
             // 
+            // cms_LicenseMenu
+            // 
+            this.cms_LicenseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_ViewLicenseCard});
+            this.cms_LicenseMenu.Name = "cms_UserManagement";
+            this.cms_LicenseMenu.Size = new System.Drawing.Size(200, 33);
+            this.cms_LicenseMenu.Text = "Licesnse Menu";
+            // 
+            // tsmi_ViewLicenseCard
+            // 
+            this.tsmi_ViewLicenseCard.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ViewLicenseCard.Image = global::DVLD.Properties.Resources.driving_license;
+            this.tsmi_ViewLicenseCard.Name = "tsmi_ViewLicenseCard";
+            this.tsmi_ViewLicenseCard.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewLicenseCard.Size = new System.Drawing.Size(199, 29);
+            this.tsmi_ViewLicenseCard.Text = "Show License Card";
+            this.tsmi_ViewLicenseCard.Click += new System.EventHandler(this.tsmi_ViewLicenseCard_Click);
+            // 
             // uc_license_detain_topbar
             // 
             this.uc_license_detain_topbar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -259,24 +277,6 @@ namespace DVLD.Forms
             this.tlp_header.Size = new System.Drawing.Size(753, 0);
             this.tlp_header.TabIndex = 0;
             // 
-            // cms_LicenseMenu
-            // 
-            this.cms_LicenseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_ViewLicenseCard});
-            this.cms_LicenseMenu.Name = "cms_UserManagement";
-            this.cms_LicenseMenu.Size = new System.Drawing.Size(200, 33);
-            this.cms_LicenseMenu.Text = "Licesnse Menu";
-            // 
-            // tsmi_ViewLicenseCard
-            // 
-            this.tsmi_ViewLicenseCard.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmi_ViewLicenseCard.Image = global::DVLD.Properties.Resources.driving_license;
-            this.tsmi_ViewLicenseCard.Name = "tsmi_ViewLicenseCard";
-            this.tsmi_ViewLicenseCard.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
-            this.tsmi_ViewLicenseCard.Size = new System.Drawing.Size(199, 29);
-            this.tsmi_ViewLicenseCard.Text = "Show License Card";
-            this.tsmi_ViewLicenseCard.Click += new System.EventHandler(this.tsmi_ViewLicenseCard_Click);
-            // 
             // DetainedLicenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,8 +294,8 @@ namespace DVLD.Forms
             this.htc_tab_nav.ResumeLayout(false);
             this.tab_detain_list.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detained_Licenses)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
             this.cms_LicenseMenu.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

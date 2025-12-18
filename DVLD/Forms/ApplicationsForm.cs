@@ -39,61 +39,11 @@ namespace DVLD.Forms
 
         }
 
-
-        private void OnOperationsTabSelected()
-        {
-            htc_tab_nav.SelectedIndex = 0; // Select the "Operations" tab
-        }
-
-        private void OnApplicationsListTabSelected()
-        {
-            htc_tab_nav.SelectedIndex = 1; // Select the "Applications List" tab
-        }
-
-        private void OnApplicationsTypesTabSelected()
-        {
-            htc_tab_nav.SelectedIndex = 2; // Select the "Applications Types" tab
-        }
-
         private void ApplicationsForm_Load(object sender, EventArgs e)
         {
             OnOperationsTabSelected();
         }
 
-        private void opt_NewLocalDrivingLicense_Clicked(object sender, MouseEventArgs e)
-        {
-            htc_operations_management.SelectedIndex = 1; // Select the "New Local Driving License" tab
-        }
-
-        private void opt_NewInterDrivingLicense_Clicked(object sender, MouseEventArgs e)
-        {
-            htc_operations_management.SelectedIndex = 2; // Select the "New International Driving License" tab
-        }
-
-        private void opt_DetainLicense_Clicked(object sender, MouseEventArgs e)
-        {
-            htc_operations_management.SelectedIndex = 3; // Select the "Detain License" tab
-        }
-
-        private void opt_ReleaseLicense_Clicked(object sender, MouseEventArgs e)
-        {
-            htc_operations_management.SelectedIndex = 4; // Select the "Release License" tab
-        }
-
-        private void opt_RenewLicense_Clicked(object sender, MouseEventArgs e)
-        {
-            htc_operations_management.SelectedIndex = 5; // Select the "Renew License" tab
-        }
-
-        private void opt_ReplaceDamagedLicense_Clicked(object sender, MouseEventArgs e)
-        {
-            htc_operations_management.SelectedIndex = 6; // Select the "Replace Damaged License" tab
-        }
-
-        private void opt_ReplaceLostLicense_Clicked(object sender, MouseEventArgs e)
-        {
-            htc_operations_management.SelectedIndex = 7; // Select the "Replace Lost License" tab
-        }
 
         private void pb_add_person_Click(object sender, EventArgs e)
         {
@@ -112,5 +62,47 @@ namespace DVLD.Forms
                 btn_add_person.Enabled = true; // Re-enable the button
             }
         }
+
+
+        #region Tab Switching Methods
+
+        private void OnOperationsTabSelected()
+        {
+            htc_tab_nav.SelectedIndex = 0; // Select the "Operations" tab
+        }
+        private void OnApplicationsListTabSelected()
+        {
+            htc_tab_nav.SelectedIndex = 1; // Select the "Applications List" tab
+        }
+        private void OnApplicationsTypesTabSelected()
+        {
+            htc_tab_nav.SelectedIndex = 2; // Select the "Applications Types" tab
+        }
+        private void opt_NewLocalDrivingLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 1; // Select the "New Local Driving License" tab
+        }
+        private void opt_NewInterDrivingLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 2; // Select the "New International Driving License" tab
+        }
+        private void opt_ReleaseLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 3; // Select the "Release License" tab
+        }
+        private void opt_RenewLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 4; // Select the "Renew License" tab
+        }
+        private void opt_ReplaceDamagedLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 5; // Select the "Replace Damaged License" tab
+        }
+        private void opt_ReplaceLostLicense_Clicked(object sender, MouseEventArgs e)
+        {
+            htc_operations_management.SelectedIndex = 6; // Select the "Replace Lost License" tab
+        }
+
+        #endregion
     }
 }

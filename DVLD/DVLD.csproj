@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrentUserProvider.cs" />
     <Compile Include="CustomControls\HeaderlessTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -148,6 +149,12 @@
     </Compile>
     <Compile Include="Pop-Ups\Add_Edit_Person.Designer.cs">
       <DependentUpon>Add_Edit_Person.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pop-Ups\Detain_License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pop-Ups\Detain_License.Designer.cs">
+      <DependentUpon>Detain_License.cs</DependentUpon>
     </Compile>
     <Compile Include="Pop-Ups\Take_Test.cs">
       <SubType>Form</SubType>
@@ -269,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pop-Ups\Detain_License.resx">
+      <DependentUpon>Detain_License.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pop-Ups\Add_Edit_User.resx">
       <DependentUpon>Add_Edit_User.cs</DependentUpon>

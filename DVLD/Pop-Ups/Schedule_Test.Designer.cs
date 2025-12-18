@@ -31,9 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule_Test));
             this.gb_retake_test_info = new System.Windows.Forms.GroupBox();
+            this.lb_retake_total_fees = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lb_retake_test_fees = new System.Windows.Forms.Label();
+            this.lb_retake_test_app_id = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.gb_test_info = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lb_test_fees = new System.Windows.Forms.Label();
             this.lb_trial_number = new System.Windows.Forms.Label();
             this.lb_person_name = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@
             this.lb_exit = new System.Windows.Forms.Label();
             this.lb_title = new System.Windows.Forms.Label();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.lb_retake_test_app_id = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lb_retake_test_fees = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lb_retake_total_fees = new System.Windows.Forms.Label();
             this.gb_retake_test_info.SuspendLayout();
             this.gb_test_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -78,6 +78,50 @@
             this.gb_retake_test_info.TabIndex = 19;
             this.gb_retake_test_info.TabStop = false;
             this.gb_retake_test_info.Text = "Retake Test Info";
+            // 
+            // lb_retake_total_fees
+            // 
+            this.lb_retake_total_fees.AutoSize = true;
+            this.lb_retake_total_fees.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_retake_total_fees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_retake_total_fees.Location = new System.Drawing.Point(321, 67);
+            this.lb_retake_total_fees.Name = "lb_retake_total_fees";
+            this.lb_retake_total_fees.Size = new System.Drawing.Size(22, 18);
+            this.lb_retake_total_fees.TabIndex = 18;
+            this.lb_retake_total_fees.Text = "??";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label9.Location = new System.Drawing.Point(228, 67);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(87, 18);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Total Fees: ";
+            // 
+            // lb_retake_test_fees
+            // 
+            this.lb_retake_test_fees.AutoSize = true;
+            this.lb_retake_test_fees.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_retake_test_fees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_retake_test_fees.Location = new System.Drawing.Point(141, 67);
+            this.lb_retake_test_fees.Name = "lb_retake_test_fees";
+            this.lb_retake_test_fees.Size = new System.Drawing.Size(22, 18);
+            this.lb_retake_test_fees.TabIndex = 16;
+            this.lb_retake_test_fees.Text = "??";
+            // 
+            // lb_retake_test_app_id
+            // 
+            this.lb_retake_test_app_id.AutoSize = true;
+            this.lb_retake_test_app_id.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_retake_test_app_id.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_retake_test_app_id.Location = new System.Drawing.Point(141, 33);
+            this.lb_retake_test_app_id.Name = "lb_retake_test_app_id";
+            this.lb_retake_test_app_id.Size = new System.Drawing.Size(22, 18);
+            this.lb_retake_test_app_id.TabIndex = 15;
+            this.lb_retake_test_app_id.Text = "??";
             // 
             // label22
             // 
@@ -122,6 +166,14 @@
             this.gb_test_info.TabIndex = 18;
             this.gb_test_info.TabStop = false;
             this.gb_test_info.Text = "Test Info";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(144, 165);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 22);
+            this.dateTimePicker1.TabIndex = 15;
             // 
             // lb_test_fees
             // 
@@ -286,9 +338,9 @@
             this.pl_header.Controls.Add(this.lb_exit);
             this.pl_header.Controls.Add(this.lb_title);
             this.pl_header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pl_header.Location = new System.Drawing.Point(2, 2);
+            this.pl_header.Location = new System.Drawing.Point(0, 0);
             this.pl_header.Name = "pl_header";
-            this.pl_header.Size = new System.Drawing.Size(445, 85);
+            this.pl_header.Size = new System.Drawing.Size(449, 85);
             this.pl_header.TabIndex = 27;
             this.pl_header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pl_header_MouseDown);
             this.pl_header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pl_header_MouseMove);
@@ -325,58 +377,6 @@
             this.imageList.Images.SetKeyName(1, "exam.png");
             this.imageList.Images.SetKeyName(2, "driving-test.png");
             // 
-            // lb_retake_test_app_id
-            // 
-            this.lb_retake_test_app_id.AutoSize = true;
-            this.lb_retake_test_app_id.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_retake_test_app_id.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_retake_test_app_id.Location = new System.Drawing.Point(141, 33);
-            this.lb_retake_test_app_id.Name = "lb_retake_test_app_id";
-            this.lb_retake_test_app_id.Size = new System.Drawing.Size(22, 18);
-            this.lb_retake_test_app_id.TabIndex = 15;
-            this.lb_retake_test_app_id.Text = "??";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(144, 165);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 22);
-            this.dateTimePicker1.TabIndex = 15;
-            // 
-            // lb_retake_test_fees
-            // 
-            this.lb_retake_test_fees.AutoSize = true;
-            this.lb_retake_test_fees.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_retake_test_fees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_retake_test_fees.Location = new System.Drawing.Point(141, 67);
-            this.lb_retake_test_fees.Name = "lb_retake_test_fees";
-            this.lb_retake_test_fees.Size = new System.Drawing.Size(22, 18);
-            this.lb_retake_test_fees.TabIndex = 16;
-            this.lb_retake_test_fees.Text = "??";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(228, 67);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 18);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Total Fees: ";
-            // 
-            // lb_retake_total_fees
-            // 
-            this.lb_retake_total_fees.AutoSize = true;
-            this.lb_retake_total_fees.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_retake_total_fees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_retake_total_fees.Location = new System.Drawing.Point(321, 67);
-            this.lb_retake_total_fees.Name = "lb_retake_total_fees";
-            this.lb_retake_total_fees.Size = new System.Drawing.Size(22, 18);
-            this.lb_retake_total_fees.TabIndex = 18;
-            this.lb_retake_total_fees.Text = "??";
-            // 
             // Schedule_Test
             // 
             this.ClientSize = new System.Drawing.Size(449, 669);
@@ -387,6 +387,7 @@
             this.Controls.Add(this.lb_test_type);
             this.Controls.Add(this.pictureBox);
             this.Name = "Schedule_Test";
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.gb_retake_test_info.ResumeLayout(false);
             this.gb_retake_test_info.PerformLayout();
             this.gb_test_info.ResumeLayout(false);

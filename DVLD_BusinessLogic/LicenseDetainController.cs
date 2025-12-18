@@ -48,5 +48,10 @@ namespace DVLD_BusinessLogic
         {
             return _licenseDetainRepository.IsLicenseDetainedAsync(licenseId);
         }
+
+        public Task<bool> DetainLicenseAsync(DetainedLicense detainedLicense)
+        {
+            return _licenseDetainRepository.DetainLicenseAsync(detainedLicense);
+        }
     }
 }

@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Forms;
-using Core.Models;
-using DVLD.Pop_Ups;
+﻿using Core.Models;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
 using System;
+using System.Windows.Forms;
 
 namespace DVLD.UserControls
 {
@@ -70,7 +68,5 @@ namespace DVLD.UserControls
             }
 
         }
-
-
     }
 }

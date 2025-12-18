@@ -75,5 +75,10 @@ namespace DVLD_BusinessLogic
             return _licenseRepository.GetLicensesByPersonIdAsync(personId);
         }
 
+        public Task<bool> DoesLicenseExistAsync(int id)
+        {
+            return _licenseRepository.DoesLicenseExistAsync(id);
+        }
+
     }
 }

@@ -10,6 +10,6 @@ namespace Core.Interfaces
     {
         Task<IEnumerable<License>> GetLicensesByDriverIdAsync(int id);
         Task<IEnumerable<License>> GetLicensesByPersonIdAsync(int id);
-
+        Task<bool> DoesLicenseExistAsync(int id);
     }
 }
