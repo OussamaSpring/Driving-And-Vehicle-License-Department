@@ -94,12 +94,6 @@
     <Compile Include="Forms\ApplicationsForm.Designer.cs">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,9 +247,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApplicationsForm.resx">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

@@ -106,5 +106,58 @@ namespace DVLD_DataAccess.Database
 
             return command;
         }
+
+
+        #region Transaction Management
+
+        // Creates and opens a new SqlConnection for transaction management
+        public static SqlConnection CreateOpenConnection()
+        {
+            var connection = DBConnection.CreateConnection();
+            connection.Open();
+            return connection;
+        }
+
+        public static SqlTransaction BeginTransaction(SqlConnection connection)
+        {
+            return connection.BeginTransaction();
+        }
+
+
+        // Executes a non-query, scalar and reader SQL command within a transaction
+        public static async Task<int> ExecuteNonQueryAsync(string sqlQuery, Dictionary<string, object> parameters, SqlConnection connection, SqlTransaction transaction)
+        {
+            using (var command = CreateCommand(connection, sqlQuery, parameters))
+            {
+                command.Transaction = transaction;
+                return await command.ExecuteNonQueryAsync().ConfigureAwait(false);
+            }
+        }
+
+        public static async Task<object> ExecuteScalarAsync(string sqlQuery, Dictionary<string, object> parameters, SqlConnection connection, SqlTransaction transaction)
+        {
+            using (var command = CreateCommand(connection, sqlQuery, parameters))
+            {
+                command.Transaction = transaction;
+                return await command.ExecuteScalarAsync().ConfigureAwait(false);
+            }
+        }
+
+        public static async Task<DataTable> ExecuteReaderAsync(string sqlQuery, Dictionary<string, object> parameters, SqlConnection connection, SqlTransaction transaction)
+        {
+            using (var command = CreateCommand(connection, sqlQuery, parameters))
+            {
+                command.Transaction = transaction;
+                DataTable dataTable = new DataTable();
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (reader.HasRows)
+                        dataTable.Load(reader);
+                }
+                return dataTable;
+            }
+        }
+
+        #endregion
     }
 }

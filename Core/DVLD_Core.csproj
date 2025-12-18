@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\ILicenseRepository.cs" />
     <Compile Include="Interfaces\ILicenseDetainRepository.cs" />
     <Compile Include="Interfaces\IReadOnlyRepository.cs" />
+    <Compile Include="Interfaces\ITestAppointmentRepository.cs" />
     <Compile Include="Interfaces\ITestTypeRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPersonRepository.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Models\DetainedLicense.cs" />
     <Compile Include="Models\LocalDrivingLicenseApplication.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\TestAppointment.cs" />
     <Compile Include="Models\TestType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -56,6 +56,8 @@
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_total_test_number = new System.Windows.Forms.Label();
+            this.lb_total_test_types_number = new System.Windows.Forms.Label();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_tests_list.SuspendLayout();
@@ -216,6 +218,7 @@
             // flp_footer
             // 
             this.flp_footer.Controls.Add(this.lb_footer_text);
+            this.flp_footer.Controls.Add(this.lb_total_test_number);
             this.flp_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flp_footer.Location = new System.Drawing.Point(3, 286);
             this.flp_footer.Name = "flp_footer";
@@ -224,10 +227,10 @@
             // 
             // lb_footer_text
             // 
-            this.lb_footer_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_footer_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_footer_text.Location = new System.Drawing.Point(3, 0);
             this.lb_footer_text.Name = "lb_footer_text";
-            this.lb_footer_text.Size = new System.Drawing.Size(624, 50);
+            this.lb_footer_text.Size = new System.Drawing.Size(172, 50);
             this.lb_footer_text.TabIndex = 0;
             this.lb_footer_text.Text = "Total Number of Tests: ";
             this.lb_footer_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,6 +250,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.lb_total_test_types_number);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 286);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -255,10 +259,10 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(624, 50);
+            this.label1.Size = new System.Drawing.Size(207, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Total Number of Test Types: ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -344,6 +348,26 @@
             this.tlp_header.Size = new System.Drawing.Size(753, 0);
             this.tlp_header.TabIndex = 0;
             // 
+            // lb_total_test_number
+            // 
+            this.lb_total_test_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_total_test_number.Location = new System.Drawing.Point(181, 0);
+            this.lb_total_test_number.Name = "lb_total_test_number";
+            this.lb_total_test_number.Size = new System.Drawing.Size(197, 50);
+            this.lb_total_test_number.TabIndex = 1;
+            this.lb_total_test_number.Text = "??";
+            this.lb_total_test_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lb_total_test_types_number
+            // 
+            this.lb_total_test_types_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_total_test_types_number.Location = new System.Drawing.Point(216, 0);
+            this.lb_total_test_types_number.Name = "lb_total_test_types_number";
+            this.lb_total_test_types_number.Size = new System.Drawing.Size(238, 50);
+            this.lb_total_test_types_number.TabIndex = 1;
+            this.lb_total_test_types_number.Text = "??";
+            this.lb_total_test_types_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // TestManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,5 +420,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn class_full_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn fees;
+        private System.Windows.Forms.Label lb_total_test_number;
+        private System.Windows.Forms.Label lb_total_test_types_number;
     }
 }

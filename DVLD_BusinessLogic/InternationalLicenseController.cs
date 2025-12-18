@@ -45,21 +45,6 @@ namespace DVLD_BusinessLogic
             return _internationalLicenseRepository.GetAllAsync();
         }
 
-        public Task<int> AddInternationalLicenseAsync(InternationalLicense license)
-        {
-            return _internationalLicenseRepository.AddAsync(license);
-        }
-
-        public Task<bool> UpdateInternationalLicenseAsync(InternationalLicense license)
-        {
-            return _internationalLicenseRepository.UpdateAsync(license);
-        }
-
-        public Task<bool> DeleteInternationalLicenseAsync(int id)
-        {
-            return _internationalLicenseRepository.DeleteAsync(id);
-        }
-
         public Task<InternationalLicense> GetInternationalLicenseByDriverIdAsync(int driverId)
         {
             return _internationalLicenseRepository.GetInternationalLicenseByDriverIdAsync(driverId);

@@ -24,19 +24,5 @@ namespace DVLD_BusinessLogic
             return await _testTypeRepository.GetAllAsync();
         }
 
-        public async Task<int> AddTestTypeAsync(TestType testType)
-        {
-            return await _testTypeRepository.AddAsync(testType);
-        }
-
-        public async Task<bool> UpdateTestTypeAsync(TestType testType)
-        {
-            return await _testTypeRepository.UpdateAsync(testType);
-        }
-
-        public async Task<bool> DeleteTestTypeAsync(int id)
-        {
-            return await _testTypeRepository.DeleteAsync(id);
-        }
     }
 }

@@ -7,5 +7,6 @@ namespace Core.Interfaces
     public interface ILicenseDetainRepository : IReadOnlyRepository<DetainedLicense>
     {
         Task<bool> IsLicenseDetainedAsync(int licenseId);
+        Task<bool> DetainLicenseAsync(DetainedLicense detainedLicense);
     }
 }

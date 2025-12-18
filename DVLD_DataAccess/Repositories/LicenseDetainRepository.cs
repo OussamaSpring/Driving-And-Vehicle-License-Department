@@ -20,7 +20,7 @@ namespace DVLD_DataAccess.Repositories
                 DetainID = Convert.ToInt32(row["DetainID"]),
                 LicenseID = Convert.ToInt32(row["LicenseID"]),
                 DetainDate = Convert.ToDateTime(row["DetainDate"]),
-                FineFees = Convert.ToDecimal(row["FineFees"]),
+                FineFees = (float)Convert.ToDecimal(row["FineFees"]),
                 CreatedByUserID = Convert.ToInt32(row["CreatedByUserID"]),
                 IsReleased = Convert.ToBoolean(row["IsReleased"]),
                 ReleaseDate = row["ReleaseDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["ReleaseDate"]),
@@ -56,6 +56,25 @@ namespace DVLD_DataAccess.Repositories
             string sqlQuery = "SELECT COUNT(*) FROM DetainedLicenses WHERE LicenseID = @LicenseID AND IsReleased = 0";
             object result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
             return Convert.ToInt32(result) > 0;
+        }
+        public async Task<bool> DetainLicenseAsync(DetainedLicense detainedLicense)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                { "@LicenseID", detainedLicense.LicenseID },
+                { "@DetainDate", detainedLicense.DetainDate },
+                { "@FineFees", detainedLicense.FineFees },
+                { "@CreatedByUserID", detainedLicense.CreatedByUserID },
+                { "@IsReleased", detainedLicense.IsReleased },
+                { "@ReleaseDate", (object)detainedLicense.ReleaseDate ?? DBNull.Value },
+                { "@ReleasedByUserID", (object)detainedLicense.ReleasedByUserID ?? DBNull.Value },
+                { "@ReleaseApplicationID", (object)detainedLicense.ReleaseApplicationID ?? DBNull.Value }
+            };
+            string sqlQuery = @"INSERT INTO DetainedLicenses (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID)
+                                VALUES (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, @ReleasedByUserID, @ReleaseApplicationID)";
+
+            int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
+            return rowsAffected > 0;
         }
     }
 }
