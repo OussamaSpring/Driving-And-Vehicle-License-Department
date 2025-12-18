@@ -25,9 +25,12 @@ namespace DVLD.Forms
 
         private void LicenseDetainForm_Load(object sender, EventArgs e)
         {
+            uc_license_detain_topbar.AddButtonClicked = DetainLicense;
             uc_license_detain_topbar.FillFilterCriteria(_licenseDetainController.GetDetainFilterCriteria());
+            uc_license_detain_topbar.FilterPerformed = Uc_license_detain_topbar_FilterPerformed;
             LoadDetainedLicensesAsync();
         }
+
         private async void LoadDetainedLicensesAsync()
         {
             _detainedLicensesList = new List<DetainedLicense>(await _licenseDetainController.GetDetainsListAsync());
@@ -100,7 +103,26 @@ namespace DVLD.Forms
         private void DetainLicense()
         {
             Detain_License detainLicenseForm = new Detain_License();
-
+            detainLicenseForm.ClosingEvent += dgv_AddNewDetainedLicense;
+            detainLicenseForm.ShowDialog(this.FindForm());
+        }
+        public async void dgv_AddNewDetainedLicense(int detainId)
+        {
+            try
+            {
+                var detainedLicense = await _licenseDetainController.GetDetainByIdAsync(detainId);
+                _detainedLicensesList.Add(detainedLicense);
+                BindDetainedLicensesToGrid(_detainedLicensesList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                // TODO: Log the exception as needed
+            }
         }
     }
 }

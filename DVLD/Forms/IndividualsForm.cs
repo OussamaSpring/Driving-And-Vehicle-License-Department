@@ -145,7 +145,7 @@ namespace DVLD.Forms
         {
             Add_Edit_Person person_pop_up = new Add_Edit_Person(null);
             person_pop_up.ClosingEvent = dgv_NewPersonAdded;
-            person_pop_up.ShowDialog();
+            person_pop_up.ShowDialog(this.FindForm());
         }
         private async void dgv_NewPersonAdded(int newPersonId)
         {
