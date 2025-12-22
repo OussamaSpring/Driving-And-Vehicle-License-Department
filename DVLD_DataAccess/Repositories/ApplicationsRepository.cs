@@ -28,11 +28,11 @@ namespace DVLD_DataAccess.Repositories
                 {
                     ApplicationTypeId = row.Field<int>("ApplicationTypeID"),
                     ApplicationTypeName = row.Field<string>("ApplicationTypeTitle"),
-                    ApplicationTypeFees = row.Field<float>("ApplicationTypeFees")
+                    ApplicationTypeFees = row.Field<decimal>("ApplicationFees")
                 },
-                ApplicationStatus = row.Field<string>("ApplicationStatus"),
+                enApplicationStatus = (ApplicationStatus)row.Field<byte>("ApplicationStatus"),
                 LastStatusDate = row.Field<DateTime?>("LastStatusDate"),
-                PaidFees = row.Field<float?>("PaidFees"),
+                PaidFees = row.Field<decimal?>("PaidFees"),
                 CreatedByUserId = row.Field<int>("CreatedByUserID")
             };
         }
@@ -59,7 +59,7 @@ namespace DVLD_DataAccess.Repositories
                 ApplicationId = row.Field<int>("ApplicationID"),
                 ApplicationDate = row.Field<DateTime>("ApplicationDate"),
                 PassedTest = row.Field<short>("PassedTest"),
-                Status = row.Field<ApplicationStatus>("ApplicationStatus")
+                Status = (ApplicationStatus)row.Field<byte>("ApplicationStatus")
             };
         }
 
@@ -146,7 +146,7 @@ namespace DVLD_DataAccess.Repositories
                         { "@ApplicantPersonID", application.ApplicantPersonId },
                         { "@ApplicationDate", application.ApplicationDate },
                         { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.ApplicationStatus },
+                        { "@ApplicationStatus", application.enApplicationStatus },
                         { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
                         { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
                         { "@CreatedByUserID", application.CreatedByUserId }
@@ -201,7 +201,7 @@ namespace DVLD_DataAccess.Repositories
                         { "@ApplicantPersonID", application.ApplicantPersonId },
                         { "@ApplicationDate", application.ApplicationDate },
                         { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.ApplicationStatus },
+                        { "@ApplicationStatus", application.enApplicationStatus },
                         { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
                         { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
                         { "@CreatedByUserID", application.CreatedByUserId }
@@ -256,7 +256,7 @@ namespace DVLD_DataAccess.Repositories
                         { "@ApplicantPersonID", application.ApplicantPersonId },
                         { "@ApplicationDate", application.ApplicationDate },
                         { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.ApplicationStatus },
+                        { "@ApplicationStatus", application.enApplicationStatus },
                         { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
                         { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
                         { "@CreatedByUserID", application.CreatedByUserId }
@@ -311,7 +311,7 @@ namespace DVLD_DataAccess.Repositories
                         { "@ApplicantPersonID", application.ApplicantPersonId },
                         { "@ApplicationDate", application.ApplicationDate },
                         { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.ApplicationStatus },
+                        { "@ApplicationStatus", application.enApplicationStatus },
                         { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
                         { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
                         { "@CreatedByUserID", application.CreatedByUserId }

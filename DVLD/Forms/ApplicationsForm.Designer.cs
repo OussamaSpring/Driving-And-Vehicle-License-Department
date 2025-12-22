@@ -224,7 +224,7 @@ namespace DVLD.Forms
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label59 = new System.Windows.Forms.Label();
             this.tab_list = new System.Windows.Forms.TabPage();
-            this.dgv_international_licenses = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
+            this.dgv_applications = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.application_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.person_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.application_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -241,7 +241,7 @@ namespace DVLD.Forms
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_total_application_types = new System.Windows.Forms.Label();
-            this.roundedDataGridView1 = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
+            this.dgv_application_types = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -334,11 +334,11 @@ namespace DVLD.Forms
             this.flowLayoutPanel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tab_list.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_applications)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tab_types.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -2936,7 +2936,7 @@ namespace DVLD.Forms
             // tab_list
             // 
             this.tab_list.BackColor = System.Drawing.SystemColors.Control;
-            this.tab_list.Controls.Add(this.dgv_international_licenses);
+            this.tab_list.Controls.Add(this.dgv_applications);
             this.tab_list.Controls.Add(this.uc_application_list_topbar);
             this.tab_list.Controls.Add(this.flowLayoutPanel1);
             this.tab_list.Location = new System.Drawing.Point(4, 28);
@@ -2946,12 +2946,12 @@ namespace DVLD.Forms
             this.tab_list.TabIndex = 1;
             this.tab_list.Text = "Applications List";
             // 
-            // dgv_international_licenses
+            // dgv_applications
             // 
-            this.dgv_international_licenses.AllowUserToAddRows = false;
-            this.dgv_international_licenses.AllowUserToDeleteRows = false;
-            this.dgv_international_licenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.dgv_international_licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_applications.AllowUserToAddRows = false;
+            this.dgv_applications.AllowUserToDeleteRows = false;
+            this.dgv_applications.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgv_applications.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -2960,9 +2960,9 @@ namespace DVLD.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_international_licenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_international_licenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_international_licenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_applications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_applications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_applications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.application_id,
             this.person_id,
             this.application_type,
@@ -2971,7 +2971,7 @@ namespace DVLD.Forms
             this.last_status_date,
             this.paid_fees,
             this.created_by_user_id});
-            this.dgv_international_licenses.CornerRadius = 15;
+            this.dgv_applications.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -2979,14 +2979,15 @@ namespace DVLD.Forms
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_international_licenses.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_international_licenses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_international_licenses.EnableHeadersVisualStyles = false;
-            this.dgv_international_licenses.Location = new System.Drawing.Point(3, 53);
-            this.dgv_international_licenses.Name = "dgv_international_licenses";
-            this.dgv_international_licenses.ReadOnly = true;
-            this.dgv_international_licenses.Size = new System.Drawing.Size(957, 346);
-            this.dgv_international_licenses.TabIndex = 4;
+            this.dgv_applications.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_applications.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_applications.EnableHeadersVisualStyles = false;
+            this.dgv_applications.Location = new System.Drawing.Point(3, 53);
+            this.dgv_applications.Name = "dgv_applications";
+            this.dgv_applications.ReadOnly = true;
+            this.dgv_applications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_applications.Size = new System.Drawing.Size(957, 346);
+            this.dgv_applications.TabIndex = 4;
             // 
             // application_id
             // 
@@ -3086,7 +3087,7 @@ namespace DVLD.Forms
             // 
             this.tab_types.BackColor = System.Drawing.SystemColors.Control;
             this.tab_types.Controls.Add(this.flowLayoutPanel2);
-            this.tab_types.Controls.Add(this.roundedDataGridView1);
+            this.tab_types.Controls.Add(this.dgv_application_types);
             this.tab_types.Location = new System.Drawing.Point(4, 28);
             this.tab_types.Name = "tab_types";
             this.tab_types.Size = new System.Drawing.Size(963, 452);
@@ -3123,12 +3124,12 @@ namespace DVLD.Forms
             this.lb_total_application_types.Text = "??";
             this.lb_total_application_types.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // roundedDataGridView1
+            // dgv_application_types
             // 
-            this.roundedDataGridView1.AllowUserToAddRows = false;
-            this.roundedDataGridView1.AllowUserToDeleteRows = false;
-            this.roundedDataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundedDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_application_types.AllowUserToAddRows = false;
+            this.dgv_application_types.AllowUserToDeleteRows = false;
+            this.dgv_application_types.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgv_application_types.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -3137,13 +3138,13 @@ namespace DVLD.Forms
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roundedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.roundedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.roundedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_application_types.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_application_types.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_application_types.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.name,
             this.fee});
-            this.roundedDataGridView1.CornerRadius = 15;
+            this.dgv_application_types.CornerRadius = 15;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11F);
@@ -3151,14 +3152,15 @@ namespace DVLD.Forms
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roundedDataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.roundedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedDataGridView1.EnableHeadersVisualStyles = false;
-            this.roundedDataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.roundedDataGridView1.Name = "roundedDataGridView1";
-            this.roundedDataGridView1.ReadOnly = true;
-            this.roundedDataGridView1.Size = new System.Drawing.Size(963, 452);
-            this.roundedDataGridView1.TabIndex = 5;
+            this.dgv_application_types.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_application_types.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_application_types.EnableHeadersVisualStyles = false;
+            this.dgv_application_types.Location = new System.Drawing.Point(0, 0);
+            this.dgv_application_types.Name = "dgv_application_types";
+            this.dgv_application_types.ReadOnly = true;
+            this.dgv_application_types.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_application_types.Size = new System.Drawing.Size(963, 452);
+            this.dgv_application_types.TabIndex = 5;
             // 
             // id
             // 
@@ -3322,11 +3324,11 @@ namespace DVLD.Forms
             this.flowLayoutPanel20.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tab_list.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_international_licenses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_applications)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tab_types.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3340,12 +3342,12 @@ namespace DVLD.Forms
         private CustomControls.HeaderlessTabControl htc_tab_nav;
         private System.Windows.Forms.TabPage tab_operations;
         private System.Windows.Forms.TabPage tab_list;
-        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_international_licenses;
+        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_applications;
         private UserControls.SearchBar uc_application_list_topbar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lb_footer_text_applications;
         private System.Windows.Forms.TabPage tab_types;
-        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView roundedDataGridView1;
+        private WindowsFormsControlLibrary.CustomControls.RoundedDataGridView dgv_application_types;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn fee;

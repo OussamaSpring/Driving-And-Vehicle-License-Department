@@ -1,19 +1,39 @@
-﻿using DVLD_DataAccess.Repositories;
+﻿using Core.Interfaces;
+using Core.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Core.Models;
-using System.Runtime.InteropServices;
 
 namespace DVLD_BusinessLogic
 {
     public class ApplicationsController
     {
-        private readonly ApplicationsRepository _applicationsRepository;
+        private readonly IApplicationsRepository _applicationsRepository;
 
-        public ApplicationsController(ApplicationsRepository applicationsRepository)
+        public ApplicationsController(IApplicationsRepository applicationsRepository)
         {
             _applicationsRepository = applicationsRepository;
         }
+
+        #region HelpFunctions
+
+        public List<string> GetApplicationFilterCriteria()
+        {
+            var filterCriteria = new List<string>
+            {
+                "Application ID",
+                "Applicant Person ID",
+                "Application Date",
+                "Application Type",
+                "Application Status",
+                "Last Status Date",
+                "Paid Fees",
+                "Created By User ID"
+            };
+            return filterCriteria;
+        }
+
+
+        #endregion
 
         public async Task<Applications> GetApplicationById(int appId)
         {

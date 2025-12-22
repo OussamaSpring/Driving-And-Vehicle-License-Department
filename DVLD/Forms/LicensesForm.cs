@@ -210,7 +210,7 @@ namespace DVLD.Forms
         private void BindLicenseClassesToGrid(IEnumerable<LicenseClass> classes)
         {
             dgv_license_classes.Rows.Clear();
-            foreach (var licenseClass in classes)
+            foreach (LicenseClass licenseClass in classes)
             {
                 dgv_license_classes.Rows.Add(
                     licenseClass.Id,

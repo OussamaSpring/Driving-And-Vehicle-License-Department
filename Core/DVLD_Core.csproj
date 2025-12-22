@@ -45,7 +45,7 @@
     <Compile Include="Enums\Genders.cs" />
     <Compile Include="Enums\ApplicationStatus.cs" />
     <Compile Include="Interfaces\IApplicationTypeRepository.cs" />
-    <Compile Include="Interfaces\IAppplicationsRepository.cs" />
+    <Compile Include="Interfaces\IApplicationsRepository.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
     <Compile Include="Interfaces\IInternationalLicenseRepository.cs" />
     <Compile Include="Interfaces\ILicenseClassRepository.cs" />

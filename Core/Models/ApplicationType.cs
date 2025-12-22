@@ -6,6 +6,6 @@ namespace Core.Models
     {
         public int ApplicationTypeId { get; set; }
         public string ApplicationTypeName { get; set; }
-        public float ApplicationTypeFees { get; set; }
+        public decimal ApplicationTypeFees { get; set; }
     }
 }

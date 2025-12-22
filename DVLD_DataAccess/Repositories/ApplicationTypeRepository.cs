@@ -19,7 +19,7 @@ namespace DVLD_DataAccess.Repositories
             {
                 ApplicationTypeId = row.Field<int>("ApplicationTypeID"),
                 ApplicationTypeName = row.Field<string>("ApplicationTypeTitle"),
-                ApplicationTypeFees = row.Field<float>("ApplicationFees")
+                ApplicationTypeFees = row.Field<decimal>("ApplicationFees")
             };
         }
         #endregion
