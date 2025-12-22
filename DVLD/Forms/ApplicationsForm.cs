@@ -42,6 +42,8 @@ namespace DVLD.Forms
         private void ApplicationsForm_Load(object sender, EventArgs e)
         {
             OnOperationsTabSelected();
+            uc_application_list_topbar.btn_add_Hide();
+            
         }
 
 
