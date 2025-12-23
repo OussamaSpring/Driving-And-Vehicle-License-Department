@@ -17,6 +17,7 @@ namespace DVLD.Forms
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -247,6 +248,10 @@ namespace DVLD.Forms
             this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.window_operations = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
+            this.cms_ApplicationsManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_ViewAppDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_ViewPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_ShowLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_operations.SuspendLayout();
@@ -339,6 +344,7 @@ namespace DVLD.Forms
             this.tab_types.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).BeginInit();
+            this.cms_ApplicationsManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -2971,6 +2977,7 @@ namespace DVLD.Forms
             this.last_status_date,
             this.paid_fees,
             this.created_by_user_id});
+            this.dgv_applications.ContextMenuStrip = this.cms_ApplicationsManagement;
             this.dgv_applications.CornerRadius = 15;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -3205,6 +3212,46 @@ namespace DVLD.Forms
             this.window_operations.Size = new System.Drawing.Size(200, 100);
             this.window_operations.TabIndex = 0;
             // 
+            // cms_ApplicationsManagement
+            // 
+            this.cms_ApplicationsManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_ViewAppDetails,
+            this.tsmi_ViewPersonInfo,
+            this.tsmi_ShowLicenseHistory});
+            this.cms_ApplicationsManagement.Name = "cms_UserManagement";
+            this.cms_ApplicationsManagement.Size = new System.Drawing.Size(240, 91);
+            this.cms_ApplicationsManagement.Text = "Applications Management";
+            // 
+            // tsmi_ViewAppDetails
+            // 
+            this.tsmi_ViewAppDetails.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.tsmi_ViewAppDetails.Image = global::DVLD.Properties.Resources.File_text_Black;
+            this.tsmi_ViewAppDetails.Name = "tsmi_ViewAppDetails";
+            this.tsmi_ViewAppDetails.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewAppDetails.Size = new System.Drawing.Size(239, 29);
+            this.tsmi_ViewAppDetails.Text = "View Application Details";
+            this.tsmi_ViewAppDetails.Click += new System.EventHandler(this.tsmi_ViewAppDetails_Click);
+            // 
+            // tsmi_ViewPersonInfo
+            // 
+            this.tsmi_ViewPersonInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ViewPersonInfo.Image = global::DVLD.Properties.Resources.driving_license;
+            this.tsmi_ViewPersonInfo.Name = "tsmi_ViewPersonInfo";
+            this.tsmi_ViewPersonInfo.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewPersonInfo.Size = new System.Drawing.Size(239, 29);
+            this.tsmi_ViewPersonInfo.Text = "Show Person Info";
+            this.tsmi_ViewPersonInfo.Click += new System.EventHandler(this.tsmi_ViewPersonInfo_Click);
+            // 
+            // tsmi_ShowLicenseHistory
+            // 
+            this.tsmi_ShowLicenseHistory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ShowLicenseHistory.Image = global::DVLD.Properties.Resources.Edit_Colored;
+            this.tsmi_ShowLicenseHistory.Name = "tsmi_ShowLicenseHistory";
+            this.tsmi_ShowLicenseHistory.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ShowLicenseHistory.Size = new System.Drawing.Size(239, 29);
+            this.tsmi_ShowLicenseHistory.Text = "Show License History";
+            this.tsmi_ShowLicenseHistory.Click += new System.EventHandler(this.tsmi_ShowLicenseHistory_Click);
+            // 
             // ApplicationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3329,6 +3376,7 @@ namespace DVLD.Forms
             this.tab_types.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).EndInit();
+            this.cms_ApplicationsManagement.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3562,5 +3610,9 @@ namespace DVLD.Forms
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label lb_total_applications_number;
         private System.Windows.Forms.Label lb_total_application_types;
+        private System.Windows.Forms.ContextMenuStrip cms_ApplicationsManagement;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ViewAppDetails;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ViewPersonInfo;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ShowLicenseHistory;
     }
 }

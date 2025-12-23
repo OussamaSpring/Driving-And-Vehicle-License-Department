@@ -141,6 +141,44 @@ namespace DVLD.Forms
             BindApplicationsToGrid(filtered);
         }
 
+
+        #region Context Menu Actions
+        private void tsmi_ViewAppDetails_Click(object sender, EventArgs e)
+        {
+            if (dgv_applications.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an application to view details.", "No Application Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int selectedAppId = Convert.ToInt32(dgv_applications.SelectedRows[0].Cells["application_id"].Value);
+            Show_Application_Details applicationDetails = new Show_Application_Details(selectedAppId);
+            applicationDetails.Show(this.FindForm());
+        }
+        private void tsmi_ViewPersonInfo_Click(object sender, EventArgs e)
+        {
+            if (dgv_applications.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an application to view applicant details.", "No Application Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int selectedPersonId = Convert.ToInt32(dgv_applications.SelectedRows[0].Cells["person_id"].Value);
+            Show_Person_Details show_Person_Details = new Show_Person_Details(selectedPersonId);
+            show_Person_Details.Show(this.FindForm());
+        }
+        private void tsmi_ShowLicenseHistory_Click(object sender, EventArgs e)
+        {
+            if (dgv_applications.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an application to view license history.", "No Application Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int selectedPersonId = Convert.ToInt32(dgv_applications.SelectedRows[0].Cells["person_id"].Value);
+            Show_Person_License_History licenseHistoryForm = new Show_Person_License_History(selectedPersonId);
+            licenseHistoryForm.Show(this.FindForm());
+        }
+
+        #endregion
+
         #endregion
 
         #region Application Types
@@ -211,5 +249,7 @@ namespace DVLD.Forms
         }
 
         #endregion
+
+
     }
 }

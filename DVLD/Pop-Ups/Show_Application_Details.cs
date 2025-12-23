@@ -12,9 +12,15 @@ namespace DVLD.Pop_Ups
 {
     public partial class Show_Application_Details : Form
     {
-        public Show_Application_Details()
+        public Show_Application_Details(int appId)
         {
             InitializeComponent();
+            LoadApplicationDetails(appId);
+        }
+
+        private void LoadApplicationDetails(int appId)
+        {
+            applicationDetailsCard.setApplication(appId);
         }
     }
 }

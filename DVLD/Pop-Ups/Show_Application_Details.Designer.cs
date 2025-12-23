@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.applicationDetails = new DVLD.UserControls.ApplicationDetails();
+            this.applicationDetailsCard = new DVLD.UserControls.ApplicationDetails();
             this.SuspendLayout();
             // 
-            // applicationDetails
+            // applicationDetailsCard
             // 
-            this.applicationDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.applicationDetails.Location = new System.Drawing.Point(0, 0);
-            this.applicationDetails.Margin = new System.Windows.Forms.Padding(0);
-            this.applicationDetails.Name = "applicationDetails";
-            this.applicationDetails.Size = new System.Drawing.Size(646, 300);
-            this.applicationDetails.TabIndex = 0;
+            this.applicationDetailsCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.applicationDetailsCard.Location = new System.Drawing.Point(0, 0);
+            this.applicationDetailsCard.Margin = new System.Windows.Forms.Padding(0);
+            this.applicationDetailsCard.Name = "applicationDetailsCard";
+            this.applicationDetailsCard.Size = new System.Drawing.Size(620, 342);
+            this.applicationDetailsCard.TabIndex = 0;
             // 
             // Show_Application_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 300);
-            this.Controls.Add(this.applicationDetails);
+            this.ClientSize = new System.Drawing.Size(620, 342);
+            this.Controls.Add(this.applicationDetailsCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Show_Application_Details";
             this.Text = "Show_Application_Details";
@@ -55,6 +55,6 @@
 
         #endregion
 
-        private UserControls.ApplicationDetails applicationDetails;
+        private UserControls.ApplicationDetails applicationDetailsCard;
     }
 }

@@ -45,7 +45,7 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.lb_user_id = new System.Windows.Forms.Label();
             this.lb_paid_fees = new System.Windows.Forms.Label();
-            this.lb_edit = new System.Windows.Forms.Label();
+            this.lb_view_person_info = new System.Windows.Forms.Label();
             this.seperator2 = new iNKORE.UI.WinForms.Styler.Controls.Seperator();
             this.SuspendLayout();
             // 
@@ -246,19 +246,20 @@
             this.lb_paid_fees.Text = "??";
             this.lb_paid_fees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lb_edit
+            // lb_view_person_info
             // 
-            this.lb_edit.AutoSize = true;
-            this.lb_edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lb_edit.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lb_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lb_edit.Location = new System.Drawing.Point(482, 311);
-            this.lb_edit.Name = "lb_edit";
-            this.lb_edit.Size = new System.Drawing.Size(107, 15);
-            this.lb_edit.TabIndex = 44;
-            this.lb_edit.Text = "View Person Info.";
-            this.lb_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_view_person_info.AutoSize = true;
+            this.lb_view_person_info.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lb_view_person_info.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_view_person_info.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lb_view_person_info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_view_person_info.Location = new System.Drawing.Point(482, 311);
+            this.lb_view_person_info.Name = "lb_view_person_info";
+            this.lb_view_person_info.Size = new System.Drawing.Size(107, 15);
+            this.lb_view_person_info.TabIndex = 44;
+            this.lb_view_person_info.Text = "View Person Info.";
+            this.lb_view_person_info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_view_person_info.Click += new System.EventHandler(this.lb_view_person_info_Click);
             // 
             // seperator2
             // 
@@ -273,7 +274,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lb_edit);
+            this.Controls.Add(this.lb_view_person_info);
             this.Controls.Add(this.seperator2);
             this.Controls.Add(this.lb_paid_fees);
             this.Controls.Add(this.lb_user_id);
@@ -318,7 +319,7 @@
         private System.Windows.Forms.Label lb_status;
         private System.Windows.Forms.Label lb_user_id;
         private System.Windows.Forms.Label lb_paid_fees;
-        private System.Windows.Forms.Label lb_edit;
+        private System.Windows.Forms.Label lb_view_person_info;
         private iNKORE.UI.WinForms.Styler.Controls.Seperator seperator2;
     }
 }
