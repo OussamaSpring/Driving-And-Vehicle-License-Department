@@ -40,7 +40,7 @@ namespace DVLD.UserControls
             rpb_profile_image.Image = _person.PersonalImage != null
                 ? System.Drawing.Image.FromStream(new System.IO.MemoryStream(_person.PersonalImage))
                 : img_list_default_profile.Images[Convert.ToInt16(_person.enGender)];
-            
+
             lb_edit.Visible = true;
         }
         public async void SetPerson(int personId)
@@ -54,8 +54,6 @@ namespace DVLD.UserControls
             {
                 MessageBox.Show($"Error fetching person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // TODO: Log error
-
-
             }
         }
         public async void SetPerson(string nationalNo)
@@ -80,6 +78,21 @@ namespace DVLD.UserControls
         private void RefreshPersonDetails(int personId)
         {
             SetPerson(personId);
+        }
+        public void Clear()
+        {
+            _person = null;
+            lb_person_id.Text = "??";
+            lb_national_no.Text = "??";
+            lb_name.Text = "??";
+            lb_date_of_birth.Text = "??";
+            lb_gender.Text = "??";
+            lb_email.Text = "??";
+            lb_phone.Text = "??";
+            lb_country.Text = "??";
+            lb_address.Text = "??";
+            rpb_profile_image.Image = null;
+            lb_edit.Visible = false;
         }
     }
 }

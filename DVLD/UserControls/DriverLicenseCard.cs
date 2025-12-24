@@ -32,7 +32,7 @@ namespace DVLD.UserControls
 
         private void UpdateUI()
         {
-            if(_driverLicense == null || _driver == null || _person == null)
+            if (_driverLicense == null || _driver == null || _person == null)
                 return;
 
             lb_license_id.Text = _driverLicense.LicenseId.ToString();
@@ -49,7 +49,6 @@ namespace DVLD.UserControls
             lb_expiration_date.Text = _driverLicense.ExpirationDate.ToShortDateString();
             lb_notes.Text = _driverLicense.Notes ?? "N/A";
         }
-
         public async void SetDriverLicense(int licenseId)
         {
             try
@@ -67,6 +66,27 @@ namespace DVLD.UserControls
                 // TODO: Log exception
             }
 
+        }
+        public void Clear()
+        {
+            _driverLicense = null;
+            _driver = null;
+            _person = null;
+            _isDetained = false;
+
+            lb_license_id.Text = "??";
+            lb_license_class.Text = "??";
+            lb_is_detained.Text = "??";
+            lb_driver_id.Text = "??";
+            lb_name.Text = "??";
+            lb_date_of_birth.Text = "??";
+            lb_gender.Text = "??";
+            lb_national_number.Text = "??";
+            lb_is_active.Text = "??";
+            lb_issue_date.Text = "??";
+            lb_issue_reason.Text = "??";
+            lb_expiration_date.Text = "??";
+            lb_notes.Text = "??";
         }
     }
 }

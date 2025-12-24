@@ -14,6 +14,7 @@ namespace DVLD_BusinessLogic
             _licenseClassRepository = licenseClassRepository;
         }
 
+
         public Task<LicenseClass> GetLicenseClassByIdAsync(int id)
         {
             return _licenseClassRepository.GetByIdAsync(id);

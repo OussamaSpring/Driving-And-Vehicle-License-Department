@@ -59,7 +59,7 @@ namespace DVLD.Forms
             this.pl_page1_body = new System.Windows.Forms.Panel();
             this.pl_main = new System.Windows.Forms.Panel();
             this.pl_details = new System.Windows.Forms.Panel();
-            this.personDetailsCard1 = new DVLD.UserControls.PersonDetailsCard();
+            this.local_personDetailsCard = new DVLD.UserControls.PersonDetailsCard();
             this.pl_local_license_application_details = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.lb_created_by_local = new System.Windows.Forms.Label();
@@ -86,10 +86,8 @@ namespace DVLD.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.driverLicenseCard1 = new DVLD.UserControls.DriverLicenseCard();
+            this.driverLicenseCard_inter = new DVLD.UserControls.DriverLicenseCard();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lb_license_type_inter = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lb_created_by_inter = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lb_application_fees_inter = new System.Windows.Forms.Label();
@@ -104,14 +102,14 @@ namespace DVLD.Forms
             this.txt_search_inter = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_page2_back = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.tab_release_license = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.driverLicenseCard3 = new DVLD.UserControls.DriverLicenseCard();
+            this.driverLicenseCard_release = new DVLD.UserControls.DriverLicenseCard();
             this.panel12 = new System.Windows.Forms.Panel();
             this.lb_total_fees_release = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -133,14 +131,14 @@ namespace DVLD.Forms
             this.txt_search_release = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pb_page3_back = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.tab_renew_license = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.driverLicenseCard4 = new DVLD.UserControls.DriverLicenseCard();
+            this.driverLicenseCard_renew = new DVLD.UserControls.DriverLicenseCard();
             this.panel16 = new System.Windows.Forms.Panel();
             this.rtb_notes_renew = new System.Windows.Forms.RichTextBox();
             this.label58 = new System.Windows.Forms.Label();
@@ -168,14 +166,14 @@ namespace DVLD.Forms
             this.txt_search_renew = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pb_page4_back = new System.Windows.Forms.PictureBox();
             this.label53 = new System.Windows.Forms.Label();
             this.tab_replace_damaged_license = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.driverLicenseCard5 = new DVLD.UserControls.DriverLicenseCard();
+            this.driverLicenseCard_damaged = new DVLD.UserControls.DriverLicenseCard();
             this.panel20 = new System.Windows.Forms.Panel();
             this.lb_created_by_damaged = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -195,14 +193,14 @@ namespace DVLD.Forms
             this.txt_search_damaged = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
             this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pb_page5_back = new System.Windows.Forms.PictureBox();
             this.label61 = new System.Windows.Forms.Label();
             this.tab_replace_lost_license = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
-            this.driverLicenseCard6 = new DVLD.UserControls.DriverLicenseCard();
+            this.driverLicenseCard_lost = new DVLD.UserControls.DriverLicenseCard();
             this.panel24 = new System.Windows.Forms.Panel();
             this.lb_created_by_lost = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -222,7 +220,7 @@ namespace DVLD.Forms
             this.txt_search_lost = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
             this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pb_page6_back = new System.Windows.Forms.PictureBox();
             this.label59 = new System.Windows.Forms.Label();
             this.tab_list = new System.Windows.Forms.TabPage();
             this.dgv_applications = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
@@ -234,6 +232,10 @@ namespace DVLD.Forms
             this.last_status_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paid_fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_by_user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cms_ApplicationsManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_ViewAppDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_ViewPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_ShowLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.uc_application_list_topbar = new DVLD.UserControls.SearchBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text_applications = new System.Windows.Forms.Label();
@@ -248,10 +250,6 @@ namespace DVLD.Forms
             this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.window_operations = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
-            this.cms_ApplicationsManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmi_ViewAppDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_ViewPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_ShowLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_operations.SuspendLayout();
@@ -293,7 +291,7 @@ namespace DVLD.Forms
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_inter)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page2_back)).BeginInit();
             this.tab_release_license.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -304,7 +302,7 @@ namespace DVLD.Forms
             this.flowLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_release)).BeginInit();
             this.flowLayoutPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page3_back)).BeginInit();
             this.tab_renew_license.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -315,7 +313,7 @@ namespace DVLD.Forms
             this.flowLayoutPanel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_renew_search)).BeginInit();
             this.flowLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page4_back)).BeginInit();
             this.tab_replace_damaged_license.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -326,7 +324,7 @@ namespace DVLD.Forms
             this.flowLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_damaged)).BeginInit();
             this.flowLayoutPanel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page5_back)).BeginInit();
             this.tab_replace_lost_license.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -337,14 +335,14 @@ namespace DVLD.Forms
             this.flowLayoutPanel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_lost)).BeginInit();
             this.flowLayoutPanel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page6_back)).BeginInit();
             this.tab_list.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_applications)).BeginInit();
+            this.cms_ApplicationsManagement.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tab_types.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).BeginInit();
-            this.cms_ApplicationsManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -842,7 +840,7 @@ namespace DVLD.Forms
             // 
             this.pl_details.AutoScroll = true;
             this.pl_details.BackColor = System.Drawing.SystemColors.Control;
-            this.pl_details.Controls.Add(this.personDetailsCard1);
+            this.pl_details.Controls.Add(this.local_personDetailsCard);
             this.pl_details.Controls.Add(this.pl_local_license_application_details);
             this.pl_details.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pl_details.Location = new System.Drawing.Point(0, 75);
@@ -850,13 +848,13 @@ namespace DVLD.Forms
             this.pl_details.Size = new System.Drawing.Size(671, 231);
             this.pl_details.TabIndex = 46;
             // 
-            // personDetailsCard1
+            // local_personDetailsCard
             // 
-            this.personDetailsCard1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.personDetailsCard1.Location = new System.Drawing.Point(0, 0);
-            this.personDetailsCard1.Name = "personDetailsCard1";
-            this.personDetailsCard1.Size = new System.Drawing.Size(671, 371);
-            this.personDetailsCard1.TabIndex = 2;
+            this.local_personDetailsCard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.local_personDetailsCard.Location = new System.Drawing.Point(0, 0);
+            this.local_personDetailsCard.Name = "local_personDetailsCard";
+            this.local_personDetailsCard.Size = new System.Drawing.Size(671, 371);
+            this.local_personDetailsCard.TabIndex = 2;
             // 
             // pl_local_license_application_details
             // 
@@ -904,13 +902,10 @@ namespace DVLD.Forms
             this.cb_license_class_local.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_license_class_local.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cb_license_class_local.FormattingEnabled = true;
-            this.cb_license_class_local.Items.AddRange(new object[] {
-            "Person ID",
-            "National No."});
             this.cb_license_class_local.Location = new System.Drawing.Point(147, 17);
             this.cb_license_class_local.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.cb_license_class_local.Name = "cb_license_class_local";
-            this.cb_license_class_local.Size = new System.Drawing.Size(190, 23);
+            this.cb_license_class_local.Size = new System.Drawing.Size(224, 23);
             this.cb_license_class_local.TabIndex = 3;
             // 
             // label14
@@ -1120,6 +1115,7 @@ namespace DVLD.Forms
             this.pb_page1_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_page1_back.TabIndex = 2;
             this.pb_page1_back.TabStop = false;
+            this.pb_page1_back.Click += new System.EventHandler(this.pb_page1_back_Click);
             // 
             // lb_page1_title
             // 
@@ -1187,7 +1183,7 @@ namespace DVLD.Forms
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Controls.Add(this.driverLicenseCard1);
+            this.panel3.Controls.Add(this.driverLicenseCard_inter);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 75);
@@ -1195,17 +1191,15 @@ namespace DVLD.Forms
             this.panel3.Size = new System.Drawing.Size(671, 231);
             this.panel3.TabIndex = 46;
             // 
-            // driverLicenseCard1
+            // driverLicenseCard_inter
             // 
-            this.driverLicenseCard1.Location = new System.Drawing.Point(0, 0);
-            this.driverLicenseCard1.Name = "driverLicenseCard1";
-            this.driverLicenseCard1.Size = new System.Drawing.Size(671, 363);
-            this.driverLicenseCard1.TabIndex = 3;
+            this.driverLicenseCard_inter.Location = new System.Drawing.Point(0, 0);
+            this.driverLicenseCard_inter.Name = "driverLicenseCard_inter";
+            this.driverLicenseCard_inter.Size = new System.Drawing.Size(671, 363);
+            this.driverLicenseCard_inter.TabIndex = 3;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.lb_license_type_inter);
-            this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.lb_created_by_inter);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.lb_application_fees_inter);
@@ -1218,37 +1212,12 @@ namespace DVLD.Forms
             this.panel4.Size = new System.Drawing.Size(671, 105);
             this.panel4.TabIndex = 1;
             // 
-            // lb_license_type_inter
-            // 
-            this.lb_license_type_inter.AutoSize = true;
-            this.lb_license_type_inter.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_license_type_inter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lb_license_type_inter.Location = new System.Drawing.Point(143, 21);
-            this.lb_license_type_inter.Name = "lb_license_type_inter";
-            this.lb_license_type_inter.Size = new System.Drawing.Size(25, 19);
-            this.lb_license_type_inter.TabIndex = 26;
-            this.lb_license_type_inter.Text = "??";
-            this.lb_license_type_inter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(24, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 19);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "License Type:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lb_created_by_inter
             // 
             this.lb_created_by_inter.AutoSize = true;
             this.lb_created_by_inter.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_created_by_inter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lb_created_by_inter.Location = new System.Drawing.Point(143, 64);
+            this.lb_created_by_inter.Location = new System.Drawing.Point(170, 64);
             this.lb_created_by_inter.Name = "lb_created_by_inter";
             this.lb_created_by_inter.Size = new System.Drawing.Size(25, 19);
             this.lb_created_by_inter.TabIndex = 24;
@@ -1298,7 +1267,7 @@ namespace DVLD.Forms
             this.lb_application_date_inter.AutoSize = true;
             this.lb_application_date_inter.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_application_date_inter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lb_application_date_inter.Location = new System.Drawing.Point(539, 64);
+            this.lb_application_date_inter.Location = new System.Drawing.Point(170, 21);
             this.lb_application_date_inter.Name = "lb_application_date_inter";
             this.lb_application_date_inter.Size = new System.Drawing.Size(25, 19);
             this.lb_application_date_inter.TabIndex = 20;
@@ -1311,7 +1280,7 @@ namespace DVLD.Forms
             this.label20.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label20.Location = new System.Drawing.Point(393, 64);
+            this.label20.Location = new System.Drawing.Point(24, 21);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(130, 19);
             this.label20.TabIndex = 19;
@@ -1415,7 +1384,7 @@ namespace DVLD.Forms
             // 
             // flowLayoutPanel5
             // 
-            this.flowLayoutPanel5.Controls.Add(this.pictureBox1);
+            this.flowLayoutPanel5.Controls.Add(this.pb_page2_back);
             this.flowLayoutPanel5.Controls.Add(this.label22);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 0);
@@ -1423,16 +1392,17 @@ namespace DVLD.Forms
             this.flowLayoutPanel5.Size = new System.Drawing.Size(671, 29);
             this.flowLayoutPanel5.TabIndex = 6;
             // 
-            // pictureBox1
+            // pb_page2_back
             // 
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pb_page2_back.Image = global::DVLD.Properties.Resources.arrow;
+            this.pb_page2_back.Location = new System.Drawing.Point(3, 0);
+            this.pb_page2_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pb_page2_back.Name = "pb_page2_back";
+            this.pb_page2_back.Size = new System.Drawing.Size(25, 25);
+            this.pb_page2_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_page2_back.TabIndex = 2;
+            this.pb_page2_back.TabStop = false;
+            this.pb_page2_back.Click += new System.EventHandler(this.pb_page2_back_Click);
             // 
             // label22
             // 
@@ -1500,7 +1470,7 @@ namespace DVLD.Forms
             // 
             this.panel11.AutoScroll = true;
             this.panel11.BackColor = System.Drawing.SystemColors.Control;
-            this.panel11.Controls.Add(this.driverLicenseCard3);
+            this.panel11.Controls.Add(this.driverLicenseCard_release);
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 75);
@@ -1508,12 +1478,12 @@ namespace DVLD.Forms
             this.panel11.Size = new System.Drawing.Size(671, 231);
             this.panel11.TabIndex = 46;
             // 
-            // driverLicenseCard3
+            // driverLicenseCard_release
             // 
-            this.driverLicenseCard3.Location = new System.Drawing.Point(0, 0);
-            this.driverLicenseCard3.Name = "driverLicenseCard3";
-            this.driverLicenseCard3.Size = new System.Drawing.Size(671, 363);
-            this.driverLicenseCard3.TabIndex = 3;
+            this.driverLicenseCard_release.Location = new System.Drawing.Point(0, 0);
+            this.driverLicenseCard_release.Name = "driverLicenseCard_release";
+            this.driverLicenseCard_release.Size = new System.Drawing.Size(671, 363);
+            this.driverLicenseCard_release.TabIndex = 3;
             // 
             // panel12
             // 
@@ -1783,7 +1753,7 @@ namespace DVLD.Forms
             // 
             // flowLayoutPanel11
             // 
-            this.flowLayoutPanel11.Controls.Add(this.pictureBox3);
+            this.flowLayoutPanel11.Controls.Add(this.pb_page3_back);
             this.flowLayoutPanel11.Controls.Add(this.label35);
             this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel11.Location = new System.Drawing.Point(0, 0);
@@ -1791,16 +1761,17 @@ namespace DVLD.Forms
             this.flowLayoutPanel11.Size = new System.Drawing.Size(671, 29);
             this.flowLayoutPanel11.TabIndex = 6;
             // 
-            // pictureBox3
+            // pb_page3_back
             // 
-            this.pictureBox3.Image = global::DVLD.Properties.Resources.arrow;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.pb_page3_back.Image = global::DVLD.Properties.Resources.arrow;
+            this.pb_page3_back.Location = new System.Drawing.Point(3, 0);
+            this.pb_page3_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pb_page3_back.Name = "pb_page3_back";
+            this.pb_page3_back.Size = new System.Drawing.Size(25, 25);
+            this.pb_page3_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_page3_back.TabIndex = 2;
+            this.pb_page3_back.TabStop = false;
+            this.pb_page3_back.Click += new System.EventHandler(this.pb_page3_back_Click);
             // 
             // label35
             // 
@@ -1868,7 +1839,7 @@ namespace DVLD.Forms
             // 
             this.panel15.AutoScroll = true;
             this.panel15.BackColor = System.Drawing.SystemColors.Control;
-            this.panel15.Controls.Add(this.driverLicenseCard4);
+            this.panel15.Controls.Add(this.driverLicenseCard_renew);
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(0, 75);
@@ -1876,12 +1847,12 @@ namespace DVLD.Forms
             this.panel15.Size = new System.Drawing.Size(698, 231);
             this.panel15.TabIndex = 46;
             // 
-            // driverLicenseCard4
+            // driverLicenseCard_renew
             // 
-            this.driverLicenseCard4.Location = new System.Drawing.Point(0, 0);
-            this.driverLicenseCard4.Name = "driverLicenseCard4";
-            this.driverLicenseCard4.Size = new System.Drawing.Size(671, 363);
-            this.driverLicenseCard4.TabIndex = 3;
+            this.driverLicenseCard_renew.Location = new System.Drawing.Point(0, 0);
+            this.driverLicenseCard_renew.Name = "driverLicenseCard_renew";
+            this.driverLicenseCard_renew.Size = new System.Drawing.Size(671, 363);
+            this.driverLicenseCard_renew.TabIndex = 3;
             // 
             // panel16
             // 
@@ -2228,7 +2199,7 @@ namespace DVLD.Forms
             // 
             // flowLayoutPanel14
             // 
-            this.flowLayoutPanel14.Controls.Add(this.pictureBox4);
+            this.flowLayoutPanel14.Controls.Add(this.pb_page4_back);
             this.flowLayoutPanel14.Controls.Add(this.label53);
             this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel14.Location = new System.Drawing.Point(0, 0);
@@ -2236,16 +2207,17 @@ namespace DVLD.Forms
             this.flowLayoutPanel14.Size = new System.Drawing.Size(698, 29);
             this.flowLayoutPanel14.TabIndex = 6;
             // 
-            // pictureBox4
+            // pb_page4_back
             // 
-            this.pictureBox4.Image = global::DVLD.Properties.Resources.arrow;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
+            this.pb_page4_back.Image = global::DVLD.Properties.Resources.arrow;
+            this.pb_page4_back.Location = new System.Drawing.Point(3, 0);
+            this.pb_page4_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pb_page4_back.Name = "pb_page4_back";
+            this.pb_page4_back.Size = new System.Drawing.Size(25, 25);
+            this.pb_page4_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_page4_back.TabIndex = 2;
+            this.pb_page4_back.TabStop = false;
+            this.pb_page4_back.Click += new System.EventHandler(this.pb_page4_back_Click);
             // 
             // label53
             // 
@@ -2313,7 +2285,7 @@ namespace DVLD.Forms
             // 
             this.panel19.AutoScroll = true;
             this.panel19.BackColor = System.Drawing.SystemColors.Control;
-            this.panel19.Controls.Add(this.driverLicenseCard5);
+            this.panel19.Controls.Add(this.driverLicenseCard_damaged);
             this.panel19.Controls.Add(this.panel20);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.Location = new System.Drawing.Point(0, 75);
@@ -2321,12 +2293,12 @@ namespace DVLD.Forms
             this.panel19.Size = new System.Drawing.Size(698, 231);
             this.panel19.TabIndex = 46;
             // 
-            // driverLicenseCard5
+            // driverLicenseCard_damaged
             // 
-            this.driverLicenseCard5.Location = new System.Drawing.Point(0, 0);
-            this.driverLicenseCard5.Name = "driverLicenseCard5";
-            this.driverLicenseCard5.Size = new System.Drawing.Size(671, 363);
-            this.driverLicenseCard5.TabIndex = 3;
+            this.driverLicenseCard_damaged.Location = new System.Drawing.Point(0, 0);
+            this.driverLicenseCard_damaged.Name = "driverLicenseCard_damaged";
+            this.driverLicenseCard_damaged.Size = new System.Drawing.Size(671, 363);
+            this.driverLicenseCard_damaged.TabIndex = 3;
             // 
             // panel20
             // 
@@ -2568,7 +2540,7 @@ namespace DVLD.Forms
             // 
             // flowLayoutPanel17
             // 
-            this.flowLayoutPanel17.Controls.Add(this.pictureBox5);
+            this.flowLayoutPanel17.Controls.Add(this.pb_page5_back);
             this.flowLayoutPanel17.Controls.Add(this.label61);
             this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel17.Location = new System.Drawing.Point(0, 0);
@@ -2576,16 +2548,17 @@ namespace DVLD.Forms
             this.flowLayoutPanel17.Size = new System.Drawing.Size(698, 29);
             this.flowLayoutPanel17.TabIndex = 6;
             // 
-            // pictureBox5
+            // pb_page5_back
             // 
-            this.pictureBox5.Image = global::DVLD.Properties.Resources.arrow;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
+            this.pb_page5_back.Image = global::DVLD.Properties.Resources.arrow;
+            this.pb_page5_back.Location = new System.Drawing.Point(3, 0);
+            this.pb_page5_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pb_page5_back.Name = "pb_page5_back";
+            this.pb_page5_back.Size = new System.Drawing.Size(25, 25);
+            this.pb_page5_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_page5_back.TabIndex = 2;
+            this.pb_page5_back.TabStop = false;
+            this.pb_page5_back.Click += new System.EventHandler(this.pb_page5_back_Click);
             // 
             // label61
             // 
@@ -2653,7 +2626,7 @@ namespace DVLD.Forms
             // 
             this.panel23.AutoScroll = true;
             this.panel23.BackColor = System.Drawing.SystemColors.Control;
-            this.panel23.Controls.Add(this.driverLicenseCard6);
+            this.panel23.Controls.Add(this.driverLicenseCard_lost);
             this.panel23.Controls.Add(this.panel24);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel23.Location = new System.Drawing.Point(0, 75);
@@ -2661,12 +2634,12 @@ namespace DVLD.Forms
             this.panel23.Size = new System.Drawing.Size(698, 231);
             this.panel23.TabIndex = 46;
             // 
-            // driverLicenseCard6
+            // driverLicenseCard_lost
             // 
-            this.driverLicenseCard6.Location = new System.Drawing.Point(0, 0);
-            this.driverLicenseCard6.Name = "driverLicenseCard6";
-            this.driverLicenseCard6.Size = new System.Drawing.Size(671, 363);
-            this.driverLicenseCard6.TabIndex = 3;
+            this.driverLicenseCard_lost.Location = new System.Drawing.Point(0, 0);
+            this.driverLicenseCard_lost.Name = "driverLicenseCard_lost";
+            this.driverLicenseCard_lost.Size = new System.Drawing.Size(671, 363);
+            this.driverLicenseCard_lost.TabIndex = 3;
             // 
             // panel24
             // 
@@ -2908,7 +2881,7 @@ namespace DVLD.Forms
             // 
             // flowLayoutPanel20
             // 
-            this.flowLayoutPanel20.Controls.Add(this.pictureBox6);
+            this.flowLayoutPanel20.Controls.Add(this.pb_page6_back);
             this.flowLayoutPanel20.Controls.Add(this.label59);
             this.flowLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel20.Location = new System.Drawing.Point(0, 0);
@@ -2916,16 +2889,17 @@ namespace DVLD.Forms
             this.flowLayoutPanel20.Size = new System.Drawing.Size(698, 29);
             this.flowLayoutPanel20.TabIndex = 6;
             // 
-            // pictureBox6
+            // pb_page6_back
             // 
-            this.pictureBox6.Image = global::DVLD.Properties.Resources.arrow;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
+            this.pb_page6_back.Image = global::DVLD.Properties.Resources.arrow;
+            this.pb_page6_back.Location = new System.Drawing.Point(3, 0);
+            this.pb_page6_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pb_page6_back.Name = "pb_page6_back";
+            this.pb_page6_back.Size = new System.Drawing.Size(25, 25);
+            this.pb_page6_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_page6_back.TabIndex = 2;
+            this.pb_page6_back.TabStop = false;
+            this.pb_page6_back.Click += new System.EventHandler(this.pb_page6_back_Click);
             // 
             // label59
             // 
@@ -3051,6 +3025,46 @@ namespace DVLD.Forms
             this.created_by_user_id.HeaderText = "Create By User ID";
             this.created_by_user_id.Name = "created_by_user_id";
             this.created_by_user_id.ReadOnly = true;
+            // 
+            // cms_ApplicationsManagement
+            // 
+            this.cms_ApplicationsManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_ViewAppDetails,
+            this.tsmi_ViewPersonInfo,
+            this.tsmi_ShowLicenseHistory});
+            this.cms_ApplicationsManagement.Name = "cms_UserManagement";
+            this.cms_ApplicationsManagement.Size = new System.Drawing.Size(240, 91);
+            this.cms_ApplicationsManagement.Text = "Applications Management";
+            // 
+            // tsmi_ViewAppDetails
+            // 
+            this.tsmi_ViewAppDetails.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.tsmi_ViewAppDetails.Image = global::DVLD.Properties.Resources.File_text_Black;
+            this.tsmi_ViewAppDetails.Name = "tsmi_ViewAppDetails";
+            this.tsmi_ViewAppDetails.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewAppDetails.Size = new System.Drawing.Size(239, 29);
+            this.tsmi_ViewAppDetails.Text = "View Application Details";
+            this.tsmi_ViewAppDetails.Click += new System.EventHandler(this.tsmi_ViewAppDetails_Click);
+            // 
+            // tsmi_ViewPersonInfo
+            // 
+            this.tsmi_ViewPersonInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ViewPersonInfo.Image = global::DVLD.Properties.Resources.driving_license;
+            this.tsmi_ViewPersonInfo.Name = "tsmi_ViewPersonInfo";
+            this.tsmi_ViewPersonInfo.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ViewPersonInfo.Size = new System.Drawing.Size(239, 29);
+            this.tsmi_ViewPersonInfo.Text = "Show Person Info";
+            this.tsmi_ViewPersonInfo.Click += new System.EventHandler(this.tsmi_ViewPersonInfo_Click);
+            // 
+            // tsmi_ShowLicenseHistory
+            // 
+            this.tsmi_ShowLicenseHistory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmi_ShowLicenseHistory.Image = global::DVLD.Properties.Resources.Edit_Colored;
+            this.tsmi_ShowLicenseHistory.Name = "tsmi_ShowLicenseHistory";
+            this.tsmi_ShowLicenseHistory.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.tsmi_ShowLicenseHistory.Size = new System.Drawing.Size(239, 29);
+            this.tsmi_ShowLicenseHistory.Text = "Show License History";
+            this.tsmi_ShowLicenseHistory.Click += new System.EventHandler(this.tsmi_ShowLicenseHistory_Click);
             // 
             // uc_application_list_topbar
             // 
@@ -3212,46 +3226,6 @@ namespace DVLD.Forms
             this.window_operations.Size = new System.Drawing.Size(200, 100);
             this.window_operations.TabIndex = 0;
             // 
-            // cms_ApplicationsManagement
-            // 
-            this.cms_ApplicationsManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_ViewAppDetails,
-            this.tsmi_ViewPersonInfo,
-            this.tsmi_ShowLicenseHistory});
-            this.cms_ApplicationsManagement.Name = "cms_UserManagement";
-            this.cms_ApplicationsManagement.Size = new System.Drawing.Size(240, 91);
-            this.cms_ApplicationsManagement.Text = "Applications Management";
-            // 
-            // tsmi_ViewAppDetails
-            // 
-            this.tsmi_ViewAppDetails.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.tsmi_ViewAppDetails.Image = global::DVLD.Properties.Resources.File_text_Black;
-            this.tsmi_ViewAppDetails.Name = "tsmi_ViewAppDetails";
-            this.tsmi_ViewAppDetails.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
-            this.tsmi_ViewAppDetails.Size = new System.Drawing.Size(239, 29);
-            this.tsmi_ViewAppDetails.Text = "View Application Details";
-            this.tsmi_ViewAppDetails.Click += new System.EventHandler(this.tsmi_ViewAppDetails_Click);
-            // 
-            // tsmi_ViewPersonInfo
-            // 
-            this.tsmi_ViewPersonInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmi_ViewPersonInfo.Image = global::DVLD.Properties.Resources.driving_license;
-            this.tsmi_ViewPersonInfo.Name = "tsmi_ViewPersonInfo";
-            this.tsmi_ViewPersonInfo.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
-            this.tsmi_ViewPersonInfo.Size = new System.Drawing.Size(239, 29);
-            this.tsmi_ViewPersonInfo.Text = "Show Person Info";
-            this.tsmi_ViewPersonInfo.Click += new System.EventHandler(this.tsmi_ViewPersonInfo_Click);
-            // 
-            // tsmi_ShowLicenseHistory
-            // 
-            this.tsmi_ShowLicenseHistory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmi_ShowLicenseHistory.Image = global::DVLD.Properties.Resources.Edit_Colored;
-            this.tsmi_ShowLicenseHistory.Name = "tsmi_ShowLicenseHistory";
-            this.tsmi_ShowLicenseHistory.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
-            this.tsmi_ShowLicenseHistory.Size = new System.Drawing.Size(239, 29);
-            this.tsmi_ShowLicenseHistory.Text = "Show License History";
-            this.tsmi_ShowLicenseHistory.Click += new System.EventHandler(this.tsmi_ShowLicenseHistory_Click);
-            // 
             // ApplicationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3313,7 +3287,7 @@ namespace DVLD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_inter)).EndInit();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page2_back)).EndInit();
             this.tab_release_license.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -3327,7 +3301,7 @@ namespace DVLD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_release)).EndInit();
             this.flowLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page3_back)).EndInit();
             this.tab_renew_license.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
@@ -3341,7 +3315,7 @@ namespace DVLD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_renew_search)).EndInit();
             this.flowLayoutPanel14.ResumeLayout(false);
             this.flowLayoutPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page4_back)).EndInit();
             this.tab_replace_damaged_license.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
@@ -3355,7 +3329,7 @@ namespace DVLD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_damaged)).EndInit();
             this.flowLayoutPanel17.ResumeLayout(false);
             this.flowLayoutPanel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page5_back)).EndInit();
             this.tab_replace_lost_license.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
@@ -3369,14 +3343,14 @@ namespace DVLD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_search_lost)).EndInit();
             this.flowLayoutPanel20.ResumeLayout(false);
             this.flowLayoutPanel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_page6_back)).EndInit();
             this.tab_list.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_applications)).EndInit();
+            this.cms_ApplicationsManagement.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tab_types.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).EndInit();
-            this.cms_ApplicationsManagement.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3443,7 +3417,7 @@ namespace DVLD.Forms
         private System.Windows.Forms.Panel pl_page1_body;
         private System.Windows.Forms.Panel pl_main;
         private System.Windows.Forms.Panel pl_details;
-        private UserControls.PersonDetailsCard personDetailsCard1;
+        private UserControls.PersonDetailsCard local_personDetailsCard;
         private System.Windows.Forms.Panel pl_local_license_application_details;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lb_created_by_local;
@@ -3470,10 +3444,8 @@ namespace DVLD.Forms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private UserControls.DriverLicenseCard driverLicenseCard1;
+        private UserControls.DriverLicenseCard driverLicenseCard_inter;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lb_license_type_inter;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lb_created_by_inter;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lb_application_fees_inter;
@@ -3488,14 +3460,14 @@ namespace DVLD.Forms
         private System.Windows.Forms.TextBox txt_search_inter;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_page2_back;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TabPage tab_release_license;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
-        private UserControls.DriverLicenseCard driverLicenseCard3;
+        private UserControls.DriverLicenseCard driverLicenseCard_release;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label lb_total_fees_release;
         private System.Windows.Forms.Label label39;
@@ -3517,14 +3489,14 @@ namespace DVLD.Forms
         private System.Windows.Forms.TextBox txt_search_release;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pb_page3_back;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TabPage tab_renew_license;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
-        private UserControls.DriverLicenseCard driverLicenseCard4;
+        private UserControls.DriverLicenseCard driverLicenseCard_renew;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.RichTextBox rtb_notes_renew;
         private System.Windows.Forms.Label label58;
@@ -3552,14 +3524,14 @@ namespace DVLD.Forms
         private System.Windows.Forms.TextBox txt_search_renew;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pb_page4_back;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.TabPage tab_replace_damaged_license;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel19;
-        private UserControls.DriverLicenseCard driverLicenseCard5;
+        private UserControls.DriverLicenseCard driverLicenseCard_damaged;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label lb_created_by_damaged;
         private System.Windows.Forms.Label label24;
@@ -3579,14 +3551,14 @@ namespace DVLD.Forms
         private System.Windows.Forms.TextBox txt_search_damaged;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pb_page5_back;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TabPage tab_replace_lost_license;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel23;
-        private UserControls.DriverLicenseCard driverLicenseCard6;
+        private UserControls.DriverLicenseCard driverLicenseCard_lost;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Label lb_created_by_lost;
         private System.Windows.Forms.Label label19;
@@ -3606,7 +3578,7 @@ namespace DVLD.Forms
         private System.Windows.Forms.TextBox txt_search_lost;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel20;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pb_page6_back;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label lb_total_applications_number;
         private System.Windows.Forms.Label lb_total_application_types;
