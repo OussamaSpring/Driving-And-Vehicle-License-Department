@@ -208,7 +208,7 @@ namespace DVLD.Pop_Ups
                     ClosingEvent?.Invoke(person.PersonId);
                 }
 
-                this.Close();
+                this.Dispose();
             }
             catch (Exception ex)
             {
@@ -247,7 +247,7 @@ namespace DVLD.Pop_Ups
         private bool ValidateNationalNumber()
         {
             string input = tb_national_no.Text.Trim();
-            if (!InputValidation.IsNotEmpty(input, out string errorMessage))
+            if (!InputValidation.IsAlphanumeric(input, out string errorMessage))
             {
                 err_input_validation.SetError(tb_national_no, errorMessage);
                 return false;

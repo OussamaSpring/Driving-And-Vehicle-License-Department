@@ -18,10 +18,10 @@ namespace DVLD.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lb_Title = new System.Windows.Forms.Label();
             this.pl_Body = new System.Windows.Forms.Panel();
             this.htc_tab_nav = new DVLD.CustomControls.HeaderlessTabControl();
@@ -71,7 +71,6 @@ namespace DVLD.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.flp_page1_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_add_local = new DVLD.Views.Controls.RoundedButton();
-            this.btn_cancel_local = new DVLD.Views.Controls.RoundedButton();
             this.flp_search_panel = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_add_person = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.btn_search_local = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
@@ -96,7 +95,6 @@ namespace DVLD.Forms
             this.label20 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_add_inter = new DVLD.Views.Controls.RoundedButton();
-            this.btn_cancel_inter = new DVLD.Views.Controls.RoundedButton();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_search_inter = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.txt_search_inter = new System.Windows.Forms.TextBox();
@@ -125,7 +123,6 @@ namespace DVLD.Forms
             this.label33 = new System.Windows.Forms.Label();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_release = new DVLD.Views.Controls.RoundedButton();
-            this.btn_cancel_release = new DVLD.Views.Controls.RoundedButton();
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_search_release = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.txt_search_release = new System.Windows.Forms.TextBox();
@@ -160,7 +157,6 @@ namespace DVLD.Forms
             this.label51 = new System.Windows.Forms.Label();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_renew = new DVLD.Views.Controls.RoundedButton();
-            this.btn_cancel_renew = new DVLD.Views.Controls.RoundedButton();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_renew_search = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.txt_search_renew = new System.Windows.Forms.TextBox();
@@ -187,7 +183,6 @@ namespace DVLD.Forms
             this.label54 = new System.Windows.Forms.Label();
             this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_replace_damaged = new DVLD.Views.Controls.RoundedButton();
-            this.btn_cancel_damaged = new DVLD.Views.Controls.RoundedButton();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_search_damaged = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.txt_search_damaged = new System.Windows.Forms.TextBox();
@@ -214,7 +209,6 @@ namespace DVLD.Forms
             this.label50 = new System.Windows.Forms.Label();
             this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_replace_lost = new DVLD.Views.Controls.RoundedButton();
-            this.btn_cancel_lost = new DVLD.Views.Controls.RoundedButton();
             this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_search_lost = new WindowsFormsControlLibrary.CustomControls.RoundedPictureBox();
             this.txt_search_lost = new System.Windows.Forms.TextBox();
@@ -250,6 +244,7 @@ namespace DVLD.Forms
             this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
             this.window_operations = new iNKORE.UI.WinForms.Styler.Controls.HeaderlessTabPage();
+            this.err_input_validation = new System.Windows.Forms.ErrorProvider(this.components);
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_operations.SuspendLayout();
@@ -343,6 +338,7 @@ namespace DVLD.Forms
             this.tab_types.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_Title
@@ -907,6 +903,7 @@ namespace DVLD.Forms
             this.cb_license_class_local.Name = "cb_license_class_local";
             this.cb_license_class_local.Size = new System.Drawing.Size(224, 23);
             this.cb_license_class_local.TabIndex = 3;
+            this.cb_license_class_local.SelectedIndexChanged += new System.EventHandler(this.cb_license_class_local_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -975,7 +972,6 @@ namespace DVLD.Forms
             // 
             this.flp_page1_footer.BackColor = System.Drawing.SystemColors.Control;
             this.flp_page1_footer.Controls.Add(this.btn_add_local);
-            this.flp_page1_footer.Controls.Add(this.btn_cancel_local);
             this.flp_page1_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flp_page1_footer.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flp_page1_footer.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1002,24 +998,7 @@ namespace DVLD.Forms
             this.btn_add_local.TabIndex = 0;
             this.btn_add_local.Text = "Add";
             this.btn_add_local.UseVisualStyleBackColor = false;
-            // 
-            // btn_cancel_local
-            // 
-            this.btn_cancel_local.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_cancel_local.BorderColor = System.Drawing.Color.Gray;
-            this.btn_cancel_local.BorderRadius = 20;
-            this.btn_cancel_local.BorderSize = 2;
-            this.btn_cancel_local.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel_local.FlatAppearance.BorderSize = 0;
-            this.btn_cancel_local.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel_local.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel_local.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_cancel_local.Location = new System.Drawing.Point(422, 9);
-            this.btn_cancel_local.Name = "btn_cancel_local";
-            this.btn_cancel_local.Size = new System.Drawing.Size(115, 30);
-            this.btn_cancel_local.TabIndex = 1;
-            this.btn_cancel_local.Text = "Cancel";
-            this.btn_cancel_local.UseVisualStyleBackColor = false;
+            this.btn_add_local.Click += new System.EventHandler(this.btn_add_local_Click);
             // 
             // flp_search_panel
             // 
@@ -1038,6 +1017,7 @@ namespace DVLD.Forms
             // btn_add_person
             // 
             this.btn_add_person.BackColor = System.Drawing.Color.White;
+            this.btn_add_person.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add_person.Image = global::DVLD.Properties.Resources.AddPerson;
             this.btn_add_person.Location = new System.Drawing.Point(638, 3);
             this.btn_add_person.Name = "btn_add_person";
@@ -1051,6 +1031,7 @@ namespace DVLD.Forms
             // btn_search_local
             // 
             this.btn_search_local.BackColor = System.Drawing.Color.White;
+            this.btn_search_local.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_local.Image = global::DVLD.Properties.Resources.search;
             this.btn_search_local.Location = new System.Drawing.Point(600, 3);
             this.btn_search_local.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -1060,6 +1041,7 @@ namespace DVLD.Forms
             this.btn_search_local.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_search_local.TabIndex = 6;
             this.btn_search_local.TabStop = false;
+            this.btn_search_local.Click += new System.EventHandler(this.btn_search_local_Click);
             // 
             // txt_search_local
             // 
@@ -1107,6 +1089,7 @@ namespace DVLD.Forms
             // 
             // pb_page1_back
             // 
+            this.pb_page1_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_page1_back.Image = global::DVLD.Properties.Resources.arrow;
             this.pb_page1_back.Location = new System.Drawing.Point(3, 0);
             this.pb_page1_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
@@ -1291,7 +1274,6 @@ namespace DVLD.Forms
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel3.Controls.Add(this.btn_add_inter);
-            this.flowLayoutPanel3.Controls.Add(this.btn_cancel_inter);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1319,24 +1301,6 @@ namespace DVLD.Forms
             this.btn_add_inter.Text = "Add";
             this.btn_add_inter.UseVisualStyleBackColor = false;
             // 
-            // btn_cancel_inter
-            // 
-            this.btn_cancel_inter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_cancel_inter.BorderColor = System.Drawing.Color.Gray;
-            this.btn_cancel_inter.BorderRadius = 20;
-            this.btn_cancel_inter.BorderSize = 2;
-            this.btn_cancel_inter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel_inter.FlatAppearance.BorderSize = 0;
-            this.btn_cancel_inter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel_inter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel_inter.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_cancel_inter.Location = new System.Drawing.Point(422, 9);
-            this.btn_cancel_inter.Name = "btn_cancel_inter";
-            this.btn_cancel_inter.Size = new System.Drawing.Size(115, 30);
-            this.btn_cancel_inter.TabIndex = 1;
-            this.btn_cancel_inter.Text = "Cancel";
-            this.btn_cancel_inter.UseVisualStyleBackColor = false;
-            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.btn_search_inter);
@@ -1352,6 +1316,7 @@ namespace DVLD.Forms
             // btn_search_inter
             // 
             this.btn_search_inter.BackColor = System.Drawing.Color.White;
+            this.btn_search_inter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_inter.Image = global::DVLD.Properties.Resources.search;
             this.btn_search_inter.Location = new System.Drawing.Point(636, 3);
             this.btn_search_inter.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -1361,6 +1326,7 @@ namespace DVLD.Forms
             this.btn_search_inter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_search_inter.TabIndex = 6;
             this.btn_search_inter.TabStop = false;
+            this.btn_search_inter.Click += new System.EventHandler(this.btn_search_inter_Click);
             // 
             // txt_search_inter
             // 
@@ -1394,6 +1360,7 @@ namespace DVLD.Forms
             // 
             // pb_page2_back
             // 
+            this.pb_page2_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_page2_back.Image = global::DVLD.Properties.Resources.arrow;
             this.pb_page2_back.Location = new System.Drawing.Point(3, 0);
             this.pb_page2_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
@@ -1660,7 +1627,6 @@ namespace DVLD.Forms
             // 
             this.flowLayoutPanel9.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel9.Controls.Add(this.btn_release);
-            this.flowLayoutPanel9.Controls.Add(this.btn_cancel_release);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1687,24 +1653,7 @@ namespace DVLD.Forms
             this.btn_release.TabIndex = 0;
             this.btn_release.Text = "Rlease";
             this.btn_release.UseVisualStyleBackColor = false;
-            // 
-            // btn_cancel_release
-            // 
-            this.btn_cancel_release.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_cancel_release.BorderColor = System.Drawing.Color.Gray;
-            this.btn_cancel_release.BorderRadius = 20;
-            this.btn_cancel_release.BorderSize = 2;
-            this.btn_cancel_release.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel_release.FlatAppearance.BorderSize = 0;
-            this.btn_cancel_release.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel_release.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel_release.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_cancel_release.Location = new System.Drawing.Point(422, 9);
-            this.btn_cancel_release.Name = "btn_cancel_release";
-            this.btn_cancel_release.Size = new System.Drawing.Size(115, 30);
-            this.btn_cancel_release.TabIndex = 1;
-            this.btn_cancel_release.Text = "Cancel";
-            this.btn_cancel_release.UseVisualStyleBackColor = false;
+            this.btn_release.Click += new System.EventHandler(this.btn_release_Click);
             // 
             // flowLayoutPanel10
             // 
@@ -1721,6 +1670,7 @@ namespace DVLD.Forms
             // btn_search_release
             // 
             this.btn_search_release.BackColor = System.Drawing.Color.White;
+            this.btn_search_release.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_release.Image = global::DVLD.Properties.Resources.search;
             this.btn_search_release.Location = new System.Drawing.Point(636, 3);
             this.btn_search_release.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -1730,6 +1680,7 @@ namespace DVLD.Forms
             this.btn_search_release.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_search_release.TabIndex = 6;
             this.btn_search_release.TabStop = false;
+            this.btn_search_release.Click += new System.EventHandler(this.btn_search_release_Click);
             // 
             // txt_search_release
             // 
@@ -1763,6 +1714,7 @@ namespace DVLD.Forms
             // 
             // pb_page3_back
             // 
+            this.pb_page3_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_page3_back.Image = global::DVLD.Properties.Resources.arrow;
             this.pb_page3_back.Location = new System.Drawing.Point(3, 0);
             this.pb_page3_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
@@ -2106,7 +2058,6 @@ namespace DVLD.Forms
             // 
             this.flowLayoutPanel12.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel12.Controls.Add(this.btn_renew);
-            this.flowLayoutPanel12.Controls.Add(this.btn_cancel_renew);
             this.flowLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel12.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -2134,24 +2085,6 @@ namespace DVLD.Forms
             this.btn_renew.Text = "Renew";
             this.btn_renew.UseVisualStyleBackColor = false;
             // 
-            // btn_cancel_renew
-            // 
-            this.btn_cancel_renew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_cancel_renew.BorderColor = System.Drawing.Color.Gray;
-            this.btn_cancel_renew.BorderRadius = 20;
-            this.btn_cancel_renew.BorderSize = 2;
-            this.btn_cancel_renew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel_renew.FlatAppearance.BorderSize = 0;
-            this.btn_cancel_renew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel_renew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel_renew.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_cancel_renew.Location = new System.Drawing.Point(449, 9);
-            this.btn_cancel_renew.Name = "btn_cancel_renew";
-            this.btn_cancel_renew.Size = new System.Drawing.Size(115, 30);
-            this.btn_cancel_renew.TabIndex = 1;
-            this.btn_cancel_renew.Text = "Cancel";
-            this.btn_cancel_renew.UseVisualStyleBackColor = false;
-            // 
             // flowLayoutPanel13
             // 
             this.flowLayoutPanel13.Controls.Add(this.btn_renew_search);
@@ -2167,6 +2100,7 @@ namespace DVLD.Forms
             // btn_renew_search
             // 
             this.btn_renew_search.BackColor = System.Drawing.Color.White;
+            this.btn_renew_search.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_renew_search.Image = global::DVLD.Properties.Resources.search;
             this.btn_renew_search.Location = new System.Drawing.Point(663, 3);
             this.btn_renew_search.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -2176,6 +2110,7 @@ namespace DVLD.Forms
             this.btn_renew_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_renew_search.TabIndex = 6;
             this.btn_renew_search.TabStop = false;
+            this.btn_renew_search.Click += new System.EventHandler(this.btn_renew_search_Click);
             // 
             // txt_search_renew
             // 
@@ -2209,6 +2144,7 @@ namespace DVLD.Forms
             // 
             // pb_page4_back
             // 
+            this.pb_page4_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_page4_back.Image = global::DVLD.Properties.Resources.arrow;
             this.pb_page4_back.Location = new System.Drawing.Point(3, 0);
             this.pb_page4_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
@@ -2447,7 +2383,6 @@ namespace DVLD.Forms
             // 
             this.flowLayoutPanel15.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel15.Controls.Add(this.btn_replace_damaged);
-            this.flowLayoutPanel15.Controls.Add(this.btn_cancel_damaged);
             this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel15.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel15.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -2475,24 +2410,6 @@ namespace DVLD.Forms
             this.btn_replace_damaged.Text = "Replace";
             this.btn_replace_damaged.UseVisualStyleBackColor = false;
             // 
-            // btn_cancel_damaged
-            // 
-            this.btn_cancel_damaged.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_cancel_damaged.BorderColor = System.Drawing.Color.Gray;
-            this.btn_cancel_damaged.BorderRadius = 20;
-            this.btn_cancel_damaged.BorderSize = 2;
-            this.btn_cancel_damaged.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel_damaged.FlatAppearance.BorderSize = 0;
-            this.btn_cancel_damaged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel_damaged.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel_damaged.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_cancel_damaged.Location = new System.Drawing.Point(449, 9);
-            this.btn_cancel_damaged.Name = "btn_cancel_damaged";
-            this.btn_cancel_damaged.Size = new System.Drawing.Size(115, 30);
-            this.btn_cancel_damaged.TabIndex = 1;
-            this.btn_cancel_damaged.Text = "Cancel";
-            this.btn_cancel_damaged.UseVisualStyleBackColor = false;
-            // 
             // flowLayoutPanel16
             // 
             this.flowLayoutPanel16.Controls.Add(this.btn_search_damaged);
@@ -2508,6 +2425,7 @@ namespace DVLD.Forms
             // btn_search_damaged
             // 
             this.btn_search_damaged.BackColor = System.Drawing.Color.White;
+            this.btn_search_damaged.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_damaged.Image = global::DVLD.Properties.Resources.search;
             this.btn_search_damaged.Location = new System.Drawing.Point(663, 3);
             this.btn_search_damaged.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -2517,6 +2435,7 @@ namespace DVLD.Forms
             this.btn_search_damaged.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_search_damaged.TabIndex = 6;
             this.btn_search_damaged.TabStop = false;
+            this.btn_search_damaged.Click += new System.EventHandler(this.btn_search_damaged_Click);
             // 
             // txt_search_damaged
             // 
@@ -2550,6 +2469,7 @@ namespace DVLD.Forms
             // 
             // pb_page5_back
             // 
+            this.pb_page5_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_page5_back.Image = global::DVLD.Properties.Resources.arrow;
             this.pb_page5_back.Location = new System.Drawing.Point(3, 0);
             this.pb_page5_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
@@ -2788,7 +2708,6 @@ namespace DVLD.Forms
             // 
             this.flowLayoutPanel18.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel18.Controls.Add(this.btn_replace_lost);
-            this.flowLayoutPanel18.Controls.Add(this.btn_cancel_lost);
             this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel18.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel18.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -2816,24 +2735,6 @@ namespace DVLD.Forms
             this.btn_replace_lost.Text = "Replace";
             this.btn_replace_lost.UseVisualStyleBackColor = false;
             // 
-            // btn_cancel_lost
-            // 
-            this.btn_cancel_lost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_cancel_lost.BorderColor = System.Drawing.Color.Gray;
-            this.btn_cancel_lost.BorderRadius = 20;
-            this.btn_cancel_lost.BorderSize = 2;
-            this.btn_cancel_lost.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel_lost.FlatAppearance.BorderSize = 0;
-            this.btn_cancel_lost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel_lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel_lost.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_cancel_lost.Location = new System.Drawing.Point(449, 9);
-            this.btn_cancel_lost.Name = "btn_cancel_lost";
-            this.btn_cancel_lost.Size = new System.Drawing.Size(115, 30);
-            this.btn_cancel_lost.TabIndex = 1;
-            this.btn_cancel_lost.Text = "Cancel";
-            this.btn_cancel_lost.UseVisualStyleBackColor = false;
-            // 
             // flowLayoutPanel19
             // 
             this.flowLayoutPanel19.Controls.Add(this.btn_search_lost);
@@ -2849,6 +2750,7 @@ namespace DVLD.Forms
             // btn_search_lost
             // 
             this.btn_search_lost.BackColor = System.Drawing.Color.White;
+            this.btn_search_lost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_lost.Image = global::DVLD.Properties.Resources.search;
             this.btn_search_lost.Location = new System.Drawing.Point(663, 3);
             this.btn_search_lost.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -2858,6 +2760,7 @@ namespace DVLD.Forms
             this.btn_search_lost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_search_lost.TabIndex = 6;
             this.btn_search_lost.TabStop = false;
+            this.btn_search_lost.Click += new System.EventHandler(this.btn_search_lost_Click);
             // 
             // txt_search_lost
             // 
@@ -2891,6 +2794,7 @@ namespace DVLD.Forms
             // 
             // pb_page6_back
             // 
+            this.pb_page6_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_page6_back.Image = global::DVLD.Properties.Resources.arrow;
             this.pb_page6_back.Location = new System.Drawing.Point(3, 0);
             this.pb_page6_back.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
@@ -2932,15 +2836,15 @@ namespace DVLD.Forms
             this.dgv_applications.AllowUserToDeleteRows = false;
             this.dgv_applications.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_applications.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_applications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_applications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_applications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_applications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.application_id,
@@ -2953,14 +2857,14 @@ namespace DVLD.Forms
             this.created_by_user_id});
             this.dgv_applications.ContextMenuStrip = this.cms_ApplicationsManagement;
             this.dgv_applications.CornerRadius = 15;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_applications.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_applications.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_applications.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_applications.EnableHeadersVisualStyles = false;
             this.dgv_applications.Location = new System.Drawing.Point(3, 53);
@@ -3151,29 +3055,29 @@ namespace DVLD.Forms
             this.dgv_application_types.AllowUserToDeleteRows = false;
             this.dgv_application_types.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgv_application_types.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_application_types.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_application_types.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_application_types.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_application_types.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.name,
             this.fee});
             this.dgv_application_types.CornerRadius = 15;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_application_types.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_application_types.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_application_types.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_application_types.EnableHeadersVisualStyles = false;
             this.dgv_application_types.Location = new System.Drawing.Point(0, 0);
@@ -3225,6 +3129,10 @@ namespace DVLD.Forms
             this.window_operations.Name = "window_operations";
             this.window_operations.Size = new System.Drawing.Size(200, 100);
             this.window_operations.TabIndex = 0;
+            // 
+            // err_input_validation
+            // 
+            this.err_input_validation.ContainerControl = this;
             // 
             // ApplicationsForm
             // 
@@ -3351,6 +3259,7 @@ namespace DVLD.Forms
             this.tab_types.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_application_types)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err_input_validation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3429,7 +3338,6 @@ namespace DVLD.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flp_page1_footer;
         private Views.Controls.RoundedButton btn_add_local;
-        private Views.Controls.RoundedButton btn_cancel_local;
         private System.Windows.Forms.FlowLayoutPanel flp_search_panel;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_add_person;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_search_local;
@@ -3454,7 +3362,6 @@ namespace DVLD.Forms
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private Views.Controls.RoundedButton btn_add_inter;
-        private Views.Controls.RoundedButton btn_cancel_inter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_search_inter;
         private System.Windows.Forms.TextBox txt_search_inter;
@@ -3483,7 +3390,6 @@ namespace DVLD.Forms
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private Views.Controls.RoundedButton btn_release;
-        private Views.Controls.RoundedButton btn_cancel_release;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_search_release;
         private System.Windows.Forms.TextBox txt_search_release;
@@ -3518,7 +3424,6 @@ namespace DVLD.Forms
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
         private Views.Controls.RoundedButton btn_renew;
-        private Views.Controls.RoundedButton btn_cancel_renew;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_renew_search;
         private System.Windows.Forms.TextBox txt_search_renew;
@@ -3545,7 +3450,6 @@ namespace DVLD.Forms
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
         private Views.Controls.RoundedButton btn_replace_damaged;
-        private Views.Controls.RoundedButton btn_cancel_damaged;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel16;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_search_damaged;
         private System.Windows.Forms.TextBox txt_search_damaged;
@@ -3572,7 +3476,6 @@ namespace DVLD.Forms
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
         private Views.Controls.RoundedButton btn_replace_lost;
-        private Views.Controls.RoundedButton btn_cancel_lost;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel19;
         private WindowsFormsControlLibrary.CustomControls.RoundedPictureBox btn_search_lost;
         private System.Windows.Forms.TextBox txt_search_lost;
@@ -3586,5 +3489,6 @@ namespace DVLD.Forms
         private System.Windows.Forms.ToolStripMenuItem tsmi_ViewAppDetails;
         private System.Windows.Forms.ToolStripMenuItem tsmi_ViewPersonInfo;
         private System.Windows.Forms.ToolStripMenuItem tsmi_ShowLicenseHistory;
+        private System.Windows.Forms.ErrorProvider err_input_validation;
     }
 }

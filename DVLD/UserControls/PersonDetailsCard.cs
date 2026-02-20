@@ -22,10 +22,28 @@ namespace DVLD.UserControls
             _personController = new PersonController(new PersonRepository());
         }
 
+        private void InitializeValues()
+        {
+            lb_person_id.Text = "??";
+            lb_national_no.Text = "??";
+            lb_name.Text = "??";
+            lb_date_of_birth.Text = "??";
+            lb_gender.Text = "??";
+            lb_email.Text = "??";
+            lb_phone.Text = "??";
+            lb_country.Text = "??";
+            lb_address.Text = "??";
+            rpb_profile_image.Image = null;
+            lb_edit.Visible = false;
+        }
+
         private void UpdateUI()
         {
             if (_person == null)
+            {
+                InitializeValues();
                 return;
+            }
 
             lb_person_id.Text = _person.PersonId.ToString();
             lb_national_no.Text = _person.NationalNumber;
@@ -50,9 +68,9 @@ namespace DVLD.UserControls
                 _person = await _personController.GetPersonByIdAsync(personId);
                 UpdateUI();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Error fetching person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error fetching person details!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // TODO: Log error
             }
         }
@@ -68,6 +86,10 @@ namespace DVLD.UserControls
                 MessageBox.Show($"Error fetching person details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // TODO: Log error
             }
+        }
+        public Person GetCurrentPerson()
+        {
+            return _person;
         }
         private void lb_edit_Click(object sender, System.EventArgs e)
         {

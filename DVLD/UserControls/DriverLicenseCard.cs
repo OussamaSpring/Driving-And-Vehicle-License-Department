@@ -29,11 +29,51 @@ namespace DVLD.UserControls
             _licenseDetainController = new LicenseDetainController(new LicenseDetainRepository());
         }
 
+        private void InitializeValues()
+        {
+            lb_license_id.Text = "??";
+            lb_license_class.Text = "??";
+            lb_is_detained.Text = "??";
+            lb_driver_id.Text = "??";
+            lb_name.Text = "??";
+            lb_date_of_birth.Text = "??";
+            lb_gender.Text = "??";
+            lb_national_number.Text = "??";
+            lb_is_active.Text = "??";
+            lb_issue_date.Text = "??";
+            lb_issue_reason.Text = "??";
+            lb_expiration_date.Text = "??";
+            lb_notes.Text = "??";
+        }
+
+
+        public License GetLicenseDetails()
+        {
+            if (_driverLicense == null)
+                return null;
+
+            return _driverLicense;
+        }
+        public Driver GetDriverDetails()
+        {
+            if (_driver == null)
+                return null;
+            return _driver;
+        }
+        public Person GetPersonDetails()
+        {
+            if (_person == null)
+                return null;
+            return _person;
+        }
 
         private void UpdateUI()
         {
             if (_driverLicense == null || _driver == null || _person == null)
+            {
+                InitializeValues();
                 return;
+            }
 
             lb_license_id.Text = _driverLicense.LicenseId.ToString();
             lb_license_class.Text = _licenseController.GetLicenseClassNameById(_driverLicense.ClassId);
@@ -60,10 +100,9 @@ namespace DVLD.UserControls
 
                 UpdateUI();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Error fetching driver license details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // TODO: Log exception
+                MessageBox.Show($"Error fetching driver license details!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

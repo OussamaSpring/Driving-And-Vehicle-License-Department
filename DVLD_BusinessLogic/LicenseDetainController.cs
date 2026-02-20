@@ -34,24 +34,24 @@ namespace DVLD_BusinessLogic
         }
         #endregion
 
-        public Task<DetainedLicense> GetDetainByIdAsync(int id)
+        public async Task<DetainedLicense> GetDetainByIdAsync(int id)
         {
-            return _licenseDetainRepository.GetByIdAsync(id);
+            return await _licenseDetainRepository.GetByIdAsync(id);
         }
 
-        public Task<IEnumerable<DetainedLicense>> GetDetainsListAsync()
+        public async Task<IEnumerable<DetainedLicense>> GetDetainsListAsync()
         {
-            return _licenseDetainRepository.GetAllAsync();
+            return await _licenseDetainRepository.GetAllAsync();
         }
 
-        public Task<bool> IsLicenseDetainedAsync(int licenseId)
+        public async Task<bool> IsLicenseDetainedAsync(int licenseId)
         {
-            return _licenseDetainRepository.IsLicenseDetainedAsync(licenseId);
+            return await _licenseDetainRepository.IsLicenseDetainedAsync(licenseId);
         }
 
-        public Task<bool> DetainLicenseAsync(DetainedLicense detainedLicense)
+        public async Task<bool> DetainLicenseAsync(DetainedLicense detainedLicense)
         {
-            return _licenseDetainRepository.DetainLicenseAsync(detainedLicense);
+            return await _licenseDetainRepository.DetainLicenseAsync(detainedLicense);
         }
     }
 }

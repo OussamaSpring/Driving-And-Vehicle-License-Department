@@ -3,6 +3,7 @@ using DVLD_DataAccess.Repositories;
 using System.Windows.Forms;
 using Core.Models;
 using System.Runtime.CompilerServices;
+using System.Globalization;
 using System;
 using DVLD.Pop_Ups;
 
@@ -31,10 +32,10 @@ namespace DVLD.UserControls
             lb_person_id.Text = _application.ApplicantPersonId.ToString();
             lb_date.Text = _application.ApplicationDate.ToString();
             lb_type.Text = _application.ApplicationType.ApplicationTypeName;
-            lb_type_fees.Text = _application.ApplicationType.ApplicationTypeFees.ToString("C");
+            lb_type_fees.Text = _application.ApplicationType.ApplicationTypeFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
             lb_status.Text = _application.enApplicationStatus.ToString();
             lb_user_id.Text = _application.CreatedByUserId.ToString();
-            lb_paid_fees.Text = _application.PaidFees?.ToString("C") ?? "N/A";
+            lb_paid_fees.Text = _application.PaidFees?.ToString("C", CultureInfo.GetCultureInfo("en-US")) ?? "N/A";
 
             lb_view_person_info.Visible = true;
         }
