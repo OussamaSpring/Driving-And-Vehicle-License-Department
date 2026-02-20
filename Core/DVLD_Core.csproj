@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ApplicationTypes.cs" />
+    <Compile Include="Enums\LicenseClasses.cs" />
     <Compile Include="Enums\LicenseIssueReason.cs" />
     <Compile Include="Enums\Genders.cs" />
     <Compile Include="Enums\ApplicationStatus.cs" />

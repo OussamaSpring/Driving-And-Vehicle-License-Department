@@ -20,7 +20,7 @@ namespace DVLD_DataAccess.Repositories
                 DetainID = Convert.ToInt32(row["DetainID"]),
                 LicenseID = Convert.ToInt32(row["LicenseID"]),
                 DetainDate = Convert.ToDateTime(row["DetainDate"]),
-                FineFees = (float)Convert.ToDecimal(row["FineFees"]),
+                FineFees = Convert.ToDecimal(row["FineFees"]),
                 CreatedByUserID = Convert.ToInt32(row["CreatedByUserID"]),
                 IsReleased = Convert.ToBoolean(row["IsReleased"]),
                 ReleaseDate = row["ReleaseDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["ReleaseDate"]),
@@ -36,6 +36,15 @@ namespace DVLD_DataAccess.Repositories
             string sqlQuery = "SELECT * FROM DetainedLicenses WHERE DetainID = @DetainID";
             var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
             if (dataTable.Rows.Count == 0)
+                return null;
+            return MapToLicenseDetain(dataTable.Rows[0]);
+        }
+        public async Task<DetainedLicense> GetByLicenseIdAsync(int id)
+        {
+            var parameters = new Dictionary<string, object> { { "@LicenseID", id } };
+            string sqlQuery = "SELECT * FROM DetainedLicenses WHERE LicenseID = @LicenseID";
+            var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery,parameters);
+            if(dataTable.Rows.Count == 0)
                 return null;
             return MapToLicenseDetain(dataTable.Rows[0]);
         }

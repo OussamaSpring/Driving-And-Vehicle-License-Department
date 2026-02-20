@@ -39,6 +39,11 @@ namespace DVLD_BusinessLogic
             return await _licenseDetainRepository.GetByIdAsync(id);
         }
 
+        public async Task<DetainedLicense> GetDetaineByLicenseIdAsync(int id)
+        {
+            return await _licenseDetainRepository.GetByLicenseIdAsync(id);
+        }
+
         public async Task<IEnumerable<DetainedLicense>> GetDetainsListAsync()
         {
             return await _licenseDetainRepository.GetAllAsync();

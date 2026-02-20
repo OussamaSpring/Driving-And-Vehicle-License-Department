@@ -100,7 +100,7 @@ namespace DVLD.Pop_Ups
                 {
                     LicenseID = _licenseId,
                     DetainDate = DateTime.Now,
-                    FineFees = float.Parse(txt_fine_fees_detain.Text.Trim()),
+                    FineFees = decimal.Parse(txt_fine_fees_detain.Text.Trim()),
                     CreatedByUserID = Session.CurrentUserProvider.CurrentUser.UserId,
                     IsReleased = false
                 };

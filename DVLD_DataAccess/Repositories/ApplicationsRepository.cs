@@ -133,7 +133,7 @@ namespace DVLD_DataAccess.Repositories
 
             return ApplicationsList;
         }
-        public async Task<bool> ReleaseDetainedDrivingLicenseAsync(Applications application, DetainedLicense detainedLicense)
+        public async Task<bool> ReleaseDetainedDrivingLicenseAsync(Applications application, int detainId, int userId)
         {
             using (var connection = DBHelper.CreateOpenConnection())
             using (var transaction = DBHelper.BeginTransaction(connection))
@@ -156,20 +156,20 @@ namespace DVLD_DataAccess.Repositories
                                             VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
                                             SELECT SCOPE_IDENTITY();";
                     var newAppIdObj = await DBHelper.ExecuteScalarAsync(insertAppSql, appParams, connection, transaction);
-                    detainedLicense.ReleaseApplicationID = Convert.ToInt32(newAppIdObj);
+                    
 
 
                     // Update detained license release info
                     var updateParams = new Dictionary<string, object>
                     {
-                        { "@DetainID", detainedLicense.DetainID },
-                        { "@IsReleased", detainedLicense.IsReleased },
-                        { "@ReleaseDate", detainedLicense.ReleaseDate},
-                        { "@ReleasedByUserID", detainedLicense.ReleasedByUserID},
-                        { "@ReleaseApplicationID", detainedLicense.ReleaseApplicationID }
+                        { "@DetainID", detainId },
+                        { "@IsReleased", true },
+                        { "@ReleaseDate", DateTime.Now},
+                        { "@ReleasedByUserID", userId},
+                        { "@ReleaseApplicationID", newAppIdObj }
                     };
 
-                    string updateSql = @"UPDATE DetainLicenses
+                    string updateSql = @"UPDATE DetainedLicenses
                                  SET IsReleased = @IsReleased,
                                      ReleaseDate = @ReleaseDate,
                                      ReleasedByUserID = @ReleasedByUserID,
