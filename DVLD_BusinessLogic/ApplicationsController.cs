@@ -52,6 +52,26 @@ namespace DVLD_BusinessLogic
                 CreatedByUserId = userId
             };
         }
+
+        private License PrepareReplacementLicense(License currentLicense, LicenseClass licenseClass, decimal paidFees, int userId, LicenseIsssueReasons enIssueReason, string notes)
+        {
+            DateTime issueDate = DateTime.Now;
+            short classId = licenseClass?.Id ?? currentLicense.ClassId;
+            int validityYears = licenseClass?.DefaultValidityLength ?? 0;
+
+            return new License
+            {
+                DriverId = currentLicense.DriverId,
+                ClassId = classId,
+                IssueDate = issueDate,
+                ExpirationDate = issueDate.AddYears(validityYears),
+                Notes = notes ?? string.Empty,
+                PaidFees = (float)paidFees,
+                IsActive = true,
+                enIssueReason = enIssueReason,
+                IssuedByUserId = userId
+            };
+        }
         #endregion
 
         public async Task<Applications> GetApplicationById(int appId)
@@ -79,9 +99,12 @@ namespace DVLD_BusinessLogic
             return await _applicationsRepository.ReleaseDetainedDrivingLicenseAsync(application, detainId, userId);
         }
 
-        public async Task<int> RenewExpiredDrivingLicenseAsync(ApplicationType at, int personId, decimal paidFees, int userId, License renewedLicense)
+        public async Task<int> RenewExpiredDrivingLicenseAsync(ApplicationType at, License currentLicense, LicenseClass licenseClass, string notes, int personId, decimal paidFees, int userId)
         {
             var application = PrepareApplication(personId, at, paidFees, userId);
+            
+            License renewedLicense = PrepareReplacementLicense(currentLicense, licenseClass, paidFees, userId,LicenseIsssueReasons.Renew, notes);
+
             return await _applicationsRepository.RenewExpiredDrivingLicenseAsync(application, renewedLicense);
         }
 

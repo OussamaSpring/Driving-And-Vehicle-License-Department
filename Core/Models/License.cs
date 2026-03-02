@@ -16,7 +16,7 @@ namespace Core.Models
         public string Notes { get; set; }
         public float PaidFees { get; set; }
         public bool IsActive { get; set; }
-        public LicenseIsssueReasons enIssuesReason { get; set; }
+        public LicenseIsssueReasons enIssueReason { get; set; }
         public int IssuedByUserId { get; set; }
     }
 }

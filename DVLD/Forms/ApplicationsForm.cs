@@ -22,7 +22,8 @@ namespace DVLD.Forms
         private readonly LicenseDetainController _licenseDetainController;
 
         private Dictionary<ApplicationTypes, ApplicationType> _applicationTypesDict;
-        private Dictionary<LicenseClasses, LicenseClass> _licenseClassesDict;
+        
+        private List<LicenseClass> _licenseClassesList;
 
         public ApplicationsForm()
         {
@@ -71,7 +72,7 @@ namespace DVLD.Forms
 
             cb_license_class_local.Items.Clear();
             cb_license_class_local.Items.Add("None");
-            cb_license_class_local.Items.AddRange(_licenseClassesDict.Values.Select(lc => lc.Name).ToArray());
+            cb_license_class_local.Items.AddRange(_licenseClassesList.Select(lc => lc.Name).ToArray());
             cb_license_class_local.SelectedIndex = 0;
 
             lb_application_fees_local.Text = applicationFee.ToString("C", CultureInfo.GetCultureInfo("en-US"));
@@ -173,7 +174,7 @@ namespace DVLD.Forms
             if (cb_license_class_local.SelectedItem != null && cb_license_class_local.SelectedItem.ToString() != "None")
             {
                 var selectedName = cb_license_class_local.SelectedItem.ToString();
-                var selectedClass = _licenseClassesDict.Values.FirstOrDefault(lc => lc.Name == selectedName);
+                var selectedClass = _licenseClassesList.FirstOrDefault(lc => lc.Name == selectedName);
                 licenceClassFee = selectedClass?.ClassFees ?? 0;
             }
 
@@ -189,9 +190,9 @@ namespace DVLD.Forms
                 at => at);
 
             var licenseClasses = await _licenseClassController.GetLicenseClassesListAsync();
-            _licenseClassesDict = licenseClasses.ToDictionary(
-                lc => (LicenseClasses)lc.Id,
-                lc => lc);
+
+            _licenseClassesList = licenseClasses.ToList();
+
         }
         private async void ApplicationsForm_Load(object sender, EventArgs e)
         {
@@ -210,6 +211,57 @@ namespace DVLD.Forms
 
 
         #region Application Operations
+
+        #region HelpFunctions
+        private int? GetLicenseIdFrom(TextBox textBox)
+        {
+            err_input_validation.SetError(textBox, string.Empty);
+
+            string input = textBox.Text.Trim();
+            if (!InputValidation.IsNumber(input, out string errorMessage))
+            {
+                err_input_validation.SetError(textBox, errorMessage);
+                return null;
+            }
+
+            return int.Parse(input);
+        }
+
+        private void PopulateReleaseUi(int licenseId, int detainId, DateTime detainDate, decimal fineFees)
+        {
+            driverLicenseCard_release.SetDriverLicense(licenseId);
+
+            decimal applicationFee = _applicationTypesDict[ApplicationTypes.ReleaseLicense].ApplicationTypeFees;
+            decimal totalFees = applicationFee + fineFees;
+
+            lb_detain_id_release.Text = detainId.ToString();
+            lb_detain_date_release.Text = detainDate.ToString("yyyy-MM-dd");
+            lb_fine_fees_release.Text = fineFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_application_fees_release.Text = applicationFee.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_total_fees_release.Text = totalFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_created_by_release.Text = CurrentUserProvider.CurrentUser.Username;
+        }
+
+
+        private void PopulateRenewUi(License license)
+        {
+            lb_old_license_id_renew.Text = license.LicenseId.ToString();
+            lb_renew_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+            LicenseClass licenseClass = _licenseClassesList.FirstOrDefault(lc => lc.Id == license.ClassId);
+            decimal licenseClassFees = licenseClass?.ClassFees ?? 0m;
+            decimal appFees = _applicationTypesDict[ApplicationTypes.RenewLicense].ApplicationTypeFees;
+
+            lb_license_fees_renew.Text = licenseClassFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_application_fees_renew.Text = appFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_total_fees_renew.Text = (licenseClassFees + appFees).ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_created_by_renew.Text = CurrentUserProvider.CurrentUser.Username;
+        }
+
+
+
+        #endregion
+
 
         // Add New Local Driving License Application --------------------------------------------------------------------------------------
         private void pb_add_person_Click(object sender, EventArgs e)
@@ -269,27 +321,25 @@ namespace DVLD.Forms
 
         private async void btn_search_release_Click(object sender, EventArgs e)
         {
-            if (ValidateLicenseId(txt_search_release.Text.Trim()))
+            int? licenseId = GetLicenseIdFrom(txt_search_release);
+            if (!licenseId.HasValue)
             {
-                int licenseId = int.Parse(txt_search_release.Text.Trim());
-
-                var detainedLicense = await _licenseDetainController.GetDetaineByLicenseIdAsync(licenseId);
-
-                if (detainedLicense == null || detainedLicense.IsReleased)
-                {
-                    MessageBox.Show("No active detained license found for this ID.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                driverLicenseCard_release.SetDriverLicense(licenseId);
-
-                decimal totalFees = _applicationTypesDict[ApplicationTypes.ReleaseLicense].ApplicationTypeFees + detainedLicense.FineFees;
-
-                lb_detain_id_release.Text = detainedLicense.DetainID.ToString();
-                lb_detain_date_release.Text = detainedLicense.DetainDate.ToString("yyyy-MM-dd");
-                lb_total_fees_release.Text = totalFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
-                lb_fine_fees_release.Text = detainedLicense.FineFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+                return;
             }
+
+            var detainedLicense = await _licenseDetainController.GetDetaineByLicenseIdAsync(licenseId.Value);
+
+            if (detainedLicense == null || detainedLicense.IsReleased)
+            {
+                MessageBox.Show("No active detained license found for this ID.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            PopulateReleaseUi(
+                licenseId.Value,
+                detainedLicense.DetainID,
+                detainedLicense.DetainDate,
+                detainedLicense.FineFees);
         }
 
         private async void btn_release_Click(object sender, EventArgs e)
@@ -316,12 +366,7 @@ namespace DVLD.Forms
                 int personId = driverLicenseCard_release.GetPersonDetails().PersonId;
                 int detainId = int.Parse(lb_detain_id_release.Text);
 
-                if (!decimal.TryParse(lb_total_fees_release.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"), out decimal paidFees))
-                {
-                    MessageBox.Show("Invalid fees amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    btn_release.Enabled = true;
-                    return;
-                }
+                decimal paidFees = decimal.Parse(lb_total_fees_release.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
 
                 bool result = await _applicationController.ReleaseDetainedDrivingLicenseAsync(_applicationTypesDict[ApplicationTypes.ReleaseLicense],detainId, personId, paidFees, CurrentUserProvider.CurrentUser.UserId);
 
@@ -345,17 +390,93 @@ namespace DVLD.Forms
         }
 
         // Renew Expired License Application ----------------------------------------------------------------------------------------------
+
         private void btn_renew_search_Click(object sender, EventArgs e)
         {
-            if (ValidateLicenseId(txt_search_renew.Text.Trim()))
+            int? licenseId = GetLicenseIdFrom(txt_search_renew);
+            if (!licenseId.HasValue)
             {
-                int licenseId = int.Parse(txt_search_renew.Text.Trim());
-                driverLicenseCard_renew.SetDriverLicense(licenseId);
+                return;
+            }
+
+            driverLicenseCard_renew.SetDriverLicense(licenseId.Value);
+
+            License license = driverLicenseCard_renew.GetLicenseDetails();
+            if (license == null)
+            {
+                MessageBox.Show("License details could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            PopulateRenewUi(license);
+        }
+
+        private async void btn_renew_Click(object sender, EventArgs e)
+        {
+            btn_renew.Enabled = false;
+
+            License license = driverLicenseCard_renew.GetLicenseDetails();
+
+            if (license == null || license.ExpirationDate < DateTime.Now)
+            {
+                MessageBox.Show("No expired license selected!\nPlease search for an EXPIRED license to renew", "No Expired License Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btn_renew.Enabled = true;
+                return;
+            }
+
+            try
+            {
+
+                LicenseClass licenseClass = _licenseClassesList.FirstOrDefault(lc => lc.Id == license.ClassId);
+                if (licenseClass == null)
+                {
+                    MessageBox.Show("License class could not be determined.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!decimal.TryParse(lb_total_fees_renew.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"), out decimal paidFees))
+                {
+                    MessageBox.Show("Invalid fees amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                ApplicationType appType = _applicationTypesDict[ApplicationTypes.RenewLicense];
+                string notes = rtb_notes_renew.Text ?? string.Empty;
+
+
+                int personId = driverLicenseCard_renew.GetPersonDetails().PersonId;
+
+                DateTime newExpirationDate = DateTime.Now.AddYears(licenseClass.DefaultValidityLength);
+
+                int newLicenseId = await _applicationController.RenewExpiredDrivingLicenseAsync(
+                    appType,
+                    license,
+                    licenseClass,
+                    notes,
+                    personId,
+                    paidFees,
+                    CurrentUserProvider.CurrentUser.UserId);
+
+                if (newLicenseId > 0)
+                {
+                    lb_renewed_license_id.Text = newLicenseId.ToString();
+                    lb_expiration_date_renew.Text = newExpirationDate.ToString("yyyy-MM-dd");
+                    MessageBox.Show("License renewed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InitializeRenewLicensePage();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btn_renew.Enabled = true;
             }
         }
 
 
-        // Renew Damaged License Application ----------------------------------------------------------------------------------------------
+        // Replace Damaged License Application ----------------------------------------------------------------------------------------------
         private void btn_search_damaged_Click(object sender, EventArgs e)
         {
             if (ValidateLicenseId(txt_search_damaged.Text.Trim()))
@@ -366,7 +487,7 @@ namespace DVLD.Forms
         }
 
 
-        // Renew Lost License Application -------------------------------------------------------------------------------------------------
+        // Replace Lost License Application -------------------------------------------------------------------------------------------------
 
         private void btn_search_lost_Click(object sender, EventArgs e)
         {
@@ -637,9 +758,6 @@ namespace DVLD.Forms
             }
             return true;
         }
-
-
-
 
 
         #endregion

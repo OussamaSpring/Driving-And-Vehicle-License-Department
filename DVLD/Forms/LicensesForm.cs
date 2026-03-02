@@ -104,7 +104,7 @@ namespace DVLD.Forms
                     license.IssueDate.ToString("yyyy/M/dd"),
                     license.ExpirationDate.ToString("yyyy/M/dd"),
                     license.IsActive,
-                    license.enIssuesReason.ToString(),
+                    license.enIssueReason.ToString(),
                     license.IssuedByUserId
                 );
             }

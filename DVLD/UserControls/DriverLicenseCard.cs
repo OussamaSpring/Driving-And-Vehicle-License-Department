@@ -85,7 +85,7 @@ namespace DVLD.UserControls
             lb_national_number.Text = _person.NationalNumber;
             lb_is_active.Text = _driverLicense.IsActive ? "Yes" : "No";
             lb_issue_date.Text = _driverLicense.IssueDate.ToShortDateString();
-            lb_issue_reason.Text = _driverLicense.enIssuesReason.ToString();
+            lb_issue_reason.Text = _driverLicense.enIssueReason.ToString();
             lb_expiration_date.Text = _driverLicense.ExpirationDate.ToShortDateString();
             lb_notes.Text = _driverLicense.Notes ?? "N/A";
         }

@@ -28,7 +28,7 @@ namespace DVLD_DataAccess.Repositories
                 Notes = row["Notes"] != DBNull.Value ? row["Notes"].ToString() : null,
                 PaidFees = Convert.ToSingle(row["PaidFees"]),
                 IsActive = Convert.ToBoolean(row["IsActive"]),
-                enIssuesReason = (LicenseIsssueReasons)Convert.ToInt32(row["IssueReason"]),
+                enIssueReason = (LicenseIsssueReasons)Convert.ToInt32(row["IssueReason"]),
                 IssuedByUserId = Convert.ToInt32(row["CreatedByUserID"])
             };
         }
