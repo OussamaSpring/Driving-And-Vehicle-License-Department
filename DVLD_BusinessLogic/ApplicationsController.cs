@@ -53,7 +53,7 @@ namespace DVLD_BusinessLogic
             };
         }
 
-        private License PrepareReplacementLicense(License currentLicense, LicenseClass licenseClass, decimal paidFees, int userId, LicenseIsssueReasons enIssueReason, string notes)
+        private License PrepareReplacementLicense(License currentLicense, LicenseClass licenseClass, decimal paidFees, int userId, LicenseIsssueReasons enIssueReason, string notes = null)
         {
             DateTime issueDate = DateTime.Now;
             short classId = licenseClass?.Id ?? currentLicense.ClassId;
@@ -99,25 +99,32 @@ namespace DVLD_BusinessLogic
             return await _applicationsRepository.ReleaseDetainedDrivingLicenseAsync(application, detainId, userId);
         }
 
-        public async Task<int> RenewExpiredDrivingLicenseAsync(ApplicationType at, License currentLicense, LicenseClass licenseClass, string notes, int personId, decimal paidFees, int userId)
+        public async Task<int> RenewExpiredDrivingLicenseAsync(ApplicationType at, License currentExpiredLicense, LicenseClass licenseClass, string notes, int personId, int userId)
         {
+            decimal paidFees = licenseClass.ClassFees + at.ApplicationTypeFees;
+
             var application = PrepareApplication(personId, at, paidFees, userId);
             
-            License renewedLicense = PrepareReplacementLicense(currentLicense, licenseClass, paidFees, userId,LicenseIsssueReasons.Renew, notes);
+            License renewedLicense = PrepareReplacementLicense(currentExpiredLicense, licenseClass, paidFees, userId, LicenseIsssueReasons.Renew, notes);
 
-            return await _applicationsRepository.RenewExpiredDrivingLicenseAsync(application, renewedLicense);
+            return await _applicationsRepository.RenewExpiredDrivingLicenseAsync(application, renewedLicense, currentExpiredLicense.LicenseId);
         }
 
-        public async Task<int> ReplaceDamagedDrivingLicenseAsync(ApplicationType at, int personId, decimal paidFees, int userId, License damagedLicense)
+        public async Task<int> ReplaceDamagedDrivingLicenseAsync(ApplicationType at, License currentDamagedLicense, LicenseClass licenseClass, string notes, int personId, int userId)
         {
+            decimal paidFees = licenseClass.ClassFees + at.ApplicationTypeFees;
+
             var application = PrepareApplication(personId, at, paidFees, userId);
-            return await _applicationsRepository.ReplaceDamagedDrivingLicenseAsync(application, damagedLicense);
+
+            License replacementLicense = PrepareReplacementLicense(currentDamagedLicense, licenseClass, paidFees, userId, LicenseIsssueReasons.ReplacementForDamaged);
+
+            return await _applicationsRepository.ReplaceDamagedDrivingLicenseAsync(application, replacementLicense, currentDamagedLicense.LicenseId);
         }
 
-        public async Task<int> ReplaceLostDrivingLicenseAsync(ApplicationType at, int personId, decimal paidFees, int userId, License lostLicense)
-        {
-            var application = PrepareApplication(personId, at, paidFees, userId);
-            return await _applicationsRepository.ReplaceLostDrivingLicenseAsync(application, lostLicense);
-        }
+        //public async Task<int> ReplaceLostDrivingLicenseAsync(ApplicationType at, int personId, decimal paidFees, int userId, License lostLicense)
+        //{
+        //    var application = PrepareApplication(personId, at, paidFees, userId);
+        //    return await _applicationsRepository.ReplaceLostDrivingLicenseAsync(application, lostLicense);
+        //}
     }
 }

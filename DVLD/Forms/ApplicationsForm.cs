@@ -213,21 +213,8 @@ namespace DVLD.Forms
         #region Application Operations
 
         #region HelpFunctions
-        private int? GetLicenseIdFrom(TextBox textBox)
-        {
-            err_input_validation.SetError(textBox, string.Empty);
 
-            string input = textBox.Text.Trim();
-            if (!InputValidation.IsNumber(input, out string errorMessage))
-            {
-                err_input_validation.SetError(textBox, errorMessage);
-                return null;
-            }
-
-            return int.Parse(input);
-        }
-
-        private void PopulateReleaseUi(int licenseId, int detainId, DateTime detainDate, decimal fineFees)
+        private void PopulateReleasePageInfo(int licenseId, int detainId, DateTime detainDate, decimal fineFees)
         {
             driverLicenseCard_release.SetDriverLicense(licenseId);
 
@@ -241,9 +228,7 @@ namespace DVLD.Forms
             lb_total_fees_release.Text = totalFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
             lb_created_by_release.Text = CurrentUserProvider.CurrentUser.Username;
         }
-
-
-        private void PopulateRenewUi(License license)
+        private void PopulateRenewPageInfo(License license)
         {
             lb_old_license_id_renew.Text = license.LicenseId.ToString();
             lb_renew_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
@@ -257,6 +242,23 @@ namespace DVLD.Forms
             lb_total_fees_renew.Text = (licenseClassFees + appFees).ToString("C", CultureInfo.GetCultureInfo("en-US"));
             lb_created_by_renew.Text = CurrentUserProvider.CurrentUser.Username;
         }
+        private void PopulateReplaceDamagedLicensePageInfo(License license)
+        {
+            lb_old_license_id_damaged.Text = license.LicenseId.ToString();
+            lb_replace_date_damaged.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            decimal appFees = _applicationTypesDict[ApplicationTypes.ReplaceDamagedLicense].ApplicationTypeFees;
+            lb_application_fees_damaged.Text = appFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_created_by_damaged.Text = CurrentUserProvider.CurrentUser.Username;
+        }
+        private void PopulateReplaceLostLicensePageInfo(License license)
+        {
+            lb_old_license_id_lost.Text = license.LicenseId.ToString();
+            lb_replace_date_lost.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            decimal appFees = _applicationTypesDict[ApplicationTypes.ReplaceLostLicense].ApplicationTypeFees;
+            lb_application_fees_lost.Text = appFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+            lb_created_by_lost.Text = CurrentUserProvider.CurrentUser.Username;
+        }
+
 
 
 
@@ -335,7 +337,7 @@ namespace DVLD.Forms
                 return;
             }
 
-            PopulateReleaseUi(
+            PopulateReleasePageInfo(
                 licenseId.Value,
                 detainedLicense.DetainID,
                 detainedLicense.DetainDate,
@@ -408,9 +410,8 @@ namespace DVLD.Forms
                 return;
             }
 
-            PopulateRenewUi(license);
+            PopulateRenewPageInfo(license);
         }
-
         private async void btn_renew_Click(object sender, EventArgs e)
         {
             btn_renew.Enabled = false;
@@ -434,12 +435,6 @@ namespace DVLD.Forms
                     return;
                 }
 
-                if (!decimal.TryParse(lb_total_fees_renew.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"), out decimal paidFees))
-                {
-                    MessageBox.Show("Invalid fees amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 ApplicationType appType = _applicationTypesDict[ApplicationTypes.RenewLicense];
                 string notes = rtb_notes_renew.Text ?? string.Empty;
 
@@ -454,7 +449,6 @@ namespace DVLD.Forms
                     licenseClass,
                     notes,
                     personId,
-                    paidFees,
                     CurrentUserProvider.CurrentUser.UserId);
 
                 if (newLicenseId > 0)
@@ -475,27 +469,108 @@ namespace DVLD.Forms
             }
         }
 
-
         // Replace Damaged License Application ----------------------------------------------------------------------------------------------
         private void btn_search_damaged_Click(object sender, EventArgs e)
         {
-            if (ValidateLicenseId(txt_search_damaged.Text.Trim()))
+            int? licenseId = GetLicenseIdFrom(txt_search_damaged);
+            if (!licenseId.HasValue)
             {
-                int licenseId = int.Parse(txt_search_damaged.Text.Trim());
-                driverLicenseCard_damaged.SetDriverLicense(licenseId);
+                return;
             }
+
+            driverLicenseCard_damaged.SetDriverLicense(licenseId.Value);
+
+            License license = driverLicenseCard_damaged.GetLicenseDetails();
+            if (license == null)
+            {
+                MessageBox.Show("License details could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            PopulateReplaceDamagedLicensePageInfo(license);
         }
 
+        private void btn_replace_damaged_Click(object sender, EventArgs e)
+        {
+            btn_replace_damaged.Enabled = false;
+
+            License license = driverLicenseCard_renew.GetLicenseDetails();
+
+            if (license == null || license.ExpirationDate < DateTime.Now)
+            {
+                MessageBox.Show("No license selected!\nPlease search for a license to replace", "No License Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btn_renew.Enabled = true;
+                return;
+            }
+
+            try
+            {
+
+                LicenseClass licenseClass = _licenseClassesList.FirstOrDefault(lc => lc.Id == license.ClassId);
+                if (licenseClass == null)
+                {
+                    MessageBox.Show("License class could not be determined.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                ApplicationType appType = _applicationTypesDict[ApplicationTypes.RenewLicense];
+                string notes = rtb_notes_renew.Text ?? string.Empty;
+
+
+                int personId = driverLicenseCard_renew.GetPersonDetails().PersonId;
+
+                DateTime newExpirationDate = DateTime.Now.AddYears(licenseClass.DefaultValidityLength);
+
+                //int newLicenseId = await _applicationController.RenewExpiredDrivingLicenseAsync(
+                //    appType,
+                //    license,
+                //    licenseClass,
+                //    notes,
+                //    personId,
+                //    paidFees,
+                //    CurrentUserProvider.CurrentUser.UserId);
+
+                //if (newLicenseId > 0)
+                //{
+                //    lb_renewed_license_id.Text = newLicenseId.ToString();
+                //    lb_expiration_date_renew.Text = newExpirationDate.ToString("yyyy-MM-dd");
+                //    MessageBox.Show("License renewed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    InitializeRenewLicensePage();
+                //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btn_renew.Enabled = true;
+            }
+        }
 
         // Replace Lost License Application -------------------------------------------------------------------------------------------------
 
         private void btn_search_lost_Click(object sender, EventArgs e)
         {
-            if (ValidateLicenseId(txt_search_lost.Text.Trim()))
+            int? licenseId = GetLicenseIdFrom(txt_search_lost);
+            if (!licenseId.HasValue)
             {
-                int licenseId = int.Parse(txt_search_lost.Text.Trim());
-                driverLicenseCard_lost.SetDriverLicense(licenseId);
+                return;
             }
+
+            driverLicenseCard_lost.SetDriverLicense(licenseId.Value);
+
+            License license = driverLicenseCard_damaged.GetLicenseDetails();
+            if (license == null)
+            {
+                MessageBox.Show("License details could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            PopulateReplaceLostLicensePageInfo(license);
+        }
+
+        private void btn_replace_lost_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion
@@ -749,19 +824,22 @@ namespace DVLD.Forms
             return true;
         }
 
-        public bool ValidateLicenseId(string input)
+        private int? GetLicenseIdFrom(TextBox textBox)
         {
+            err_input_validation.SetError(textBox, string.Empty);
+
+            string input = textBox.Text.Trim();
             if (!InputValidation.IsNumber(input, out string errorMessage))
             {
-                err_input_validation.SetError(txt_search_inter, errorMessage);
-                return false;
+                err_input_validation.SetError(textBox, errorMessage);
+                return null;
             }
-            return true;
+
+            return int.Parse(input);
         }
 
 
         #endregion
-
 
     }
 }

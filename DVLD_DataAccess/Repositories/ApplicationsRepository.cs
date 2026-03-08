@@ -188,7 +188,7 @@ namespace DVLD_DataAccess.Repositories
                 }
             }
         }
-        public async Task<int> RenewExpiredDrivingLicenseAsync(Applications application, License renewedLicense)
+        public async Task<int> RenewExpiredDrivingLicenseAsync(Applications application, License renewedLicense, int oldLicenseId)
         {
             using (var connection = DBHelper.CreateOpenConnection())
             using (var transaction = DBHelper.BeginTransaction(connection))
@@ -233,6 +233,15 @@ namespace DVLD_DataAccess.Repositories
                                             SELECT SCOPE_IDENTITY();";
                     var newLicenseIdObj = await DBHelper.ExecuteScalarAsync(insertLicenseSql, licenseParams, connection, transaction);
 
+                    // Set old license to inactive
+                    var updateOldLicenseParams = new Dictionary<string, object>
+                    {
+                        { "@LicenseId", oldLicenseId }
+                    };
+                    string updateOldLicenseSql = @"UPDATE Licenses SET IsActive = 0 WHERE LicenseID = @LicenseId;";
+                    await DBHelper.ExecuteNonQueryAsync(updateOldLicenseSql, updateOldLicenseParams, connection, transaction);
+
+
                     transaction.Commit();
                     return Convert.ToInt32(newLicenseIdObj);
                 }
@@ -243,7 +252,7 @@ namespace DVLD_DataAccess.Repositories
                 }
             }
         }
-        public async Task<int> ReplaceDamagedDrivingLicenseAsync(Applications application, License damagedLicense)
+        public async Task<int> ReplaceDamagedDrivingLicenseAsync(Applications application, License replacementLicense, int oldLicenseId)
         {
             using (var connection = DBHelper.CreateOpenConnection())
             using (var transaction = DBHelper.BeginTransaction(connection))
@@ -272,21 +281,29 @@ namespace DVLD_DataAccess.Repositories
                     var licenseParams = new Dictionary<string, object>
                     {
                         { "@ApplicationId", newAppId },
-                        { "@DriverId", damagedLicense.DriverId },
-                        { "@ClassId", damagedLicense.ClassId },
-                        { "@IssueDate", damagedLicense.IssueDate },
-                        { "@ExpirationDate", damagedLicense.ExpirationDate },
-                        { "@Notes", damagedLicense.Notes ?? string.Empty },
-                        { "@PaidFees", damagedLicense.PaidFees },
-                        { "@IsActive", damagedLicense.IsActive },
+                        { "@DriverId", replacementLicense.DriverId },
+                        { "@ClassId", replacementLicense.ClassId },
+                        { "@IssueDate", replacementLicense.IssueDate },
+                        { "@ExpirationDate", replacementLicense.ExpirationDate },
+                        { "@Notes", replacementLicense.Notes ?? string.Empty },
+                        { "@PaidFees", replacementLicense.PaidFees },
+                        { "@IsActive", replacementLicense.IsActive },
                         { "@enIssuesReason", (int)LicenseIsssueReasons.ReplacementForDamaged },
-                        { "@IssuedByUserId", damagedLicense.IssuedByUserId }
+                        { "@IssuedByUserId", replacementLicense.IssuedByUserId }
                     };
                     string insertLicenseSql = @"INSERT INTO Licenses
                                             (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssuesReason, CreatedByUserID)
                                             VALUES (@ApplicationId, @DriverId, @ClassId, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @enIssuesReason, @IssuedByUserId);
                                             SELECT SCOPE_IDENTITY();";
                     var newLicenseIdObj = await DBHelper.ExecuteScalarAsync(insertLicenseSql, licenseParams, connection, transaction);
+
+                    // Set old license to inactive
+                    var updateOldLicenseParams = new Dictionary<string, object>
+                    {
+                        { "@LicenseId", oldLicenseId }
+                    };
+                    string updateOldLicenseSql = @"UPDATE Licenses SET IsActive = 0 WHERE LicenseID = @LicenseId;";
+                    await DBHelper.ExecuteNonQueryAsync(updateOldLicenseSql, updateOldLicenseParams, connection, transaction);
 
                     transaction.Commit();
                     return Convert.ToInt32(newLicenseIdObj);
@@ -298,7 +315,7 @@ namespace DVLD_DataAccess.Repositories
                 }
             }
         }
-        public async Task<int> ReplaceLostDrivingLicenseAsync(Applications application, License lostLicense)
+        public async Task<int> ReplaceLostDrivingLicenseAsync(Applications application, License lostLicense, int oldLicenseId)
         {
             using (var connection = DBHelper.CreateOpenConnection())
             using (var transaction = DBHelper.BeginTransaction(connection))
@@ -342,6 +359,14 @@ namespace DVLD_DataAccess.Repositories
                                             VALUES (@ApplicationId, @DriverId, @ClassId, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @enIssuesReason, @IssuedByUserId);
                                             SELECT SCOPE_IDENTITY();";
                     var newLicenseIdObj = await DBHelper.ExecuteScalarAsync(insertLicenseSql, licenseParams, connection, transaction);
+
+                    // Set old license to inactive
+                    var updateOldLicenseParams = new Dictionary<string, object>
+                    {
+                        { "@LicenseId", oldLicenseId }
+                    };
+                    string updateOldLicenseSql = @"UPDATE Licenses SET IsActive = 0 WHERE LicenseID = @LicenseId;";
+                    await DBHelper.ExecuteNonQueryAsync(updateOldLicenseSql, updateOldLicenseParams, connection, transaction);
 
                     transaction.Commit();
                     return Convert.ToInt32(newLicenseIdObj);

@@ -17,9 +17,9 @@ namespace Core.Interfaces
         //Task<bool> AddNewLocalDrivingLicenseApplicationAsync();
         //Task<int> IssueNewInternationalDrivingLicenseAsync();
         Task<bool> ReleaseDetainedDrivingLicenseAsync(Applications application, int detainId, int userId);
-        Task<int> RenewExpiredDrivingLicenseAsync(Applications application, License renewedLicnese);
-        Task<int> ReplaceDamagedDrivingLicenseAsync(Applications application, License damagedLicnese);
-        Task<int> ReplaceLostDrivingLicenseAsync(Applications application, License lostLicnese);
+        Task<int> RenewExpiredDrivingLicenseAsync(Applications application, License renewedLicnese, int oldLicenseId);
+        Task<int> ReplaceDamagedDrivingLicenseAsync(Applications application, License replacementLicense, int oldLicenseId);
+        Task<int> ReplaceLostDrivingLicenseAsync(Applications application, License lostLicnese, int oldLicenseId);
 
     }
 }
