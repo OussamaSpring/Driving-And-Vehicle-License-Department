@@ -163,9 +163,9 @@ namespace DVLD_DataAccess.Repositories
 
             return rowsAffected > 0;
         }
-        public async Task<Person> GetByNationalNumberAsync(string nationalNo)
+        public async Task<Person> GetByNationalNumberAsync(string nationalNumber)
         {
-            var parameters = new Dictionary<string, object> { { "@NationalNo", nationalNo } };
+            var parameters = new Dictionary<string, object> { { "@NationalNo", nationalNumber } };
 
             string sqlQuery = @"SELECT People.PersonID, People.NationalNo, People.FirstName, People.SecondName, People.ThirdName, People.LastName, People.DateOfBirth, People.Gender, People.Address, People.NationalityCountryID,
                         Countries.CountryName, People.Phone, People.Email, People.PersonalImage

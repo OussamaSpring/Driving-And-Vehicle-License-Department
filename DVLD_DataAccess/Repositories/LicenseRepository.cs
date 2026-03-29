@@ -55,9 +55,9 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
-        public async Task<IEnumerable<License>> GetLicensesByDriverIdAsync(int driverId)
+        public async Task<IEnumerable<License>> GetLicensesByDriverIdAsync(int id)
         {
-            var parameters = new Dictionary<string, object> { { "@DriverID", driverId } };
+            var parameters = new Dictionary<string, object> { { "@DriverID", id } };
             string sqlQuery = "SELECT * FROM Licenses WHERE DriverID = @DriverID";
             var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
             var list = new List<License>();
@@ -67,9 +67,9 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
-        public async Task<IEnumerable<License>> GetLicensesByPersonIdAsync(int personId)
+        public async Task<IEnumerable<License>> GetLicensesByPersonIdAsync(int id)
         {
-            var parameters = new Dictionary<string, object> { { "@PersonID", personId } };
+            var parameters = new Dictionary<string, object> { { "@PersonID", id } };
             string sqlQuery = "SELECT * FROM Licenses WHERE DriverID IN (SELECT DriverID FROM Drivers WHERE PersonID = @PersonID)";
             var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
             var list = new List<License>();
@@ -79,9 +79,9 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
-        public async Task<bool> DoesLicenseExistAsync(int licenseId)
+        public async Task<bool> DoesLicenseExistAsync(int id)
         {
-            var parameters = new Dictionary<string, object> { { "@LicenseID", licenseId } };
+            var parameters = new Dictionary<string, object> { { "@LicenseID", id } };
             string sqlQuery = "SELECT COUNT(1) FROM Licenses WHERE LicenseID = @LicenseID";
             var result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
             int count = Convert.ToInt32(result);

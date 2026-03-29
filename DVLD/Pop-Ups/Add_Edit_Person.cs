@@ -377,15 +377,15 @@ namespace DVLD.Pop_Ups
         }
         private bool ValidateAllInputs()
         {
-            return ValidateFirstName() &
-                   ValidateSecondName() &
-                   ValidateThirdName() &
-                   ValidateLastName() &
-                   ValidateDateOfBirth() &
-                   ValidateEmail() &
-                   ValidatePhoneNumber() &
-                   ValidateCountry() &
-                   ValidateAddress() &
+            return ValidateFirstName() &&
+                   ValidateSecondName() &&
+                   ValidateThirdName() &&
+                   ValidateLastName() &&
+                   ValidateDateOfBirth() &&
+                   ValidateEmail() &&
+                   ValidatePhoneNumber() &&
+                   ValidateCountry() &&
+                   ValidateAddress() &&
                    ValidateNationalNumber();
         }
 

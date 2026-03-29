@@ -304,7 +304,7 @@ namespace DVLD.Forms
 
         private void btn_add_local_Click(object sender, EventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         // Add New International Driving License Application ------------------------------------------------------------------------------
@@ -489,15 +489,15 @@ namespace DVLD.Forms
             PopulateReplaceDamagedLicensePageInfo(license);
         }
 
-        private void btn_replace_damaged_Click(object sender, EventArgs e)
+        private async void btn_replace_damaged_Click(object sender, EventArgs e)
         {
             btn_replace_damaged.Enabled = false;
 
-            License license = driverLicenseCard_renew.GetLicenseDetails();
+            License license = driverLicenseCard_damaged.GetLicenseDetails();
 
             if (license == null || license.ExpirationDate < DateTime.Now)
             {
-                MessageBox.Show("No license selected!\nPlease search for a license to replace", "No License Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No active license selected!\nPlease search for a license to replace", "No License Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btn_renew.Enabled = true;
                 return;
             }
@@ -512,30 +512,24 @@ namespace DVLD.Forms
                     return;
                 }
 
-                ApplicationType appType = _applicationTypesDict[ApplicationTypes.RenewLicense];
-                string notes = rtb_notes_renew.Text ?? string.Empty;
-
+                ApplicationType appType = _applicationTypesDict[ApplicationTypes.ReplaceDamagedLicense];
 
                 int personId = driverLicenseCard_renew.GetPersonDetails().PersonId;
 
-                DateTime newExpirationDate = DateTime.Now.AddYears(licenseClass.DefaultValidityLength);
 
-                //int newLicenseId = await _applicationController.RenewExpiredDrivingLicenseAsync(
-                //    appType,
-                //    license,
-                //    licenseClass,
-                //    notes,
-                //    personId,
-                //    paidFees,
-                //    CurrentUserProvider.CurrentUser.UserId);
+                int newLicenseId = await _applicationController.ReplaceDamagedDrivingLicenseAsync(
+                    appType,
+                    license,
+                    licenseClass,
+                    personId,
+                    CurrentUserProvider.CurrentUser.UserId );
 
-                //if (newLicenseId > 0)
-                //{
-                //    lb_renewed_license_id.Text = newLicenseId.ToString();
-                //    lb_expiration_date_renew.Text = newExpirationDate.ToString("yyyy-MM-dd");
-                //    MessageBox.Show("License renewed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    InitializeRenewLicensePage();
-                //}
+                if (newLicenseId > 0)
+                {
+                    lb_replaced_license_id_damaged.Text = newLicenseId.ToString();
+                    MessageBox.Show("License renewed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InitializeReplaceDamagedLicensePage();
+                }
             }
             catch (Exception ex)
             {
@@ -559,7 +553,7 @@ namespace DVLD.Forms
 
             driverLicenseCard_lost.SetDriverLicense(licenseId.Value);
 
-            License license = driverLicenseCard_damaged.GetLicenseDetails();
+            License license = driverLicenseCard_lost.GetLicenseDetails();
             if (license == null)
             {
                 MessageBox.Show("License details could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -568,9 +562,56 @@ namespace DVLD.Forms
             PopulateReplaceLostLicensePageInfo(license);
         }
 
-        private void btn_replace_lost_Click(object sender, EventArgs e)
+        private async void btn_replace_lost_Click(object sender, EventArgs e)
         {
+            btn_replace_lost.Enabled = false;
 
+            License license = driverLicenseCard_lost.GetLicenseDetails();
+
+            if (license == null || license.ExpirationDate < DateTime.Now)
+            {
+                MessageBox.Show("No active license selected!\nPlease search for a license to replace", "No License Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btn_renew.Enabled = true;
+                return;
+            }
+
+            try
+            {
+
+                LicenseClass licenseClass = _licenseClassesList.FirstOrDefault(lc => lc.Id == license.ClassId);
+                if (licenseClass == null)
+                {
+                    MessageBox.Show("License class could not be determined.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                ApplicationType appType = _applicationTypesDict[ApplicationTypes.ReplaceLostLicense];
+
+                int personId = driverLicenseCard_renew.GetPersonDetails().PersonId;
+
+
+                int newLicenseId = await _applicationController.ReplaceLostDrivingLicenseAsync(
+                    appType,
+                    license,
+                    licenseClass,
+                    personId,
+                    CurrentUserProvider.CurrentUser.UserId);
+
+                if (newLicenseId > 0)
+                {
+                    lb_replaced_license_id_lost.Text = newLicenseId.ToString();
+                    MessageBox.Show("License replaced successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InitializeReplaceLostLicensePage();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btn_renew.Enabled = true;
+            }
         }
 
         #endregion

@@ -46,13 +46,10 @@ namespace DVLD.CustomControls
         protected override void WndProc(ref Message m)
         {
             // Hide the tab headers by skipping their paint message
-            if (m.Msg == 0x1328) // TCM_ADJUSTRECT
+            if (m.Msg == 0x1328 && !ShowTabHeaders && !this.DesignMode) // TCM_ADJUSTRECT
             {
-                if (!ShowTabHeaders && !this.DesignMode)
-                {
-                    m.Result = (IntPtr)1;
-                    return;
-                }
+                m.Result = (IntPtr)1;
+                return;
             }
             base.WndProc(ref m);
         }

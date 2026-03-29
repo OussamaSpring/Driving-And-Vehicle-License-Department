@@ -35,33 +35,14 @@ namespace DVLD.Dialogs
                 chk_remember_me.Checked = true;
             }
         }
-        private bool ValidateUsername()
-        {
-            if (string.IsNullOrWhiteSpace(txt_username.Text))
-            {
-                err_login_credential.SetError(txt_username, "Username cannot be empty.");
-                return false;
-            }
-            err_login_credential.SetError(txt_username, string.Empty);
-            return true;
-        }
-        private bool ValidatePassword()
-        {
-            if (string.IsNullOrWhiteSpace(txt_password.Text))
-            {
-                err_login_credential.SetError(txt_password, "Password cannot be empty.");
-                return false;
-            }
-            err_login_credential.SetError(txt_password, string.Empty);
-            return true;
-        }
+
         private void lb_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
         private async void btn_login_Click(object sender, EventArgs e)
         {
-            bool isValid = ValidateUsername() & ValidatePassword();
+            bool isValid = ValidateUsername() && ValidatePassword();
 
             if (isValid)
             {
@@ -109,6 +90,30 @@ namespace DVLD.Dialogs
             {
                 RegistryCredentials.SaveCredentials(txt_username.Text, txt_password.Text);
             }
+        }
+
+        #endregion
+
+        #region Validation
+        private bool ValidateUsername()
+        {
+            if (string.IsNullOrWhiteSpace(txt_username.Text))
+            {
+                err_login_credential.SetError(txt_username, "Username cannot be empty.");
+                return false;
+            }
+            err_login_credential.SetError(txt_username, string.Empty);
+            return true;
+        }
+        private bool ValidatePassword()
+        {
+            if (string.IsNullOrWhiteSpace(txt_password.Text))
+            {
+                err_login_credential.SetError(txt_password, "Password cannot be empty.");
+                return false;
+            }
+            err_login_credential.SetError(txt_password, string.Empty);
+            return true;
         }
 
         #endregion

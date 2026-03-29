@@ -769,15 +769,15 @@ namespace DVLD.Forms
         }
         private bool ValidatePersonInputs()
         {
-            return ValidateFirstName() &
-                   ValidateSecondName() &
-                   ValidateThirdName() &
-                   ValidateLastName() &
-                   ValidateDateOfBirth() &
-                   ValidateEmail() &
-                   ValidatePhoneNumber() &
-                   ValidateCountry() &
-                   ValidateAddress() &
+            return ValidateFirstName() &&
+                   ValidateSecondName() &&
+                   ValidateThirdName() &&
+                   ValidateLastName() &&
+                   ValidateDateOfBirth() &&
+                   ValidateEmail() &&
+                   ValidatePhoneNumber() &&
+                   ValidateCountry() &&
+                   ValidateAddress() &&
                    ValidateNationalNumber();
         }
         private bool ValidateUsernameInput()

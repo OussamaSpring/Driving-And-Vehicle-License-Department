@@ -315,7 +315,7 @@ namespace DVLD_DataAccess.Repositories
                 }
             }
         }
-        public async Task<int> ReplaceLostDrivingLicenseAsync(Applications application, License lostLicense, int oldLicenseId)
+        public async Task<int> ReplaceLostDrivingLicenseAsync(Applications application, License replacementLicense, int oldLicenseId)
         {
             using (var connection = DBHelper.CreateOpenConnection())
             using (var transaction = DBHelper.BeginTransaction(connection))
@@ -344,15 +344,15 @@ namespace DVLD_DataAccess.Repositories
                     var licenseParams = new Dictionary<string, object>
                     {
                         { "@ApplicationId", newAppId },
-                        { "@DriverId", lostLicense.DriverId },
-                        { "@ClassId", lostLicense.ClassId },
-                        { "@IssueDate", lostLicense.IssueDate },
-                        { "@ExpirationDate", lostLicense.ExpirationDate },
-                        { "@Notes", lostLicense.Notes ?? string.Empty },
-                        { "@PaidFees", lostLicense.PaidFees },
-                        { "@IsActive", lostLicense.IsActive },
+                        { "@DriverId", replacementLicense.DriverId },
+                        { "@ClassId", replacementLicense.ClassId },
+                        { "@IssueDate", replacementLicense.IssueDate },
+                        { "@ExpirationDate", replacementLicense.ExpirationDate },
+                        { "@Notes", replacementLicense.Notes ?? string.Empty },
+                        { "@PaidFees", replacementLicense.PaidFees },
+                        { "@IsActive", replacementLicense.IsActive },
                         { "@enIssuesReason", (int)LicenseIsssueReasons.ReplacementForLost },
-                        { "@IssuedByUserId", lostLicense.IssuedByUserId }
+                        { "@IssuedByUserId", replacementLicense.IssuedByUserId }
                     };
                     string insertLicenseSql = @"INSERT INTO Licenses
                                             (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssuesReason, CreatedByUserID)

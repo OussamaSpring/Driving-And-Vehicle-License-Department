@@ -28,9 +28,9 @@ namespace DVLD_DataAccess.Repositories
 
         #endregion
 
-        public async Task<User> GetByIdAsync(int userId)
+        public async Task<User> GetByIdAsync(int id)
         {
-            var parameters = new Dictionary<string, object> { { "@UserId", userId } };
+            var parameters = new Dictionary<string, object> { { "@UserId", id } };
 
             string sqlQuery = "SELECT * FROM Users WHERE UserID = @UserId";
 

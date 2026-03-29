@@ -53,11 +53,16 @@ namespace DVLD_BusinessLogic
             };
         }
 
+        private int GetValidityYears(LicenseClass licenseClass, LicenseIsssueReasons enIssueReason)
+        {
+            return (enIssueReason == LicenseIsssueReasons.ReplacementForLost || enIssueReason == LicenseIsssueReasons.ReplacementForDamaged) ? 0 : licenseClass?.DefaultValidityLength ?? 0;
+        }
+
         private License PrepareReplacementLicense(License currentLicense, LicenseClass licenseClass, decimal paidFees, int userId, LicenseIsssueReasons enIssueReason, string notes = null)
         {
             DateTime issueDate = DateTime.Now;
             short classId = licenseClass?.Id ?? currentLicense.ClassId;
-            int validityYears = licenseClass?.DefaultValidityLength ?? 0;
+            int validityYears = GetValidityYears(licenseClass, enIssueReason);
 
             return new License
             {
@@ -110,21 +115,26 @@ namespace DVLD_BusinessLogic
             return await _applicationsRepository.RenewExpiredDrivingLicenseAsync(application, renewedLicense, currentExpiredLicense.LicenseId);
         }
 
-        public async Task<int> ReplaceDamagedDrivingLicenseAsync(ApplicationType at, License currentDamagedLicense, LicenseClass licenseClass, string notes, int personId, int userId)
+        public async Task<int> ReplaceDamagedDrivingLicenseAsync(ApplicationType at, License currentDamagedLicense, LicenseClass licenseClass, int personId, int userId)
         {
             decimal paidFees = licenseClass.ClassFees + at.ApplicationTypeFees;
 
             var application = PrepareApplication(personId, at, paidFees, userId);
 
-            License replacementLicense = PrepareReplacementLicense(currentDamagedLicense, licenseClass, paidFees, userId, LicenseIsssueReasons.ReplacementForDamaged);
+            License replacementLicense = PrepareReplacementLicense(currentDamagedLicense, licenseClass, paidFees, userId, LicenseIsssueReasons.ReplacementForDamaged, currentDamagedLicense.Notes);
 
             return await _applicationsRepository.ReplaceDamagedDrivingLicenseAsync(application, replacementLicense, currentDamagedLicense.LicenseId);
         }
 
-        //public async Task<int> ReplaceLostDrivingLicenseAsync(ApplicationType at, int personId, decimal paidFees, int userId, License lostLicense)
-        //{
-        //    var application = PrepareApplication(personId, at, paidFees, userId);
-        //    return await _applicationsRepository.ReplaceLostDrivingLicenseAsync(application, lostLicense);
-        //}
+        public async Task<int> ReplaceLostDrivingLicenseAsync(ApplicationType at, License currentLostLicense, LicenseClass licenseClass, int personId, int userId)
+        {
+            decimal paidFees = licenseClass.ClassFees + at.ApplicationTypeFees;
+
+            var application = PrepareApplication(personId, at, paidFees, userId);
+
+            License replacementLicense = PrepareReplacementLicense(currentLostLicense, licenseClass, paidFees, userId, LicenseIsssueReasons.ReplacementForLost, currentLostLicense.Notes);
+
+            return await _applicationsRepository.ReplaceLostDrivingLicenseAsync(application, replacementLicense, currentLostLicense.LicenseId);
+        }
     }
 }
