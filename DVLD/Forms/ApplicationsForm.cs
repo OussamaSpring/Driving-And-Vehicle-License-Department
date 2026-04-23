@@ -20,9 +20,10 @@ namespace DVLD.Forms
         private readonly ApplicationsController _applicationController;
         private readonly LicenseClassController _licenseClassController;
         private readonly LicenseDetainController _licenseDetainController;
+        private readonly LicenseController _licenseController;
 
         private Dictionary<ApplicationTypes, ApplicationType> _applicationTypesDict;
-        
+
         private List<LicenseClass> _licenseClassesList;
 
         public ApplicationsForm()
@@ -37,7 +38,7 @@ namespace DVLD.Forms
             tabs.SetTabs("Operations", "Applications List", "Applications Types");
             tabs.SelectedIndexChanged += (s, e) =>
             {
-                
+
                 switch (tabs.SelectedIndex)
                 {
                     case 0:
@@ -56,9 +57,10 @@ namespace DVLD.Forms
 
 
             _applicationTypeController = new ApplicationTypeController(new ApplicationTypeRepository());
-            _applicationController = new ApplicationsController(new ApplicationsRepository());
+            _applicationController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository());
             _licenseClassController = new LicenseClassController(new LicenseClassRepository());
             _licenseDetainController = new LicenseDetainController(new LicenseDetainRepository());
+            _licenseController = new LicenseController(new LicenseRepository());
         }
 
         #region Operations Page Initialization
@@ -165,21 +167,6 @@ namespace DVLD.Forms
             InitializeReplaceDamagedLicensePage();
             InitializeReplaceLostLicensePage();
         }
-        private void cb_license_class_local_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            decimal applicationFee = _applicationTypesDict.TryGetValue(ApplicationTypes.AddLocalLicense, out var appType)
-                ? appType.ApplicationTypeFees : 0;
-
-            decimal licenceClassFee = 0;
-            if (cb_license_class_local.SelectedItem != null && cb_license_class_local.SelectedItem.ToString() != "None")
-            {
-                var selectedName = cb_license_class_local.SelectedItem.ToString();
-                var selectedClass = _licenseClassesList.FirstOrDefault(lc => lc.Name == selectedName);
-                licenceClassFee = selectedClass?.ClassFees ?? 0;
-            }
-
-            lb_application_fees_local.Text = (applicationFee + licenceClassFee).ToString("C", CultureInfo.GetCultureInfo("en-US"));
-        }
         #endregion
 
         private async Task FillApplicationTypesAndLicenseClassesAsync()
@@ -197,7 +184,7 @@ namespace DVLD.Forms
         private async void ApplicationsForm_Load(object sender, EventArgs e)
         {
             OnOperationsTabSelected();
-            
+
 
             uc_application_list_topbar.btn_add_Hide();
             uc_application_list_topbar.FillFilterCriteria(_applicationController.GetApplicationFilterCriteria());
@@ -272,7 +259,7 @@ namespace DVLD.Forms
             try
             {
                 Add_Edit_Person addPersonForm = new Add_Edit_Person(null);
-                addPersonForm.ShowDialog();
+                addPersonForm.ShowDialog(this);
             }
             catch (Exception ex)
             {
@@ -286,9 +273,9 @@ namespace DVLD.Forms
 
         private void btn_search_local_Click(object sender, EventArgs e)
         {
-            if(ValidatePersonIdOrNationalNo())
+            if (ValidatePersonIdOrNationalNo())
             {
-                switch(cb_filter_local.SelectedItem.ToString())
+                switch (cb_filter_local.SelectedItem.ToString())
                 {
                     case "Person ID":
                         int personId = int.Parse(txt_search_local.Text.Trim());
@@ -302,23 +289,110 @@ namespace DVLD.Forms
             }
         }
 
-        private void btn_add_local_Click(object sender, EventArgs e)
+        private async void btn_add_local_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            btn_add_local.Enabled = false;
+
+            Person person = local_personDetailsCard.GetCurrentPerson();
+
+            if (person == null)
+            {
+                MessageBox.Show("No person selected!\nPlease search for a person to apply for", "No Person Selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btn_add_local.Enabled = true;
+                return;
+            }
+
+            LicenseClass selectedClass = (cb_license_class_local.SelectedIndex > 0) ? _licenseClassesList[cb_license_class_local.SelectedIndex - 1] : null;
+
+            if (selectedClass == null)
+            {
+                MessageBox.Show("No license class selected!\nPlease select a license class to apply for", "No License Class Selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btn_add_local.Enabled = true;
+                return;
+            }
+
+            if (MessageBox.Show($"Are you want to apply for a new local driving license for this person [{person.PersonId}]?", "Confirm Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                btn_add_local.Enabled = true;
+                return;
+            }
+
+            try
+            {
+                ApplicationType appType = _applicationTypesDict[ApplicationTypes.AddLocalLicense];
+                int newLicenseId = await _applicationController.AddNewLocalDrivingLicenseApplicationAsync(
+                    appType,
+                    selectedClass,
+                    person.PersonId,
+                    CurrentUserProvider.CurrentUser.UserId);
+                if (newLicenseId > 0)
+                {
+                    MessageBox.Show($"Application submitted successfully.\nNew License ID: {newLicenseId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InitializeLocalDrivingLicenseApplicationPage();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to submit application. Person already have a local driving license with this class.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Add New International Driving License Application ------------------------------------------------------------------------------
 
-        private void btn_search_inter_Click(object sender, EventArgs e)
+        private async void btn_search_inter_Click(object sender, EventArgs e)
         {
-            if (ValidateLicenseId(txt_search_inter.Text.Trim()))
+            int? licenseId = GetLicenseIdFrom(txt_search_release);
+            if (!licenseId.HasValue)
             {
-                int licenseId = int.Parse(txt_search_inter.Text.Trim());
-                driverLicenseCard_inter.SetDriverLicense(licenseId);
+                return;
             }
+
+            var license = await _licenseController.GetLicenseByIdAsync(licenseId.Value);
+
+            if (license == null || license.ExpirationDate < DateTime.Now || !license.IsActive)
+            {
+                MessageBox.Show("No active license found for this ID.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            driverLicenseCard_inter.SetDriverLicense(licenseId.Value);
         }
 
+        private async void btn_add_inter_Click(object sender, EventArgs e)
+        {
+            btn_add_inter.Enabled = false;
 
+            License license = driverLicenseCard_inter.GetLicenseDetails();
+            Person person = driverLicenseCard_inter.GetPersonDetails();
+
+            if (license == null)
+            {
+                MessageBox.Show("No active license selected!\nPlease search for an active license to apply for", "No License Selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btn_add_inter.Enabled = true;
+                return;
+            }
+
+            LicenseClass licenseClass = _licenseClassesList.FirstOrDefault(lc => string.Equals(lc.Name, "Class 3 - Ordinary driving license", StringComparison.OrdinalIgnoreCase));
+
+            if (license.ClassId == licenseClass?.Id)
+            {
+                MessageBox.Show("The selected license is already an ordinary driving license (Class 3), which is the minimum requirement for applying for an international driving license.", "Ineligible License", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btn_add_inter.Enabled = true;
+                return;
+            }
+
+            if (MessageBox.Show($"Are you want to apply for a new international driving license based on this license [{license.LicenseId}]?", "Confirm Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                btn_add_inter.Enabled = true;
+                return;
+            }
+
+            // Wait for implementation
+        }
         // Release Detained License Application -------------------------------------------------------------------------------------------
 
         private async void btn_search_release_Click(object sender, EventArgs e)
@@ -362,7 +436,7 @@ namespace DVLD.Forms
                 btn_release.Enabled = true;
                 return;
             }
-            
+
             try
             {
                 int personId = driverLicenseCard_release.GetPersonDetails().PersonId;
@@ -370,7 +444,7 @@ namespace DVLD.Forms
 
                 decimal paidFees = decimal.Parse(lb_total_fees_release.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
 
-                bool result = await _applicationController.ReleaseDetainedDrivingLicenseAsync(_applicationTypesDict[ApplicationTypes.ReleaseLicense],detainId, personId, paidFees, CurrentUserProvider.CurrentUser.UserId);
+                bool result = await _applicationController.ReleaseDetainedDrivingLicenseAsync(_applicationTypesDict[ApplicationTypes.ReleaseLicense], detainId, personId, paidFees, CurrentUserProvider.CurrentUser.UserId);
 
                 if (result)
                 {
@@ -522,7 +596,7 @@ namespace DVLD.Forms
                     license,
                     licenseClass,
                     personId,
-                    CurrentUserProvider.CurrentUser.UserId );
+                    CurrentUserProvider.CurrentUser.UserId);
 
                 if (newLicenseId > 0)
                 {
@@ -728,7 +802,7 @@ namespace DVLD.Forms
         {
             dgv_application_types.Rows.Clear();
 
-            foreach(ApplicationType type in appTypes)
+            foreach (ApplicationType type in appTypes)
             {
                 dgv_application_types.Rows.Add(
                     type.ApplicationTypeId,
@@ -845,7 +919,7 @@ namespace DVLD.Forms
         public bool ValidatePersonIdOrNationalNo()
         {
             string input = txt_search_local.Text.Trim();
-            switch(cb_filter_local.SelectedItem.ToString())
+            switch (cb_filter_local.SelectedItem.ToString())
             {
                 case "Person ID":
                     if (!InputValidation.IsNumber(input, out string errorMessage))
@@ -880,7 +954,7 @@ namespace DVLD.Forms
         }
 
 
-        #endregion
 
+        #endregion
     }
 }

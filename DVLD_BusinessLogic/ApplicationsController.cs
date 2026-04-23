@@ -10,10 +10,14 @@ namespace DVLD_BusinessLogic
     public class ApplicationsController
     {
         private readonly IApplicationsRepository _applicationsRepository;
+        private readonly ILicenseRepository _licenseRepository;
+        private readonly IInternationalLicenseRepository _internationalLicenseRepository;
 
-        public ApplicationsController(IApplicationsRepository applicationsRepository)
+        public ApplicationsController(IApplicationsRepository applicationsRepository, ILicenseRepository licenseRepository, IInternationalLicenseRepository internationalLicenseRepository)
         {
             _applicationsRepository = applicationsRepository;
+            _licenseRepository = licenseRepository;
+            _internationalLicenseRepository = internationalLicenseRepository;
         }
 
         #region HelpFunctions
@@ -77,6 +81,7 @@ namespace DVLD_BusinessLogic
                 IssuedByUserId = userId
             };
         }
+
         #endregion
 
         public async Task<Applications> GetApplicationById(int appId)
@@ -93,11 +98,29 @@ namespace DVLD_BusinessLogic
         {
             return await _applicationsRepository.GetLocalDrivingLicenseApplicationByIdAsync(LDLAppId);
         }
+
         public async Task<IEnumerable<LocalDrivingLicenseApplication>> GetAllLocalDrivingLicenseApplicationsAsync()
         {
             return await _applicationsRepository.GetAllLocalDrivingLicenseApplicationsAsync();
         }
 
+
+        public async Task<int> AddNewLocalDrivingLicenseApplicationAsync(ApplicationType at, LicenseClass licenseClass, int personId, int userId)
+        {
+            var application = PrepareApplication(personId, at, at.ApplicationTypeFees, userId);
+
+            if(await _licenseRepository.HasLicenseTypeAsync(personId, licenseClass.Id))
+            {
+                return -1;
+            }
+
+            return await _applicationsRepository.AddNewLocalDrivingLicenseApplicationAsync(application, licenseClass.Id);
+        }
+
+        public async Task<int> AddNewInternationalDrivingLicenseApplicationAsync(ApplicationType at, License localDrivingLicense, int personId, int userId)
+        {
+            throw new NotImplementedException("International Driving License application process is not implemented yet.");
+        }
         public async Task<bool> ReleaseDetainedDrivingLicenseAsync(ApplicationType at, int detainId, int personId, decimal paidFees, int userId)
         {
             var application = PrepareApplication(personId, at, paidFees, userId);

@@ -79,6 +79,20 @@ namespace DVLD_DataAccess.Repositories
             }
             return list;
         }
+        public async Task<bool> HasLicenseTypeAsync(int personId, short licenseClassId)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                { "@PersonID", personId },
+                { "@LicenseClass", licenseClassId }
+            };
+            string sqlQuery = @"SELECT COUNT(1) FROM Licenses WHERE 
+                                DriverID IN (SELECT DriverID FROM Drivers WHERE PersonID = @PersonID)
+                                AND LicenseClass = @LicenseClass";
+            var result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
+            int count = Convert.ToInt32(result);
+            return count > 0;
+        }
         public async Task<bool> DoesLicenseExistAsync(int id)
         {
             var parameters = new Dictionary<string, object> { { "@LicenseID", id } };

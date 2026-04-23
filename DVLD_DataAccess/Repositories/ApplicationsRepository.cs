@@ -5,6 +5,7 @@ using DVLD_DataAccess.Database;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace DVLD_DataAccess.Repositories
@@ -61,6 +62,28 @@ namespace DVLD_DataAccess.Repositories
                 PassedTest = row.Field<short>("PassedTest"),
                 Status = (ApplicationStatus)row.Field<byte>("ApplicationStatus")
             };
+        }
+            
+        private async Task<int> InsertApplicationAsync(Applications application, SqlConnection connection, SqlTransaction transaction)
+        {
+            var appParams = new Dictionary<string, object>
+            {
+                { "@ApplicantPersonID", application.ApplicantPersonId },
+                { "@ApplicationDate", application.ApplicationDate },
+                { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
+                { "@ApplicationStatus", application.enApplicationStatus },
+                { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
+                { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
+                { "@CreatedByUserID", application.CreatedByUserId }
+            };
+
+            string insertAppSql = @"INSERT INTO Applications 
+                                    (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
+                                    VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
+                                    SELECT SCOPE_IDENTITY();";
+
+            var newAppIdObj = await DBHelper.ExecuteScalarAsync(insertAppSql, appParams, connection, transaction);
+            return Convert.ToInt32(newAppIdObj);
         }
 
         #endregion
@@ -133,6 +156,35 @@ namespace DVLD_DataAccess.Repositories
 
             return ApplicationsList;
         }
+
+        public async Task<int> AddNewLocalDrivingLicenseApplicationAsync(Applications application, int licenseClassId)
+        { 
+            using (var connection = DBHelper.CreateOpenConnection())
+            using(var transaction = DBHelper.BeginTransaction(connection))
+            {
+                try
+                {
+                    var newAppId = await InsertApplicationAsync(application, connection, transaction);
+                    // Insert into LocalDrivingLicenseApplications
+                    var ldlaParams = new Dictionary<string, object>
+                    {
+                        { "@ApplicationId", newAppId },
+                        { "@LicenseClassId", licenseClassId }
+                    };
+                    string insertLDLA_Sql = @"INSERT INTO LocalDrivingLicenseApplications (ApplicationID, LicenseClassID)
+                                              VALUES (@ApplicationId, @LicenseClassId);
+                                              SELECT SCOPE_IDENTITY();";
+                    var ldlaId = await DBHelper.ExecuteScalarAsync(insertLDLA_Sql, ldlaParams, connection, transaction);
+                    transaction.Commit();
+                    return Convert.ToInt32(ldlaId);
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
         public async Task<bool> ReleaseDetainedDrivingLicenseAsync(Applications application, int detainId, int userId)
         {
             using (var connection = DBHelper.CreateOpenConnection())
@@ -140,24 +192,7 @@ namespace DVLD_DataAccess.Repositories
             {
                 try
                 {
-                    // Insert into Applications table
-                    var appParams = new Dictionary<string, object>
-                    {
-                        { "@ApplicantPersonID", application.ApplicantPersonId },
-                        { "@ApplicationDate", application.ApplicationDate },
-                        { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.enApplicationStatus },
-                        { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
-                        { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
-                        { "@CreatedByUserID", application.CreatedByUserId }
-                    };
-                    string insertAppSql = @"INSERT INTO Applications 
-                                            (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
-                                            VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
-                                            SELECT SCOPE_IDENTITY();";
-                    var newAppIdObj = await DBHelper.ExecuteScalarAsync(insertAppSql, appParams, connection, transaction);
-                    
-
+                    var newAppId = await InsertApplicationAsync(application, connection, transaction);
 
                     // Update detained license release info
                     var updateParams = new Dictionary<string, object>
@@ -166,7 +201,7 @@ namespace DVLD_DataAccess.Repositories
                         { "@IsReleased", true },
                         { "@ReleaseDate", DateTime.Now},
                         { "@ReleasedByUserID", userId},
-                        { "@ReleaseApplicationID", newAppIdObj }
+                        { "@ReleaseApplicationID", newAppId }
                     };
 
                     string updateSql = @"UPDATE DetainedLicenses
@@ -195,23 +230,7 @@ namespace DVLD_DataAccess.Repositories
             {
                 try
                 {
-                    // Insert new Application
-                    var appParams = new Dictionary<string, object>
-                    {
-                        { "@ApplicantPersonID", application.ApplicantPersonId },
-                        { "@ApplicationDate", application.ApplicationDate },
-                        { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.enApplicationStatus },
-                        { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
-                        { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
-                        { "@CreatedByUserID", application.CreatedByUserId }
-                    };
-                    string insertAppSql = @"INSERT INTO Applications 
-                                        (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
-                                        VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
-                                        SELECT SCOPE_IDENTITY();";
-                    var newAppIdObj = await DBHelper.ExecuteScalarAsync(insertAppSql, appParams, connection, transaction);
-                    int newAppId = Convert.ToInt32(newAppIdObj);
+                    var newAppId = await InsertApplicationAsync(application, connection, transaction);
 
                     // Insert new License
                     var licenseParams = new Dictionary<string, object>
@@ -259,23 +278,7 @@ namespace DVLD_DataAccess.Repositories
             {
                 try
                 {
-                    // Insert new Application
-                    var appParams = new Dictionary<string, object>
-                    {
-                        { "@ApplicantPersonID", application.ApplicantPersonId },
-                        { "@ApplicationDate", application.ApplicationDate },
-                        { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.enApplicationStatus },
-                        { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
-                        { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
-                        { "@CreatedByUserID", application.CreatedByUserId }
-                    };
-                    string insertAppSql = @"INSERT INTO Applications 
-                                        (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
-                                        VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
-                                        SELECT SCOPE_IDENTITY();";
-                    var newAppIdObj = await DBHelper.ExecuteScalarAsync(insertAppSql, appParams, connection, transaction);
-                    int newAppId = Convert.ToInt32(newAppIdObj);
+                    var newAppId = await InsertApplicationAsync(application, connection, transaction);
 
                     // Insert new License
                     var licenseParams = new Dictionary<string, object>
@@ -322,23 +325,7 @@ namespace DVLD_DataAccess.Repositories
             {
                 try
                 {
-                    // Insert new Application
-                    var appParams = new Dictionary<string, object>
-                    {
-                        { "@ApplicantPersonID", application.ApplicantPersonId },
-                        { "@ApplicationDate", application.ApplicationDate },
-                        { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
-                        { "@ApplicationStatus", application.enApplicationStatus },
-                        { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
-                        { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
-                        { "@CreatedByUserID", application.CreatedByUserId }
-                    };
-                    string insertAppSql = @"INSERT INTO Applications 
-                                        (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
-                                        VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
-                                        SELECT SCOPE_IDENTITY();";
-                    var newAppIdObj = await DBHelper.ExecuteScalarAsync(insertAppSql, appParams, connection, transaction);
-                    int newAppId = Convert.ToInt32(newAppIdObj);
+                    var newAppId = await InsertApplicationAsync(application, connection, transaction);
 
                     // Insert new License
                     var licenseParams = new Dictionary<string, object>

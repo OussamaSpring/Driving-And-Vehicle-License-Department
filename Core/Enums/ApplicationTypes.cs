@@ -3,10 +3,11 @@
     public enum ApplicationTypes
     {
         AddLocalLicense = 1,
-        AddInternationalLicense,
-        ReleaseLicense,
-        RenewLicense,
-        ReplaceDamagedLicense,
-        ReplaceLostLicense
+        RenewLicense=2,
+        ReplaceLostLicense=3,
+        ReplaceDamagedLicense=4,
+        ReleaseLicense=5,
+        AddInternationalLicense=6,
+        RetakeTest=7
     }
 }

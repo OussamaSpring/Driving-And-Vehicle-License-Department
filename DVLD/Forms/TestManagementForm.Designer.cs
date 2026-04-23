@@ -47,17 +47,17 @@
             this.searchBar1 = new DVLD.UserControls.SearchBar();
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text = new System.Windows.Forms.Label();
+            this.lb_total_test_number = new System.Windows.Forms.Label();
             this.tab_test_types = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lb_total_test_types_number = new System.Windows.Forms.Label();
             this.dgv_license_classes = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.class_full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlp_header = new System.Windows.Forms.TableLayoutPanel();
-            this.lb_total_test_number = new System.Windows.Forms.Label();
-            this.lb_total_test_types_number = new System.Windows.Forms.Label();
             this.pl_Body.SuspendLayout();
             this.htc_tab_nav.SuspendLayout();
             this.tab_tests_list.SuspendLayout();
@@ -235,6 +235,16 @@
             this.lb_footer_text.Text = "Total Number of Tests: ";
             this.lb_footer_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lb_total_test_number
+            // 
+            this.lb_total_test_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_total_test_number.Location = new System.Drawing.Point(181, 0);
+            this.lb_total_test_number.Name = "lb_total_test_number";
+            this.lb_total_test_number.Size = new System.Drawing.Size(197, 50);
+            this.lb_total_test_number.TabIndex = 1;
+            this.lb_total_test_number.Text = "??";
+            this.lb_total_test_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tab_test_types
             // 
             this.tab_test_types.BackColor = System.Drawing.SystemColors.Control;
@@ -266,6 +276,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Total Number of Test Types: ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lb_total_test_types_number
+            // 
+            this.lb_total_test_types_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_total_test_types_number.Location = new System.Drawing.Point(216, 0);
+            this.lb_total_test_types_number.Name = "lb_total_test_types_number";
+            this.lb_total_test_types_number.Size = new System.Drawing.Size(238, 50);
+            this.lb_total_test_types_number.TabIndex = 1;
+            this.lb_total_test_types_number.Text = "??";
+            this.lb_total_test_types_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dgv_license_classes
             // 
@@ -347,26 +367,6 @@
             this.tlp_header.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlp_header.Size = new System.Drawing.Size(753, 0);
             this.tlp_header.TabIndex = 0;
-            // 
-            // lb_total_test_number
-            // 
-            this.lb_total_test_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_total_test_number.Location = new System.Drawing.Point(181, 0);
-            this.lb_total_test_number.Name = "lb_total_test_number";
-            this.lb_total_test_number.Size = new System.Drawing.Size(197, 50);
-            this.lb_total_test_number.TabIndex = 1;
-            this.lb_total_test_number.Text = "??";
-            this.lb_total_test_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lb_total_test_types_number
-            // 
-            this.lb_total_test_types_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_total_test_types_number.Location = new System.Drawing.Point(216, 0);
-            this.lb_total_test_types_number.Name = "lb_total_test_types_number";
-            this.lb_total_test_types_number.Size = new System.Drawing.Size(238, 50);
-            this.lb_total_test_types_number.TabIndex = 1;
-            this.lb_total_test_types_number.Text = "??";
-            this.lb_total_test_types_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TestManagementForm
             // 
