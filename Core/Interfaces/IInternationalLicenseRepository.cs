@@ -12,7 +12,8 @@ namespace Core.Interfaces
         Task<IEnumerable<InternationalLicense>> GetInternationalLicenseListByPersonIdAsync(int id);
         Task<IEnumerable<InternationalLicense>> GetInternationalLicenseListByDriverIdAsync(int id);
         Task<bool> DesactivateInternationalLicenseAsync(int id);
-        Task<bool> HasInternationalLicenseAsync(int driverId);
+        Task<bool> HasValidInternationalLicenseAsync(int driverId);
+        Task<bool> HasActiveInternationalLicenseAsync(int driverId);
 
     }
 }

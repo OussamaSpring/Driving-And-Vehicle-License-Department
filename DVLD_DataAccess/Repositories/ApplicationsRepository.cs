@@ -185,6 +185,41 @@ namespace DVLD_DataAccess.Repositories
                 }
             }
         }
+        public async Task<int> AddNewInternationalLicenseApplicationAsync(Applications application, InternationalLicense localLicense)
+        {
+            using (var connection = DBHelper.CreateOpenConnection())
+            using (var transaction = DBHelper.BeginTransaction(connection))
+            {
+                try
+                {
+                    var newAppId = await InsertApplicationAsync(application, connection, transaction);
+
+                    // Insert into InternationalLicenses
+                    var ilaParams = new Dictionary<string, object>
+                    {
+                        { "@ApplicationId", newAppId },
+                        { "@DriverId",localLicense.DriverId },
+                        { "@IssuedUsingLocalLicenseId", localLicense.LocalLicenseId },
+                        { "@IssueDate", localLicense.IssueDate },
+                        { "@ExpirationDate", localLicense.ExpirationDate},
+                        { "@IsActive", localLicense.IsActive },
+                        { "@CreatedByUserId", localLicense.IssuedByUserId }
+                    };
+                    string insertILA_Sql = @"INSERT INTO InternationalLicenses
+                                            (ApplicationID, DriverID, IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID)
+                                              VALUES (@ApplicationId, @DriverId, @IssuedUsingLocalLicenseId, @IssueDate, @ExpirationDate, @IsActive, @CreatedByUserId);
+                                              SELECT SCOPE_IDENTITY();";
+                    var ilaId = await DBHelper.ExecuteScalarAsync(insertILA_Sql, ilaParams, connection, transaction);
+                    transaction.Commit();
+                    return Convert.ToInt32(ilaId);
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
         public async Task<bool> ReleaseDetainedDrivingLicenseAsync(Applications application, int detainId, int userId)
         {
             using (var connection = DBHelper.CreateOpenConnection())

@@ -115,7 +115,15 @@ namespace DVLD_DataAccess.Repositories
             int rowsAffected = await DBHelper.ExecuteNonQueryAsync(sqlQuery, parameters);
             return rowsAffected > 0;
         }
-        public async Task<bool> HasInternationalLicenseAsync(int driverId)
+        public async Task<bool> HasValidInternationalLicenseAsync(int driverId)
+        {
+            var parameters = new Dictionary<string, object> { { "@DriverID", driverId } };
+            string sqlQuery = "SELECT COUNT(*) FROM InternationalLicenses WHERE DriverID = @DriverID AND ExpirationDate > GETDATE()";
+            var result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
+            return Convert.ToInt32(result) > 0;
+        }
+
+        public async Task<bool> HasActiveInternationalLicenseAsync(int driverId)
         {
             var parameters = new Dictionary<string, object> { { "@DriverID", driverId } };
             string sqlQuery = "SELECT COUNT(*) FROM InternationalLicenses WHERE DriverID = @DriverID AND IsActive = 1";

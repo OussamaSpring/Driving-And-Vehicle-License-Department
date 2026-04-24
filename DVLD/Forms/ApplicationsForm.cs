@@ -57,7 +57,7 @@ namespace DVLD.Forms
 
 
             _applicationTypeController = new ApplicationTypeController(new ApplicationTypeRepository());
-            _applicationController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository());
+            _applicationController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository(), new InternationalLicenseRepository());
             _licenseClassController = new LicenseClassController(new LicenseClassRepository());
             _licenseDetainController = new LicenseDetainController(new LicenseDetainRepository());
             _licenseController = new LicenseController(new LicenseRepository());
@@ -359,6 +359,15 @@ namespace DVLD.Forms
                 return;
             }
 
+            LicenseClass licenseClass = _licenseClassesList.FirstOrDefault(lc => string.Equals(lc.Name, "Class 3 - Ordinary driving license", StringComparison.OrdinalIgnoreCase));
+
+            if (license.ClassId == licenseClass?.Id)
+            {
+                MessageBox.Show("The selected license is already an ordinary driving license (Class 3), which is the minimum requirement for applying for an international driving license.", "Ineligible License", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btn_add_inter.Enabled = true;
+                return;
+            }
+
             driverLicenseCard_inter.SetDriverLicense(licenseId.Value);
         }
 
@@ -376,14 +385,6 @@ namespace DVLD.Forms
                 return;
             }
 
-            LicenseClass licenseClass = _licenseClassesList.FirstOrDefault(lc => string.Equals(lc.Name, "Class 3 - Ordinary driving license", StringComparison.OrdinalIgnoreCase));
-
-            if (license.ClassId == licenseClass?.Id)
-            {
-                MessageBox.Show("The selected license is already an ordinary driving license (Class 3), which is the minimum requirement for applying for an international driving license.", "Ineligible License", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                btn_add_inter.Enabled = true;
-                return;
-            }
 
             if (MessageBox.Show($"Are you want to apply for a new international driving license based on this license [{license.LicenseId}]?", "Confirm Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
@@ -391,8 +392,31 @@ namespace DVLD.Forms
                 return;
             }
 
-            // Wait for implementation
+            try
+            {
+                ApplicationType appType = _applicationTypesDict[ApplicationTypes.AddInternationalLicense];
+                int newLicenseId = await _applicationController.AddNewInternationalDrivingLicenseApplicationAsync(
+                    appType,
+                    license,
+                    person.PersonId,
+                    CurrentUserProvider.CurrentUser.UserId);
+
+                if (newLicenseId > 0)
+                {
+                    MessageBox.Show($"Application submitted successfully.\nNew License ID: {newLicenseId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InitializeInternationalDrivingLicenseApplicationPage();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to submit application. Driver may have existign active license!\n Please check the data and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         // Release Detained License Application -------------------------------------------------------------------------------------------
 
         private async void btn_search_release_Click(object sender, EventArgs e)

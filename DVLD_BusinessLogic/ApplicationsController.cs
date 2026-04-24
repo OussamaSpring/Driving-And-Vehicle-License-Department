@@ -82,6 +82,18 @@ namespace DVLD_BusinessLogic
             };
         }
 
+        private InternationalLicense PrepareInternationalLicense(License localLicnese, int userId)
+        {
+            return new InternationalLicense
+            {
+                DriverId = localLicnese.DriverId,
+                LocalLicenseId = localLicnese.LicenseId,
+                IssueDate = DateTime.UtcNow,
+                ExpirationDate = DateTime.UtcNow.AddYears(10),
+                IsActive = true,
+                IssuedByUserId= userId
+            };
+        }
         #endregion
 
         public async Task<Applications> GetApplicationById(int appId)
@@ -119,7 +131,16 @@ namespace DVLD_BusinessLogic
 
         public async Task<int> AddNewInternationalDrivingLicenseApplicationAsync(ApplicationType at, License localDrivingLicense, int personId, int userId)
         {
-            throw new NotImplementedException("International Driving License application process is not implemented yet.");
+            bool hasValidInternationalLicense = await _internationalLicenseRepository.HasValidInternationalLicenseAsync(localDrivingLicense.DriverId);
+            if (hasValidInternationalLicense)
+            {
+                return -1;
+            }
+
+            var application = PrepareApplication(personId, at, at.ApplicationTypeFees, userId);
+            var interLicense = PrepareInternationalLicense(localDrivingLicense, userId);
+
+            return await _applicationsRepository.AddNewInternationalLicenseApplicationAsync(application, interLicense);
         }
         public async Task<bool> ReleaseDetainedDrivingLicenseAsync(ApplicationType at, int detainId, int personId, decimal paidFees, int userId)
         {
