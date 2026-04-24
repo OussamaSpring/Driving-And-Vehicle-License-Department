@@ -20,7 +20,7 @@ namespace DVLD.UserControls
             InitializeComponent();
 
             lb_view_person_info.Visible = false; // Hide edit label initially
-            _applicationsController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository());
+            _applicationsController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository(), new InternationalLicenseRepository());
         }
 
         private void UpdateUI()

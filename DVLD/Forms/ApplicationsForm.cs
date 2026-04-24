@@ -345,7 +345,7 @@ namespace DVLD.Forms
 
         private async void btn_search_inter_Click(object sender, EventArgs e)
         {
-            int? licenseId = GetLicenseIdFrom(txt_search_release);
+            int? licenseId = GetLicenseIdFrom(txt_search_inter);
             if (!licenseId.HasValue)
             {
                 return;
@@ -965,8 +965,6 @@ namespace DVLD.Forms
 
         private int? GetLicenseIdFrom(TextBox textBox)
         {
-            err_input_validation.SetError(textBox, string.Empty);
-
             string input = textBox.Text.Trim();
             if (!InputValidation.IsNumber(input, out string errorMessage))
             {
