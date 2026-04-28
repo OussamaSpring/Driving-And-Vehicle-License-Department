@@ -54,7 +54,6 @@
     <Compile Include="Interfaces\ILicenseClassRepository.cs" />
     <Compile Include="Interfaces\ILicenseRepository.cs" />
     <Compile Include="Interfaces\ILicenseDetainRepository.cs" />
-    <Compile Include="Interfaces\ILocalDrivingLicenseRepository.cs" />
     <Compile Include="Interfaces\Base\IReadOnlyRepository.cs" />
     <Compile Include="Interfaces\ITestAppointmentRepository.cs" />
     <Compile Include="Interfaces\ITestTypeRepository.cs" />
