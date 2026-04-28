@@ -392,6 +392,9 @@
     <Content Include="Resources\Icons\User.png" />
     <Content Include="Resources\Images\damaged_license.png" />
     <Content Include="Resources\Images\driving-license.png" />
+    <None Include="Resources\Images\eyetest.png" />
+    <None Include="Resources\Images\exam.png" />
+    <None Include="Resources\Images\driving-test.png" />
     <Content Include="Resources\Images\Female.png" />
     <Content Include="Resources\Images\inter-driver-license.png" />
     <Content Include="Resources\Images\license_detain.png" />

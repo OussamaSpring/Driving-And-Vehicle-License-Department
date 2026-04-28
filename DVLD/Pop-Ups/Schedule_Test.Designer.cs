@@ -388,6 +388,7 @@
             this.Controls.Add(this.pictureBox);
             this.Name = "Schedule_Test";
             this.Padding = new System.Windows.Forms.Padding(0);
+            this.Load += new System.EventHandler(this.Schedule_Test_Load);
             this.gb_retake_test_info.ResumeLayout(false);
             this.gb_retake_test_info.PerformLayout();
             this.gb_test_info.ResumeLayout(false);

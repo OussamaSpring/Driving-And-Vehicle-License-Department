@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using DVLD.Views.Components;
 using System.Windows.Forms;
 
 namespace DVLD.Pop_Ups
 {
-    public partial class Take_Test : DVLD.Views.Components.RoundedBaseForm
+    public partial class Take_Test : RoundedBaseForm
     {
         public Take_Test()
         {

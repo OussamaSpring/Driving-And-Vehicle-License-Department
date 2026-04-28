@@ -43,23 +43,23 @@ namespace DVLD_DataAccess.Repositories
             if (row == null)
                 return null;
 
-            return new LocalDrivingLicenseApplication
+            return new LocalDrivingLicenseApplication()
             {
                 LDL_ApplicationId = row.Field<int>("LocalDrivingLicenseApplicationID"),
-                LicenseClass = new LicenseClass
+                LicenseClass = new LicenseClass()
                 {
-                    Id = row.Field<short>("LicenseClassID"),
+                    Id = Convert.ToInt16(row["LicenseClassID"]),
                     Name = row.Field<string>("ClassName"),
                     Description = row.Field<string>("ClassDescription"),
-                    MiminumAllowedAge = row.Field<short>("MinimumAllowedAge"),
-                    DefaultValidityLength = row.Field<short>("DefaultValidityLength"),
-                    ClassFees = row.Field<decimal>("ClassFees")
+                    MiminumAllowedAge = Convert.ToInt16(row["MinimumAllowedAge"]),
+                    DefaultValidityLength = Convert.ToInt16(row["DefaultValidityLength"]),
+                    ClassFees = Convert.ToDecimal(row["ClassFees"])
                 },
                 NationalNumber = row.Field<string>("NationalNo"),
                 FullName = row.Field<string>("FullName"),
                 ApplicationId = row.Field<int>("ApplicationID"),
                 ApplicationDate = row.Field<DateTime>("ApplicationDate"),
-                PassedTest = row.Field<short>("PassedTest"),
+                PassedTest = Convert.ToInt16(row["PassedTest"]),
                 Status = (ApplicationStatus)row.Field<byte>("ApplicationStatus")
             };
         }
@@ -87,6 +87,8 @@ namespace DVLD_DataAccess.Repositories
         }
 
         #endregion
+
+
 
         public async Task<LocalDrivingLicenseApplication> GetLocalDrivingLicenseApplicationByIdAsync(int id)
         {

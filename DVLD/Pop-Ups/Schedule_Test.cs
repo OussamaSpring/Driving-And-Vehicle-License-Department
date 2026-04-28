@@ -1,18 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using Core.Models;
+using Core.Enums;
+using DVLD.Views.Components;
 using System.Windows.Forms;
 
 namespace DVLD.Pop_Ups
 {
-    public partial class Schedule_Test : DVLD.Views.Components.RoundedBaseForm
+    public partial class Schedule_Test : RoundedBaseForm
     {
-        public Schedule_Test()
+        private LocalDrivingLicenseApplication _localDrivingLicenseApplication;
+        private TestTypes _testType;
+
+        public Schedule_Test(LocalDrivingLicenseApplication localDrivingLicenseApplication, TestTypes testType)
         {
             InitializeComponent();
+            _localDrivingLicenseApplication = localDrivingLicenseApplication;
+            _testType = testType;
+        }
+
+        private void Schedule_Test_Load(object sender, System.EventArgs e)
+        {
+            switch(_testType)
+            {
+                case TestTypes.WrittenTest:
+                    lb_test_type.Text = "Written Test";
+                    break;
+                case TestTypes.VisionTest:
+                    lb_test_type.Text = "Vision Test";
+                    break;
+                case TestTypes.StreetTest:
+                    lb_test_type.Text = "Street Test";
+                    break;
+            }
         }
 
 
@@ -57,5 +75,7 @@ namespace DVLD.Pop_Ups
         }
 
         #endregion
+
+
     }
 }

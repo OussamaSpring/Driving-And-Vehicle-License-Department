@@ -1,7 +1,5 @@
 ﻿using Core.Models;
-using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace Core.Interfaces
@@ -12,7 +10,6 @@ namespace Core.Interfaces
         Task<LocalDrivingLicenseApplication> GetLocalDrivingLicenseApplicationByIdAsync(int id);
         Task<IEnumerable<LocalDrivingLicenseApplication>> GetAllLocalDrivingLicenseApplicationsAsync();
         // Task<bool> CancelLocalDrivingLicenseApplicationAsync(int appId);
-
 
         Task<int> AddNewLocalDrivingLicenseApplicationAsync(Applications application, int licenseClassId);
         Task<int> AddNewInternationalLicenseApplicationAsync(Applications application, InternationalLicense localLicense);
