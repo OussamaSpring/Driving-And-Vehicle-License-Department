@@ -38,32 +38,6 @@ namespace DVLD_DataAccess.Repositories
             };
         }
 
-        private LocalDrivingLicenseApplication MapLDLApplication(DataRow row)
-        {
-            if (row == null)
-                return null;
-
-            return new LocalDrivingLicenseApplication()
-            {
-                LDL_ApplicationId = row.Field<int>("LocalDrivingLicenseApplicationID"),
-                LicenseClass = new LicenseClass()
-                {
-                    Id = Convert.ToInt16(row["LicenseClassID"]),
-                    Name = row.Field<string>("ClassName"),
-                    Description = row.Field<string>("ClassDescription"),
-                    MiminumAllowedAge = Convert.ToInt16(row["MinimumAllowedAge"]),
-                    DefaultValidityLength = Convert.ToInt16(row["DefaultValidityLength"]),
-                    ClassFees = Convert.ToDecimal(row["ClassFees"])
-                },
-                NationalNumber = row.Field<string>("NationalNo"),
-                FullName = row.Field<string>("FullName"),
-                ApplicationId = row.Field<int>("ApplicationID"),
-                ApplicationDate = row.Field<DateTime>("ApplicationDate"),
-                PassedTest = Convert.ToInt16(row["PassedTest"]),
-                Status = (ApplicationStatus)row.Field<byte>("ApplicationStatus")
-            };
-        }
-            
         private async Task<int> InsertApplicationAsync(Applications application, SqlConnection connection, SqlTransaction transaction)
         {
             var appParams = new Dictionary<string, object>
@@ -90,37 +64,6 @@ namespace DVLD_DataAccess.Repositories
 
 
 
-        public async Task<LocalDrivingLicenseApplication> GetLocalDrivingLicenseApplicationByIdAsync(int id)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@ApplicationId", id }
-            };
-            string sqlQuery = @"SELECT * FROM vw_LocalDrivingLicenseApplicationTable 
-                                WHERE ApplicationID = @ApplicationId";
-
-            var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
-
-            if (DataTable.Rows.Count == 0)
-                return null;
-
-            var row = DataTable.Rows[0];
-            return MapLDLApplication(row);
-        }
-        public async Task<IEnumerable<LocalDrivingLicenseApplication>> GetAllLocalDrivingLicenseApplicationsAsync()
-        {
-            string sqlQuery = "SELECT * FROM vw_LocalDrivingLicenseApplicationTable;";
-
-            var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery);
-
-            var LDLApplications = new List<LocalDrivingLicenseApplication>();
-            foreach (DataRow row in DataTable.Rows)
-            {
-                LDLApplications.Add(MapLDLApplication(row));
-            }
-
-            return LDLApplications;
-        }
         public async Task<Applications> GetByIdAsync(int id)
         {
             var parameters = new Dictionary<string, object>

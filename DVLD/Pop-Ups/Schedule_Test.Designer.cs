@@ -38,7 +38,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.gb_test_info = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_test_schedule_date = new System.Windows.Forms.DateTimePicker();
             this.lb_test_fees = new System.Windows.Forms.Label();
             this.lb_trial_number = new System.Windows.Forms.Label();
             this.lb_person_name = new System.Windows.Forms.Label();
@@ -52,11 +52,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lb_test_type = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.btn_save = new DVLD.Views.Controls.RoundedButton();
             this.pl_header = new System.Windows.Forms.Panel();
             this.lb_exit = new System.Windows.Forms.Label();
             this.lb_title = new System.Windows.Forms.Label();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.btn_save = new DVLD.Views.Controls.RoundedButton();
             this.gb_retake_test_info.SuspendLayout();
             this.gb_test_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -147,7 +147,7 @@
             // 
             // gb_test_info
             // 
-            this.gb_test_info.Controls.Add(this.dateTimePicker1);
+            this.gb_test_info.Controls.Add(this.dtp_test_schedule_date);
             this.gb_test_info.Controls.Add(this.lb_test_fees);
             this.gb_test_info.Controls.Add(this.lb_trial_number);
             this.gb_test_info.Controls.Add(this.lb_person_name);
@@ -167,13 +167,13 @@
             this.gb_test_info.TabStop = false;
             this.gb_test_info.Text = "Test Info";
             // 
-            // dateTimePicker1
+            // dtp_test_schedule_date
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(144, 165);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 22);
-            this.dateTimePicker1.TabIndex = 15;
+            this.dtp_test_schedule_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_test_schedule_date.Location = new System.Drawing.Point(144, 165);
+            this.dtp_test_schedule_date.Name = "dtp_test_schedule_date";
+            this.dtp_test_schedule_date.Size = new System.Drawing.Size(220, 22);
+            this.dtp_test_schedule_date.TabIndex = 15;
             // 
             // lb_test_fees
             // 
@@ -314,24 +314,6 @@
             this.pictureBox.TabIndex = 16;
             this.pictureBox.TabStop = false;
             // 
-            // btn_save
-            // 
-            this.btn_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_save.BorderColor = System.Drawing.Color.Gray;
-            this.btn_save.BorderRadius = 20;
-            this.btn_save.BorderSize = 2;
-            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_save.FlatAppearance.BorderSize = 0;
-            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_save.Location = new System.Drawing.Point(302, 630);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(115, 30);
-            this.btn_save.TabIndex = 20;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = false;
-            // 
             // pl_header
             // 
             this.pl_header.BackColor = System.Drawing.Color.Orchid;
@@ -373,9 +355,27 @@
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "eyetest.png");
-            this.imageList.Images.SetKeyName(1, "exam.png");
+            this.imageList.Images.SetKeyName(0, "exam.png");
+            this.imageList.Images.SetKeyName(1, "eyetest.png");
             this.imageList.Images.SetKeyName(2, "driving-test.png");
+            // 
+            // btn_save
+            // 
+            this.btn_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_save.BorderColor = System.Drawing.Color.Gray;
+            this.btn_save.BorderRadius = 20;
+            this.btn_save.BorderSize = 2;
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save.FlatAppearance.BorderSize = 0;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_save.Location = new System.Drawing.Point(302, 630);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(115, 30);
+            this.btn_save.TabIndex = 20;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = false;
             // 
             // Schedule_Test
             // 
@@ -407,7 +407,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox gb_test_info;
         private System.Windows.Forms.Label lb_test_fees;
-        private System.Windows.Forms.Label lb_trial_number;
         private System.Windows.Forms.Label lb_person_name;
         private System.Windows.Forms.Label lb_ldl_app_id;
         private System.Windows.Forms.Label lb_license_class;
@@ -428,6 +427,7 @@
         private System.Windows.Forms.Label lb_retake_total_fees;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lb_retake_test_fees;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_test_schedule_date;
+        private System.Windows.Forms.Label lb_trial_number;
     }
 }

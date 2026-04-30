@@ -1,9 +1,11 @@
 ﻿using Core.Interfaces;
 using Core.Models;
 using System.Data;
+
+
 namespace DVLD_DataAccess.Repositories
 {
-    public class TestAppointmentRepository 
+    public class TestAppointmentRepository
     {
 
         #region Help Functions

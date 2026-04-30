@@ -52,6 +52,7 @@
     <Compile Include="Repositories\LicenseClassRepository.cs" />
     <Compile Include="Repositories\LicenseDetainRepository.cs" />
     <Compile Include="Repositories\LicenseRepository.cs" />
+    <Compile Include="Repositories\LocalDrivingLicenseApplicationRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\TestAppointmentRepository.cs" />
     <Compile Include="Repositories\TestTypeRepository.cs" />

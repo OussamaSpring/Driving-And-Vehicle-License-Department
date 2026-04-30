@@ -18,6 +18,7 @@ namespace DVLD.Forms
     {
         private readonly ApplicationTypeController _applicationTypeController;
         private readonly ApplicationsController _applicationController;
+        private readonly LocalDrivingLicenseApplicationController _localDrivingLicenseApplicationController;
         private readonly LicenseClassController _licenseClassController;
         private readonly LicenseDetainController _licenseDetainController;
         private readonly LicenseController _licenseController;
@@ -38,7 +39,6 @@ namespace DVLD.Forms
             tabs.SetTabs("Operations", "Applications List", "Applications Types");
             tabs.SelectedIndexChanged += (s, e) =>
             {
-
                 switch (tabs.SelectedIndex)
                 {
                     case 0:
@@ -55,9 +55,9 @@ namespace DVLD.Forms
 
             tlp_header.Controls.Add(tabs, 1, 0);
 
-
             _applicationTypeController = new ApplicationTypeController(new ApplicationTypeRepository());
             _applicationController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository(), new InternationalLicenseRepository());
+            _localDrivingLicenseApplicationController = new LocalDrivingLicenseApplicationController(new LocalDrivingLicenseApplicationRepository(), new LicenseRepository());
             _licenseClassController = new LicenseClassController(new LicenseClassRepository());
             _licenseDetainController = new LicenseDetainController(new LicenseDetainRepository());
             _licenseController = new LicenseController(new LicenseRepository());
@@ -320,7 +320,7 @@ namespace DVLD.Forms
             try
             {
                 ApplicationType appType = _applicationTypesDict[ApplicationTypes.AddLocalLicense];
-                int newLicenseId = await _applicationController.AddNewLocalDrivingLicenseApplicationAsync(
+                int newLicenseId = await _localDrivingLicenseApplicationController.AddNewLocalDrivingLicenseApplicationAsync(
                     appType,
                     selectedClass,
                     person.PersonId,
@@ -338,6 +338,10 @@ namespace DVLD.Forms
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btn_add_local.Enabled = true;
             }
         }
 

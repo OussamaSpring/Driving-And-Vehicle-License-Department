@@ -6,7 +6,7 @@ namespace Core.Models
     public class TestAppointment
     {
         public int TestAppointmentId { get; set; }
-        public TestTypes TestType { get; set; }
+        public TestType TestType { get; set; }
         public int LocalDrivingLicenseApplicationId { get; set; }
         public DateTime AppointmentDate { get; set; }
         public decimal PaidFees { get; set; }

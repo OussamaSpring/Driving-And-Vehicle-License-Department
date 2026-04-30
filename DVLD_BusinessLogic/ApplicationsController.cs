@@ -106,29 +106,6 @@ namespace DVLD_BusinessLogic
         }
 
 
-        public async Task<LocalDrivingLicenseApplication> GetLocalDrivingLicenseApplicationByIdAsync(int LDLAppId)
-        {
-            return await _applicationsRepository.GetLocalDrivingLicenseApplicationByIdAsync(LDLAppId);
-        }
-
-        public async Task<IEnumerable<LocalDrivingLicenseApplication>> GetAllLocalDrivingLicenseApplicationsAsync()
-        {
-            return await _applicationsRepository.GetAllLocalDrivingLicenseApplicationsAsync();
-        }
-
-
-        public async Task<int> AddNewLocalDrivingLicenseApplicationAsync(ApplicationType at, LicenseClass licenseClass, int personId, int userId)
-        {
-            var application = PrepareApplication(personId, at, at.ApplicationTypeFees, userId);
-
-            if(await _licenseRepository.HasLicenseTypeAsync(personId, licenseClass.Id))
-            {
-                return -1;
-            }
-
-            return await _applicationsRepository.AddNewLocalDrivingLicenseApplicationAsync(application, licenseClass.Id);
-        }
-
         public async Task<int> AddNewInternationalDrivingLicenseApplicationAsync(ApplicationType at, License localDrivingLicense, int personId, int userId)
         {
             bool hasValidInternationalLicense = await _internationalLicenseRepository.HasValidInternationalLicenseAsync(localDrivingLicense.DriverId);

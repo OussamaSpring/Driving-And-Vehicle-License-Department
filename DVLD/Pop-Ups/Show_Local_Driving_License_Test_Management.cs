@@ -87,6 +87,9 @@ namespace DVLD.Pop_Ups
         }
         private void btn_schedule_test_Click(object sender, EventArgs e)
         {
+
+            // in switch case, we check first if he can schedule or not, if not, we show a message box with the reason, if yes, we open the schedule test form
+
             //switch(enSelectedTestType)
             //{
             //    case TestTypes.WrittenTest:

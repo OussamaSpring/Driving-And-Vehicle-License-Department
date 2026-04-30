@@ -2,6 +2,8 @@
 using Core.Enums;
 using DVLD.Views.Components;
 using System.Windows.Forms;
+using System.Globalization;
+using System;
 
 namespace DVLD.Pop_Ups
 {
@@ -9,28 +11,50 @@ namespace DVLD.Pop_Ups
     {
         private LocalDrivingLicenseApplication _localDrivingLicenseApplication;
         private TestTypes _testType;
-
-        public Schedule_Test(LocalDrivingLicenseApplication localDrivingLicenseApplication, TestTypes testType)
+        public Schedule_Test(int localDrivingLicenseApplicationId, int appointmentId = -1 )
         {
             InitializeComponent();
-            _localDrivingLicenseApplication = localDrivingLicenseApplication;
-            _testType = testType;
+        }
+
+        public TestTypes TestType
+        {
+            get => _testType;
+            set
+            {
+                _testType = value;
+                switch (_testType)
+                {
+                    case TestTypes.WrittenTest:
+                        lb_test_type.Text = "Written Test";
+                        pictureBox.Image = imageList.Images[0];
+                        break;
+                    case TestTypes.VisionTest:
+                        lb_test_type.Text = "Vision Test";
+                        pictureBox.Image = imageList.Images[1];
+                        break;
+                    case TestTypes.StreetTest:
+                        lb_test_type.Text = "Street Test";
+                        pictureBox.Image = imageList.Images[2];
+                        break;
+                }
+            }
+        }
+
+        private void MapData()
+        {
+
+            lb_ldl_app_id.Text = _localDrivingLicenseApplication.ApplicationId.ToString();
+            lb_license_class.Text = _localDrivingLicenseApplication.LicenseClass.Name;
+            lb_person_name.Text = _localDrivingLicenseApplication.FullName;
+            dtp_test_schedule_date.Value = DateTime.Now.AddDays(7); // Default to one week from now
+            lb_test_fees.Text = _localDrivingLicenseApplication.LicenseClass.ClassFees.ToString("C", CultureInfo.GetCultureInfo("en-US"));
+
+            // Retake test info
+            
         }
 
         private void Schedule_Test_Load(object sender, System.EventArgs e)
         {
-            switch(_testType)
-            {
-                case TestTypes.WrittenTest:
-                    lb_test_type.Text = "Written Test";
-                    break;
-                case TestTypes.VisionTest:
-                    lb_test_type.Text = "Vision Test";
-                    break;
-                case TestTypes.StreetTest:
-                    lb_test_type.Text = "Street Test";
-                    break;
-            }
         }
 
 
