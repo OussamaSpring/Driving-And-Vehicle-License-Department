@@ -24,5 +24,10 @@ namespace DVLD_BusinessLogic
             return await _testTypeRepository.GetAllAsync();
         }
 
+        public async Task<decimal> GetTestFeeByIdAsync(int id)
+        {
+            var testType = await _testTypeRepository.GetByIdAsync(id);
+            return (decimal)(testType != null ? testType.TypeFee : 0);
+        }
     }
 }

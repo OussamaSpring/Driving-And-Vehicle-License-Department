@@ -24,5 +24,11 @@ namespace DVLD_BusinessLogic
         {
             return await _repository.GetAllAsync();
         }
+
+        public async Task<decimal> GetApplicationTypeFeeByIdAsync(int id)
+        {
+            var applicationType = await _repository.GetByIdAsync(id);
+            return applicationType != null ? applicationType.ApplicationTypeFees : 0;
+        }
     }
 }

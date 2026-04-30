@@ -14,7 +14,7 @@ namespace DVLD.Forms
 {
     public partial class TestManagementForm : Form
     {
-        private ApplicationsController _applicationsController;
+        private LocalDrivingLicenseApplicationController _localDrivingLicenseApplicationController;
         private TestTypeController _testTypeController;
         private List<LocalDrivingLicenseApplication> _testsList;
 
@@ -45,7 +45,7 @@ namespace DVLD.Forms
 
 
             _testTypeController = new TestTypeController(new TestTypeRepository());
-            _applicationsController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository(), new InternationalLicenseRepository());
+            _localDrivingLicenseApplicationController = new LocalDrivingLicenseApplicationController(new LocalDrivingLicenseApplicationRepository(), new LicenseRepository());
         }
 
 
@@ -65,7 +65,7 @@ namespace DVLD.Forms
 
         private async Task LoadTestsListAsync()
         {
-            _testsList = new List<LocalDrivingLicenseApplication>(await _applicationsController.GetAllLocalDrivingLicenseApplicationsAsync());
+            _testsList = new List<LocalDrivingLicenseApplication>(await _localDrivingLicenseApplicationController.GetAllLocalDrivingLicenseApplicationsAsync());
             BindTestsList(_testsList);
         }
         private void BindTestsList(IEnumerable<LocalDrivingLicenseApplication> tests)

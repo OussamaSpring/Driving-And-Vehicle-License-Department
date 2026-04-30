@@ -6,7 +6,7 @@ namespace Core.Interfaces
 {
     public interface ITestAppointmentRepository : IRepository<TestAppointment>
     {
-        Task<TestAppointment> GetLatestByLocalDrivingLicenseApplicationIdAsync(int localDrivingLicenseApplicationId);
+        Task<TestAppointment> GetLatestAppointmentByLDAndTestTypeIdAsync(int localDrivingLicenseApplicationId, int testTypeId);
         Task<IEnumerable<TestAppointment>> GetByLocalDrivingLicenseApplicationIdAsync(int localDrivingLicenseApplicationId);
 
     }

@@ -1,38 +1,140 @@
 ﻿using Core.Interfaces;
 using Core.Models;
+using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
+using DVLD_DataAccess.Database;
 
 
 namespace DVLD_DataAccess.Repositories
 {
-    public class TestAppointmentRepository
+    public class TestAppointmentRepository : ITestAppointmentRepository
     {
+        private readonly TestTypeRepository _testTypeRepository = new TestTypeRepository();
 
         #region Help Functions
-
-        public TestAppointment MapTestAppointments(DataRow row) { 
-            if(row == null)
+        private async Task<TestAppointment> MapTestAppointmentAsync(DataRow row)
+        {
+            if (row == null)
                 return null;
 
-            return new TestAppointment(
+            var testTypeId = row.Field<int>("TestTypeID");
+            var testType = await _testTypeRepository.GetByIdAsync(testTypeId);
 
-                );
+            return new TestAppointment
+            {
+                TestAppointmentId = row.Field<int>("TestAppointmentID"),
+                TestType = testType,
+                LocalDrivingLicenseApplicationId = row.Field<int>("LocalDrivingLicenseApplicationID"),
+                AppointmentDate = row.Field<System.DateTime>("AppointmentDate"),
+                PaidFees = row.Field<decimal>("PaidFees"),
+                CreatedByUserId = row.Field<int>("CreatedByUserID"),
+                isLocked = row.Field<bool>("IsLocked"),
+                RetakeApplicationId = row["RetakeTestApplicationID"] == System.DBNull.Value ? -1 : row.Field<int>("RetakeTestApplicationID")
+            };
         }
-
         #endregion
 
-        //public async Task<TestAppointment> GetByIdAsync(int id)
-        //{
-        //    var parameters = new Dictionary<string, object>
-        //    {
-        //        { "@TestAppointmentId", id }
-        //    };
-        //    string sqlQuery = "SELECT * FROM TestAppointmentsTable WHERE TestAppointmentID = @TestAppointmentId";
-        //    var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
-        //    if (DataTable.Rows.Count == 0)
-        //        return null;
-        //    var row = DataTable.Rows[0];
-        //    return MapTestAppointments(row);
-        //}
+        public async Task<int> AddAsync(TestAppointment entity)
+        {
+            string query = @"INSERT INTO TestAppointments (TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID)
+                             VALUES (@TestTypeID, @LocalDrivingLicenseApplicationID, @AppointmentDate, @PaidFees, @CreatedByUserID, @IsLocked, @RetakeTestApplicationID);
+                             SELECT SCOPE_IDENTITY();";
+            var parameters = new Dictionary<string, object>
+            {
+                {"@TestTypeID", entity.TestType.TypeId},
+                {"@LocalDrivingLicenseApplicationID", entity.LocalDrivingLicenseApplicationId},
+                {"@AppointmentDate", entity.AppointmentDate},
+                {"@PaidFees", entity.PaidFees},
+                {"@CreatedByUserID", entity.CreatedByUserId},
+                {"@IsLocked", entity.isLocked},
+                {"@RetakeTestApplicationID", entity.RetakeApplicationId == -1 ? (object)System.DBNull.Value : entity.RetakeApplicationId}
+            };
+            object result = await DBHelper.ExecuteScalarAsync(query, parameters);
+            return result != null && int.TryParse(result.ToString(), out int id) ? id : -1;
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            string query = "DELETE FROM TestAppointments WHERE TestAppointmentID = @TestAppointmentID";
+            var parameters = new Dictionary<string, object> { {"@TestAppointmentID", id} };
+            int rows = await DBHelper.ExecuteNonQueryAsync(query, parameters);
+            return rows > 0;
+        }
+
+        public async Task<IEnumerable<TestAppointment>> GetAllAsync()
+        {
+            string query = "SELECT * FROM TestAppointments_View ORDER BY AppointmentDate DESC";
+            var dt = await DBHelper.ExecuteReaderAsync(query);
+            var list = new List<TestAppointment>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(await MapTestAppointmentAsync(row));
+            }
+            return list;
+        }
+
+        public async Task<TestAppointment> GetByIdAsync(int id)
+        {
+            string query = "SELECT * FROM TestAppointments WHERE TestAppointmentID = @TestAppointmentID";
+            var parameters = new Dictionary<string, object> { {"@TestAppointmentID", id} };
+            var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
+            if (dt.Rows.Count == 0)
+                return null;
+            return await MapTestAppointmentAsync(dt.Rows[0]);
+        }
+
+        public async Task<bool> UpdateAsync(TestAppointment entity)
+        {
+            string query = @"UPDATE TestAppointments SET
+                                TestTypeID = @TestTypeID,
+                                LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID,
+                                AppointmentDate = @AppointmentDate,
+                                PaidFees = @PaidFees,
+                                CreatedByUserID = @CreatedByUserID,
+                                IsLocked = @IsLocked,
+                                RetakeTestApplicationID = @RetakeTestApplicationID
+                              WHERE TestAppointmentID = @TestAppointmentID";
+            var parameters = new Dictionary<string, object>
+            {
+                {"@TestAppointmentID", entity.TestAppointmentId},
+                {"@TestTypeID", entity.TestType.TypeId},
+                {"@LocalDrivingLicenseApplicationID", entity.LocalDrivingLicenseApplicationId},
+                {"@AppointmentDate", entity.AppointmentDate},
+                {"@PaidFees", entity.PaidFees},
+                {"@CreatedByUserID", entity.CreatedByUserId},
+                {"@IsLocked", entity.isLocked},
+                {"@RetakeTestApplicationID", entity.RetakeApplicationId == -1 ? (object)System.DBNull.Value : entity.RetakeApplicationId}
+            };
+            int rows = await DBHelper.ExecuteNonQueryAsync(query, parameters);
+            return rows > 0;
+        }
+
+        public async Task<IEnumerable<TestAppointment>> GetByLocalDrivingLicenseApplicationIdAsync(int localDrivingLicenseApplicationId)
+        {
+            string query = @"SELECT * FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID ORDER BY AppointmentDate DESC";
+            var parameters = new Dictionary<string, object> { {"@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId} };
+            var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
+            var list = new List<TestAppointment>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(await MapTestAppointmentAsync(row));
+            }
+            return list;
+        }
+
+        public async Task<TestAppointment> GetLatestAppointmentByLDAndTestTypeIdAsync(int localDrivingLicenseApplicationId, int testTypeId)
+        {
+            string query = @"SELECT TOP 1 * FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND TestTypeID = @TestTypeID ORDER BY TestAppointmentID DESC";
+            var parameters = new Dictionary<string, object>
+            {
+                {"@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId},
+                {"@TestTypeID", testTypeId}
+            };
+            var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
+            if (dt.Rows.Count == 0)
+                return null;
+            return await MapTestAppointmentAsync(dt.Rows[0]);
+        }
     }
 }
