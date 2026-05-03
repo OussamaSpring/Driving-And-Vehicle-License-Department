@@ -10,16 +10,21 @@ namespace DVLD_DataAccess.Repositories
 {
     public class TestAppointmentRepository : ITestAppointmentRepository
     {
-        private readonly TestTypeRepository _testTypeRepository = new TestTypeRepository();
+        // TODO: Implement the logic of rescheduling a test appointment not creating one for the same time.
 
         #region Help Functions
-        private async Task<TestAppointment> MapTestAppointmentAsync(DataRow row)
+        private TestAppointment MapTestAppointment(DataRow row)
         {
             if (row == null)
                 return null;
 
-            var testTypeId = row.Field<int>("TestTypeID");
-            var testType = await _testTypeRepository.GetByIdAsync(testTypeId);
+            var testType = new TestType
+            {
+                TypeId = row.Field<int>("TestTypeID"),
+                TypeTitle = row.Field<string>("TestTypeTitle"),
+                TypeDescription = row.Field<string>("TestTypeDescription"),
+                TypeFee = row.Field<float>("TestTypeFees")
+            };
 
             return new TestAppointment
             {
@@ -64,24 +69,24 @@ namespace DVLD_DataAccess.Repositories
 
         public async Task<IEnumerable<TestAppointment>> GetAllAsync()
         {
-            string query = "SELECT * FROM TestAppointments_View ORDER BY AppointmentDate DESC";
+            string query = "SELECT * FROM vw_TestAppointment ORDER BY AppointmentDate DESC";
             var dt = await DBHelper.ExecuteReaderAsync(query);
             var list = new List<TestAppointment>();
             foreach (DataRow row in dt.Rows)
             {
-                list.Add(await MapTestAppointmentAsync(row));
+                list.Add(MapTestAppointment(row));
             }
             return list;
         }
 
         public async Task<TestAppointment> GetByIdAsync(int id)
         {
-            string query = "SELECT * FROM TestAppointments WHERE TestAppointmentID = @TestAppointmentID";
+            string query = "SELECT * FROM vw_TestAppointment WHERE TestAppointmentID = @TestAppointmentID";
             var parameters = new Dictionary<string, object> { {"@TestAppointmentID", id} };
             var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
             if (dt.Rows.Count == 0)
                 return null;
-            return await MapTestAppointmentAsync(dt.Rows[0]);
+            return MapTestAppointment(dt.Rows[0]);
         }
 
         public async Task<bool> UpdateAsync(TestAppointment entity)
@@ -112,20 +117,20 @@ namespace DVLD_DataAccess.Repositories
 
         public async Task<IEnumerable<TestAppointment>> GetByLocalDrivingLicenseApplicationIdAsync(int localDrivingLicenseApplicationId)
         {
-            string query = @"SELECT * FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID ORDER BY AppointmentDate DESC";
+            string query = @"SELECT * FROM vw_TestAppointment WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID ORDER BY AppointmentDate DESC";
             var parameters = new Dictionary<string, object> { {"@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId} };
             var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
             var list = new List<TestAppointment>();
             foreach (DataRow row in dt.Rows)
             {
-                list.Add(await MapTestAppointmentAsync(row));
+                list.Add(MapTestAppointment(row));
             }
             return list;
         }
 
         public async Task<TestAppointment> GetLatestAppointmentByLDAndTestTypeIdAsync(int localDrivingLicenseApplicationId, int testTypeId)
         {
-            string query = @"SELECT TOP 1 * FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND TestTypeID = @TestTypeID ORDER BY TestAppointmentID DESC";
+            string query = @"SELECT TOP 1 * FROM vw_TestAppointment WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND TestTypeID = @TestTypeID ORDER BY TestAppointmentID DESC";
             var parameters = new Dictionary<string, object>
             {
                 {"@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId},
@@ -134,7 +139,7 @@ namespace DVLD_DataAccess.Repositories
             var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
             if (dt.Rows.Count == 0)
                 return null;
-            return await MapTestAppointmentAsync(dt.Rows[0]);
+            return MapTestAppointment(dt.Rows[0]);
         }
     }
 }
