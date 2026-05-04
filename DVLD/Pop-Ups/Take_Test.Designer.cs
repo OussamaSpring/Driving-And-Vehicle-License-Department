@@ -56,6 +56,7 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.btn_save = new DVLD.Views.Controls.RoundedButton();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.lb_warning = new System.Windows.Forms.Label();
             this.gb_test_result.SuspendLayout();
             this.gb_test_info.SuspendLayout();
             this.pl_header.SuspendLayout();
@@ -367,9 +368,22 @@
             this.imageList.Images.SetKeyName(1, "exam.png");
             this.imageList.Images.SetKeyName(2, "driving-test.png");
             // 
+            // lb_warning
+            // 
+            this.lb_warning.AutoSize = true;
+            this.lb_warning.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_warning.ForeColor = System.Drawing.Color.Red;
+            this.lb_warning.Location = new System.Drawing.Point(26, 692);
+            this.lb_warning.Name = "lb_warning";
+            this.lb_warning.Size = new System.Drawing.Size(153, 20);
+            this.lb_warning.TabIndex = 15;
+            this.lb_warning.Text = "Missed appointment!";
+            this.lb_warning.Visible = false;
+            // 
             // Take_Test
             // 
             this.ClientSize = new System.Drawing.Size(432, 728);
+            this.Controls.Add(this.lb_warning);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.pl_header);
             this.Controls.Add(this.lb_test_type);
@@ -385,6 +399,7 @@
             this.pl_header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -416,5 +431,6 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private Views.Controls.RoundedButton btn_save;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.Label lb_warning;
     }
 }
