@@ -48,5 +48,10 @@ namespace DVLD_BusinessLogic
         {
             return await _testAppointmentRepository.GetLatestAppointmentByLDAndTestTypeIdAsync(localDrivingLicenseApplicationId, testTypeId);
         }
+
+        public async Task<int> RescheduleTestAppointmentAsync(TestAppointment appointment, Applications retakeApplication)
+        {
+            return await _testAppointmentRepository.RescheduleTestAppointmentAsync(appointment, retakeApplication);
+        }
     }
 }

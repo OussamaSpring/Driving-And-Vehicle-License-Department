@@ -1,9 +1,11 @@
 ﻿using Core.Interfaces;
 using Core.Models;
+using DVLD_DataAccess.Database;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
-using DVLD_DataAccess.Database;
 
 
 namespace DVLD_DataAccess.Repositories
@@ -38,6 +40,27 @@ namespace DVLD_DataAccess.Repositories
                 RetakeApplicationId = row["RetakeTestApplicationID"] == System.DBNull.Value ? -1 : row.Field<int>("RetakeTestApplicationID")
             };
         }
+        private async Task<int> InsertApplicationAsync(Applications application, SqlConnection connection, SqlTransaction transaction)
+        {
+            var appParams = new Dictionary<string, object>
+            {
+                { "@ApplicantPersonID", application.ApplicantPersonId },
+                { "@ApplicationDate", application.ApplicationDate },
+                { "@ApplicationTypeID", application.ApplicationType.ApplicationTypeId },
+                { "@ApplicationStatus", application.enApplicationStatus },
+                { "@LastStatusDate", (object)application.LastStatusDate ?? DBNull.Value },
+                { "@PaidFees", (object)application.PaidFees ?? DBNull.Value },
+                { "@CreatedByUserID", application.CreatedByUserId }
+            };
+
+            string insertAppSql = @"INSERT INTO Applications 
+                                    (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
+                                    VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
+                                    SELECT SCOPE_IDENTITY();";
+
+            var newAppIdObj = await DBHelper.ExecuteScalarAsync(insertAppSql, appParams, connection, transaction);
+            return Convert.ToInt32(newAppIdObj);
+        }
         #endregion
 
         public async Task<int> AddAsync(TestAppointment entity)
@@ -62,7 +85,7 @@ namespace DVLD_DataAccess.Repositories
         public async Task<bool> DeleteAsync(int id)
         {
             string query = "DELETE FROM TestAppointments WHERE TestAppointmentID = @TestAppointmentID";
-            var parameters = new Dictionary<string, object> { {"@TestAppointmentID", id} };
+            var parameters = new Dictionary<string, object> { { "@TestAppointmentID", id } };
             int rows = await DBHelper.ExecuteNonQueryAsync(query, parameters);
             return rows > 0;
         }
@@ -82,7 +105,7 @@ namespace DVLD_DataAccess.Repositories
         public async Task<TestAppointment> GetByIdAsync(int id)
         {
             string query = "SELECT * FROM vw_TestAppointment WHERE TestAppointmentID = @TestAppointmentID";
-            var parameters = new Dictionary<string, object> { {"@TestAppointmentID", id} };
+            var parameters = new Dictionary<string, object> { { "@TestAppointmentID", id } };
             var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
             if (dt.Rows.Count == 0)
                 return null;
@@ -115,10 +138,58 @@ namespace DVLD_DataAccess.Repositories
             return rows > 0;
         }
 
+        public async Task<int> RescheduleTestAppointmentAsync(TestAppointment entity, Applications application)
+        {
+            using (var connection = DBHelper.CreateOpenConnection())
+            using (var transaction = DBHelper.BeginTransaction(connection))
+            {
+                try
+                {
+                    // 1. Insert new application (for retake)
+                    int newAppId = await InsertApplicationAsync(application, connection, transaction);
+
+                    // 2. Insert new test appointment with RetakeTestApplicationID set to newAppId
+                    string insertQuery = @"
+                INSERT INTO TestAppointments 
+                    (TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID)
+                VALUES 
+                    (@TestTypeID, @LocalDrivingLicenseApplicationID, @AppointmentDate, @PaidFees, @CreatedByUserID, @IsLocked, @RetakeTestApplicationID);
+                SELECT SCOPE_IDENTITY();";
+                    var insertParams = new Dictionary<string, object>
+                    {
+                        {"@TestTypeID", entity.TestType.TypeId},
+                        {"@LocalDrivingLicenseApplicationID", entity.LocalDrivingLicenseApplicationId},
+                        {"@AppointmentDate", entity.AppointmentDate},
+                        {"@PaidFees", entity.PaidFees},
+                        {"@CreatedByUserID", entity.CreatedByUserId},
+                        {"@IsLocked", entity.isLocked},
+                        {"@RetakeTestApplicationID", newAppId}
+                    };
+                    object result = await DBHelper.ExecuteScalarAsync(insertQuery, insertParams, connection, transaction);
+
+                    if (result != null && int.TryParse(result.ToString(), out int newTestAppointmentId))
+                    {
+                        transaction.Commit();
+                        return newTestAppointmentId;
+                    }
+                    else
+                    {
+                        transaction.Rollback();
+                        return -1;
+                    }
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
         public async Task<IEnumerable<TestAppointment>> GetByLocalDrivingLicenseApplicationIdAsync(int localDrivingLicenseApplicationId)
         {
             string query = @"SELECT * FROM vw_TestAppointment WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID ORDER BY AppointmentDate DESC";
-            var parameters = new Dictionary<string, object> { {"@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId} };
+            var parameters = new Dictionary<string, object> { { "@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId } };
             var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
             var list = new List<TestAppointment>();
             foreach (DataRow row in dt.Rows)

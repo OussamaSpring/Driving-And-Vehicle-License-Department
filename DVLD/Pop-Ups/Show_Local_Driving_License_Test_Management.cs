@@ -10,7 +10,7 @@ namespace DVLD.Pop_Ups
 {
     public partial class Local_Driving_License_Test_Management : Form
     {
-        private ApplicationsController _applicationsController;
+        private LocalDrivingLicenseApplicationController _ldlApplicationsController;
 
         private int _LDL_Id;
         private LocalDrivingLicenseApplication _localDrivingLicenseApplication;
@@ -22,7 +22,7 @@ namespace DVLD.Pop_Ups
 
             _LDL_Id = LDL_Id;
 
-            _applicationsController = new ApplicationsController(new ApplicationsRepository(), new LicenseRepository(), new InternationalLicenseRepository());
+            _ldlApplicationsController = new LocalDrivingLicenseApplicationController(new LocalDrivingLicenseApplicationRepository(), new LicenseRepository());
         }
 
         private void Local_Driving_License_Test_Management_Load(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace DVLD.Pop_Ups
         }
         private async void LoadLocalDrivingLicenseApplication()
         {
-            _localDrivingLicenseApplication = await _applicationsController.GetLocalDrivingLicenseApplicationByIdAsync(_LDL_Id);
+            _localDrivingLicenseApplication = await _ldlApplicationsController.GetLocalDrivingLicenseApplicationByIdAsync(_LDL_Id);
             MapDataToUI();
         }
 

@@ -57,6 +57,7 @@
             this.lb_title = new System.Windows.Forms.Label();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.btn_save = new DVLD.Views.Controls.RoundedButton();
+            this.lb_warning = new System.Windows.Forms.Label();
             this.gb_retake_test_info.SuspendLayout();
             this.gb_test_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -376,10 +377,23 @@
             this.btn_save.TabIndex = 20;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // lb_warning
+            // 
+            this.lb_warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_warning.ForeColor = System.Drawing.Color.Red;
+            this.lb_warning.Location = new System.Drawing.Point(33, 627);
+            this.lb_warning.Name = "lb_warning";
+            this.lb_warning.Size = new System.Drawing.Size(268, 42);
+            this.lb_warning.TabIndex = 28;
+            this.lb_warning.Text = "Person already sat for the test. Appointment is locked!";
+            this.lb_warning.Visible = false;
             // 
             // Schedule_Test
             // 
             this.ClientSize = new System.Drawing.Size(449, 669);
+            this.Controls.Add(this.lb_warning);
             this.Controls.Add(this.pl_header);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.gb_retake_test_info);
@@ -429,5 +443,6 @@
         private System.Windows.Forms.Label lb_retake_test_fees;
         private System.Windows.Forms.DateTimePicker dtp_test_schedule_date;
         private System.Windows.Forms.Label lb_trial_number;
+        private System.Windows.Forms.Label lb_warning;
     }
 }
