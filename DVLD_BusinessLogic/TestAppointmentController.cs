@@ -44,6 +44,11 @@ namespace DVLD_BusinessLogic
             return await _testAppointmentRepository.GetByLocalDrivingLicenseApplicationIdAsync(localDrivingLicenseApplicationId);
         }
 
+        public async Task<IEnumerable<TestAppointment>> GetTestAppointmentsByLocalDrivingLicenseApplicationIdAndTestTypeIdAsync(int localDrivingLicenseApplicationId, int testTypeId)
+        {
+            return await _testAppointmentRepository.GetByLocalDrivingLicenseApplicationIdAndTestTypeIdAsync(localDrivingLicenseApplicationId, testTypeId);
+        }
+
         public async Task<TestAppointment> GetLatestAppointmentByLDAndTestTypeIdAsync(int localDrivingLicenseApplicationId, int testTypeId)
         {
             return await _testAppointmentRepository.GetLatestAppointmentByLDAndTestTypeIdAsync(localDrivingLicenseApplicationId, testTypeId);

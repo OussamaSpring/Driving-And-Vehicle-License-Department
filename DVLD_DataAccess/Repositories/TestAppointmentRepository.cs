@@ -12,7 +12,7 @@ namespace DVLD_DataAccess.Repositories
 {
     public class TestAppointmentRepository : ITestAppointmentRepository
     {
-        // TODO: Implement the logic of rescheduling a test appointment not creating one for the same time.
+
 
         #region Help Functions
         private TestAppointment MapTestAppointment(DataRow row)
@@ -211,6 +211,23 @@ namespace DVLD_DataAccess.Repositories
             if (dt.Rows.Count == 0)
                 return null;
             return MapTestAppointment(dt.Rows[0]);
+        }
+
+        public async Task<IEnumerable<TestAppointment>> GetByLocalDrivingLicenseApplicationIdAndTestTypeIdAsync(int localDrivingLicenseApplicationId, int testTypeId)
+        {
+            string query = @"SELECT * FROM vw_TestAppointment WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND TestTypeID = @TestTypeID ORDER BY AppointmentDate DESC";
+            var parameters = new Dictionary<string, object>
+            {
+                {"@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId},
+                {"@TestTypeID", testTypeId}
+            };
+            var dt = await DBHelper.ExecuteReaderAsync(query, parameters);
+            var list = new List<TestAppointment>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(MapTestAppointment(row));
+            }
+            return list;
         }
     }
 }
