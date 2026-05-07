@@ -67,14 +67,16 @@ namespace DVLD_DataAccess.Repositories
 
         #endregion
 
+        // TODO: Fix the conditions from view of ldl application to application and license class
+
         public async Task<LocalDrivingLicenseApplication> GetByIdAsync(int id)
         {
             var parameters = new Dictionary<string, object>
             {
-                { "@ApplicationId", id }
+                { "@LDLApplicationId", id }
             };
             string sqlQuery = @"SELECT * FROM vw_LocalDrivingLicenseApplicationTable 
-                                WHERE ApplicationID = @ApplicationId";
+                                WHERE LocalDrivingLicenseApplicationID = @LDLApplicationId";
 
             var DataTable = await DBHelper.ExecuteReaderAsync(sqlQuery, parameters);
 

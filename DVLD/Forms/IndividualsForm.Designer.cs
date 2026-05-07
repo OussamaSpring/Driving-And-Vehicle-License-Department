@@ -430,7 +430,7 @@
             this.toolStripSeparator1,
             this.tsmi_IssueInternationalLicense});
             this.cms_DriverManagement.Name = "cms_UserManagement";
-            this.cms_DriverManagement.Size = new System.Drawing.Size(249, 119);
+            this.cms_DriverManagement.Size = new System.Drawing.Size(249, 97);
             this.cms_DriverManagement.Text = "Drivers Management";
             // 
             // tsmi_ViewPersonInfo

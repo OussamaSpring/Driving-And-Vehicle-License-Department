@@ -23,7 +23,9 @@ namespace DVLD.Pop_Ups
         private LocalDrivingLicenseApplication _ldlApp;
         private int _totalTrials;
         private bool _canTakeTest = false;
-        private TestTypes _testType
+        private TestTypes _testType;
+
+        public TestTypes TestType
         {
             get => _testType;
             set
@@ -31,17 +33,17 @@ namespace DVLD.Pop_Ups
                 _testType = value;
                 switch (_testType)
                 {
-                    case TestTypes.WrittenTest:
-                        lb_test_type.Text = "Written Test";
-                        pictureBox.Image = imageList.Images[0];
-                        break;
                     case TestTypes.VisionTest:
-                        lb_test_type.Text = "Vision (Theory) Test";
-                        pictureBox.Image = imageList.Images[1];
+                        lb_test_type.Text = "Vision Test";
+                        pictureBox.Image = Properties.Resources.eyetest;
+                        break;
+                    case TestTypes.WrittenTest:
+                        lb_test_type.Text = "Written (Theory)  Test";
+                        pictureBox.Image = Properties.Resources.exam;
                         break;
                     case TestTypes.StreetTest:
                         lb_test_type.Text = "Practical (Street) Test";
-                        pictureBox.Image = imageList.Images[2];
+                        pictureBox.Image = Properties.Resources.driving_test;
                         break;
                 }
             }
@@ -56,10 +58,10 @@ namespace DVLD.Pop_Ups
             
             
             _appointmentId = appointmentId;
-            _testType = testType;
+            TestType = testType;
         }
 
-        private async void Take_Test_Load(object sender, System.EventArgs e)
+        private async void Take_Test_Load(object sender, EventArgs e)
         {
             _appointment = await _testAppointmentController.GetTestAppointmentByIdAsync(_appointmentId);
             if (_appointment == null)
@@ -122,7 +124,7 @@ namespace DVLD.Pop_Ups
             btn_save.Enabled = enabled;
         }
 
-        private async void btn_save_Click(object sender, System.EventArgs e)
+        private async void btn_save_Click(object sender, EventArgs e)
         {
             if (!_canTakeTest)
                 return;
@@ -179,5 +181,11 @@ namespace DVLD.Pop_Ups
         }
 
         #endregion
+
+        private void lb_exit_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to exit without saving?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Dispose();
+        }
     }
 }

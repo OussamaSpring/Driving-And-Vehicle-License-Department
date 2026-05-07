@@ -45,6 +45,9 @@
             this.vision_appointment_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vision_paid_fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vision_is_locked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cmsActions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_take_test = new System.Windows.Forms.ToolStripMenuItem();
             this.tp_written_test = new System.Windows.Forms.TabPage();
             this.dgv_written_test = new WindowsFormsControlLibrary.CustomControls.RoundedDataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,13 +81,11 @@
             this.lb_license_fees = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_schedule_test = new DVLD.Views.Controls.RoundedButton();
-            this.cmsActions = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmi_edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_take_test = new System.Windows.Forms.ToolStripMenuItem();
             this.tc_test_appointments.SuspendLayout();
             this.tp_vision_test.SuspendLayout();
             this.flp_footer_local.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vision_test)).BeginInit();
+            this.cmsActions.SuspendLayout();
             this.tp_written_test.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_written_test)).BeginInit();
             this.flp_footer_international.SuspendLayout();
@@ -92,7 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_street_test)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.cmsActions.SuspendLayout();
             this.SuspendLayout();
             // 
             // tc_test_appointments
@@ -222,6 +222,33 @@
             this.vision_is_locked.ReadOnly = true;
             this.vision_is_locked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.vision_is_locked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // cmsActions
+            // 
+            this.cmsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_edit,
+            this.tsmi_take_test});
+            this.cmsActions.Name = "cmsActions";
+            this.cmsActions.ShowImageMargin = false;
+            this.cmsActions.Size = new System.Drawing.Size(113, 76);
+            // 
+            // tsmi_edit
+            // 
+            this.tsmi_edit.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tsmi_edit.Name = "tsmi_edit";
+            this.tsmi_edit.Padding = new System.Windows.Forms.Padding(6);
+            this.tsmi_edit.Size = new System.Drawing.Size(124, 36);
+            this.tsmi_edit.Text = "Edit";
+            this.tsmi_edit.Click += new System.EventHandler(this.tsmi_edit_Click);
+            // 
+            // tsmi_take_test
+            // 
+            this.tsmi_take_test.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tsmi_take_test.Name = "tsmi_take_test";
+            this.tsmi_take_test.Padding = new System.Windows.Forms.Padding(6);
+            this.tsmi_take_test.Size = new System.Drawing.Size(124, 36);
+            this.tsmi_take_test.Text = "Take Test";
+            this.tsmi_take_test.Click += new System.EventHandler(this.tsmi_take_test_Click);
             // 
             // tp_written_test
             // 
@@ -605,6 +632,7 @@
             this.btn_schedule_test.BorderColor = System.Drawing.Color.Silver;
             this.btn_schedule_test.BorderRadius = 15;
             this.btn_schedule_test.BorderSize = 1;
+            this.btn_schedule_test.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_schedule_test.FlatAppearance.BorderSize = 0;
             this.btn_schedule_test.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_schedule_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -616,33 +644,6 @@
             this.btn_schedule_test.TabIndex = 20;
             this.btn_schedule_test.UseVisualStyleBackColor = false;
             this.btn_schedule_test.Click += new System.EventHandler(this.btn_schedule_test_Click);
-            // 
-            // cmsActions
-            // 
-            this.cmsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_edit,
-            this.tsmi_take_test});
-            this.cmsActions.Name = "cmsActions";
-            this.cmsActions.ShowImageMargin = false;
-            this.cmsActions.Size = new System.Drawing.Size(113, 76);
-            // 
-            // tsmi_edit
-            // 
-            this.tsmi_edit.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.tsmi_edit.Name = "tsmi_edit";
-            this.tsmi_edit.Padding = new System.Windows.Forms.Padding(6);
-            this.tsmi_edit.Size = new System.Drawing.Size(124, 36);
-            this.tsmi_edit.Text = "Edit";
-            this.tsmi_edit.Click += new System.EventHandler(this.tsmi_edit_Click);
-            // 
-            // tsmi_take_test
-            // 
-            this.tsmi_take_test.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.tsmi_take_test.Name = "tsmi_take_test";
-            this.tsmi_take_test.Padding = new System.Windows.Forms.Padding(6);
-            this.tsmi_take_test.Size = new System.Drawing.Size(124, 36);
-            this.tsmi_take_test.Text = "Take Test";
-            this.tsmi_take_test.Click += new System.EventHandler(this.tsmi_take_test_Click);
             // 
             // Local_Driving_License_Test_Management
             // 
@@ -674,6 +675,7 @@
             this.flp_footer_local.ResumeLayout(false);
             this.flp_footer_local.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vision_test)).EndInit();
+            this.cmsActions.ResumeLayout(false);
             this.tp_written_test.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_written_test)).EndInit();
             this.flp_footer_international.ResumeLayout(false);
@@ -683,7 +685,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.cmsActions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

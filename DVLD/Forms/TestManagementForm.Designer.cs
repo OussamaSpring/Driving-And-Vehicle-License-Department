@@ -51,7 +51,7 @@
             this.tsmi_delete_app = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_cancel_app = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmi_schedule_test = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_test_management = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_issue_license = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_show_license = new System.Windows.Forms.ToolStripMenuItem();
@@ -230,7 +230,7 @@
             this.tsmi_delete_app,
             this.tsmi_cancel_app,
             this.toolStripSeparator1,
-            this.tsmi_schedule_test,
+            this.tsmi_test_management,
             this.toolStripSeparator2,
             this.tsmi_issue_license,
             this.tsmi_show_license});
@@ -281,15 +281,15 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(289, 6);
             // 
-            // tsmi_schedule_test
+            // tsmi_test_management
             // 
-            this.tsmi_schedule_test.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tsmi_schedule_test.Image = global::DVLD.Properties.Resources.TakeTest;
-            this.tsmi_schedule_test.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.tsmi_schedule_test.Name = "tsmi_schedule_test";
-            this.tsmi_schedule_test.Size = new System.Drawing.Size(292, 24);
-            this.tsmi_schedule_test.Text = "Schedule Test";
-            this.tsmi_schedule_test.Click += new System.EventHandler(this.tsmi_schedule_test_Click);
+            this.tsmi_test_management.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tsmi_test_management.Image = global::DVLD.Properties.Resources.TakeTest;
+            this.tsmi_test_management.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.tsmi_test_management.Name = "tsmi_test_management";
+            this.tsmi_test_management.Size = new System.Drawing.Size(292, 24);
+            this.tsmi_test_management.Text = "Test Management";
+            this.tsmi_test_management.Click += new System.EventHandler(this.tsmi_test_management_Click);
             // 
             // toolStripSeparator2
             // 
@@ -537,7 +537,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_edit_app;
         private System.Windows.Forms.ToolStripMenuItem tsmi_delete_app;
         private System.Windows.Forms.ToolStripMenuItem tsmi_cancel_app;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_schedule_test;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_test_management;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem tsmi_issue_license;

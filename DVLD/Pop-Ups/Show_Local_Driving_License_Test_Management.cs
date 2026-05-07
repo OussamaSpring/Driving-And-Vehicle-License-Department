@@ -32,7 +32,7 @@ namespace DVLD.Pop_Ups
         private async void Local_Driving_License_Test_Management_Load(object sender, EventArgs e)
         {
             await LoadLocalDrivingLicenseApplicationAsync();
-            enSelectedTestType = TestTypes.WrittenTest;
+            enSelectedTestType = TestTypes.VisionTest;
             personDetailsCard.SetPerson(_localDrivingLicenseApplication?.NationalNumber);
         }
 
@@ -159,7 +159,6 @@ namespace DVLD.Pop_Ups
         {
             if (!await ValidateTestSchedulePermission(enSelectedTestType))
             {
-                MessageBox.Show($"You cannot schedule a {enSelectedTestType} test. Make sure you have not already passed the test, and there is no active appointment.", "Cannot Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -176,7 +175,14 @@ namespace DVLD.Pop_Ups
 
         private bool DoesPassedPreviousTests(TestTypes testType)
         {
-            return _localDrivingLicenseApplication != null && _localDrivingLicenseApplication.PassedTest >= (int)testType - 1;
+            bool doesPassPrevious = _localDrivingLicenseApplication != null && _localDrivingLicenseApplication.PassedTest >= (int)testType - 1;
+            if(!doesPassPrevious)
+            {
+                MessageBox.Show($"You must pass the previous tests before scheduling a {testType} test.", "Test Requirement", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return doesPassPrevious;
+
+
         }
 
         private async Task<bool> DoesPassTestType(TestTypes testType)
@@ -212,14 +218,8 @@ namespace DVLD.Pop_Ups
             }
 
             var row = dgv.SelectedRows[0];
-            bool isLocked = Convert.ToBoolean(row.Cells[3].Value); // isLocked is the 4th column
             int appointmentId = Convert.ToInt32(row.Cells[0].Value); // TestAppointmentId is the 1st column
 
-            if (isLocked)
-            {
-                MessageBox.Show("You cannot edit a locked appointment.", "Edit Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             Schedule_Test editForm = new Schedule_Test(_LDL_Id, appointmentId) { TestType = enSelectedTestType };
             editForm.ShowDialog(this);

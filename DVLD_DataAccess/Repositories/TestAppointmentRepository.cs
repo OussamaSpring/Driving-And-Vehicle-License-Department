@@ -22,10 +22,10 @@ namespace DVLD_DataAccess.Repositories
 
             var testType = new TestType
             {
-                TypeId = row.Field<int>("TestTypeID"),
-                TypeTitle = row.Field<string>("TestTypeTitle"),
-                TypeDescription = row.Field<string>("TestTypeDescription"),
-                TypeFee = row.Field<float>("TestTypeFees")
+                TypeId = Convert.ToInt32(row["TestTypeID"]),
+                TypeTitle = row["TestTypeTitle"]?.ToString(),
+                TypeDescription = row["TestTypeDescription"]?.ToString(),
+                TypeFee = Convert.ToSingle(row["TestTypeFees"])
             };
 
             return new TestAppointment
@@ -33,7 +33,7 @@ namespace DVLD_DataAccess.Repositories
                 TestAppointmentId = row.Field<int>("TestAppointmentID"),
                 TestType = testType,
                 LocalDrivingLicenseApplicationId = row.Field<int>("LocalDrivingLicenseApplicationID"),
-                AppointmentDate = row.Field<System.DateTime>("AppointmentDate"),
+                AppointmentDate = row.Field<DateTime>("AppointmentDate"),
                 PaidFees = row.Field<decimal>("PaidFees"),
                 CreatedByUserId = row.Field<int>("CreatedByUserID"),
                 isLocked = row.Field<bool>("IsLocked"),

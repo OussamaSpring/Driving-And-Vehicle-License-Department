@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Take_Test));
             this.gb_test_result = new System.Windows.Forms.GroupBox();
             this.rtb_notes = new System.Windows.Forms.RichTextBox();
             this.rb_fails = new System.Windows.Forms.RadioButton();
@@ -55,7 +53,6 @@
             this.lb_test_type = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.btn_save = new DVLD.Views.Controls.RoundedButton();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.lb_warning = new System.Windows.Forms.Label();
             this.gb_test_result.SuspendLayout();
             this.gb_test_info.SuspendLayout();
@@ -312,6 +309,7 @@
             this.lb_exit.Size = new System.Drawing.Size(51, 58);
             this.lb_exit.TabIndex = 1;
             this.lb_exit.Text = "×";
+            this.lb_exit.Click += new System.EventHandler(this.lb_exit_Click);
             // 
             // lb_title
             // 
@@ -327,18 +325,20 @@
             // lb_test_type
             // 
             this.lb_test_type.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_test_type.Location = new System.Drawing.Point(141, 213);
+            this.lb_test_type.Location = new System.Drawing.Point(83, 214);
             this.lb_test_type.Name = "lb_test_type";
-            this.lb_test_type.Size = new System.Drawing.Size(151, 25);
+            this.lb_test_type.Size = new System.Drawing.Size(260, 25);
             this.lb_test_type.TabIndex = 29;
             this.lb_test_type.Text = "Test Type";
-            this.lb_test_type.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lb_test_type.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox
             // 
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox.Location = new System.Drawing.Point(114, 101);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(204, 99);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 28;
             this.pictureBox.TabStop = false;
             // 
@@ -359,14 +359,7 @@
             this.btn_save.TabIndex = 31;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
-            // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "eyetest.png");
-            this.imageList.Images.SetKeyName(1, "exam.png");
-            this.imageList.Images.SetKeyName(2, "driving-test.png");
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // lb_warning
             // 
@@ -391,6 +384,7 @@
             this.Controls.Add(this.gb_test_info);
             this.Controls.Add(this.gb_test_result);
             this.Name = "Take_Test";
+            this.Load += new System.EventHandler(this.Take_Test_Load);
             this.gb_test_result.ResumeLayout(false);
             this.gb_test_result.PerformLayout();
             this.gb_test_info.ResumeLayout(false);
@@ -430,7 +424,6 @@
         private System.Windows.Forms.Label lb_test_type;
         private System.Windows.Forms.PictureBox pictureBox;
         private Views.Controls.RoundedButton btn_save;
-        private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Label lb_warning;
     }
 }

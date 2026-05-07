@@ -18,6 +18,7 @@ namespace DVLD.Pop_Ups
         private TestTypeController _testTypeController;
         private ApplicationTypeController _applicationTypeController;
         private TestAppointmentController _testAppointmentController;
+        private PersonController _personController;
 
 
         // Data
@@ -44,15 +45,15 @@ namespace DVLD.Pop_Ups
                 {
                     case TestTypes.WrittenTest:
                         lb_test_type.Text = "Written Test";
-                        pictureBox.Image = imageList.Images[0];
+                        pictureBox.Image = Properties.Resources.exam;
                         break;
                     case TestTypes.VisionTest:
                         lb_test_type.Text = "Vision (Theory) Test";
-                        pictureBox.Image = imageList.Images[1];
+                        pictureBox.Image = Properties.Resources.eyetest;
                         break;
                     case TestTypes.StreetTest:
                         lb_test_type.Text = "Practical (Street) Test";
-                        pictureBox.Image = imageList.Images[2];
+                        pictureBox.Image = Properties.Resources.driving_test;
                         break;
                 }
             }
@@ -75,7 +76,7 @@ namespace DVLD.Pop_Ups
                         lb_title.Text = "Schedule Test";
                         break;
                     case Mode.Edit:
-                        lb_title.Text = "Update Schedule";
+                        lb_title.Text = "Edit Schedule";
                         break;
                 }
             }
@@ -89,6 +90,7 @@ namespace DVLD.Pop_Ups
             _testTypeController = new TestTypeController(new TestTypeRepository());
             _applicationTypeController = new ApplicationTypeController(new ApplicationTypeRepository());
             _testAppointmentController = new TestAppointmentController(new TestAppointmentRepository());
+            _personController = new PersonController(new PersonRepository());
 
             _localDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
             _appointmentId = appointmentId;
@@ -129,10 +131,10 @@ namespace DVLD.Pop_Ups
             }
 
             // Always get total trials after loading application and test type
-            _totalTrials = await _localDrivingLicenseApplicationController.GetTotalTrialsPerTestAsync(_localDrivingLicenseApplication.ApplicationId, (int)_testType);
+            _totalTrials = await _localDrivingLicenseApplicationController.GetTotalTrialsPerTestAsync(_localDrivingLicenseApplication.LDL_ApplicationId, (int)_testType);
 
-            // Set schedule mode
-            _scheduleMode = _totalTrials == 0 ? ScheduleMode.FirstTimeSchedule : ScheduleMode.RetakeSchedule;
+
+            _scheduleMode = _totalTrials > 0 ? ScheduleMode.RetakeSchedule : ScheduleMode.FirstTimeSchedule;
 
             // Only get retake fees if needed
             if (_scheduleMode == ScheduleMode.RetakeSchedule)
@@ -150,7 +152,7 @@ namespace DVLD.Pop_Ups
             lb_person_name.Text = _localDrivingLicenseApplication.FullName;
             dtp_test_schedule_date.Value = DateTime.Now.AddDays(7); // Default to one week from now
             lb_trial_number.Text = (_totalTrials + 1).ToString();
-            lb_test_fees.Text = _testFees.ToString("C", CultureInfo.CurrentCulture);
+            lb_test_fees.Text = _testFees.ToString("C", CultureInfo.GetCultureInfo("en-us"));
 
             // Set test type label and image
             TestType = _testType;
@@ -158,9 +160,11 @@ namespace DVLD.Pop_Ups
             // Retake test info
             if (_scheduleMode == ScheduleMode.RetakeSchedule)
             {
-                lb_retake_test_app_id.Text = "N/A";
-                lb_retake_test_fees.Text = _retakeTestAppFees.ToString("C", CultureInfo.CurrentCulture);
-                lb_retake_total_fees.Text = (_testFees + _retakeTestAppFees).ToString("C", CultureInfo.CurrentCulture);
+                lb_retake_test_app_id.Text = _existingAppointment != null
+                        ? _existingAppointment.RetakeApplicationId.ToString()
+                        : "N/A";
+                lb_retake_test_fees.Text = _retakeTestAppFees.ToString("C", CultureInfo.GetCultureInfo("en-us"));
+                lb_retake_total_fees.Text = (_testFees + _retakeTestAppFees).ToString("C", CultureInfo.GetCultureInfo("en-us"));
             }
             else
             {
@@ -206,7 +210,7 @@ namespace DVLD.Pop_Ups
                     var newAppointment = new TestAppointment
                     {
                         TestType = new TestType { TypeId = (int)_testType },
-                        LocalDrivingLicenseApplicationId = _localDrivingLicenseApplication.ApplicationId,
+                        LocalDrivingLicenseApplicationId = _localDrivingLicenseApplication.LDL_ApplicationId,
                         AppointmentDate = dtp_test_schedule_date.Value,
                         PaidFees = _testFees,
                         CreatedByUserId = CurrentUserProvider.CurrentUser.UserId,
@@ -216,10 +220,11 @@ namespace DVLD.Pop_Ups
 
                     if (_scheduleMode == ScheduleMode.RetakeSchedule)
                     {
+                        Person person = await _personController.GetPersonByNationalNumberAsync(_localDrivingLicenseApplication.NationalNumber);
                         // Prepare Applications object for retake
                         var retakeApplication = new Applications
                         {
-                            ApplicantPersonId = _localDrivingLicenseApplication.ApplicationId, // or the correct person id if available
+                            ApplicantPersonId = person.PersonId, // or the correct person id if available
                             ApplicationDate = DateTime.Now,
                             ApplicationType = new ApplicationType { ApplicationTypeId = (int)ApplicationTypes.RetakeTest },
                             enApplicationStatus = ApplicationStatus.Completed,
@@ -277,6 +282,11 @@ namespace DVLD.Pop_Ups
         }
 
 
+        private void lb_exit_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to cancel scheduling?", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Dispose();
+        }
 
         #region Mouse Events for Dragging the Form
 
@@ -300,8 +310,8 @@ namespace DVLD.Pop_Ups
         }
 
 
-        #endregion
 
+        #endregion
 
     }
 }

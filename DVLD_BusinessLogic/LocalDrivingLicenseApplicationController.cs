@@ -11,6 +11,25 @@ namespace DVLD_BusinessLogic
         private readonly ILocalDrivingLicenseApplicationRepository _localDrivingLicenseApplicationRepository;
         private readonly ILicenseRepository _licenseRepository;
 
+
+        #region Help Functions
+
+        public List<string> GetLocalDrivingLicenseApplicationFilterCriteria()
+        {
+            return new List<string>
+            {
+                "L.D.L Application ID",
+                "License Class.",
+                "National Number",
+                "Full Name",
+                "Application Date",
+                "Passed Tests",
+                "Status"
+            };
+        }
+
+        #endregion
+
         public LocalDrivingLicenseApplicationController(ILocalDrivingLicenseApplicationRepository localDrivingLicenseApplicationRepository, ILicenseRepository licenseRepository)
         {
             _localDrivingLicenseApplicationRepository = localDrivingLicenseApplicationRepository;

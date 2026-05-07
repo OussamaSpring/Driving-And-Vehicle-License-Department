@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule_Test));
             this.gb_retake_test_info = new System.Windows.Forms.GroupBox();
             this.lb_retake_total_fees = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,9 +53,8 @@
             this.pl_header = new System.Windows.Forms.Panel();
             this.lb_exit = new System.Windows.Forms.Label();
             this.lb_title = new System.Windows.Forms.Label();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.btn_save = new DVLD.Views.Controls.RoundedButton();
             this.lb_warning = new System.Windows.Forms.Label();
+            this.btn_save = new DVLD.Views.Controls.RoundedButton();
             this.gb_retake_test_info.SuspendLayout();
             this.gb_test_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -300,18 +297,20 @@
             // lb_test_type
             // 
             this.lb_test_type.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_test_type.Location = new System.Drawing.Point(150, 218);
+            this.lb_test_type.Location = new System.Drawing.Point(86, 220);
             this.lb_test_type.Name = "lb_test_type";
-            this.lb_test_type.Size = new System.Drawing.Size(151, 25);
+            this.lb_test_type.Size = new System.Drawing.Size(279, 25);
             this.lb_test_type.TabIndex = 17;
             this.lb_test_type.Text = "Test Type";
-            this.lb_test_type.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lb_test_type.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox
             // 
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox.Location = new System.Drawing.Point(123, 106);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(204, 99);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 16;
             this.pictureBox.TabStop = false;
             // 
@@ -340,6 +339,7 @@
             this.lb_exit.Size = new System.Drawing.Size(51, 58);
             this.lb_exit.TabIndex = 1;
             this.lb_exit.Text = "×";
+            this.lb_exit.Click += new System.EventHandler(this.lb_exit_Click);
             // 
             // lb_title
             // 
@@ -352,13 +352,16 @@
             this.lb_title.TabIndex = 0;
             this.lb_title.Text = "Schedule Test";
             // 
-            // imageList
+            // lb_warning
             // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "exam.png");
-            this.imageList.Images.SetKeyName(1, "eyetest.png");
-            this.imageList.Images.SetKeyName(2, "driving-test.png");
+            this.lb_warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_warning.ForeColor = System.Drawing.Color.Red;
+            this.lb_warning.Location = new System.Drawing.Point(33, 627);
+            this.lb_warning.Name = "lb_warning";
+            this.lb_warning.Size = new System.Drawing.Size(268, 42);
+            this.lb_warning.TabIndex = 28;
+            this.lb_warning.Text = "Person already sat for the test. Appointment is locked!";
+            this.lb_warning.Visible = false;
             // 
             // btn_save
             // 
@@ -378,17 +381,6 @@
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // lb_warning
-            // 
-            this.lb_warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_warning.ForeColor = System.Drawing.Color.Red;
-            this.lb_warning.Location = new System.Drawing.Point(33, 627);
-            this.lb_warning.Name = "lb_warning";
-            this.lb_warning.Size = new System.Drawing.Size(268, 42);
-            this.lb_warning.TabIndex = 28;
-            this.lb_warning.Text = "Person already sat for the test. Appointment is locked!";
-            this.lb_warning.Visible = false;
             // 
             // Schedule_Test
             // 
@@ -436,7 +428,6 @@
         private System.Windows.Forms.Panel pl_header;
         private System.Windows.Forms.Label lb_exit;
         private System.Windows.Forms.Label lb_title;
-        private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Label lb_retake_test_app_id;
         private System.Windows.Forms.Label lb_retake_total_fees;
         private System.Windows.Forms.Label label9;

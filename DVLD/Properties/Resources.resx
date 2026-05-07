@@ -226,7 +226,7 @@
   <data name="license_detain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\license_detain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="driving-test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="driving_test" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\driving-test.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

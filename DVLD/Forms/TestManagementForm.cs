@@ -6,6 +6,7 @@ using DVLD_DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,12 +50,13 @@ namespace DVLD.Forms
         }
 
 
-        private async void TestManagementForm_Load(object sender, EventArgs e)
+        private void TestManagementForm_Load(object sender, EventArgs e)
         {
-            await OnTestsListSelected();
+            OnTestsListSelected();
 
             uc_tests_list_topbar.btn_add_Hide();
-            //uc_tests_list_topbar.FillFilterCriteria
+            uc_tests_list_topbar.FillFilterCriteria(_localDrivingLicenseApplicationController.GetLocalDrivingLicenseApplicationFilterCriteria());
+            uc_tests_list_topbar.FilterPerformed = Uc_tests_list_topbar_FilterPerformed;
         }
 
 
@@ -88,7 +90,33 @@ namespace DVLD.Forms
             lb_total_tests_number.Text = dgv_tests_list.Rows.Count.ToString();
         }
 
+        private void Uc_tests_list_topbar_FilterPerformed(object sender, FilterArgs e)
+        {
+            var filtered = _testsList.Where(test =>
+            {
+                switch (e.FilterCriteria)
+                {
+                    case "L.D.L Application ID":
+                        return test.LDL_ApplicationId.ToString().Contains(e.SearchText);
+                    case "License Class.":
+                        return test.LicenseClass?.Name != null && test.LicenseClass.Name.ToLower().Contains(e.SearchText.ToLower());
+                    case "National Number":
+                        return test.NationalNumber != null && test.NationalNumber.Contains(e.SearchText);
+                    case "Full Name":
+                        return test.FullName != null && test.FullName.ToLower().Contains(e.SearchText.ToLower());
+                    case "Application Date":
+                        return test.ApplicationDate.ToShortDateString().ToLower().Contains(e.SearchText.ToLower());
+                    case "Passed Tests":
+                        return test.PassedTest.ToString().Contains(e.SearchText);
+                    case "Status":
+                        return test.Status.ToString().ToLower().Contains(e.SearchText.ToLower());
+                    default:
+                        return true;
+                }
+            }).ToList();
 
+            BindTestsList(filtered);
+        }
 
         #endregion
 
@@ -102,7 +130,7 @@ namespace DVLD.Forms
                 tsmi_edit_app.Enabled = false;
                 tsmi_issue_license.Enabled = false;
                 tsmi_show_license.Enabled = false;
-                tsmi_schedule_test.Enabled = false;
+                tsmi_test_management.Enabled = false;
                 tsmi_issue_license.Enabled = false;
                 tsmi_show_license.Enabled = false;
             }
@@ -156,9 +184,11 @@ namespace DVLD.Forms
             MessageBox.Show("Show License functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void tsmi_schedule_test_Click(object sender, EventArgs e)
+        private void tsmi_test_management_Click(object sender, EventArgs e)
         {
-
+            int LDL_ApplicationId = (int)dgv_tests_list.SelectedRows[0].Cells[0].Value;
+            Local_Driving_License_Test_Management testManagement_frm = new Local_Driving_License_Test_Management(LDL_ApplicationId);
+            testManagement_frm.ShowDialog(this);
         }
 
         #endregion
@@ -189,7 +219,7 @@ namespace DVLD.Forms
 
 
         #region Tab Switching
-        private async Task OnTestsListSelected()
+        private async void OnTestsListSelected()
         {
             htc_tab_nav.SelectedIndex = 0;
             await LoadTestsListAsync();
@@ -199,6 +229,7 @@ namespace DVLD.Forms
             htc_tab_nav.SelectedIndex = 1;
             await LoadTestTypesListAsync();
         }
+
 
 
 
