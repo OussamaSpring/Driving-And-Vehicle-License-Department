@@ -53,6 +53,11 @@ namespace DVLD.UserControls
             }
         }
 
+        public Applications GetApplication()
+        {
+            return _application;
+        }
+
         private void lb_view_person_info_Click(object sender, EventArgs e)
         {
             Show_Person_Details personDetails = new Show_Person_Details(_application.ApplicantPersonId);

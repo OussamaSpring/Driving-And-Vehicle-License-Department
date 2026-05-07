@@ -1,10 +1,11 @@
-﻿using Core.Interfaces;
+﻿using Core.Enums;
+using Core.Interfaces;
 using Core.Models;
-using Core.Enums;
 using DVLD_DataAccess.Database;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace DVLD_DataAccess.Repositories
@@ -31,6 +32,38 @@ namespace DVLD_DataAccess.Repositories
                 enIssueReason = (LicenseIsssueReasons)Convert.ToInt32(row["IssueReason"]),
                 IssuedByUserId = Convert.ToInt32(row["CreatedByUserID"])
             };
+        }
+
+        private async Task<int> InsertDriverAsync(int personId, SqlConnection connection, SqlTransaction transaction)
+        {
+            string sql = "INSERT INTO Drivers (PersonID) OUTPUT INSERTED.DriverID VALUES (@PersonID)";
+            using (var command = new SqlCommand(sql, connection, transaction))
+            {
+                command.Parameters.AddWithValue("@PersonID", personId);
+                var result = await command.ExecuteScalarAsync().ConfigureAwait(false);
+                return Convert.ToInt32(result);
+            }
+        }
+
+        private async Task<int> InsertDriverAsync(Driver driver, SqlConnection connection, SqlTransaction transaction)
+        {
+            var driverParam = new Dictionary<string, object>
+            {
+                { "@PersonID", driver.DriverPersonId },
+                { "@CreatedByUserID", driver.CreatedByUserId },
+                { "@CreatedDate", driver.CreateDate },
+                { "@NationalNo", driver.NationalNumber },
+                { "@FullName", driver.FullName }
+            };
+
+            string insertDriverSQL = @"
+                INSERT INTO Drivers (PersonID, CreatedByUserID, CreatedDate, NationalNo, FullName)
+                OUTPUT INSERTED.*
+                VALUES (@PersonID, @CreatedByUserID, @CreatedDate, @NationalNo, @FullName); SELECT SCOPE_IDENTITY();";
+
+            var newDriverId = await DBHelper.ExecuteScalarAsync(insertDriverSQL, driverParam, connection, transaction);
+
+            return Convert.ToInt32(newDriverId);
         }
 
         #endregion
@@ -100,6 +133,51 @@ namespace DVLD_DataAccess.Repositories
             var result = await DBHelper.ExecuteScalarAsync(sqlQuery, parameters);
             int count = Convert.ToInt32(result);
             return count > 0;
+        }
+
+        public async Task<int> IssueLicenseFirstTime(License license, Driver driver)
+        {
+            using (var connection = DBHelper.CreateOpenConnection())
+            using (var transaction = DBHelper.BeginTransaction(connection))
+            {
+                try
+                {
+                    // Insert Driver
+                    int newDriverId = await InsertDriverAsync(driver, connection, transaction);
+
+                    // Insert License
+                    var licenseParams = new Dictionary<string, object>
+                    {
+                        { "@ApplicationID", license.ApplicationId },
+                        { "@DriverID", newDriverId },
+                        { "@LicenseClass", license.ClassId },
+                        { "@IssueDate", license.IssueDate },
+                        { "@ExpirationDate", license.ExpirationDate },
+                        { "@Notes", (object)license.Notes ?? DBNull.Value },
+                        { "@PaidFees", license.PaidFees },
+                        { "@IsActive", license.IsActive },
+                        { "@IssueReason", (int)license.enIssueReason },
+                        { "@CreatedByUserID", license.IssuedByUserId }
+                    };
+
+                    string insertLicenseSql = @"
+                        INSERT INTO Licenses
+                            (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID)
+                        VALUES
+                            (@ApplicationID, @DriverID, @LicenseClass, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @IssueReason, @CreatedByUserID);
+                        SELECT SCOPE_IDENTITY();";
+
+                    var newLicenseIdObj = await DBHelper.ExecuteScalarAsync(insertLicenseSql, licenseParams, connection, transaction);
+
+                    transaction.Commit();
+                    return Convert.ToInt32(newLicenseIdObj);
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
     }
 }

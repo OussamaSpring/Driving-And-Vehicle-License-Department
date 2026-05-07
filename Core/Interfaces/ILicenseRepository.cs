@@ -13,5 +13,7 @@ namespace Core.Interfaces
         Task<bool> HasLicenseTypeAsync(int personId, short licenseClassId);
 
         Task<bool> DoesLicenseExistAsync(int id);
+
+        Task<int> IssueLicenseFirstTime(License license, Driver driver);
     }
 }

@@ -168,27 +168,16 @@ namespace DVLD.Forms
             }
         }
 
-
-        private void tsmi_edit_app_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Edit Application functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void tsmi_issue_license_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Issue License functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void tsmi_show_license_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Show License functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void tsmi_test_management_Click(object sender, EventArgs e)
         {
             int LDL_ApplicationId = (int)dgv_tests_list.SelectedRows[0].Cells[0].Value;
             Local_Driving_License_Test_Management testManagement_frm = new Local_Driving_License_Test_Management(LDL_ApplicationId);
             testManagement_frm.ShowDialog(this);
+        }
+
+        private void tsmi_issue_license_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Issue License functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         #endregion
@@ -229,6 +218,7 @@ namespace DVLD.Forms
             htc_tab_nav.SelectedIndex = 1;
             await LoadTestTypesListAsync();
         }
+
 
 
 

@@ -47,14 +47,9 @@
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cms_tests_management = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmi_show_app_details = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_edit_app = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_delete_app = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_cancel_app = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_test_management = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_issue_license = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_show_license = new System.Windows.Forms.ToolStripMenuItem();
             this.uc_tests_list_topbar = new DVLD.UserControls.SearchBar();
             this.flp_footer = new System.Windows.Forms.FlowLayoutPanel();
             this.lb_footer_text = new System.Windows.Forms.Label();
@@ -226,16 +221,11 @@
             this.cms_tests_management.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cms_tests_management.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_show_app_details,
-            this.tsmi_edit_app,
-            this.tsmi_delete_app,
-            this.tsmi_cancel_app,
             this.toolStripSeparator1,
             this.tsmi_test_management,
-            this.toolStripSeparator2,
-            this.tsmi_issue_license,
-            this.tsmi_show_license});
+            this.tsmi_issue_license});
             this.cms_tests_management.Name = "cms_tests_management";
-            this.cms_tests_management.Size = new System.Drawing.Size(293, 268);
+            this.cms_tests_management.Size = new System.Drawing.Size(293, 140);
             this.cms_tests_management.Opening += new System.ComponentModel.CancelEventHandler(this.cms_tests_management_Opening);
             // 
             // tsmi_show_app_details
@@ -248,33 +238,6 @@
             this.tsmi_show_app_details.Text = "Show Application Details";
             this.tsmi_show_app_details.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsmi_show_app_details.Click += new System.EventHandler(this.tsmi_show_app_details_Click);
-            // 
-            // tsmi_edit_app
-            // 
-            this.tsmi_edit_app.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tsmi_edit_app.Image = global::DVLD.Properties.Resources.Edit_Colored;
-            this.tsmi_edit_app.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.tsmi_edit_app.Name = "tsmi_edit_app";
-            this.tsmi_edit_app.Size = new System.Drawing.Size(292, 24);
-            this.tsmi_edit_app.Text = "Edit Application";
-            this.tsmi_edit_app.Click += new System.EventHandler(this.tsmi_edit_app_Click);
-            // 
-            // tsmi_delete_app
-            // 
-            this.tsmi_delete_app.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tsmi_delete_app.Image = global::DVLD.Properties.Resources.Delete;
-            this.tsmi_delete_app.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.tsmi_delete_app.Name = "tsmi_delete_app";
-            this.tsmi_delete_app.Size = new System.Drawing.Size(292, 24);
-            this.tsmi_delete_app.Text = "Delete Application";
-            // 
-            // tsmi_cancel_app
-            // 
-            this.tsmi_cancel_app.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tsmi_cancel_app.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.tsmi_cancel_app.Name = "tsmi_cancel_app";
-            this.tsmi_cancel_app.Size = new System.Drawing.Size(292, 24);
-            this.tsmi_cancel_app.Text = "Cancel Application";
             // 
             // toolStripSeparator1
             // 
@@ -291,11 +254,6 @@
             this.tsmi_test_management.Text = "Test Management";
             this.tsmi_test_management.Click += new System.EventHandler(this.tsmi_test_management_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(289, 6);
-            // 
             // tsmi_issue_license
             // 
             this.tsmi_issue_license.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -305,16 +263,6 @@
             this.tsmi_issue_license.Size = new System.Drawing.Size(292, 24);
             this.tsmi_issue_license.Text = "Issue Driving License (First Time)";
             this.tsmi_issue_license.Click += new System.EventHandler(this.tsmi_issue_license_Click);
-            // 
-            // tsmi_show_license
-            // 
-            this.tsmi_show_license.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tsmi_show_license.Image = global::DVLD.Properties.Resources.driving_license1;
-            this.tsmi_show_license.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.tsmi_show_license.Name = "tsmi_show_license";
-            this.tsmi_show_license.Size = new System.Drawing.Size(292, 24);
-            this.tsmi_show_license.Text = "Show License";
-            this.tsmi_show_license.Click += new System.EventHandler(this.tsmi_show_license_Click);
             // 
             // uc_tests_list_topbar
             // 
@@ -534,13 +482,8 @@
         private System.Windows.Forms.Label lb_total_test_types_number;
         private System.Windows.Forms.ContextMenuStrip cms_tests_management;
         private System.Windows.Forms.ToolStripMenuItem tsmi_show_app_details;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_edit_app;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_delete_app;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_cancel_app;
         private System.Windows.Forms.ToolStripMenuItem tsmi_test_management;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem tsmi_issue_license;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_show_license;
     }
 }

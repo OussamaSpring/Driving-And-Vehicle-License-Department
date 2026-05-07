@@ -158,6 +158,12 @@
     <Compile Include="Pop-Ups\Detain_License.Designer.cs">
       <DependentUpon>Detain_License.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pop-Ups\Issue_Driver_License_First_Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pop-Ups\Issue_Driver_License_First_Time.Designer.cs">
+      <DependentUpon>Issue_Driver_License_First_Time.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pop-Ups\Take_Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pop-Ups\Add_Edit_Person.resx">
       <DependentUpon>Add_Edit_Person.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pop-Ups\Issue_Driver_License_First_Time.resx">
+      <DependentUpon>Issue_Driver_License_First_Time.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pop-Ups\Take_Test.resx">
       <DependentUpon>Take_Test.cs</DependentUpon>

@@ -1,5 +1,7 @@
 ﻿using Core.Interfaces;
 using Core.Models;
+using Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -55,6 +57,33 @@ namespace DVLD_BusinessLogic
             };
         }
 
+        private Driver PrepareDriver(int personId, string nationalNumber, string fullName, int createdByUserId)
+        {
+            return new Driver
+            {
+                DriverPersonId = personId,
+                NationalNumber = nationalNumber,
+                FullName = fullName,
+                CreateDate = DateTime.Now,
+                ActiveLicensesCount = 1,
+                CreatedByUserId = createdByUserId
+            };
+        }
+        private License PrepareLicense(int applicationId, LicenseClass lc, string notes, int issuedByUserId)
+        {
+            return new License
+            {
+                ApplicationId = applicationId,
+                ClassId = lc.Id,
+                IssueDate = DateTime.Now,
+                ExpirationDate = DateTime.Now.AddYears(lc.DefaultValidityLength),
+                Notes = notes,
+                PaidFees = (float)lc.ClassFees,
+                IsActive = true,
+                enIssueReason = LicenseIsssueReasons.FirstTime,
+                IssuedByUserId = issuedByUserId
+            };
+        }
 
         #endregion
 
@@ -80,5 +109,23 @@ namespace DVLD_BusinessLogic
             return _licenseRepository.DoesLicenseExistAsync(id);
         }
 
+        public Task<int> IssueLicenseFirstTime(LocalDrivingLicenseApplication localDrivingLicenseApplication, int personId, int userId, string notes = null)
+        {
+            var driver = PrepareDriver(
+                personId,
+                localDrivingLicenseApplication.NationalNumber,
+                localDrivingLicenseApplication.FullName,
+                userId
+            );
+
+            var license = PrepareLicense(
+                localDrivingLicenseApplication.ApplicationId,
+                localDrivingLicenseApplication.LicenseClass,
+                notes,
+                userId
+            );
+
+            return _licenseRepository.IssueLicenseFirstTime(license, driver);
+        }
     }
 }
