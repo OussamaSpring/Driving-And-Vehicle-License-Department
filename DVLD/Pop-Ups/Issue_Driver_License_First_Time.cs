@@ -47,6 +47,14 @@ namespace DVLD.Pop_Ups
                 return;
             }
 
+            // Prevent issuing if passed tests are below 3
+            if (_ldl_Application.PassedTest < 3)
+            {
+                MessageBox.Show("Issuing a license is not allowed unless the applicant has passed at least 3 tests.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btn_issue.Enabled = true;
+                return;
+            }
+
             try
             {
 
@@ -74,8 +82,10 @@ namespace DVLD.Pop_Ups
                 "Are you sure you want to cancel issuing the license?",
                 "Cancel Confirmation",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.OK)
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 this.Close();
+            }
         }
 
 

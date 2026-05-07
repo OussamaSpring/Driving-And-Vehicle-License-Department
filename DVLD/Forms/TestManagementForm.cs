@@ -1,4 +1,5 @@
-﻿using Core.Models;
+﻿using Core.Enums;
+using Core.Models;
 using DVLD.Pop_Ups;
 using DVLD.UserControls;
 using DVLD_BusinessLogic;
@@ -127,28 +128,23 @@ namespace DVLD.Forms
             if(dgv_tests_list.SelectedRows.Count == 0)
             {
                 tsmi_show_app_details.Enabled = false;
-                tsmi_edit_app.Enabled = false;
-                tsmi_issue_license.Enabled = false;
-                tsmi_show_license.Enabled = false;
                 tsmi_test_management.Enabled = false;
                 tsmi_issue_license.Enabled = false;
-                tsmi_show_license.Enabled = false;
             }
             else
             {
                 tsmi_show_app_details.Enabled = true;
-                tsmi_edit_app.Enabled = true;
                 tsmi_issue_license.Enabled = true;
-                tsmi_show_license.Enabled = true;
 
                 int LDL_ApplicationId = (int)dgv_tests_list.SelectedRows[0].Cells[0].Value;
 
                 var application = _testsList.Find(a => a.LDL_ApplicationId == LDL_ApplicationId);
                 int passendTest = application.PassedTest;
 
-                //tsmi_issue_license.Enabled = (passendTest ==3) && ;
-
-
+                if (application.PassedTest < 3 || application.Status == ApplicationStatus.Completed)
+                {
+                    tsmi_issue_license.Enabled = false;
+                }
             }
 
 
@@ -177,7 +173,9 @@ namespace DVLD.Forms
 
         private void tsmi_issue_license_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Issue License functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int LDL_ApplicationId = (int)dgv_tests_list.SelectedRows[0].Cells[0].Value;
+            Issue_Driver_License_First_Time issue_License_Form = new Issue_Driver_License_First_Time(LDL_ApplicationId);
+            issue_License_Form.ShowDialog(this);
         }
 
         #endregion

@@ -52,14 +52,12 @@ namespace DVLD_DataAccess.Repositories
                 { "@PersonID", driver.DriverPersonId },
                 { "@CreatedByUserID", driver.CreatedByUserId },
                 { "@CreatedDate", driver.CreateDate },
-                { "@NationalNo", driver.NationalNumber },
-                { "@FullName", driver.FullName }
             };
 
             string insertDriverSQL = @"
-                INSERT INTO Drivers (PersonID, CreatedByUserID, CreatedDate, NationalNo, FullName)
+                INSERT INTO Drivers (PersonID, CreatedByUserID, CreatedDate)
                 OUTPUT INSERTED.*
-                VALUES (@PersonID, @CreatedByUserID, @CreatedDate, @NationalNo, @FullName); SELECT SCOPE_IDENTITY();";
+                VALUES (@PersonID, @CreatedByUserID, @CreatedDate); SELECT SCOPE_IDENTITY();";
 
             var newDriverId = await DBHelper.ExecuteScalarAsync(insertDriverSQL, driverParam, connection, transaction);
 
@@ -168,6 +166,14 @@ namespace DVLD_DataAccess.Repositories
                         SELECT SCOPE_IDENTITY();";
 
                     var newLicenseIdObj = await DBHelper.ExecuteScalarAsync(insertLicenseSql, licenseParams, connection, transaction);
+
+                    var updateAppStatusParams = new Dictionary<string, object>
+                    {
+                        { "@ApplicationID", license.ApplicationId },
+                        { "@ApplicationStatus", 3 }
+                    };
+                    string updateAppStatusSql = "UPDATE Applications SET ApplicationStatus = @ApplicationStatus WHERE ApplicationID = @ApplicationID;";
+                    await DBHelper.ExecuteNonQueryAsync(updateAppStatusSql, updateAppStatusParams, connection, transaction);
 
                     transaction.Commit();
                     return Convert.ToInt32(newLicenseIdObj);
