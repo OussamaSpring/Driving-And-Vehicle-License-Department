@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ApplicationsController.cs" />
     <Compile Include="ApplicationTypeController.cs" />
+    <Compile Include="DashboardController.cs" />
     <Compile Include="DriverController.cs" />
     <Compile Include="InternationalLicenseController.cs" />
     <Compile Include="LicenseClassController.cs" />

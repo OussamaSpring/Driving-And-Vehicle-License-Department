@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\ApplicationTypeDto.cs" />
+    <Compile Include="DTOs\DashboardStatisticsDto.cs" />
+    <Compile Include="DTOs\DetainedRevenueDto.cs" />
+    <Compile Include="DTOs\LicenseDistributionDto.cs" />
+    <Compile Include="DTOs\RecentTestResultDto.cs" />
     <Compile Include="Enums\ApplicationTypes.cs" />
     <Compile Include="Enums\LicenseClasses.cs" />
     <Compile Include="Enums\LicenseIssueReason.cs" />
@@ -49,6 +54,7 @@
     <Compile Include="Enums\TestTypes.cs" />
     <Compile Include="Interfaces\IApplicationTypeRepository.cs" />
     <Compile Include="Interfaces\IApplicationsRepository.cs" />
+    <Compile Include="Interfaces\IDashboardRepository.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
     <Compile Include="Interfaces\IInternationalLicenseRepository.cs" />
     <Compile Include="Interfaces\ILicenseClassRepository.cs" />
