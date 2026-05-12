@@ -399,7 +399,6 @@
     <None Include="Resources\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Forms\MANAGE_TESTS_BUTTON_IMPLEMENTATION.txt" />
     <Content Include="Resources\Icons\AddPerson.png" />
     <Content Include="Resources\Icons\Address.png" />
     <Content Include="Resources\Icons\arrow.png" />
