@@ -24,6 +24,7 @@ namespace DVLD_BusinessLogic
             return _dashboardRepository.GetApplicationsByServiceTypeAsync();
         }
 
+        // This method retrieves the detained revenue data for the dashboard, which includes the month name, count of detained licenses, and the associated revenue (last 6 months).
         public Task<IEnumerable<DetainedRevenueDto>> GetDetainedRevenueAsync()
         {
             return _dashboardRepository.GetDetainedRevenueByMonthAsync();
@@ -34,6 +35,7 @@ namespace DVLD_BusinessLogic
             return _dashboardRepository.GetLicenseDistributionAsync();
         }
 
+        // This method retrieves the recent test results for the dashboard, which includes the application name, test result, and test date (last 10 results).
         public Task<IEnumerable<RecentTestResultDto>> GetRecentTestResultsAsync()
         {
             return _dashboardRepository.GetRecentTestResultsAsync();

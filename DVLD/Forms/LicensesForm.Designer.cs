@@ -246,7 +246,7 @@ namespace DVLD.Forms
             this.cms_LicenseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_ViewLicenseCard});
             this.cms_LicenseMenu.Name = "cms_UserManagement";
-            this.cms_LicenseMenu.Size = new System.Drawing.Size(200, 55);
+            this.cms_LicenseMenu.Size = new System.Drawing.Size(200, 33);
             this.cms_LicenseMenu.Text = "Licesnse Menu";
             // 
             // tsmi_ViewLicenseCard
