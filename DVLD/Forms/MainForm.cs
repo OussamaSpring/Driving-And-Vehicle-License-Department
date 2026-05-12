@@ -73,6 +73,11 @@ namespace DVLD
             }
         }
 
+        public void NavigateTo(NavigationBar.NavBarIems navItem)
+        {
+            NavBar_NavigationChanged(this, navItem);
+        }
+
         private void CloseAllMdiChildren()
         {
             foreach (Form child in this.MdiChildren)

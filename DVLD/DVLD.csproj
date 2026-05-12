@@ -98,12 +98,6 @@
     <Compile Include="Forms\ApplicationsForm.Designer.cs">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Draft.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Draft.Designer.cs">
-      <DependentUpon>Draft.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,9 +270,6 @@
     <EmbeddedResource Include="Forms\ApplicationsForm.resx">
       <DependentUpon>ApplicationsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Draft.resx">
-      <DependentUpon>Draft.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +399,7 @@
     <None Include="Resources\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Forms\MANAGE_TESTS_BUTTON_IMPLEMENTATION.txt" />
     <Content Include="Resources\Icons\AddPerson.png" />
     <Content Include="Resources\Icons\Address.png" />
     <Content Include="Resources\Icons\arrow.png" />

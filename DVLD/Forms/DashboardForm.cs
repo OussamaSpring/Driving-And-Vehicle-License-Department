@@ -111,7 +111,17 @@ namespace DVLD.Forms
                 MessageBox.Show($"Error loading recent test results: {ex.Message}");
             }
         }
+        private void btn_manage_tests_Click(object sender, EventArgs e)
+        {
+            // Get the main form (parent MDI container)
+            MainForm mainForm = this.MdiParent as MainForm;
 
+            if (mainForm != null)
+            {
+                // Navigate to Test Management using the new public method
+                mainForm.NavigateTo(NavigationBar.NavBarIems.enTestManagement);
+            }
+        }
         #region Chart Configuration
 
         private void ConfigureApplicationsChart(IEnumerable<Core.DTOs.ApplicationTypeDto> applications)
@@ -363,5 +373,7 @@ namespace DVLD.Forms
         }
 
         #endregion
+
+
     }
 }
