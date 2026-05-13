@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentUserProvider.cs" />
+    <Compile Include="CustomControls\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\FlatButton.Designer.cs">
+      <DependentUpon>FlatButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\HeaderlessTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -383,10 +389,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Documents\C#\C# Projects\WindowsFormsControlLibrary\WindowsFormsControlLibrary.csproj">
-      <Project>{e1662245-7bd5-4fb4-be82-9fd8e271eceb}</Project>
-      <Name>WindowsFormsControlLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Core\DVLD_Core.csproj">
       <Project>{190932a7-ca70-4f93-adfc-286254a71654}</Project>
       <Name>DVLD_Core</Name>
