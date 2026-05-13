@@ -132,9 +132,9 @@ namespace DVLD_DataAccess.Repositories
             string sqlQuery = @"
                 SELECT lc.ClassName AS LicenseClassName, COUNT(l.LicenseID) AS TotalLicenses
                 FROM Licenses l
-                JOIN LicenseClasses lc on l.LicenseClass = lc.LicenseClassID
+                RIGHT JOIN LicenseClasses lc on l.LicenseClass = lc.LicenseClassID
                 GROUP BY lc.ClassName
-                ORDER BY TotalLicenses DESC;";
+                ORDER BY LicenseClassName;";
 
             var dataTable = await DBHelper.ExecuteReaderAsync(sqlQuery);
             var list = new List<LicenseDistributionDto>();

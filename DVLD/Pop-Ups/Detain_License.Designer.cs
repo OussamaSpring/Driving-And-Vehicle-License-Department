@@ -225,6 +225,7 @@
             // btn_search_detain
             // 
             this.btn_search_detain.BackColor = System.Drawing.Color.White;
+            this.btn_search_detain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_detain.Image = global::DVLD.Properties.Resources.search;
             this.btn_search_detain.Location = new System.Drawing.Point(485, 101);
             this.btn_search_detain.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);

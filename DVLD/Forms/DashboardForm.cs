@@ -1,6 +1,8 @@
 ﻿using DVLD.UserControls;
+using DVLD.CustomControls;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
+using Core.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,6 +16,17 @@ namespace DVLD.Forms
     public partial class DashboardForm : Form
     {
         private readonly DashboardController _dashboardController;
+
+        private static readonly Color[] LicenseClassColors =
+        {
+            Color.FromArgb(26, 62, 114),   // Class 1 - deep blue
+            Color.FromArgb(212, 175, 55),  // Class 2 - gold
+            Color.FromArgb(46, 134, 171),  // Class 3 - teal blue
+            Color.FromArgb(100, 180, 100), // Class 4 - green
+            Color.FromArgb(255, 140, 0),   // Class 5 - orange
+            Color.FromArgb(123, 104, 238), // Class 6 - purple
+            Color.FromArgb(220, 20, 60)    // Class 7 - crimson
+        };
 
         public DashboardForm()
         {
@@ -90,8 +103,7 @@ namespace DVLD.Forms
             try
             {
                 var licenseDistribution = await _dashboardController.GetLicenseDistributionAsync();
-                // Keep empty for now - user will implement later
-                // You can store this data or process it as needed
+                ConfigureLicenseDistribution(licenseDistribution);
             }
             catch (Exception ex)
             {
@@ -111,6 +123,7 @@ namespace DVLD.Forms
                 MessageBox.Show($"Error loading recent test results: {ex.Message}");
             }
         }
+
         private void btn_manage_tests_Click(object sender, EventArgs e)
         {
             // Get the main form (parent MDI container)
@@ -122,9 +135,10 @@ namespace DVLD.Forms
                 mainForm.NavigateTo(NavigationBar.NavBarIems.enTestManagement);
             }
         }
+
         #region Chart Configuration
 
-        private void ConfigureApplicationsChart(IEnumerable<Core.DTOs.ApplicationTypeDto> applications)
+        private void ConfigureApplicationsChart(IEnumerable<ApplicationTypeDto> applications)
         {
             chart_applications_by_type.Series.Clear();
             chart_applications_by_type.ChartAreas.Clear();
@@ -307,6 +321,105 @@ namespace DVLD.Forms
 
         #endregion
 
+        #region License Distribution Configuration
+
+        private void ConfigureLicenseDistribution(IEnumerable<LicenseDistributionDto> licenseDistribution)
+        {
+            var itemsByClass = (licenseDistribution ?? Enumerable.Empty<LicenseDistributionDto>())
+                .Select(ParseLicenseDistributionItem)
+                .Where(item => item.ClassNumber >= 1 && item.ClassNumber <= 7)
+                .GroupBy(item => item.ClassNumber)
+                .ToDictionary(group => group.Key, group => group.First());
+
+            int totalLicenses = itemsByClass.Values.Sum(item => item.TotalLicenses);
+
+            ConfigureLicenseClassSlot(pb_class1, lb_class1, lb_value1, GetLicenseClassSlotData(itemsByClass, 1), totalLicenses);
+            ConfigureLicenseClassSlot(pb_class2, lb_class2, lb_value2, GetLicenseClassSlotData(itemsByClass, 2), totalLicenses);
+            ConfigureLicenseClassSlot(pb_class3, lb_class3, lb_value3, GetLicenseClassSlotData(itemsByClass, 3), totalLicenses);
+            ConfigureLicenseClassSlot(pb_class4, lb_class4, lb_value4, GetLicenseClassSlotData(itemsByClass, 4), totalLicenses);
+            ConfigureLicenseClassSlot(pb_class5, lb_class5, lb_value5, GetLicenseClassSlotData(itemsByClass, 5), totalLicenses);
+            ConfigureLicenseClassSlot(pb_class6, lb_class6, lb_value6, GetLicenseClassSlotData(itemsByClass, 6), totalLicenses);
+            ConfigureLicenseClassSlot(pb_class7, lb_class7, lb_value7, GetLicenseClassSlotData(itemsByClass, 7), totalLicenses);
+        }
+
+        private void ConfigureLicenseClassSlot(SmoothProgressBar progressBar, Label classLabel, Label valueLabel, LicenseDistributionItem item, int totalLicenses)
+        {
+            progressBar.Maximum = 100;
+            progressBar.Minimum = 0;
+            progressBar.BarColor = GetLicenseClassColor(item.ClassNumber);
+            progressBar.Value = totalLicenses > 0
+                ? (item.TotalLicenses * 100.0) / totalLicenses
+                : 0;
+
+            classLabel.Text = string.IsNullOrWhiteSpace(item.DisplayName)
+                ? $"Class {item.ClassNumber}"
+                : item.DisplayName;
+
+            valueLabel.Text = item.TotalLicenses.ToString("N0");
+        }
+
+        private static LicenseDistributionItem ParseLicenseDistributionItem(LicenseDistributionDto dto)
+        {
+            if (dto == null)
+            {
+                return new LicenseDistributionItem();
+            }
+
+            int classNumber = 0;
+            string displayName = dto.LicenseClassName ?? string.Empty;
+
+            const string prefix = "Class ";
+            const string separator = " - ";
+
+            if (!string.IsNullOrWhiteSpace(displayName) && displayName.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            {
+                int separatorIndex = displayName.IndexOf(separator, StringComparison.Ordinal);
+                if (separatorIndex > prefix.Length)
+                {
+                    string classNumberText = displayName.Substring(prefix.Length, separatorIndex - prefix.Length).Trim();
+                    int.TryParse(classNumberText, out classNumber);
+                    displayName = displayName.Substring(separatorIndex + separator.Length).Trim();
+                }
+            }
+
+            return new LicenseDistributionItem
+            {
+                ClassNumber = classNumber,
+                DisplayName = displayName,
+                TotalLicenses = dto.TotalLicenses
+            };
+        }
+
+        private static LicenseDistributionItem GetLicenseClassSlotData(Dictionary<int, LicenseDistributionItem> itemsByClass, int classNumber)
+        {
+            if (itemsByClass != null && itemsByClass.TryGetValue(classNumber, out var item))
+            {
+                return item;
+            }
+
+            return new LicenseDistributionItem
+            {
+                ClassNumber = classNumber,
+                DisplayName = string.Empty,
+                TotalLicenses = 0
+            };
+        }
+
+        private static Color GetLicenseClassColor(int classNumber)
+        {
+            int index = Math.Max(1, Math.Min(7, classNumber)) - 1;
+            return LicenseClassColors[index];
+        }
+
+        private sealed class LicenseDistributionItem
+        {
+            public int ClassNumber { get; set; }
+            public string DisplayName { get; set; } = string.Empty;
+            public int TotalLicenses { get; set; }
+        }
+
+        #endregion
+
         #region Responsiveness Configuration
 
         private void ConfigureResponsiveness()
@@ -318,10 +431,10 @@ namespace DVLD.Forms
             tlp_charts.Height = 360;
 
             // Configure minimum and maximum sizes for bottom section (recent tests + license distribution)
-            tableLayoutPanel1.MinimumSize = new Size(0, 330);
-            tableLayoutPanel1.MaximumSize = new Size(0, 480);
-            tableLayoutPanel1.AutoSize = false;
-            tableLayoutPanel1.Height = 410;
+            tlp_chart2.MinimumSize = new Size(0, 330);
+            tlp_chart2.MaximumSize = new Size(0, 480);
+            tlp_chart2.AutoSize = false;
+            tlp_chart2.Height = 410;
 
             // Ensure panels adjust properly
             pl_applications_by_type.AutoSize = false;
@@ -351,24 +464,24 @@ namespace DVLD.Forms
                 // Small screens
                 tlp_charts.MinimumSize = new Size(0, 330);
                 tlp_charts.Height = 360;
-                tableLayoutPanel1.MinimumSize = new Size(0, 330);
-                tableLayoutPanel1.Height = 410;
+                tlp_chart2.MinimumSize = new Size(0, 330);
+                tlp_chart2.Height = 410;
             }
             else if (this.Width >= 1024 && this.Width < 1280)
             {
                 // Medium screens
                 tlp_charts.MinimumSize = new Size(0, 360);
                 tlp_charts.Height = 400;
-                tableLayoutPanel1.MinimumSize = new Size(0, 360);
-                tableLayoutPanel1.Height = 450;
+                tlp_chart2.MinimumSize = new Size(0, 360);
+                tlp_chart2.Height = 450;
             }
             else
             {
                 // Large screens
                 tlp_charts.MinimumSize = new Size(0, 380);
                 tlp_charts.Height = 420;
-                tableLayoutPanel1.MinimumSize = new Size(0, 380);
-                tableLayoutPanel1.Height = 470;
+                tlp_chart2.MinimumSize = new Size(0, 380);
+                tlp_chart2.Height = 470;
             }
         }
 

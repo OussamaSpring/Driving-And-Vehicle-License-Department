@@ -78,7 +78,7 @@ namespace DVLD.Pop_Ups
 
             this.Dispose();
         }
-        private void btn_detain_Click(object sender, EventArgs e)
+        private async void btn_detain_Click(object sender, EventArgs e)
         {
             btn_detain.Enabled = false;
 
@@ -104,7 +104,7 @@ namespace DVLD.Pop_Ups
                     CreatedByUserID = Session.CurrentUserProvider.CurrentUser.UserId,
                     IsReleased = false
                 };
-                var result = _licenseDetainController.DetainLicenseAsync(_detainedLicense).GetAwaiter().GetResult();
+                var result = await _licenseDetainController.DetainLicenseAsync(_detainedLicense);
                 if (result)
                 {
                     MessageBox.Show("License detained successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
