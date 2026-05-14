@@ -53,20 +53,32 @@ The system provides structured workflows for issuing local and international lic
 Here are some screenshots showcasing the main features and workflows of the DVLD application:
 
 ### Dashboard Overview
-![Dashboard Overview](docs/screenshots/Dashboard Overview/Dashboard.png)
+<p align="center">
+  <img src="docs/screenshots/Dashboard%20Overview/Dashbaord.png" alt="Dashboard Overview" width="900" />
+</p>
 
 ### Individuals Management
-![Individuals Management](docs/screenshots/Individuals Management/individuals_management.png)
-![Add New Person](docs/screenshots/Individuals Management/add_new_person.png)
+<p align="center">
+  <img src="docs/screenshots/Individuals%20Management/individuals_management.png" alt="Individuals Management" width="900" />
+</p>
+<p align="center">
+  <img src="docs/screenshots/Individuals%20Management/add_new_person.png" alt="Add New Person" width="900" />
+</p>
 
 ### Applications Workflow
-![Applications Workflow](docs/screenshots/Applications Workflow/applications.png)
+<p align="center">
+  <img src="docs/screenshots/Applications%20Workflow/applications.png" alt="Applications Workflow" width="900" />
+</p>
 
 ### License Operations
-![License Operations](docs/screenshots/License Operations/detain_license.png)
+<p align="center">
+  <img src="docs/screenshots/License%20Operations/detain_license.png" alt="License Operations" width="900" />
+</p>
 
 ### Test Management
-![Test Management](docs/screenshots/Test Management/test_management.png)
+<p align="center">
+  <img src="docs/screenshots/Test%20Management/test_management.png" alt="Test Management" width="900" />
+</p>
 
 # 5. Architecture
 DVLD follows a clean layered architecture inspired by MVC. Each layer has a focused responsibility, enabling maintainability, testability, and clear boundaries between UI, business rules, and data access.
