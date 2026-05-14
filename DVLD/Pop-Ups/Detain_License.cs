@@ -3,10 +3,11 @@ using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
 using System;
 using System.Windows.Forms;
+using DVLD.CustomForms;
 
 namespace DVLD.Pop_Ups
 {
-    public partial class Detain_License : DVLD.Views.Components.RoundedBaseForm
+    public partial class Detain_License : RoundedBaseForm
     {
         public Action<int> ClosingEvent;
 

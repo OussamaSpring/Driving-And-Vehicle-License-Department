@@ -1,6 +1,6 @@
 ﻿using Core.Models;
 using Core.Enums;
-using DVLD.Views.Components;
+using DVLD.CustomForms;
 using System.Windows.Forms;
 using System.Globalization;
 using System;

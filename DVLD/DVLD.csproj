@@ -98,6 +98,12 @@
     <Compile Include="CustomControls\SmoothProgressBar.Designer.cs">
       <DependentUpon>SmoothProgressBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomForms\RoundedBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForms\RoundedBaseForm.Designer.cs">
+      <DependentUpon>RoundedBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\LoginDialog.cs">
       <SubType>Form</SubType>
     </Compile>

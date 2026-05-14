@@ -1,6 +1,6 @@
 ﻿using Core.Enums;
 using Core.Models;
-using DVLD.Views.Components;
+using DVLD.CustomForms;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
 using System;

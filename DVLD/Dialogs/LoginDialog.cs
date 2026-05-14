@@ -1,17 +1,14 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Threading.Tasks;
-
-using Core.Models;
+﻿using Core.Models;
 using DVLD_BusinessLogic;
 using DVLD_DataAccess.Repositories;
-using Microsoft.Win32;
-
-using DVLD;
+using System;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DVLD.CustomForms;
 
 namespace DVLD.Dialogs
 {
-    public partial class LoginDialog : DVLD.Views.Components.RoundedBaseForm
+    public partial class LoginDialog : RoundedBaseForm
     {
 
         private readonly UserController _userController;

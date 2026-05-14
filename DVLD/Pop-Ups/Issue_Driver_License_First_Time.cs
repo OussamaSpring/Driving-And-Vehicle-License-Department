@@ -1,18 +1,14 @@
-﻿using DVLD_BusinessLogic;
-using DVLD_DataAccess.Repositories;
-using Core.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using Core.Models;
+using DVLD.CustomForms;
 using DVLD.Session;
+using DVLD_BusinessLogic;
+using DVLD_DataAccess.Repositories;
+using System;
+using System.Windows.Forms;
 
 namespace DVLD.Pop_Ups
 {
-    public partial class Issue_Driver_License_First_Time : DVLD.Views.Components.RoundedBaseForm
+    public partial class Issue_Driver_License_First_Time : RoundedBaseForm
     {
         private LocalDrivingLicenseApplicationController _localDrivingLicenseApplicationController;
         private LicenseController _licenseController;

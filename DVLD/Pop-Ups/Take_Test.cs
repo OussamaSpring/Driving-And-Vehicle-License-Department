@@ -1,5 +1,5 @@
 ﻿using Core.Models;
-using DVLD.Views.Components;
+using DVLD.CustomForms;
 using System.Windows.Forms;
 using System;
 using DVLD_BusinessLogic;
