@@ -50,22 +50,23 @@ The system provides structured workflows for issuing local and international lic
 - Centralized input validation for key forms
 
 # 4. Screenshots
-> _Add screenshots to the following paths to populate this section._
+Here are some screenshots showcasing the main features and workflows of the DVLD application:
 
 ### Dashboard Overview
-![Dashboard Overview](docs/screenshots/dashboard.png)
+![Dashboard Overview](docs/screenshots/Dashboard Overview/Dashboard.png)
 
 ### Individuals Management
-![Individuals Management](docs/screenshots/individuals.png)
+![Individuals Management](docs/screenshots/Individuals Management/individuals_management.png)
+![Add New Person](docs/screenshots/Individuals Management/add_new_person.png)
 
 ### Applications Workflow
-![Applications Workflow](docs/screenshots/applications.png)
+![Applications Workflow](docs/screenshots/Applications Workflow/applications.png)
 
 ### License Operations
-![License Operations](docs/screenshots/licenses.png)
+![License Operations](docs/screenshots/License Operations/detain_license.png)
 
 ### Test Management
-![Test Management](docs/screenshots/tests.png)
+![Test Management](docs/screenshots/Test Management/test_management.png)
 
 # 5. Architecture
 DVLD follows a clean layered architecture inspired by MVC. Each layer has a focused responsibility, enabling maintainability, testability, and clear boundaries between UI, business rules, and data access.
@@ -111,7 +112,6 @@ database/
 docs/
   requirements/
   screenshots/
-  setup/
 ```
 
 # 6. Technologies Used
@@ -133,7 +133,7 @@ The application uses SQL Server with ADO.NET repositories for all data operation
 ## Restore Instructions (SQL Server)
 1. Open SQL Server Management Studio (SSMS).
 2. Right-click **Databases** → **Restore Database**.
-3. Select the `.bak` file from `database/backup/`.
+3. Select the `.bak` file from `database/`.
 4. Restore using default options.
 
 # 8. Installation & Setup
