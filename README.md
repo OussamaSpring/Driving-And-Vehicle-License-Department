@@ -9,6 +9,12 @@ The system provides structured workflows for issuing local and international lic
 
 **Key technologies:** C#, WinForms, ADO.NET, SQL Server, .NET Framework 4.8, GitHub
 
+| UI Scope | Count |
+|---|---:|
+| Screens | 21+ |
+| Pop-ups | 12 |
+| Custom Components (controls + user controls) | 15 |
+
 # 3. Features
 ## Authentication & User Management
 - Secure login flow with password hashing (SHA-256)
